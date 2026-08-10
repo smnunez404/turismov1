@@ -89,12 +89,9 @@ function Perfil() {
             {avance.completadas} de {avance.total} misiones
           </span>
         </div>
-        <div className="mt-1.5 h-2 rounded-full bg-muted">
-          <div
-            className="h-2 rounded-full bg-primary transition-all"
-            style={{ width: `${avance.porcentaje}%` }}
-          />
-        </div>
+        <div className="barra-duo mt-1.5">
+            <span className="barra-duo-fill" style={{ width: `${avance.porcentaje}%` }} />
+          </div>
         <ul className="mt-4 flex flex-col gap-2">
           {misiones.map((m) => {
             const p = usuario.progreso[m.id];

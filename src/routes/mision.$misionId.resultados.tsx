@@ -108,12 +108,9 @@ function Resultados() {
             {avance.completadas} de {avance.total} misiones
           </span>
         </div>
-        <div className="mt-1.5 h-2 rounded-full bg-muted">
-          <div
-            className="h-2 rounded-full bg-primary transition-all"
-            style={{ width: `${avance.porcentaje}%` }}
-          />
-        </div>
+        <div className="barra-duo mt-1.5">
+            <span className="barra-duo-fill" style={{ width: `${avance.porcentaje}%` }} />
+          </div>
         <p className="mt-3 text-sm text-muted-foreground">
           Llevás <strong className="text-foreground">{usuario.puntos} puntos</strong> como
           embajador.
