@@ -1,5 +1,7 @@
 import { obtenerAvatar } from "@/data/avatares";
 import { Icono } from "@/components/Icono";
+import { AvatarLienzo } from "@/components/AvatarLienzo";
+import type { AvatarPersonalizado } from "@/data/tipos";
 
 const tamanos = {
   sm: "h-10 w-10",
@@ -9,21 +11,25 @@ const tamanos = {
 
 export function AvatarInsignia({
   avatarId,
+  avatar,
   tamano = "md",
 }: {
-  avatarId: string | null;
+  avatarId?: string | null;
+  avatar?: AvatarPersonalizado | null;
   tamano?: keyof typeof tamanos;
 }) {
-  const avatar = obtenerAvatar(avatarId);
+  if (avatar) return <AvatarLienzo avatar={avatar} tamano={tamano} />;
+
+  const preset = obtenerAvatar(avatarId ?? null);
   return (
     <span
-      aria-label={avatar ? `Avatar ${avatar.nombre}` : "Sin avatar"}
+      aria-label={preset ? `Avatar ${preset.nombre}` : "Sin avatar"}
       role="img"
       className={`inline-flex items-center justify-center overflow-hidden rounded-full bg-card p-1 ring-1 ring-border shadow-sm ${tamanos[tamano]}`}
     >
-      {avatar ? (
+      {preset ? (
         <img
-          src={avatar.imagen}
+          src={preset.imagen}
           alt=""
           loading="lazy"
           width={512}
