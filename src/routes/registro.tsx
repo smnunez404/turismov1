@@ -37,7 +37,13 @@ function Registro() {
   };
 
   return (
-    <Pantalla className="justify-center gap-8">
+    <Pantalla className="gap-7 pt-4">
+      <Link
+        to="/"
+        className="self-start text-sm font-medium text-muted-foreground underline underline-offset-4"
+      >
+        ← Volver
+      </Link>
       <PasoOnboarding actual={1} total={4} />
 
       <header>
@@ -55,7 +61,8 @@ function Registro() {
             onChange={(e) => setNombre(e.target.value)}
             placeholder="Camila"
             autoComplete="given-name"
-            className="rounded-xl border border-input bg-card px-4 py-3 text-base text-foreground outline-none focus:ring-2 focus:ring-ring"
+            enterKeyHint="next"
+            className="min-h-12 rounded-xl border border-input bg-card px-4 py-3 text-base text-foreground outline-none focus:ring-2 focus:ring-ring"
           />
         </label>
 
@@ -65,18 +72,29 @@ function Registro() {
             value={correo}
             onChange={(e) => setCorreo(e.target.value)}
             placeholder="camila@correo.com"
+            type="email"
+            inputMode="email"
+            autoCapitalize="none"
             autoComplete="email"
-            className="rounded-xl border border-input bg-card px-4 py-3 text-base text-foreground outline-none focus:ring-2 focus:ring-ring"
+            enterKeyHint="go"
+            className="min-h-12 rounded-xl border border-input bg-card px-4 py-3 text-base text-foreground outline-none focus:ring-2 focus:ring-ring"
           />
         </label>
 
         <button
           type="submit"
-          className="mt-2 rounded-xl bg-primary px-4 py-3.5 text-base font-semibold text-primary-foreground transition-colors hover:bg-primary/90"
+          className="mt-2 min-h-12 rounded-xl bg-primary px-4 py-3.5 text-base font-semibold text-primary-foreground transition-colors hover:bg-primary/90"
         >
           Empezar mi camino
         </button>
       </form>
+      <div hidden>
+        <label>
+          <input
+            className="rounded-xl border border-input bg-card px-4 py-3 text-base text-foreground outline-none focus:ring-2 focus:ring-ring"
+          />
+        </label>
+      </div>
 
       <p className="text-center text-sm text-muted-foreground">
         ¿Ya tenés cuenta?{" "}
