@@ -357,7 +357,7 @@ function Ruleta() {
           {categorias.map((c, i) => (
             <span
               key={c.id}
-              className="absolute top-1/2 left-1/2 flex h-[46%] w-16 -translate-x-1/2 -translate-y-full items-start justify-center"
+              className="absolute top-1/2 left-1/2 flex h-[44%] w-14 items-start justify-center"
               style={{
                 transform: `translate(-50%, -100%) rotate(${i * GAJO + GAJO / 2}deg)`,
                 transformOrigin: "50% 100%",
