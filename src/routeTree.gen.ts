@@ -19,6 +19,7 @@ import { Route as TemporadasRouteImport } from './routes/temporadas'
 import { Route as TutorialRouteImport } from './routes/tutorial'
 import { Route as MisionMisionIdIndexRouteImport } from './routes/mision.$misionId.index'
 import { Route as MisionMisionIdJugarRouteImport } from './routes/mision.$misionId.jugar'
+import { Route as MisionMisionIdResultadosRouteImport } from './routes/mision.$misionId.resultados'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -70,6 +71,12 @@ const MisionMisionIdJugarRoute = MisionMisionIdJugarRouteImport.update({
   path: '/mision/$misionId/jugar',
   getParentRoute: () => rootRouteImport,
 } as any)
+const MisionMisionIdResultadosRoute =
+  MisionMisionIdResultadosRouteImport.update({
+    id: '/mision/$misionId/resultados',
+    path: '/mision/$misionId/resultados',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -81,6 +88,7 @@ export interface FileRoutesByFullPath {
   '/temporadas': typeof TemporadasRoute
   '/tutorial': typeof TutorialRoute
   '/mision/$misionId/jugar': typeof MisionMisionIdJugarRoute
+  '/mision/$misionId/resultados': typeof MisionMisionIdResultadosRoute
   '/mision/$misionId/': typeof MisionMisionIdIndexRoute
 }
 export interface FileRoutesByTo {
@@ -93,6 +101,7 @@ export interface FileRoutesByTo {
   '/temporadas': typeof TemporadasRoute
   '/tutorial': typeof TutorialRoute
   '/mision/$misionId/jugar': typeof MisionMisionIdJugarRoute
+  '/mision/$misionId/resultados': typeof MisionMisionIdResultadosRoute
   '/mision/$misionId': typeof MisionMisionIdIndexRoute
 }
 export interface FileRoutesById {
@@ -106,6 +115,7 @@ export interface FileRoutesById {
   '/temporadas': typeof TemporadasRoute
   '/tutorial': typeof TutorialRoute
   '/mision/$misionId/jugar': typeof MisionMisionIdJugarRoute
+  '/mision/$misionId/resultados': typeof MisionMisionIdResultadosRoute
   '/mision/$misionId/': typeof MisionMisionIdIndexRoute
 }
 export interface FileRouteTypes {
@@ -120,6 +130,7 @@ export interface FileRouteTypes {
     | '/temporadas'
     | '/tutorial'
     | '/mision/$misionId/jugar'
+    | '/mision/$misionId/resultados'
     | '/mision/$misionId/'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -132,6 +143,7 @@ export interface FileRouteTypes {
     | '/temporadas'
     | '/tutorial'
     | '/mision/$misionId/jugar'
+    | '/mision/$misionId/resultados'
     | '/mision/$misionId'
   id:
     | '__root__'
@@ -144,6 +156,7 @@ export interface FileRouteTypes {
     | '/temporadas'
     | '/tutorial'
     | '/mision/$misionId/jugar'
+    | '/mision/$misionId/resultados'
     | '/mision/$misionId/'
   fileRoutesById: FileRoutesById
 }
@@ -157,6 +170,7 @@ export interface RootRouteChildren {
   TemporadasRoute: typeof TemporadasRoute
   TutorialRoute: typeof TutorialRoute
   MisionMisionIdJugarRoute: typeof MisionMisionIdJugarRoute
+  MisionMisionIdResultadosRoute: typeof MisionMisionIdResultadosRoute
   MisionMisionIdIndexRoute: typeof MisionMisionIdIndexRoute
 }
 
@@ -232,6 +246,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof MisionMisionIdJugarRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/mision/$misionId/resultados': {
+      id: '/mision/$misionId/resultados'
+      path: '/mision/$misionId/resultados'
+      fullPath: '/mision/$misionId/resultados'
+      preLoaderRoute: typeof MisionMisionIdResultadosRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -245,18 +266,9 @@ const rootRouteChildren: RootRouteChildren = {
   TemporadasRoute: TemporadasRoute,
   TutorialRoute: TutorialRoute,
   MisionMisionIdJugarRoute: MisionMisionIdJugarRoute,
+  MisionMisionIdResultadosRoute: MisionMisionIdResultadosRoute,
   MisionMisionIdIndexRoute: MisionMisionIdIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { startInstance } from './start.ts'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-    config: Awaited<ReturnType<typeof startInstance.getOptions>>
-  }
-}
