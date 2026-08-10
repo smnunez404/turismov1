@@ -1,6 +1,6 @@
 # SPEC-14 — Perfil del usuario
 
-- **Pantalla:** P-14 · **Sprint:** S-3 · **Estado:** Pendiente
+- **Pantalla:** P-14 · **Sprint:** S-3 · **Estado:** Hecho (10 de agosto de 2026)
 
 **Propósito.** Espejo del progreso e identidad del usuario.
 
@@ -9,5 +9,5 @@ bloqueadas visibles en estado apagado) y progreso de la temporada.
 
 **Criterios de aceptación**
 
-- [ ] Las insignias no obtenidas se ven, pero apagadas.
-- [ ] Los datos reflejan el estado real de la sesión.
+- [x] Las insignias no obtenidas se ven, pero apagadas.
+- [x] Los datos reflejan el estado real de la sesión.

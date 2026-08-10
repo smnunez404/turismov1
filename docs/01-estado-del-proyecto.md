@@ -5,8 +5,8 @@
 
 ## Sprint actual
 
-**Sprint 2 — Núcleo de misiones** (cerrado en esta entrega).
-Sprints 0 y 1 cerrados.
+**Sprint 3 — Gamificación, reto y progreso** (cerrado en esta entrega).
+Sprints 0, 1 y 2 cerrados.
 
 ## Avance por sprint
 
@@ -15,7 +15,7 @@ Sprints 0 y 1 cerrados.
 | S-0 | Alineación y fundaciones | — | Hecho |
 | S-1 | Identidad y onboarding | SPEC-01 … SPEC-07 | Hecho |
 | S-2 | Núcleo de misiones | SPEC-08 … SPEC-11 | Hecho |
-| S-3 | Gamificación, reto y progreso | SPEC-12 … SPEC-15 | Pendiente |
+| S-3 | Gamificación, reto y progreso | SPEC-12 … SPEC-15 | Hecho |
 | S-4 | Cierre, certificado y consolidación | SPEC-16 … SPEC-18 | Pendiente |
 
 ## Avance por especificación
@@ -33,10 +33,10 @@ Sprints 0 y 1 cerrados.
 | [SPEC-09 Portada de misión](./02-specs/SPEC-09-portada-mision.md) | P-09 | S-2 | Hecho |
 | [SPEC-10 Motor de preguntas](./02-specs/SPEC-10-motor-preguntas.md) | P-10 | S-2 | Hecho |
 | [SPEC-11 Feedback de respuesta](./02-specs/SPEC-11-feedback.md) | P-11 | S-2 | Hecho |
-| [SPEC-12 Resultados de misión](./02-specs/SPEC-12-resultados.md) | P-12 | S-3 | Pendiente |
-| [SPEC-13 Reto presencial](./02-specs/SPEC-13-reto-presencial.md) | P-13 | S-3 | Pendiente |
-| [SPEC-14 Perfil del usuario](./02-specs/SPEC-14-perfil.md) | P-14 | S-3 | Pendiente |
-| [SPEC-15 Ranking](./02-specs/SPEC-15-ranking.md) | P-15 | S-3 | Pendiente |
+| [SPEC-12 Resultados de misión](./02-specs/SPEC-12-resultados.md) | P-12 | S-3 | Hecho |
+| [SPEC-13 Reto presencial](./02-specs/SPEC-13-reto-presencial.md) | P-13 | S-3 | Hecho |
+| [SPEC-14 Perfil del usuario](./02-specs/SPEC-14-perfil.md) | P-14 | S-3 | Hecho |
+| [SPEC-15 Ranking](./02-specs/SPEC-15-ranking.md) | P-15 | S-3 | Hecho |
 | [SPEC-16 Certificado digital](./02-specs/SPEC-16-certificado.md) | P-16 | S-4 | Pendiente |
 | [SPEC-17 Compartir e invitar](./02-specs/SPEC-17-compartir.md) | P-17 | S-4 | Pendiente |
 | [SPEC-18 Panel administrativo conceptual](./02-specs/SPEC-18-panel-admin.md) | P-18 | S-4 | Pendiente |

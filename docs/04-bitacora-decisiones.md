@@ -28,3 +28,15 @@
   (SPEC-12) corresponde al Sprint 3.
 - Repetir una misión no descuenta puntos: se conserva el mejor puntaje obtenido.
 - Insignia "Memoria de Elefante" se otorga al completar una misión sin errores.
+
+## 10 de agosto de 2026 — Sprint 3
+
+- Escala de niveles definida en 5 tramos (0 / 80 / 160 / 240 / 320 puntos); es contenido
+  del prototipo y puede recalibrarse con el contenido definitivo.
+- El reto presencial exige tres señales para considerarse cumplido: lugar elegido, foto
+  simulada y relato de al menos una frase. La foto nunca se guarda.
+- Invitar amigos es opcional y otorga la insignia "Promotor Cruceño"; la pantalla completa
+  de compartir e invitar (SPEC-17) queda para el Sprint 4.
+- Completar las 5 misiones otorga la insignia "Embajador de Santa Cruz" y habilita el
+  certificado (SPEC-16, Sprint 4).
+- Recordatorio de alcance: al recargar la página el progreso se reinicia (sin persistencia).

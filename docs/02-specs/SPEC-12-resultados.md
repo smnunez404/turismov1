@@ -1,6 +1,6 @@
 # SPEC-12 — Resultados de misión
 
-- **Pantalla:** P-12 · **Sprint:** S-3 · **Estado:** Pendiente
+- **Pantalla:** P-12 · **Sprint:** S-3 · **Estado:** Hecho (10 de agosto de 2026)
 
 **Propósito.** Cerrar el ciclo de la misión con recompensa.
 
@@ -9,5 +9,5 @@ de temporada y botón para continuar.
 
 **Criterios de aceptación**
 
-- [ ] La obtención de insignia se siente como un momento, no como un dato.
-- [ ] Actualiza la barra de progreso de temporada.
+- [x] La obtención de insignia se siente como un momento, no como un dato.
+- [x] Actualiza la barra de progreso de temporada.
