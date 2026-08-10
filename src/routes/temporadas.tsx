@@ -52,9 +52,26 @@ function MapaTemporadas() {
           <span className="rounded-full bg-accent/25 px-3 py-1 text-sm font-semibold text-accent-foreground">
             {usuario.puntos} pts
           </span>
-          <AvatarInsignia avatarId={usuario.avatarId} tamano="sm" />
+          <Link to="/perfil" aria-label="Ir a mi perfil">
+            <AvatarInsignia avatarId={usuario.avatarId} tamano="sm" />
+          </Link>
         </div>
       </header>
+
+      <nav className="grid grid-cols-2 gap-3">
+        <Link
+          to="/perfil"
+          className="rounded-xl border border-border bg-card px-3 py-2 text-center text-sm font-semibold text-foreground transition-colors hover:border-primary"
+        >
+          👤 Mi perfil
+        </Link>
+        <Link
+          to="/ranking"
+          className="rounded-xl border border-border bg-card px-3 py-2 text-center text-sm font-semibold text-foreground transition-colors hover:border-primary"
+        >
+          🏆 Ranking
+        </Link>
+      </nav>
 
       <section className="rounded-2xl bg-card p-5 shadow-sm">
         <div className="flex items-start gap-3">
