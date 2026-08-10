@@ -15,6 +15,7 @@ independiente enlazada.
 | [07-modelo-datos-simulado.md](./07-modelo-datos-simulado.md) | Estructuras locales tipadas |
 | [08-contenido-muestra.md](./08-contenido-muestra.md) | Inventario del contenido sintético |
 | [09-checklist-validacion-cliente.md](./09-checklist-validacion-cliente.md) | Checklist de validación con la cliente y registro de hallazgos |
+| [10-auditoria-ux-visual.md](./10-auditoria-ux-visual.md) | Auditoría UX y QA visual mobile-first por SPEC |
 | [sprints/](./sprints/) | Sprint 0 a Sprint 4 |
 
 ## Regla de oro

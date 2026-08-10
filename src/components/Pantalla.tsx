@@ -9,7 +9,7 @@ export function Pantalla({
   className?: string;
 }) {
   return (
-    <main className="flex min-h-screen justify-center bg-background px-4 py-8">
+    <main className="flex min-h-dvh justify-center bg-background px-4 pb-[max(2rem,env(safe-area-inset-bottom))] pt-[max(1.5rem,env(safe-area-inset-top))]">
       <div className={`flex w-full max-w-md flex-col ${className}`}>{children}</div>
     </main>
   );

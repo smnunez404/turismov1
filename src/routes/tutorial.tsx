@@ -77,7 +77,7 @@ function Tutorial() {
   const paso = pasos[indice] ?? pasos[0]!;
 
   return (
-    <Pantalla className="justify-center gap-8">
+    <Pantalla className="gap-7 pt-4">
       <PasoOnboarding actual={indice + 1} total={pasos.length} />
 
       <div className="flex flex-col items-center gap-4 text-center">

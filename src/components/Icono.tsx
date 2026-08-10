@@ -15,6 +15,7 @@ import {
   Flag,
   Handshake,
   Hourglass,
+  Landmark,
   Image as ImageIcon,
   Instagram,
   Leaf,
@@ -81,6 +82,7 @@ export const iconos = {
   // insignias
   pergamino: ScrollText,
   reloj: Hourglass,
+  plaza: Landmark,
   brujula: Compass,
   anfitrion: Handshake,
   camara: Camera,

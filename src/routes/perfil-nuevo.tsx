@@ -34,7 +34,7 @@ function PerfilNuevo() {
   };
 
   return (
-    <Pantalla className="justify-center gap-8">
+    <Pantalla className="gap-7 pt-4">
       <PasoOnboarding actual={2} total={4} />
 
       <header>
