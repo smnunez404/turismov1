@@ -64,28 +64,29 @@
 /* Sistema visual "Soy Embajador Bolivia" — docs/06-sistema-visual.md
    Verde tropical, dorado sol, terracota y crema arena. */
 :root {
-  --radius: 1.125rem;
-  --font-display: "Fraunces", Georgia, serif;
-  --font-body: "Outfit", system-ui, sans-serif;
+  --radius: 1rem;
+  --font-display: "Baloo 2", "Nunito", system-ui, sans-serif;
+  --font-body: "Nunito", system-ui, sans-serif;
   --background: oklch(0.975 0.017 88);
   --foreground: oklch(0.28 0.045 55);
   --card: oklch(0.995 0.008 90);
   --card-foreground: oklch(0.28 0.045 55);
   --popover: oklch(0.995 0.008 90);
   --popover-foreground: oklch(0.28 0.045 55);
-  --primary: oklch(0.46 0.115 155);
+  --primary: oklch(0.62 0.175 148);
   --primary-foreground: oklch(0.985 0.012 90);
-  --secondary: oklch(0.63 0.135 45);
+  --secondary: oklch(0.66 0.175 45);
   --secondary-foreground: oklch(0.99 0.01 90);
   --muted: oklch(0.935 0.022 85);
   --muted-foreground: oklch(0.52 0.035 65);
-  --accent: oklch(0.8 0.145 82);
+  --accent: oklch(0.82 0.16 82);
   --accent-foreground: oklch(0.3 0.06 60);
-  --destructive: oklch(0.55 0.17 30);
+  --destructive: oklch(0.58 0.19 28);
   --destructive-foreground: oklch(0.985 0.012 90);
-  --border: oklch(0.885 0.025 82);
+  --border: oklch(0.86 0.03 82);
   --input: oklch(0.885 0.025 82);
-  --ring: oklch(0.46 0.115 155);
+  --ring: oklch(0.62 0.175 148);
+  --sombra-duo: 0 4px 0 0 color-mix(in oklab, var(--foreground) 18%, transparent);
   --chart-1: oklch(0.46 0.115 155);
   --chart-2: oklch(0.8 0.145 82);
   --chart-3: oklch(0.63 0.135 45);
