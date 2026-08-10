@@ -73,9 +73,9 @@ function Perfil() {
                 : "Nivel máximo"}
             </span>
           </div>
-          <div className="mt-1.5 h-2 rounded-full bg-muted">
-            <div
-              className="h-2 rounded-full bg-accent transition-all"
+          <div className="barra-duo mt-1.5">
+            <span
+              className="barra-duo-fill bg-accent"
               style={{ width: `${nivel.porcentaje}%` }}
             />
           </div>
