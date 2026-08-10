@@ -5,8 +5,9 @@
 
 ## Sprint actual
 
-**Sprint 3 — Gamificación, reto y progreso** (cerrado en esta entrega).
-Sprints 0, 1 y 2 cerrados.
+**Sprint 4 — Cierre, certificado y consolidación** (cerrado en esta entrega).
+Sprints 0 a 3 cerrados. Las 18 pantallas del MVP están construidas y navegables;
+queda la validación con el cliente y la ronda única de observaciones.
 
 ## Avance por sprint
 
@@ -16,7 +17,7 @@ Sprints 0, 1 y 2 cerrados.
 | S-1 | Identidad y onboarding | SPEC-01 … SPEC-07 | Hecho |
 | S-2 | Núcleo de misiones | SPEC-08 … SPEC-11 | Hecho |
 | S-3 | Gamificación, reto y progreso | SPEC-12 … SPEC-15 | Hecho |
-| S-4 | Cierre, certificado y consolidación | SPEC-16 … SPEC-18 | Pendiente |
+| S-4 | Cierre, certificado y consolidación | SPEC-16 … SPEC-18 | Hecho |
 
 ## Avance por especificación
 
@@ -37,9 +38,9 @@ Sprints 0, 1 y 2 cerrados.
 | [SPEC-13 Reto presencial](./02-specs/SPEC-13-reto-presencial.md) | P-13 | S-3 | Hecho |
 | [SPEC-14 Perfil del usuario](./02-specs/SPEC-14-perfil.md) | P-14 | S-3 | Hecho |
 | [SPEC-15 Ranking](./02-specs/SPEC-15-ranking.md) | P-15 | S-3 | Hecho |
-| [SPEC-16 Certificado digital](./02-specs/SPEC-16-certificado.md) | P-16 | S-4 | Pendiente |
-| [SPEC-17 Compartir e invitar](./02-specs/SPEC-17-compartir.md) | P-17 | S-4 | Pendiente |
-| [SPEC-18 Panel administrativo conceptual](./02-specs/SPEC-18-panel-admin.md) | P-18 | S-4 | Pendiente |
+| [SPEC-16 Certificado digital](./02-specs/SPEC-16-certificado.md) | P-16 | S-4 | Hecho |
+| [SPEC-17 Compartir e invitar](./02-specs/SPEC-17-compartir.md) | P-17 | S-4 | Hecho |
+| [SPEC-18 Panel administrativo conceptual](./02-specs/SPEC-18-panel-admin.md) | P-18 | S-4 | Hecho |
 
 ## Índice de documentación
 

@@ -5,7 +5,12 @@ import { AvatarInsignia } from "@/components/AvatarInsignia";
 import { useSesion } from "@/context/SessionContext";
 import { insignias } from "@/data/insignias";
 import { participantesRanking } from "@/data/ranking";
-import { avanceTemporada, misionesDeTemporada, nivelDe } from "@/lib/progreso";
+import {
+  avanceTemporada,
+  misionesDeTemporada,
+  nivelDe,
+  temporadaCompletada,
+} from "@/lib/progreso";
 
 export const Route = createFileRoute("/perfil")({
   head: () => ({
@@ -31,6 +36,7 @@ function Perfil() {
   const nivel = nivelDe(usuario.puntos);
   const avance = avanceTemporada("t1", usuario);
   const misiones = misionesDeTemporada("t1");
+  const finTemporada = temporadaCompletada("t1", usuario);
   const posicion =
     participantesRanking.filter((p) => p.puntaje > usuario.puntos).length + 1;
 
@@ -138,6 +144,20 @@ function Perfil() {
       </section>
 
       <div className="flex flex-col gap-2 text-center">
+        {finTemporada && (
+          <Link
+            to="/certificado"
+            className="rounded-xl bg-accent px-4 py-3.5 text-base font-semibold text-accent-foreground transition-colors hover:bg-accent/90"
+          >
+            🏅 Ver mi certificado
+          </Link>
+        )}
+        <Link
+          to="/compartir"
+          className="rounded-xl border border-border bg-card px-4 py-3 text-sm font-semibold text-foreground"
+        >
+          Compartir e invitar
+        </Link>
         <Link
           to="/temporadas"
           className="rounded-xl bg-primary px-4 py-3.5 text-base font-semibold text-primary-foreground transition-colors hover:bg-primary/90"

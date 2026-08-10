@@ -4,6 +4,7 @@ import { useState } from "react";
 import { Pantalla } from "@/components/Pantalla";
 import { useSesion } from "@/context/SessionContext";
 import { insignias } from "@/data/insignias";
+import { amigosSugeridos } from "@/data/comunidad";
 import { insigniaDeMision, obtenerMision, temporadaCompletada } from "@/lib/progreso";
 
 export const Route = createFileRoute("/mision/$misionId/reto")({
@@ -33,7 +34,7 @@ const lugares = [
   { id: "manzana", nombre: "Manzana Uno", icono: "🎨" },
 ];
 
-const amigos = ["Joaquín", "Valeria", "Diego", "Mariana"];
+
 
 function Reto() {
   const { misionId } = Route.useParams();
@@ -167,7 +168,7 @@ function Reto() {
           Invitá a alguien a hacer el recorrido con vos y ganá la insignia Promotor Cruceño.
         </p>
         <ul className="mt-3 flex flex-wrap gap-2">
-          {amigos.map((a) => {
+          {amigosSugeridos.map((a) => {
             const activo = invitados.includes(a);
             return (
               <li key={a}>

@@ -17,8 +17,8 @@
 | P-13 | Reto presencial (Misión 5) | `/mision/$misionId/reto` | Actuar | S-3 | Hecho |
 | P-14 | Perfil del usuario | `/perfil` | Transversal | S-3 | Hecho |
 | P-15 | Ranking | `/ranking` | Descubrir / Actuar | S-3 | Hecho |
-| P-16 | Certificado digital | `/certificado` | Actuar | S-4 | Pendiente |
-| P-17 | Compartir logros / Invitar | `/compartir` | Actuar | S-4 | Pendiente |
-| P-18 | Panel administrativo conceptual | `/admin-conceptual` | — | S-4 | Pendiente |
+| P-16 | Certificado digital | `/certificado` | Actuar | S-4 | Hecho |
+| P-17 | Compartir logros / Invitar | `/compartir` | Actuar | S-4 | Hecho |
+| P-18 | Panel administrativo conceptual | `/admin-conceptual` | — | S-4 | Hecho |
 
-Las rutas de sprints futuros son la convención acordada; se confirman al construirse.
+Las 18 pantallas del MVP están construidas y navegables en el prototipo.

@@ -71,6 +71,18 @@ function MapaTemporadas() {
         >
           🏆 Ranking
         </Link>
+        <Link
+          to="/certificado"
+          className="rounded-xl border border-border bg-card px-3 py-2 text-center text-sm font-semibold text-foreground transition-colors hover:border-primary"
+        >
+          🏅 Certificado
+        </Link>
+        <Link
+          to="/compartir"
+          className="rounded-xl border border-border bg-card px-3 py-2 text-center text-sm font-semibold text-foreground transition-colors hover:border-primary"
+        >
+          📣 Compartir
+        </Link>
       </nav>
 
       <section className="rounded-2xl bg-card p-5 shadow-sm">
@@ -178,6 +190,15 @@ function MapaTemporadas() {
             ))}
         </ul>
       </section>
+
+      <footer className="text-center">
+        <Link
+          to="/admin-conceptual"
+          className="text-xs text-muted-foreground underline underline-offset-4"
+        >
+          Ver panel administrativo conceptual (demostración para el cliente)
+        </Link>
+      </footer>
     </Pantalla>
   );
 }
