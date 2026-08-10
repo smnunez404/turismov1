@@ -38,7 +38,13 @@ function Perfil() {
   return (
     <Pantalla conNav className="gap-6">
       <header className="card-duo flex flex-col items-center gap-3 p-6 text-center">
-        <AvatarInsignia avatarId={usuario.avatarId} tamano="lg" />
+        <AvatarInsignia avatarId={usuario.avatarId} avatar={usuario.avatar} tamano="lg" />
+        <Link
+          to="/avatar"
+          className="text-sm font-bold text-primary underline underline-offset-4"
+        >
+          Editar mi avatar
+        </Link>
         <div>
           <h1 className="text-2xl font-bold text-foreground">{usuario.nombre || "Embajador"}</h1>
           <p className="text-sm text-muted-foreground">

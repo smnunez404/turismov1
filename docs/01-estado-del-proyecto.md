@@ -20,6 +20,7 @@ con la cliente sobre el modelo comercial.
 | S-3 | Gamificación, reto y progreso | SPEC-12 … SPEC-15 | Hecho |
 | S-4 | Cierre, certificado y consolidación | SPEC-16 … SPEC-18 | Hecho |
 | S-5 | Modo Preguntados, retención y negocio | SPEC-19 … SPEC-31 | Hecho |
+| S-6 | Identidad: constructor de avatar | SPEC-32 | Hecho |
 
 ## Avance por especificación
 
@@ -73,5 +74,6 @@ con la cliente sobre el modelo comercial.
 | [SPEC-29 Plan de retención](./02-specs/SPEC-29-retencion.md) | — | S-5 | Documentado |
 | [SPEC-30 Premios y cupones](./02-specs/SPEC-30-premios-cupones.md) | P-26 | S-5 | Hecho |
 | [SPEC-31 Auspiciadores](./02-specs/SPEC-31-auspiciadores.md) | — | S-5 | Hecho |
+| [SPEC-32 Constructor de avatar](./02-specs/SPEC-32-constructor-avatar.md) | P-05 | S-6 | Hecho |
 
 > Documento de referencia de la Fase 2: [11-fase2-preguntados-negocio.md](./11-fase2-preguntados-negocio.md)

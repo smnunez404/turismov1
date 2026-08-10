@@ -55,7 +55,7 @@ function MapaTemporadas() {
             {usuario.puntos} pts
           </span>
           <Link to="/perfil" aria-label="Ir a mi perfil">
-            <AvatarInsignia avatarId={usuario.avatarId} tamano="sm" />
+            <AvatarInsignia avatarId={usuario.avatarId} avatar={usuario.avatar} tamano="sm" />
           </Link>
         </div>
       </header>

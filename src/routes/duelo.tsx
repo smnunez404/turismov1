@@ -155,7 +155,7 @@ function Duelo() {
     <Pantalla className="gap-4">
       <header className="flex items-center justify-between gap-2">
         <span className="flex items-center gap-2">
-          <AvatarInsignia avatarId={usuario.avatarId} tamano="sm" />
+          <AvatarInsignia avatarId={usuario.avatarId} avatar={usuario.avatar} tamano="sm" />
           <span className="text-lg font-extrabold text-foreground">{mios}</span>
         </span>
         <span className="text-xs font-bold tracking-widest text-muted-foreground uppercase">

@@ -8,6 +8,47 @@ export type Avatar = {
   descripcion: string;
 };
 
+// ---------- Constructor de avatar (SPEC-32) ----------
+
+export type RegionAvatar =
+  | "santa-cruz"
+  | "la-paz"
+  | "cochabamba"
+  | "potosi"
+  | "beni"
+  | "tarija";
+
+export type CategoriaPieza =
+  | "cuerpo"
+  | "cara"
+  | "cabello"
+  | "vello"
+  | "prenda"
+  | "sombrero"
+  | "accesorio"
+  | "fondo";
+
+export type PiezaAvatar = {
+  id: string;
+  categoria: CategoriaPieza;
+  nombre: string;
+  region: RegionAvatar;
+  bloqueada: boolean;
+};
+
+export type AvatarPersonalizado = {
+  cuerpo: string;
+  cara: string;
+  cabello: string;
+  vello: string;
+  prenda: string;
+  sombrero: string;
+  accesorio: string;
+  fondo: string;
+  tonoPiel: string;
+  colorPelo: string;
+};
+
 export type Temporada = {
   id: string;
   nombre: string;
@@ -142,6 +183,7 @@ export type UsuarioSesion = {
   nombre: string;
   correo: string;
   avatarId: string | null;
+  avatar: AvatarPersonalizado | null;
   puntos: number;
   insignias: string[];
   progreso: Record<string, ProgresoMision>;

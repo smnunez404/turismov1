@@ -111,3 +111,10 @@ necesita affordances físicas y lecturas rápidas en móvil.
 - Se adopta la referencia visual de Preguntados para P-20: rueda de gajos de color, botón central, personajes por categoría, temporizador y comodines.
 - Los personajes son ilustraciones propias sintéticas (`src/assets/personajes/*.png`), no marcas de terceros.
 - El color de cada categoría vive en `src/data/personajes.ts` (capa de presentación) y no reemplaza los tokens semánticos del sistema visual.
+
+## Constructor de avatar por capas (SPEC-32)
+- El avatar deja de ser una imagen fija: se arma con piezas SVG (cuerpo, cara, cabello, vello, prenda, sombrero, accesorio, fondo) más tono de piel y color de cabello.
+- Motivo: la identidad del jugador es el gancho emocional del producto y permite vestir al personaje con prendas típicas cruceñas (tipoy, sombrero de sao, guayabera).
+- Las piezas de otras ciudades (La Paz, Cochabamba, Potosí, Beni, Tarija) se muestran bloqueadas como anticipo de temporadas futuras.
+- Se eligió SVG en vez de PNG por peso, nitidez y porque permite recolorear sin generar arte nuevo.
+- Los 6 presets previos se conservan para los participantes sintéticos de ranking, liga y duelo.

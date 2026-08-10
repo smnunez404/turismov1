@@ -41,7 +41,7 @@ function Bienvenida() {
       />
 
       <div className="flex flex-col items-center gap-4">
-        <AvatarInsignia avatarId={usuario.avatarId} tamano="lg" />
+        <AvatarInsignia avatarId={usuario.avatarId} avatar={usuario.avatar} tamano="lg" />
         <h1 className="text-3xl font-bold text-foreground">Bienvenido, {nombre}</h1>
       </div>
 
