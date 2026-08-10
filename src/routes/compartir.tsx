@@ -2,6 +2,7 @@
 import { useState } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Pantalla } from "@/components/Pantalla";
+import { Icono, IconoPastilla } from "@/components/Icono";
 import { useSesion } from "@/context/SessionContext";
 import { insignias } from "@/data/insignias";
 import { amigosSugeridos, canalesCompartir } from "@/data/comunidad";
@@ -43,8 +44,8 @@ function Compartir() {
   if (avance.completadas === 0) {
     return (
       <Pantalla className="justify-center gap-4 text-center">
-        <span className="text-6xl" aria-hidden="true">
-          ✨
+        <span className="mx-auto inline-flex h-20 w-20 items-center justify-center rounded-2xl bg-accent/20 text-accent-foreground ring-1 ring-accent/30">
+          <Icono nombre="destello" className="h-9 w-9" />
         </span>
         <h1 className="text-2xl font-bold text-foreground">Todavía no hay nada que contar</h1>
         <p className="text-sm text-muted-foreground">
@@ -95,9 +96,9 @@ function Compartir() {
           {obtenidas.map((i) => (
             <li
               key={i.id}
-              className="rounded-full bg-card px-2.5 py-1 text-xs font-semibold text-foreground"
+              className="inline-flex items-center gap-1.5 rounded-full bg-card px-2.5 py-1 text-xs font-semibold text-foreground"
             >
-              <span aria-hidden="true">{i.icono}</span> {i.nombre}
+              <Icono nombre={i.icono} className="h-3.5 w-3.5 text-primary" /> {i.nombre}
             </li>
           ))}
         </ul>
@@ -126,9 +127,7 @@ function Compartir() {
                       : "border-border bg-card hover:border-primary"
                   }`}
                 >
-                  <span className="text-2xl" aria-hidden="true">
-                    {c.icono}
-                  </span>
+                  <IconoPastilla nombre={c.icono} tono={activo ? "primary" : "muted"} />
                   <p className="mt-1 text-sm font-bold text-foreground">{c.nombre}</p>
                   <p className="text-xs text-muted-foreground">{c.detalle}</p>
                 </button>
@@ -147,9 +146,10 @@ function Compartir() {
         {compartido && (
           <p
             role="status"
-            className="mt-2 rounded-xl bg-primary/10 p-3 text-center text-sm text-foreground"
+            className="mt-2 flex items-center justify-center gap-2 rounded-xl bg-primary/10 p-3 text-center text-sm text-foreground"
           >
-            ✓ Publicación simulada enviada a{" "}
+            <Icono nombre="check" className="h-4 w-4 text-primary" /> Publicación simulada
+            enviada a{" "}
             {canalesCompartir.find((c) => c.id === canal)?.nombre}. En el prototipo no se
             conecta con la red real.
           </p>
@@ -158,8 +158,10 @@ function Compartir() {
 
       <section className="rounded-2xl bg-card p-5 shadow-sm">
         <h2 className="text-sm font-semibold text-foreground">Invitá nuevos embajadores</h2>
-        <p className="mt-1 text-xs text-muted-foreground">
-          Al invitar a alguien ganás la insignia 📣 Promotor Cruceño.
+        <p className="mt-1 inline-flex items-center gap-1.5 text-xs text-muted-foreground">
+          Al invitar a alguien ganás la insignia
+          <Icono nombre="compartir" className="h-3.5 w-3.5 text-secondary" />
+          <strong className="font-semibold text-foreground">Promotor Cruceño</strong>.
         </p>
         <ul className="mt-3 flex flex-wrap gap-2">
           {amigosSugeridos.map((a) => {
@@ -170,13 +172,13 @@ function Compartir() {
                   type="button"
                   onClick={() => sumarInvitado(a)}
                   disabled={activo}
-                  className={`rounded-full border px-3 py-1.5 text-xs font-semibold transition-colors ${
+                  className={`inline-flex items-center gap-1 rounded-full border px-3 py-1.5 text-xs font-semibold transition-colors ${
                     activo
                       ? "border-primary bg-primary text-primary-foreground"
                       : "border-border bg-background text-foreground hover:border-primary"
                   }`}
                 >
-                  {activo ? "✓ Invitado " : "+ "}
+                  {activo ? <Icono nombre="check" className="h-3.5 w-3.5" /> : "+"}
                   {a}
                 </button>
               </li>
