@@ -5,9 +5,10 @@
 
 ## Sprint actual
 
-**Sprint 4 — Cierre, certificado y consolidación** (cerrado en esta entrega).
-Sprints 0 a 3 cerrados. Las 18 pantallas del MVP están construidas y navegables;
-queda la validación con el cliente y la ronda única de observaciones.
+**Sprint 5 — Modo Preguntados, retención y modelo de negocio** (cerrado en esta entrega).
+Sprints 0 a 4 cerrados: el MVP de 18 pantallas está construido. La Fase 2 agrega 8
+pantallas de juego rápido, liga, equipos y premios de auspiciadores. Queda la validación
+con la cliente sobre el modelo comercial.
 
 ## Avance por sprint
 
@@ -18,6 +19,7 @@ queda la validación con el cliente y la ronda única de observaciones.
 | S-2 | Núcleo de misiones | SPEC-08 … SPEC-11 | Hecho |
 | S-3 | Gamificación, reto y progreso | SPEC-12 … SPEC-15 | Hecho |
 | S-4 | Cierre, certificado y consolidación | SPEC-16 … SPEC-18 | Hecho |
+| S-5 | Modo Preguntados, retención y negocio | SPEC-19 … SPEC-31 | Hecho |
 
 ## Avance por especificación
 
@@ -53,3 +55,23 @@ queda la validación con el cliente y la ronda única de observaciones.
 - [Contenido de muestra](./08-contenido-muestra.md)
 - [Checklist de validación con la cliente](./09-checklist-validacion-cliente.md)
 - [Sprints](./sprints/)
+
+## Fase 2 — Avance por especificación
+
+| Spec | Pantalla | Sprint | Estado |
+| --- | --- | --- | --- |
+| [SPEC-19 Hub de modo rápido](./02-specs/SPEC-19-hub-jugar.md) | P-19 | S-5 | Hecho |
+| [SPEC-20 Ruleta de categorías](./02-specs/SPEC-20-ruleta.md) | P-20 | S-5 | Hecho |
+| [SPEC-21 Medallas por categoría](./02-specs/SPEC-21-medallas.md) | P-21 | S-5 | Hecho |
+| [SPEC-22 Banco de preguntas rápidas](./02-specs/SPEC-22-banco-preguntas-rapidas.md) | — | S-5 | Hecho |
+| [SPEC-23 Racha diaria](./02-specs/SPEC-23-racha.md) | — | S-5 | Hecho |
+| [SPEC-24 Pregunta del día](./02-specs/SPEC-24-pregunta-del-dia.md) | P-22 | S-5 | Hecho |
+| [SPEC-25 Sistema de vidas](./02-specs/SPEC-25-vidas.md) | — | S-5 | Hecho |
+| [SPEC-26 Liga semanal](./02-specs/SPEC-26-liga-semanal.md) | P-24 | S-5 | Hecho |
+| [SPEC-27 Equipos por zona](./02-specs/SPEC-27-equipos.md) | P-25 | S-5 | Hecho |
+| [SPEC-28 Duelo 1v1](./02-specs/SPEC-28-duelo.md) | P-23 | S-5 | Hecho |
+| [SPEC-29 Plan de retención](./02-specs/SPEC-29-retencion.md) | — | S-5 | Documentado |
+| [SPEC-30 Premios y cupones](./02-specs/SPEC-30-premios-cupones.md) | P-26 | S-5 | Hecho |
+| [SPEC-31 Auspiciadores](./02-specs/SPEC-31-auspiciadores.md) | — | S-5 | Hecho |
+
+> Documento de referencia de la Fase 2: [11-fase2-preguntados-negocio.md](./11-fase2-preguntados-negocio.md)
