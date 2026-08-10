@@ -10,33 +10,115 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AvatarRouteImport } from './routes/avatar'
+import { Route as BienvenidaRouteImport } from './routes/bienvenida'
+import { Route as LoginRouteImport } from './routes/login'
+import { Route as PerfilNuevoRouteImport } from './routes/perfil-nuevo'
+import { Route as RegistroRouteImport } from './routes/registro'
+import { Route as TutorialRouteImport } from './routes/tutorial'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AvatarRoute = AvatarRouteImport.update({
+  id: '/avatar',
+  path: '/avatar',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BienvenidaRoute = BienvenidaRouteImport.update({
+  id: '/bienvenida',
+  path: '/bienvenida',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LoginRoute = LoginRouteImport.update({
+  id: '/login',
+  path: '/login',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PerfilNuevoRoute = PerfilNuevoRouteImport.update({
+  id: '/perfil-nuevo',
+  path: '/perfil-nuevo',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const RegistroRoute = RegistroRouteImport.update({
+  id: '/registro',
+  path: '/registro',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TutorialRoute = TutorialRouteImport.update({
+  id: '/tutorial',
+  path: '/tutorial',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/avatar': typeof AvatarRoute
+  '/bienvenida': typeof BienvenidaRoute
+  '/login': typeof LoginRoute
+  '/perfil-nuevo': typeof PerfilNuevoRoute
+  '/registro': typeof RegistroRoute
+  '/tutorial': typeof TutorialRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/avatar': typeof AvatarRoute
+  '/bienvenida': typeof BienvenidaRoute
+  '/login': typeof LoginRoute
+  '/perfil-nuevo': typeof PerfilNuevoRoute
+  '/registro': typeof RegistroRoute
+  '/tutorial': typeof TutorialRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/avatar': typeof AvatarRoute
+  '/bienvenida': typeof BienvenidaRoute
+  '/login': typeof LoginRoute
+  '/perfil-nuevo': typeof PerfilNuevoRoute
+  '/registro': typeof RegistroRoute
+  '/tutorial': typeof TutorialRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/avatar'
+    | '/bienvenida'
+    | '/login'
+    | '/perfil-nuevo'
+    | '/registro'
+    | '/tutorial'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/avatar'
+    | '/bienvenida'
+    | '/login'
+    | '/perfil-nuevo'
+    | '/registro'
+    | '/tutorial'
+  id:
+    | '__root__'
+    | '/'
+    | '/avatar'
+    | '/bienvenida'
+    | '/login'
+    | '/perfil-nuevo'
+    | '/registro'
+    | '/tutorial'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AvatarRoute: typeof AvatarRoute
+  BienvenidaRoute: typeof BienvenidaRoute
+  LoginRoute: typeof LoginRoute
+  PerfilNuevoRoute: typeof PerfilNuevoRoute
+  RegistroRoute: typeof RegistroRoute
+  TutorialRoute: typeof TutorialRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,22 +130,60 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/avatar': {
+      id: '/avatar'
+      path: '/avatar'
+      fullPath: '/avatar'
+      preLoaderRoute: typeof AvatarRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/bienvenida': {
+      id: '/bienvenida'
+      path: '/bienvenida'
+      fullPath: '/bienvenida'
+      preLoaderRoute: typeof BienvenidaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/login': {
+      id: '/login'
+      path: '/login'
+      fullPath: '/login'
+      preLoaderRoute: typeof LoginRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/perfil-nuevo': {
+      id: '/perfil-nuevo'
+      path: '/perfil-nuevo'
+      fullPath: '/perfil-nuevo'
+      preLoaderRoute: typeof PerfilNuevoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/registro': {
+      id: '/registro'
+      path: '/registro'
+      fullPath: '/registro'
+      preLoaderRoute: typeof RegistroRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/tutorial': {
+      id: '/tutorial'
+      path: '/tutorial'
+      fullPath: '/tutorial'
+      preLoaderRoute: typeof TutorialRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AvatarRoute: AvatarRoute,
+  BienvenidaRoute: BienvenidaRoute,
+  LoginRoute: LoginRoute,
+  PerfilNuevoRoute: PerfilNuevoRoute,
+  RegistroRoute: RegistroRoute,
+  TutorialRoute: TutorialRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { startInstance } from './start.ts'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-    config: Awaited<ReturnType<typeof startInstance.getOptions>>
-  }
-}
