@@ -17,3 +17,11 @@ hasta acumular 3 fallos.
 - [x] El feedback de cada respuesta es obligatorio antes de continuar.
 - [x] El resumen final muestra aciertos, puntos y avance de medalla.
 - [x] Sin vidas, la pantalla explica cuándo se recuperan en lugar de bloquear en silencio.
+
+## Rediseño visual (referencia Preguntados)
+- Rueda circular con 6 gajos de color (`conic-gradient`), flecha superior y botón central **GIRAR**.
+- El giro anima ~2,5 s y frena con el gajo sorteado bajo la flecha.
+- Cada categoría tiene un **personaje** propio (`src/data/personajes.ts`): Cronista, Amborín, Cuñapé, Comparsera, Taquirari y Urbanito.
+- Pantalla de pregunta: cabecera marcador `aciertos vs fallos`, banda con el color y el personaje de la categoría, temporizador de 20 s y comodines (bomba que descarta 2 opciones, contador de vidas).
+- Al agotarse el tiempo la pregunta cuenta como fallo y muestra la retroalimentación.
+- La galería de personajes en la ruleta muestra en color solo las medallas ya ganadas.

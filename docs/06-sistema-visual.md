@@ -120,3 +120,15 @@ de Duolingo, traducido al tono cruceño (verde tropical, dorado sol, terracota).
 - Opciones de respuesta: tarjetas grandes con estado seleccionado / correcto / incorrecto.
 - Nodos de misión de 48px, mobile first, contenedor centrado `max-w-md`.
 - Se mantiene la regla de tokens semánticos: nada de `text-white` ni `bg-[#...]`.
+
+## Personajes de categoría (ruleta)
+| Categoría | Personaje | Color de gajo |
+|---|---|---|
+| Historia | Cronista | #7C3AED |
+| Naturaleza | Amborín | #1FA94E |
+| Gastronomía | Cuñapé | #F2B008 |
+| Tradición y fiesta | Comparsera | #E2427D |
+| Personajes | Taquirari | #DE3B2C |
+| Santa Cruz hoy | Urbanito | #2C7FF7 |
+
+Estos colores son exclusivos de la ruleta y de la banda de pregunta; el resto de la UI sigue usando los tokens semánticos de la paleta Selva vibrante.
