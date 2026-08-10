@@ -53,14 +53,11 @@ function PerfilNuevo() {
             value={nombre}
             onChange={(e) => setNombre(e.target.value)}
             placeholder="Camila"
-            className="rounded-xl border border-input bg-card px-4 py-3 text-base text-foreground outline-none focus:ring-2 focus:ring-ring"
+            className="rounded-2xl border-2 border-input bg-card px-4 py-3 text-base text-foreground outline-none focus:ring-2 focus:ring-ring"
           />
         </label>
 
-        <button
-          type="submit"
-          className="mt-2 rounded-xl bg-primary px-4 py-3.5 text-base font-semibold text-primary-foreground transition-colors hover:bg-primary/90"
-        >
+        <button type="submit" className="mt-2 btn-duo btn-duo-primary">
           Continuar
         </button>
       </form>

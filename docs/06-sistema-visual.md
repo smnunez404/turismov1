@@ -70,3 +70,30 @@ cada sistema operativo, rompen la paleta de marca y dan aspecto genérico.
 
 - `src/assets/marca-embajador.png`: toborochi dentro de un pin de mapa. Se usa en el
   splash (P-01), en el certificado (P-16) y como favicon (`public/favicon.png`).
+
+## Actualización de estilo — referencia Duolingo (10 de agosto de 2026)
+
+Referencia: https://design.duolingo.com/. Se adopta el lenguaje "juguetón pero claro"
+de Duolingo, traducido al tono cruceño (verde tropical, dorado sol, terracota).
+
+### Tipografía
+
+- Títulos: **Baloo 2** (display redondeada, peso 700–800).
+- Cuerpo: **Nunito** (400–900). Reemplazan a Fraunces/Outfit.
+
+### Componentes base (utilidades en `src/styles.css`)
+
+| Utilidad | Uso |
+| --- | --- |
+| `btn-duo` + `btn-duo-primary/secondary/accent/ghost` | Botón con volumen: borde inferior de 4px, mayúsculas, se hunde al presionar |
+| `card-duo` / `card-duo-activa` | Tarjeta con borde 2px y base 4px; la variante activa tiñe el borde de primario |
+| `barra-duo` / `barra-duo-fill` | Barra de progreso gruesa (16px) con brillo interior |
+
+### Reglas
+
+- Un solo botón principal por pantalla, ancho completo.
+- En la lección (P-10/P-11) la acción y el feedback viven en una barra fija al pie,
+  con `env(safe-area-inset-bottom)`; el contenido lleva `pb-40` para no quedar tapado.
+- Opciones de respuesta: tarjetas grandes con estado seleccionado / correcto / incorrecto.
+- Nodos de misión de 48px, mobile first, contenedor centrado `max-w-md`.
+- Se mantiene la regla de tokens semánticos: nada de `text-white` ni `bg-[#...]`.

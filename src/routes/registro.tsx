@@ -10,8 +10,7 @@ export const Route = createFileRoute("/registro")({
       { title: "Creá tu cuenta — Soy Embajador Bolivia" },
       {
         name: "description",
-        content:
-          "Sumate como embajador de Santa Cruz: ingresá tu nombre y empezá la Temporada 1.",
+        content: "Sumate como embajador de Santa Cruz: ingresá tu nombre y empezá la Temporada 1.",
       },
       { property: "og:title", content: "Creá tu cuenta — Soy Embajador Bolivia" },
       {
@@ -62,7 +61,7 @@ function Registro() {
             placeholder="Camila"
             autoComplete="given-name"
             enterKeyHint="next"
-            className="min-h-12 rounded-xl border border-input bg-card px-4 py-3 text-base text-foreground outline-none focus:ring-2 focus:ring-ring"
+            className="min-h-12 rounded-2xl border-2 border-input bg-card px-4 py-3 text-base text-foreground outline-none focus:ring-2 focus:ring-ring"
           />
         </label>
 
@@ -77,14 +76,11 @@ function Registro() {
             autoCapitalize="none"
             autoComplete="email"
             enterKeyHint="go"
-            className="min-h-12 rounded-xl border border-input bg-card px-4 py-3 text-base text-foreground outline-none focus:ring-2 focus:ring-ring"
+            className="min-h-12 rounded-2xl border-2 border-input bg-card px-4 py-3 text-base text-foreground outline-none focus:ring-2 focus:ring-ring"
           />
         </label>
 
-        <button
-          type="submit"
-          className="mt-2 min-h-12 rounded-xl bg-primary px-4 py-3.5 text-base font-semibold text-primary-foreground transition-colors hover:bg-primary/90"
-        >
+        <button type="submit" className="mt-2 min-h-12 btn-duo btn-duo-primary">
           Empezar mi camino
         </button>
       </form>

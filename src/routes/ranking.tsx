@@ -62,9 +62,7 @@ function Ranking() {
             <li
               key={p.id}
               className={`flex items-center gap-3 rounded-xl border p-3 ${
-                yo
-                  ? "border-primary bg-primary/10 shadow-sm"
-                  : "border-border bg-card"
+                yo ? "border-primary bg-primary/10 shadow-sm" : "border-border bg-card"
               }`}
             >
               <span
@@ -90,10 +88,7 @@ function Ranking() {
       </ol>
 
       <div className="flex flex-col gap-2 text-center">
-        <Link
-          to="/temporadas"
-          className="rounded-xl bg-primary px-4 py-3.5 text-base font-semibold text-primary-foreground transition-colors hover:bg-primary/90"
-        >
+        <Link to="/temporadas" className="btn-duo btn-duo-primary">
           Sumar más puntos
         </Link>
         <Link to="/perfil" className="text-sm text-muted-foreground underline underline-offset-4">

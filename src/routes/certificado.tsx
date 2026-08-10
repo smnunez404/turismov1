@@ -50,19 +50,13 @@ function Certificado() {
           Tu certificado todavía está en preparación
         </h1>
         <p className="text-sm text-muted-foreground">
-          Se emite al completar las 5 misiones de la Temporada 1. Llevás{" "}
-          {avance.completadas} de {avance.total}.
+          Se emite al completar las 5 misiones de la Temporada 1. Llevás {avance.completadas} de{" "}
+          {avance.total}.
         </p>
-        <div className="mx-auto h-2 w-full max-w-xs rounded-full bg-muted">
-          <div
-            className="h-2 rounded-full bg-primary transition-all"
-            style={{ width: `${avance.porcentaje}%` }}
-          />
+        <div className="barra-duo mx-auto w-full max-w-xs">
+          <span className="barra-duo-fill" style={{ width: `${avance.porcentaje}%` }} />
         </div>
-        <Link
-          to="/temporadas"
-          className="mt-2 rounded-xl bg-primary px-4 py-3.5 text-base font-semibold text-primary-foreground"
-        >
+        <Link to="/temporadas" className="mt-2 btn-duo btn-duo-primary">
           Seguir con mis misiones
         </Link>
       </Pantalla>
@@ -107,8 +101,11 @@ function Certificado() {
             {usuario.nombre || "Embajador"}
           </h2>
           <p className="max-w-xs text-sm text-foreground">
-            completó la <strong>Temporada {temporada.orden}: {temporada.nombre}</strong> y
-            hoy conoce, siente y cuenta la historia de Santa Cruz.
+            completó la{" "}
+            <strong>
+              Temporada {temporada.orden}: {temporada.nombre}
+            </strong>{" "}
+            y hoy conoce, siente y cuenta la historia de Santa Cruz.
           </p>
 
           <dl className="mt-4 grid w-full grid-cols-3 gap-2 text-center">
@@ -118,9 +115,7 @@ function Certificado() {
             </div>
             <div className="rounded-xl bg-accent/20 p-3">
               <dt className="text-[10px] text-muted-foreground uppercase">Insignias</dt>
-              <dd className="text-lg font-bold text-foreground">
-                {usuario.insignias.length}
-              </dd>
+              <dd className="text-lg font-bold text-foreground">{usuario.insignias.length}</dd>
             </div>
             <div className="rounded-xl bg-accent/20 p-3">
               <dt className="text-[10px] text-muted-foreground uppercase">Nivel</dt>
@@ -138,21 +133,15 @@ function Certificado() {
       </article>
 
       <p className="text-center text-xs text-muted-foreground">
-        Certificado simulado para la validación del prototipo: no se genera archivo
-        descargable ni registro oficial.
+        Certificado simulado para la validación del prototipo: no se genera archivo descargable ni
+        registro oficial.
       </p>
 
       <div className="flex flex-col gap-2 text-center">
-        <Link
-          to="/compartir"
-          className="rounded-xl bg-primary px-4 py-3.5 text-base font-semibold text-primary-foreground transition-colors hover:bg-primary/90"
-        >
+        <Link to="/compartir" className="btn-duo btn-duo-primary">
           Compartir mi logro
         </Link>
-        <Link
-          to="/perfil"
-          className="rounded-xl border border-border bg-card px-4 py-3 text-sm font-semibold text-foreground"
-        >
+        <Link to="/perfil" className="btn-duo btn-duo-ghost">
           Ver mi perfil
         </Link>
         <Link

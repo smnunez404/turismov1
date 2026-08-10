@@ -42,9 +42,7 @@ function Login() {
       </Link>
       <header>
         <h1 className="text-3xl font-bold text-foreground">Qué bueno verte de nuevo</h1>
-        <p className="mt-2 text-muted-foreground">
-          Tu recorrido de embajador te está esperando.
-        </p>
+        <p className="mt-2 text-muted-foreground">Tu recorrido de embajador te está esperando.</p>
       </header>
 
       <form onSubmit={entrar} className="flex flex-col gap-4">
@@ -56,7 +54,7 @@ function Login() {
             inputMode="email"
             autoCapitalize="none"
             autoComplete="email"
-            className="min-h-12 rounded-xl border border-input bg-card px-4 py-3 text-base text-foreground outline-none focus:ring-2 focus:ring-ring"
+            className="min-h-12 rounded-2xl border-2 border-input bg-card px-4 py-3 text-base text-foreground outline-none focus:ring-2 focus:ring-ring"
           />
         </label>
 
@@ -67,21 +65,18 @@ function Login() {
             defaultValue="demo1234"
             autoComplete="current-password"
             enterKeyHint="go"
-            className="min-h-12 rounded-xl border border-input bg-card px-4 py-3 text-base text-foreground outline-none focus:ring-2 focus:ring-ring"
+            className="min-h-12 rounded-2xl border-2 border-input bg-card px-4 py-3 text-base text-foreground outline-none focus:ring-2 focus:ring-ring"
           />
         </label>
 
-        <button
-          type="submit"
-          className="mt-2 min-h-12 rounded-xl bg-primary px-4 py-3.5 text-base font-semibold text-primary-foreground transition-colors hover:bg-primary/90"
-        >
+        <button type="submit" className="mt-2 min-h-12 btn-duo btn-duo-primary">
           Entrar
         </button>
       </form>
 
       <div className="rounded-xl bg-muted p-4 text-sm text-muted-foreground">
-        Ingreso simulado: carga un perfil de demostración con 2 misiones completadas y 145
-        puntos, para mostrar el estado de "usuario con progreso".
+        Ingreso simulado: carga un perfil de demostración con 2 misiones completadas y 145 puntos,
+        para mostrar el estado de "usuario con progreso".
       </div>
 
       <p className="text-center text-sm text-muted-foreground">

@@ -51,10 +51,7 @@ function Compartir() {
         <p className="text-sm text-muted-foreground">
           Completá tu primera misión y volvé para compartir tu primera insignia.
         </p>
-        <Link
-          to="/temporadas"
-          className="mt-2 rounded-xl bg-primary px-4 py-3.5 text-base font-semibold text-primary-foreground"
-        >
+        <Link to="/temporadas" className="mt-2 btn-duo btn-duo-primary">
           Empezar una misión
         </Link>
       </Pantalla>
@@ -139,7 +136,7 @@ function Compartir() {
           type="button"
           disabled={!canal}
           onClick={() => setCompartido(true)}
-          className="mt-3 w-full rounded-xl bg-primary px-4 py-3.5 text-base font-semibold text-primary-foreground transition-colors hover:bg-primary/90 disabled:bg-muted disabled:text-muted-foreground"
+          className="mt-3 w-full btn-duo btn-duo-primary disabled:bg-muted disabled:text-muted-foreground"
         >
           {canal ? "Compartir (simulado)" : "Elegí un canal para continuar"}
         </button>
@@ -148,15 +145,14 @@ function Compartir() {
             role="status"
             className="mt-2 flex items-center justify-center gap-2 rounded-xl bg-primary/10 p-3 text-center text-sm text-foreground"
           >
-            <Icono nombre="check" className="h-4 w-4 text-primary" /> Publicación simulada
-            enviada a{" "}
-            {canalesCompartir.find((c) => c.id === canal)?.nombre}. En el prototipo no se
-            conecta con la red real.
+            <Icono nombre="check" className="h-4 w-4 text-primary" /> Publicación simulada enviada a{" "}
+            {canalesCompartir.find((c) => c.id === canal)?.nombre}. En el prototipo no se conecta
+            con la red real.
           </p>
         )}
       </section>
 
-      <section className="rounded-2xl bg-card p-5 shadow-sm">
+      <section className="card-duo p-5">
         <h2 className="text-sm font-semibold text-foreground">Invitá nuevos embajadores</h2>
         <p className="mt-1 inline-flex items-center gap-1.5 text-xs text-muted-foreground">
           Al invitar a alguien ganás la insignia
@@ -190,7 +186,7 @@ function Compartir() {
             value={nuevoInvitado}
             onChange={(e) => setNuevoInvitado(e.target.value)}
             placeholder="Nombre de un amigo"
-            className="flex-1 rounded-xl border border-input bg-background px-3 py-2 text-sm text-foreground outline-none focus:border-primary"
+            className="flex-1 rounded-2xl border-2 border-input bg-background px-3 py-2 text-sm text-foreground outline-none focus:border-primary"
           />
           <button
             type="button"
@@ -212,10 +208,7 @@ function Compartir() {
 
       <div className="flex flex-col gap-2 text-center">
         {finTemporada && (
-          <Link
-            to="/certificado"
-            className="rounded-xl border border-border bg-card px-4 py-3 text-sm font-semibold text-foreground"
-          >
+          <Link to="/certificado" className="btn-duo btn-duo-ghost">
             Ver mi certificado
           </Link>
         )}

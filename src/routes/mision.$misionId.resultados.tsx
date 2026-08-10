@@ -69,11 +69,11 @@ function Resultados() {
       </header>
 
       <dl className="grid grid-cols-2 gap-3">
-        <div className="rounded-2xl bg-card p-4 shadow-sm">
+        <div className="card-duo p-4">
           <dt className="text-[11px] text-muted-foreground uppercase">Puntaje</dt>
           <dd className="text-2xl font-bold text-primary">+{progreso.puntos}</dd>
         </div>
-        <div className="rounded-2xl bg-card p-4 shadow-sm">
+        <div className="card-duo p-4">
           <dt className="text-[11px] text-muted-foreground uppercase">Aciertos</dt>
           <dd className="text-2xl font-bold text-foreground">
             {progreso.aciertos}/{mision.cantidadPreguntas}
@@ -108,11 +108,8 @@ function Resultados() {
             {avance.completadas} de {avance.total} misiones
           </span>
         </div>
-        <div className="mt-1.5 h-2 rounded-full bg-muted">
-          <div
-            className="h-2 rounded-full bg-primary transition-all"
-            style={{ width: `${avance.porcentaje}%` }}
-          />
+        <div className="barra-duo mt-1.5">
+          <span className="barra-duo-fill" style={{ width: `${avance.porcentaje}%` }} />
         </div>
         <p className="mt-3 text-sm text-muted-foreground">
           Llevás <strong className="text-foreground">{usuario.puntos} puntos</strong> como
@@ -122,31 +119,22 @@ function Resultados() {
 
       <div className="flex flex-col gap-3">
         {finTemporada ? (
-          <Link
-            to="/certificado"
-            className="inline-flex items-center justify-center gap-2 rounded-xl bg-primary px-4 py-3.5 text-base font-semibold text-primary-foreground transition-colors hover:bg-primary/90"
-          >
+          <Link to="/certificado" className="btn-duo btn-duo-primary">
             <Icono nombre="certificado" /> Ver mi certificado de la Temporada 1
           </Link>
         ) : proxima ? (
           <Link
             to="/mision/$misionId"
             params={{ misionId: proxima.id }}
-            className="rounded-xl bg-primary px-4 py-3.5 text-base font-semibold text-primary-foreground transition-colors hover:bg-primary/90"
+            className="btn-duo btn-duo-primary"
           >
             Siguiente misión: {proxima.nombre}
           </Link>
         ) : null}
-        <Link
-          to="/ranking"
-          className="rounded-xl border border-border bg-card px-4 py-3 text-sm font-semibold text-foreground"
-        >
+        <Link to="/ranking" className="btn-duo btn-duo-ghost">
           Ver ranking
         </Link>
-        <Link
-          to="/compartir"
-          className="rounded-xl border border-border bg-card px-4 py-3 text-sm font-semibold text-foreground"
-        >
+        <Link to="/compartir" className="btn-duo btn-duo-ghost">
           Compartir mi logro
         </Link>
         <Link to="/perfil" className="text-sm text-muted-foreground underline underline-offset-4">

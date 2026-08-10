@@ -15,8 +15,7 @@ export const Route = createFileRoute("/")({
       { property: "og:title", content: "Soy Embajador Bolivia" },
       {
         property: "og:description",
-        content:
-          "Misiones, puntos e insignias para convertirte en embajador de tu ciudad.",
+        content: "Misiones, puntos e insignias para convertirte en embajador de tu ciudad.",
       },
     ],
   }),
@@ -41,15 +40,9 @@ function Splash() {
           height={512}
           className="mx-auto h-24 w-24 rounded-2xl bg-primary-foreground/95 p-2 object-contain shadow-lg"
         />
-        <h1 className="mt-6 text-4xl font-bold text-primary-foreground">
-          Soy Embajador
-        </h1>
-        <p className="mt-1 text-lg font-medium tracking-[0.3em] text-accent uppercase">
-          Bolivia
-        </p>
-        <p className="mt-6 text-sm text-primary-foreground/80">
-          Temporada 1 · Descubre Santa Cruz
-        </p>
+        <h1 className="mt-6 text-4xl font-bold text-primary-foreground">Soy Embajador</h1>
+        <p className="mt-1 text-lg font-medium tracking-[0.3em] text-accent uppercase">Bolivia</p>
+        <p className="mt-6 text-sm text-primary-foreground/80">Temporada 1 · Descubre Santa Cruz</p>
       </div>
 
       <Link

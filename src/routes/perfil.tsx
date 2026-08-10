@@ -6,12 +6,7 @@ import { Icono, IconoPastilla } from "@/components/Icono";
 import { useSesion } from "@/context/SessionContext";
 import { insignias } from "@/data/insignias";
 import { participantesRanking } from "@/data/ranking";
-import {
-  avanceTemporada,
-  misionesDeTemporada,
-  nivelDe,
-  temporadaCompletada,
-} from "@/lib/progreso";
+import { avanceTemporada, misionesDeTemporada, nivelDe, temporadaCompletada } from "@/lib/progreso";
 
 export const Route = createFileRoute("/perfil")({
   head: () => ({
@@ -38,29 +33,26 @@ function Perfil() {
   const avance = avanceTemporada("t1", usuario);
   const misiones = misionesDeTemporada("t1");
   const finTemporada = temporadaCompletada("t1", usuario);
-  const posicion =
-    participantesRanking.filter((p) => p.puntaje > usuario.puntos).length + 1;
+  const posicion = participantesRanking.filter((p) => p.puntaje > usuario.puntos).length + 1;
 
   return (
     <Pantalla className="gap-6 pb-12">
-      <header className="flex flex-col items-center gap-3 rounded-2xl bg-card p-6 text-center shadow-sm">
+      <header className="card-duo flex flex-col items-center gap-3 p-6 text-center">
         <AvatarInsignia avatarId={usuario.avatarId} tamano="lg" />
         <div>
-          <h1 className="text-2xl font-bold text-foreground">
-            {usuario.nombre || "Embajador"}
-          </h1>
+          <h1 className="text-2xl font-bold text-foreground">{usuario.nombre || "Embajador"}</h1>
           <p className="text-sm text-muted-foreground">
             {usuario.correo || "Perfil del prototipo"}
           </p>
         </div>
-        <div className="flex w-full justify-center gap-2">
-          <span className="rounded-full bg-accent/25 px-3 py-1 text-sm font-semibold text-accent-foreground">
+        <div className="flex w-full flex-wrap items-center justify-center gap-2">
+          <span className="rounded-full bg-accent/25 px-3 py-1 text-sm font-extrabold whitespace-nowrap text-accent-foreground">
             {usuario.puntos} pts
           </span>
-          <span className="rounded-full bg-primary/10 px-3 py-1 text-sm font-semibold text-primary">
+          <span className="rounded-full bg-primary/10 px-3 py-1 text-sm font-extrabold whitespace-nowrap text-primary">
             Nivel {nivel.indice} · {nivel.nombre}
           </span>
-          <span className="rounded-full bg-secondary/15 px-3 py-1 text-sm font-semibold text-secondary">
+          <span className="rounded-full bg-secondary/15 px-3 py-1 text-sm font-extrabold whitespace-nowrap text-secondary">
             #{posicion} del ranking
           </span>
         </div>
@@ -73,36 +65,27 @@ function Perfil() {
                 : "Nivel máximo"}
             </span>
           </div>
-          <div className="mt-1.5 h-2 rounded-full bg-muted">
-            <div
-              className="h-2 rounded-full bg-accent transition-all"
-              style={{ width: `${nivel.porcentaje}%` }}
-            />
+          <div className="barra-duo mt-1.5">
+            <span className="barra-duo-fill bg-accent" style={{ width: `${nivel.porcentaje}%` }} />
           </div>
         </div>
       </header>
 
-      <section className="rounded-2xl bg-card p-5 shadow-sm">
+      <section className="card-duo p-5">
         <div className="flex justify-between text-xs text-muted-foreground">
           <span>Temporada 1 · Descubre Santa Cruz</span>
           <span>
             {avance.completadas} de {avance.total} misiones
           </span>
         </div>
-        <div className="mt-1.5 h-2 rounded-full bg-muted">
-          <div
-            className="h-2 rounded-full bg-primary transition-all"
-            style={{ width: `${avance.porcentaje}%` }}
-          />
+        <div className="barra-duo mt-1.5">
+          <span className="barra-duo-fill" style={{ width: `${avance.porcentaje}%` }} />
         </div>
         <ul className="mt-4 flex flex-col gap-2">
           {misiones.map((m) => {
             const p = usuario.progreso[m.id];
             return (
-              <li
-                key={m.id}
-                className="flex items-center justify-between text-sm text-foreground"
-              >
+              <li key={m.id} className="flex items-center justify-between text-sm text-foreground">
                 <span
                   className={`flex items-center gap-2 ${p?.completada ? "" : "text-muted-foreground"}`}
                 >
@@ -157,16 +140,10 @@ function Perfil() {
             <Icono nombre="certificado" /> Ver mi certificado
           </Link>
         )}
-        <Link
-          to="/compartir"
-          className="rounded-xl border border-border bg-card px-4 py-3 text-sm font-semibold text-foreground"
-        >
+        <Link to="/compartir" className="btn-duo btn-duo-ghost">
           Compartir e invitar
         </Link>
-        <Link
-          to="/temporadas"
-          className="rounded-xl bg-primary px-4 py-3.5 text-base font-semibold text-primary-foreground transition-colors hover:bg-primary/90"
-        >
+        <Link to="/temporadas" className="btn-duo btn-duo-primary">
           Seguir jugando
         </Link>
         <Link to="/ranking" className="text-sm text-muted-foreground underline underline-offset-4">
