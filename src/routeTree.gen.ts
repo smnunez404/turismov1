@@ -12,6 +12,7 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as AvatarRouteImport } from './routes/avatar'
 import { Route as BienvenidaRouteImport } from './routes/bienvenida'
+import { Route as CertificadoRouteImport } from './routes/certificado'
 import { Route as LoginRouteImport } from './routes/login'
 import { Route as PerfilRouteImport } from './routes/perfil'
 import { Route as PerfilNuevoRouteImport } from './routes/perfil-nuevo'
@@ -37,6 +38,11 @@ const AvatarRoute = AvatarRouteImport.update({
 const BienvenidaRoute = BienvenidaRouteImport.update({
   id: '/bienvenida',
   path: '/bienvenida',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CertificadoRoute = CertificadoRouteImport.update({
+  id: '/certificado',
+  path: '/certificado',
   getParentRoute: () => rootRouteImport,
 } as any)
 const LoginRoute = LoginRouteImport.update({
@@ -100,6 +106,7 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/avatar': typeof AvatarRoute
   '/bienvenida': typeof BienvenidaRoute
+  '/certificado': typeof CertificadoRoute
   '/login': typeof LoginRoute
   '/perfil': typeof PerfilRoute
   '/perfil-nuevo': typeof PerfilNuevoRoute
@@ -116,6 +123,7 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/avatar': typeof AvatarRoute
   '/bienvenida': typeof BienvenidaRoute
+  '/certificado': typeof CertificadoRoute
   '/login': typeof LoginRoute
   '/perfil': typeof PerfilRoute
   '/perfil-nuevo': typeof PerfilNuevoRoute
@@ -133,6 +141,7 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/avatar': typeof AvatarRoute
   '/bienvenida': typeof BienvenidaRoute
+  '/certificado': typeof CertificadoRoute
   '/login': typeof LoginRoute
   '/perfil': typeof PerfilRoute
   '/perfil-nuevo': typeof PerfilNuevoRoute
@@ -151,6 +160,7 @@ export interface FileRouteTypes {
     | '/'
     | '/avatar'
     | '/bienvenida'
+    | '/certificado'
     | '/login'
     | '/perfil'
     | '/perfil-nuevo'
@@ -167,6 +177,7 @@ export interface FileRouteTypes {
     | '/'
     | '/avatar'
     | '/bienvenida'
+    | '/certificado'
     | '/login'
     | '/perfil'
     | '/perfil-nuevo'
@@ -183,6 +194,7 @@ export interface FileRouteTypes {
     | '/'
     | '/avatar'
     | '/bienvenida'
+    | '/certificado'
     | '/login'
     | '/perfil'
     | '/perfil-nuevo'
@@ -200,6 +212,7 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AvatarRoute: typeof AvatarRoute
   BienvenidaRoute: typeof BienvenidaRoute
+  CertificadoRoute: typeof CertificadoRoute
   LoginRoute: typeof LoginRoute
   PerfilRoute: typeof PerfilRoute
   PerfilNuevoRoute: typeof PerfilNuevoRoute
@@ -234,6 +247,13 @@ declare module '@tanstack/react-router' {
       path: '/bienvenida'
       fullPath: '/bienvenida'
       preLoaderRoute: typeof BienvenidaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/certificado': {
+      id: '/certificado'
+      path: '/certificado'
+      fullPath: '/certificado'
+      preLoaderRoute: typeof CertificadoRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/login': {
@@ -320,6 +340,7 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AvatarRoute: AvatarRoute,
   BienvenidaRoute: BienvenidaRoute,
+  CertificadoRoute: CertificadoRoute,
   LoginRoute: LoginRoute,
   PerfilRoute: PerfilRoute,
   PerfilNuevoRoute: PerfilNuevoRoute,
@@ -335,13 +356,3 @@ const rootRouteChildren: RootRouteChildren = {
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { startInstance } from './start.ts'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-    config: Awaited<ReturnType<typeof startInstance.getOptions>>
-  }
-}
