@@ -285,8 +285,8 @@ function Accesorio({ id }: { id: string }) {
   if (id === "acc-aretes")
     return (
       <g fill="#F2A93B" stroke={TRAZO} strokeWidth="1.2">
-        <circle cx="27" cy="52" r="3.4" />
-        <circle cx="73" cy="52" r="3.4" />
+        <circle cx="28" cy="48" r="3.4" />
+        <circle cx="72" cy="48" r="3.4" />
       </g>
     );
   if (id === "acc-guitarra")
@@ -321,7 +321,9 @@ export function AvatarLienzo({
       <Prenda id={avatar.prenda} cuerpo={avatar.cuerpo} />
       <Accesorio id={avatar.accesorio === "acc-semillas" ? "acc-semillas" : ""} />
       <Cabeza piel={avatar.tonoPiel} />
-      <Cabello id={avatar.cabello} color={avatar.colorPelo} />
+      <g transform="translate(0,-3)">
+        <Cabello id={avatar.cabello} color={avatar.colorPelo} />
+      </g>
       <Rostro id={avatar.cara} />
       <Vello id={avatar.vello} color={avatar.colorPelo} />
       {avatar.accesorio !== "acc-semillas" && <Accesorio id={avatar.accesorio} />}
