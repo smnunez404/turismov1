@@ -8,7 +8,7 @@ export const temporadas: Temporada[] = [
     estado: "activa",
     orden: 1,
     descripcion: "Cinco misiones para conocer, sentir y contar tu ciudad.",
-    icono: "🏙️",
+    icono: "ciudad",
   },
   {
     id: "t2",
@@ -16,7 +16,7 @@ export const temporadas: Temporada[] = [
     estado: "bloqueada",
     orden: 2,
     descripcion: "Fiestas, música y costumbres del oriente.",
-    icono: "🥁",
+    icono: "tambor",
   },
   {
     id: "t3",
@@ -24,7 +24,7 @@ export const temporadas: Temporada[] = [
     estado: "bloqueada",
     orden: 3,
     descripcion: "Misiones jesuíticas y memoria construida.",
-    icono: "⛪",
+    icono: "iglesia",
   },
   {
     id: "t4",
@@ -32,7 +32,7 @@ export const temporadas: Temporada[] = [
     estado: "bloqueada",
     orden: 4,
     descripcion: "Del majadito al sonso: sabor cruceño.",
-    icono: "🍽️",
+    icono: "gastronomia",
   },
   {
     id: "t5",
@@ -40,6 +40,6 @@ export const temporadas: Temporada[] = [
     estado: "bloqueada",
     orden: 5,
     descripcion: "Amboró, Lomas de Arena y el verde infinito.",
-    icono: "🌿",
+    icono: "naturaleza",
   },
 ];
