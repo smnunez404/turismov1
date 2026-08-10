@@ -22,6 +22,7 @@ import { Route as RankingRouteImport } from './routes/ranking'
 import { Route as RegistroRouteImport } from './routes/registro'
 import { Route as TemporadasRouteImport } from './routes/temporadas'
 import { Route as TutorialRouteImport } from './routes/tutorial'
+import { Route as JugarIndexRouteImport } from './routes/jugar.index'
 import { Route as MisionMisionIdIndexRouteImport } from './routes/mision.$misionId.index'
 import { Route as MisionMisionIdJugarRouteImport } from './routes/mision.$misionId.jugar'
 import { Route as MisionMisionIdResultadosRouteImport } from './routes/mision.$misionId.resultados'
@@ -92,6 +93,11 @@ const TutorialRoute = TutorialRouteImport.update({
   path: '/tutorial',
   getParentRoute: () => rootRouteImport,
 } as any)
+const JugarIndexRoute = JugarIndexRouteImport.update({
+  id: '/jugar/',
+  path: '/jugar/',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const MisionMisionIdIndexRoute = MisionMisionIdIndexRouteImport.update({
   id: '/mision/$misionId/',
   path: '/mision/$misionId/',
@@ -128,6 +134,7 @@ export interface FileRoutesByFullPath {
   '/registro': typeof RegistroRoute
   '/temporadas': typeof TemporadasRoute
   '/tutorial': typeof TutorialRoute
+  '/jugar/': typeof JugarIndexRoute
   '/mision/$misionId/jugar': typeof MisionMisionIdJugarRoute
   '/mision/$misionId/resultados': typeof MisionMisionIdResultadosRoute
   '/mision/$misionId/reto': typeof MisionMisionIdRetoRoute
@@ -147,6 +154,7 @@ export interface FileRoutesByTo {
   '/registro': typeof RegistroRoute
   '/temporadas': typeof TemporadasRoute
   '/tutorial': typeof TutorialRoute
+  '/jugar': typeof JugarIndexRoute
   '/mision/$misionId/jugar': typeof MisionMisionIdJugarRoute
   '/mision/$misionId/resultados': typeof MisionMisionIdResultadosRoute
   '/mision/$misionId/reto': typeof MisionMisionIdRetoRoute
@@ -167,6 +175,7 @@ export interface FileRoutesById {
   '/registro': typeof RegistroRoute
   '/temporadas': typeof TemporadasRoute
   '/tutorial': typeof TutorialRoute
+  '/jugar/': typeof JugarIndexRoute
   '/mision/$misionId/jugar': typeof MisionMisionIdJugarRoute
   '/mision/$misionId/resultados': typeof MisionMisionIdResultadosRoute
   '/mision/$misionId/reto': typeof MisionMisionIdRetoRoute
@@ -188,6 +197,7 @@ export interface FileRouteTypes {
     | '/registro'
     | '/temporadas'
     | '/tutorial'
+    | '/jugar/'
     | '/mision/$misionId/jugar'
     | '/mision/$misionId/resultados'
     | '/mision/$misionId/reto'
@@ -207,6 +217,7 @@ export interface FileRouteTypes {
     | '/registro'
     | '/temporadas'
     | '/tutorial'
+    | '/jugar'
     | '/mision/$misionId/jugar'
     | '/mision/$misionId/resultados'
     | '/mision/$misionId/reto'
@@ -226,6 +237,7 @@ export interface FileRouteTypes {
     | '/registro'
     | '/temporadas'
     | '/tutorial'
+    | '/jugar/'
     | '/mision/$misionId/jugar'
     | '/mision/$misionId/resultados'
     | '/mision/$misionId/reto'
@@ -246,6 +258,7 @@ export interface RootRouteChildren {
   RegistroRoute: typeof RegistroRoute
   TemporadasRoute: typeof TemporadasRoute
   TutorialRoute: typeof TutorialRoute
+  JugarIndexRoute: typeof JugarIndexRoute
   MisionMisionIdJugarRoute: typeof MisionMisionIdJugarRoute
   MisionMisionIdResultadosRoute: typeof MisionMisionIdResultadosRoute
   MisionMisionIdRetoRoute: typeof MisionMisionIdRetoRoute
@@ -345,6 +358,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof TutorialRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/jugar/': {
+      id: '/jugar/'
+      path: '/jugar'
+      fullPath: '/jugar/'
+      preLoaderRoute: typeof JugarIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/mision/$misionId/': {
       id: '/mision/$misionId/'
       path: '/mision/$misionId'
@@ -390,6 +410,7 @@ const rootRouteChildren: RootRouteChildren = {
   RegistroRoute: RegistroRoute,
   TemporadasRoute: TemporadasRoute,
   TutorialRoute: TutorialRoute,
+  JugarIndexRoute: JugarIndexRoute,
   MisionMisionIdJugarRoute: MisionMisionIdJugarRoute,
   MisionMisionIdResultadosRoute: MisionMisionIdResultadosRoute,
   MisionMisionIdRetoRoute: MisionMisionIdRetoRoute,
@@ -398,13 +419,3 @@ const rootRouteChildren: RootRouteChildren = {
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { startInstance } from './start.ts'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-    config: Awaited<ReturnType<typeof startInstance.getOptions>>
-  }
-}
