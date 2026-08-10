@@ -4,7 +4,7 @@
 export type Avatar = {
   id: string;
   nombre: string;
-  simbolo: string;
+  imagen: string;
   descripcion: string;
 };
 
