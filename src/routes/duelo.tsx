@@ -102,7 +102,7 @@ function Duelo() {
                 onClick={() => iniciar(r)}
                 className="card-duo flex w-full items-center gap-3 p-4 text-left"
               >
-                <AvatarInsignia avatarId={r.avatarId} tamano="sm" />
+                <AvatarInsignia semilla={r.nombre} tamano="sm" />
                 <span className="min-w-0 flex-1">
                   <span className="block text-base font-extrabold text-foreground">{r.nombre}</span>
                   <span className="block text-xs text-muted-foreground">{r.frase}</span>
@@ -163,7 +163,7 @@ function Duelo() {
         </span>
         <span className="flex items-center gap-2">
           <span className="text-lg font-extrabold text-foreground">{suyos}</span>
-          <AvatarInsignia avatarId={rival.avatarId} tamano="sm" />
+          <AvatarInsignia semilla={rival.nombre} tamano="sm" />
         </span>
       </header>
 
