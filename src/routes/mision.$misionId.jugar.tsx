@@ -3,10 +3,9 @@ import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
 import { useState } from "react";
 import { Pantalla } from "@/components/Pantalla";
 import { useSesion } from "@/context/SessionContext";
-import { insignias } from "@/data/insignias";
 import { preguntasDeMision } from "@/data/preguntas";
 import type { TipoPregunta } from "@/data/tipos";
-import { insigniaDeMision, obtenerMision, siguienteMision } from "@/lib/progreso";
+import { insigniaDeMision, obtenerMision } from "@/lib/progreso";
 
 export const Route = createFileRoute("/mision/$misionId/jugar")({
   head: ({ params }) => {
@@ -50,7 +49,6 @@ function Jugar() {
   const [respondida, setRespondida] = useState(false);
   const [aciertos, setAciertos] = useState(0);
   const [puntos, setPuntos] = useState(0);
-  const [terminada, setTerminada] = useState(false);
 
   if (!mision || lista.length === 0) {
     return (
@@ -97,7 +95,7 @@ function Jugar() {
         },
       },
     });
-    setTerminada(true);
+    navigate({ to: "/mision/$misionId/resultados", params: { misionId: mision.id } });
   };
 
   const continuar = () => {
@@ -109,53 +107,6 @@ function Jugar() {
     setSeleccion(null);
     setRespondida(false);
   };
-
-  if (terminada) {
-    const insignia = insignias.find((i) => i.id === insigniaDeMision[mision.id]);
-    const proxima = siguienteMision(mision);
-    return (
-      <Pantalla className="justify-center gap-6 text-center">
-        <span className="text-6xl" aria-hidden="true">
-          🎉
-        </span>
-        <h1 className="text-2xl font-bold text-foreground">Misión completada</h1>
-        <p className="text-muted-foreground">
-          {aciertos} de {lista.length} respuestas correctas · {puntos} puntos
-        </p>
-        {insignia && (
-          <div className="rounded-2xl bg-accent/15 p-5">
-            <span className="text-4xl" aria-hidden="true">
-              {insignia.icono}
-            </span>
-            <p className="mt-2 text-sm font-bold text-foreground">{insignia.nombre}</p>
-            <p className="text-xs text-muted-foreground">{insignia.descripcion}</p>
-          </div>
-        )}
-        <p className="text-xs text-muted-foreground">
-          La pantalla completa de resultados (SPEC-12) llega en el Sprint 3.
-        </p>
-        <div className="flex flex-col gap-3">
-          {proxima && (
-            <button
-              type="button"
-              onClick={() =>
-                navigate({ to: "/mision/$misionId", params: { misionId: proxima.id } })
-              }
-              className="rounded-xl bg-primary px-4 py-3.5 text-base font-semibold text-primary-foreground transition-colors hover:bg-primary/90"
-            >
-              Siguiente misión: {proxima.nombre}
-            </button>
-          )}
-          <Link
-            to="/temporadas"
-            className="text-sm text-muted-foreground underline underline-offset-4"
-          >
-            Volver al mapa de temporadas
-          </Link>
-        </div>
-      </Pantalla>
-    );
-  }
 
   return (
     <Pantalla className="gap-6 pb-12">

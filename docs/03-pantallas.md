@@ -13,10 +13,10 @@
 | P-09 | Detalle / portada de misión | `/mision/$misionId` (index) | Descubrir | S-2 | Hecho |
 | P-10 | Pregunta activa (5 variantes) | `/mision/$misionId/jugar` | Descubrir | S-2 | Hecho |
 | P-11 | Feedback de respuesta | (dentro de P-10) | Descubrir | S-2 | Hecho |
-| P-12 | Resultados de misión | `/mision/$misionId/resultados` | Descubrir | S-3 | Pendiente |
-| P-13 | Reto presencial (Misión 5) | `/mision/m5/reto` | Actuar | S-3 | Pendiente |
-| P-14 | Perfil del usuario | `/perfil` | Transversal | S-3 | Pendiente |
-| P-15 | Ranking | `/ranking` | Descubrir / Actuar | S-3 | Pendiente |
+| P-12 | Resultados de misión | `/mision/$misionId/resultados` | Descubrir | S-3 | Hecho |
+| P-13 | Reto presencial (Misión 5) | `/mision/$misionId/reto` | Actuar | S-3 | Hecho |
+| P-14 | Perfil del usuario | `/perfil` | Transversal | S-3 | Hecho |
+| P-15 | Ranking | `/ranking` | Descubrir / Actuar | S-3 | Hecho |
 | P-16 | Certificado digital | `/certificado` | Actuar | S-4 | Pendiente |
 | P-17 | Compartir logros / Invitar | `/compartir` | Actuar | S-4 | Pendiente |
 | P-18 | Panel administrativo conceptual | `/admin-conceptual` | — | S-4 | Pendiente |

@@ -13,12 +13,16 @@ import { Route as IndexRouteImport } from './routes/index'
 import { Route as AvatarRouteImport } from './routes/avatar'
 import { Route as BienvenidaRouteImport } from './routes/bienvenida'
 import { Route as LoginRouteImport } from './routes/login'
+import { Route as PerfilRouteImport } from './routes/perfil'
 import { Route as PerfilNuevoRouteImport } from './routes/perfil-nuevo'
+import { Route as RankingRouteImport } from './routes/ranking'
 import { Route as RegistroRouteImport } from './routes/registro'
 import { Route as TemporadasRouteImport } from './routes/temporadas'
 import { Route as TutorialRouteImport } from './routes/tutorial'
 import { Route as MisionMisionIdIndexRouteImport } from './routes/mision.$misionId.index'
 import { Route as MisionMisionIdJugarRouteImport } from './routes/mision.$misionId.jugar'
+import { Route as MisionMisionIdResultadosRouteImport } from './routes/mision.$misionId.resultados'
+import { Route as MisionMisionIdRetoRouteImport } from './routes/mision.$misionId.reto'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -40,9 +44,19 @@ const LoginRoute = LoginRouteImport.update({
   path: '/login',
   getParentRoute: () => rootRouteImport,
 } as any)
+const PerfilRoute = PerfilRouteImport.update({
+  id: '/perfil',
+  path: '/perfil',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const PerfilNuevoRoute = PerfilNuevoRouteImport.update({
   id: '/perfil-nuevo',
   path: '/perfil-nuevo',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const RankingRoute = RankingRouteImport.update({
+  id: '/ranking',
+  path: '/ranking',
   getParentRoute: () => rootRouteImport,
 } as any)
 const RegistroRoute = RegistroRouteImport.update({
@@ -70,17 +84,32 @@ const MisionMisionIdJugarRoute = MisionMisionIdJugarRouteImport.update({
   path: '/mision/$misionId/jugar',
   getParentRoute: () => rootRouteImport,
 } as any)
+const MisionMisionIdResultadosRoute =
+  MisionMisionIdResultadosRouteImport.update({
+    id: '/mision/$misionId/resultados',
+    path: '/mision/$misionId/resultados',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const MisionMisionIdRetoRoute = MisionMisionIdRetoRouteImport.update({
+  id: '/mision/$misionId/reto',
+  path: '/mision/$misionId/reto',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/avatar': typeof AvatarRoute
   '/bienvenida': typeof BienvenidaRoute
   '/login': typeof LoginRoute
+  '/perfil': typeof PerfilRoute
   '/perfil-nuevo': typeof PerfilNuevoRoute
+  '/ranking': typeof RankingRoute
   '/registro': typeof RegistroRoute
   '/temporadas': typeof TemporadasRoute
   '/tutorial': typeof TutorialRoute
   '/mision/$misionId/jugar': typeof MisionMisionIdJugarRoute
+  '/mision/$misionId/resultados': typeof MisionMisionIdResultadosRoute
+  '/mision/$misionId/reto': typeof MisionMisionIdRetoRoute
   '/mision/$misionId/': typeof MisionMisionIdIndexRoute
 }
 export interface FileRoutesByTo {
@@ -88,11 +117,15 @@ export interface FileRoutesByTo {
   '/avatar': typeof AvatarRoute
   '/bienvenida': typeof BienvenidaRoute
   '/login': typeof LoginRoute
+  '/perfil': typeof PerfilRoute
   '/perfil-nuevo': typeof PerfilNuevoRoute
+  '/ranking': typeof RankingRoute
   '/registro': typeof RegistroRoute
   '/temporadas': typeof TemporadasRoute
   '/tutorial': typeof TutorialRoute
   '/mision/$misionId/jugar': typeof MisionMisionIdJugarRoute
+  '/mision/$misionId/resultados': typeof MisionMisionIdResultadosRoute
+  '/mision/$misionId/reto': typeof MisionMisionIdRetoRoute
   '/mision/$misionId': typeof MisionMisionIdIndexRoute
 }
 export interface FileRoutesById {
@@ -101,11 +134,15 @@ export interface FileRoutesById {
   '/avatar': typeof AvatarRoute
   '/bienvenida': typeof BienvenidaRoute
   '/login': typeof LoginRoute
+  '/perfil': typeof PerfilRoute
   '/perfil-nuevo': typeof PerfilNuevoRoute
+  '/ranking': typeof RankingRoute
   '/registro': typeof RegistroRoute
   '/temporadas': typeof TemporadasRoute
   '/tutorial': typeof TutorialRoute
   '/mision/$misionId/jugar': typeof MisionMisionIdJugarRoute
+  '/mision/$misionId/resultados': typeof MisionMisionIdResultadosRoute
+  '/mision/$misionId/reto': typeof MisionMisionIdRetoRoute
   '/mision/$misionId/': typeof MisionMisionIdIndexRoute
 }
 export interface FileRouteTypes {
@@ -115,11 +152,15 @@ export interface FileRouteTypes {
     | '/avatar'
     | '/bienvenida'
     | '/login'
+    | '/perfil'
     | '/perfil-nuevo'
+    | '/ranking'
     | '/registro'
     | '/temporadas'
     | '/tutorial'
     | '/mision/$misionId/jugar'
+    | '/mision/$misionId/resultados'
+    | '/mision/$misionId/reto'
     | '/mision/$misionId/'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -127,11 +168,15 @@ export interface FileRouteTypes {
     | '/avatar'
     | '/bienvenida'
     | '/login'
+    | '/perfil'
     | '/perfil-nuevo'
+    | '/ranking'
     | '/registro'
     | '/temporadas'
     | '/tutorial'
     | '/mision/$misionId/jugar'
+    | '/mision/$misionId/resultados'
+    | '/mision/$misionId/reto'
     | '/mision/$misionId'
   id:
     | '__root__'
@@ -139,11 +184,15 @@ export interface FileRouteTypes {
     | '/avatar'
     | '/bienvenida'
     | '/login'
+    | '/perfil'
     | '/perfil-nuevo'
+    | '/ranking'
     | '/registro'
     | '/temporadas'
     | '/tutorial'
     | '/mision/$misionId/jugar'
+    | '/mision/$misionId/resultados'
+    | '/mision/$misionId/reto'
     | '/mision/$misionId/'
   fileRoutesById: FileRoutesById
 }
@@ -152,11 +201,15 @@ export interface RootRouteChildren {
   AvatarRoute: typeof AvatarRoute
   BienvenidaRoute: typeof BienvenidaRoute
   LoginRoute: typeof LoginRoute
+  PerfilRoute: typeof PerfilRoute
   PerfilNuevoRoute: typeof PerfilNuevoRoute
+  RankingRoute: typeof RankingRoute
   RegistroRoute: typeof RegistroRoute
   TemporadasRoute: typeof TemporadasRoute
   TutorialRoute: typeof TutorialRoute
   MisionMisionIdJugarRoute: typeof MisionMisionIdJugarRoute
+  MisionMisionIdResultadosRoute: typeof MisionMisionIdResultadosRoute
+  MisionMisionIdRetoRoute: typeof MisionMisionIdRetoRoute
   MisionMisionIdIndexRoute: typeof MisionMisionIdIndexRoute
 }
 
@@ -190,11 +243,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof LoginRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/perfil': {
+      id: '/perfil'
+      path: '/perfil'
+      fullPath: '/perfil'
+      preLoaderRoute: typeof PerfilRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/perfil-nuevo': {
       id: '/perfil-nuevo'
       path: '/perfil-nuevo'
       fullPath: '/perfil-nuevo'
       preLoaderRoute: typeof PerfilNuevoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/ranking': {
+      id: '/ranking'
+      path: '/ranking'
+      fullPath: '/ranking'
+      preLoaderRoute: typeof RankingRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/registro': {
@@ -232,6 +299,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof MisionMisionIdJugarRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/mision/$misionId/resultados': {
+      id: '/mision/$misionId/resultados'
+      path: '/mision/$misionId/resultados'
+      fullPath: '/mision/$misionId/resultados'
+      preLoaderRoute: typeof MisionMisionIdResultadosRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/mision/$misionId/reto': {
+      id: '/mision/$misionId/reto'
+      path: '/mision/$misionId/reto'
+      fullPath: '/mision/$misionId/reto'
+      preLoaderRoute: typeof MisionMisionIdRetoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -240,11 +321,15 @@ const rootRouteChildren: RootRouteChildren = {
   AvatarRoute: AvatarRoute,
   BienvenidaRoute: BienvenidaRoute,
   LoginRoute: LoginRoute,
+  PerfilRoute: PerfilRoute,
   PerfilNuevoRoute: PerfilNuevoRoute,
+  RankingRoute: RankingRoute,
   RegistroRoute: RegistroRoute,
   TemporadasRoute: TemporadasRoute,
   TutorialRoute: TutorialRoute,
   MisionMisionIdJugarRoute: MisionMisionIdJugarRoute,
+  MisionMisionIdResultadosRoute: MisionMisionIdResultadosRoute,
+  MisionMisionIdRetoRoute: MisionMisionIdRetoRoute,
   MisionMisionIdIndexRoute: MisionMisionIdIndexRoute,
 }
 export const routeTree = rootRouteImport

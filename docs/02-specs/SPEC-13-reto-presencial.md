@@ -1,6 +1,6 @@
 # SPEC-13 — Reto presencial (Misión 5)
 
-- **Pantalla:** P-13 · **Sprint:** S-3 · **Estado:** Pendiente
+- **Pantalla:** P-13 · **Sprint:** S-3 · **Estado:** Hecho (10 de agosto de 2026)
 
 **Propósito.** Llevar el aprendizaje al mundo real. Es la validación conductual más
 importante del prototipo.
@@ -10,6 +10,6 @@ experiencia. Simulación de carga de foto. Invitación a sumar amigos como embaj
 
 **Criterios de aceptación**
 
-- [ ] La carga de foto es simulada; el prototipo no persiste el archivo.
-- [ ] Se comunica claramente la acción esperada en el mundo real.
-- [ ] Incluye el llamado a invitar amigos.
+- [x] La carga de foto es simulada; el prototipo no persiste el archivo.
+- [x] Se comunica claramente la acción esperada en el mundo real.
+- [x] Incluye el llamado a invitar amigos.

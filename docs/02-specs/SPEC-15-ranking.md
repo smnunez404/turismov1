@@ -1,6 +1,6 @@
 # SPEC-15 — Ranking
 
-- **Pantalla:** P-15 · **Sprint:** S-3 · **Estado:** Pendiente
+- **Pantalla:** P-15 · **Sprint:** S-3 · **Estado:** Hecho (10 de agosto de 2026)
 
 **Propósito.** Motivación social y comparación.
 
@@ -9,5 +9,5 @@ usuario actual destacada.
 
 **Criterios de aceptación**
 
-- [ ] Los datos son claramente ficticios pero verosímiles.
-- [ ] La posición del usuario se destaca visualmente.
+- [x] Los datos son claramente ficticios pero verosímiles.
+- [x] La posición del usuario se destaca visualmente.
