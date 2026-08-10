@@ -79,3 +79,15 @@ necesita affordances físicas y lecturas rápidas en móvil.
 **Implicancias.** Fuentes cambian a Baloo 2 + Nunito; se crean utilidades `btn-duo`,
 `card-duo` y `barra-duo` en `src/styles.css` y se aplican en todas las pantallas
 (P-01 a P-18). No cambia ninguna regla de negocio ni el modelo de datos.
+
+## 10 de agosto de 2026 — Paleta "Selva vibrante", ilustraciones y menú inferior
+
+- **Paleta.** Se cambia a verde selva saturado + lima + dorado sol sobre blanco (referencia
+  Duolingo), decidido por la cliente. Se agrega el token `--lima`. Motivo: la paleta crema
+  anterior se leía editorial y poco "juego".
+- **Ilustraciones.** Se generan 12 ilustraciones planas propias (5 temporadas, 5 misiones,
+  hero y marco de certificado) en lugar de fotografía de stock, para mantener coherencia de
+  marca y evitar derechos de imagen.
+- **Navegación.** Se agrega barra inferior fija de 4 ítems (Aprender, Ranking, Logros,
+  Perfil) en las pantallas de recorrido, y se elimina la grilla de accesos del mapa de
+  temporadas por redundante.
