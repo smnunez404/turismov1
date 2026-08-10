@@ -23,7 +23,9 @@ seis imágenes fijas.
 - [x] El avatar armado aparece en Perfil, Bienvenida, Mapa, Ranking, Liga, Duelo y Ruleta.
 - [x] Las piezas bloqueadas se ven apagadas, con candado y mensaje de la ciudad que las abre.
 - [x] La pantalla funciona en 390 px sin desbordamiento horizontal.
-- [x] Los presets antiguos siguen funcionando como respaldo para participantes sintéticos.
+- [x] Los participantes sintéticos (ranking, liga, duelo) también se dibujan por capas,
+      con una combinación estable derivada de su nombre (`avatarSintetico`). Ya no se
+      muestran los PNG antiguos en ninguna pantalla.
 
 **Notas.** Catálogo en `src/data/avatar-piezas.ts`; tipos `AvatarPersonalizado`,
 `PiezaAvatar` y `RegionAvatar` en `src/data/tipos.ts`. Estado en `SessionContext`
