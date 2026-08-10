@@ -28,7 +28,7 @@ export const Route = createFileRoute("/mision/$misionId/reto")({
 });
 
 const lugares = [
-  { id: "plaza", nombre: "Plaza 24 de Septiembre", icono: "reloj" },
+  { id: "plaza", nombre: "Plaza 24 de Septiembre", icono: "plaza" },
   { id: "catedral", nombre: "Catedral Basílica de San Lorenzo", icono: "iglesia" },
   { id: "lomas", nombre: "Lomas de Arena", icono: "desierto" },
   { id: "botanico", nombre: "Jardín Botánico", icono: "naturaleza" },

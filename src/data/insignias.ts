@@ -14,7 +14,7 @@ export const insignias: Insignia[] = [
     nombre: "Alma de la Plaza",
     descripcion: "El casco viejo ya no tiene secretos para vos.",
     criterio: "Completar la Misión 2",
-    icono: "reloj",
+    icono: "plaza",
   },
   {
     id: "i-explorador",
