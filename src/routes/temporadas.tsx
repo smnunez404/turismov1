@@ -40,17 +40,17 @@ function MapaTemporadas() {
 
   return (
     <Pantalla className="gap-6 pb-12">
-      <header className="flex items-center justify-between">
-        <div>
+      <header className="grid grid-cols-[minmax(0,1fr)_auto] items-center gap-3">
+        <div className="min-w-0">
           <p className="text-xs font-semibold tracking-widest text-secondary uppercase">
             Tu recorrido
           </p>
-          <h1 className="text-2xl font-bold text-foreground">
+          <h1 className="truncate text-2xl font-extrabold text-foreground">
             Hola, {usuario.nombre || "Embajador"}
           </h1>
         </div>
-        <div className="flex items-center gap-3">
-          <span className="rounded-full bg-accent/25 px-3 py-1 text-sm font-semibold text-accent-foreground">
+        <div className="flex shrink-0 items-center gap-2">
+          <span className="rounded-full border-2 border-b-4 border-accent/60 bg-accent/25 px-3 py-1 text-sm font-extrabold text-accent-foreground">
             {usuario.puntos} pts
           </span>
           <Link to="/perfil" aria-label="Ir a mi perfil">
@@ -86,7 +86,7 @@ function MapaTemporadas() {
         </Link>
       </nav>
 
-      <section className="card-duo p-5">
+      <section className="card-duo card-duo-activa p-5">
         <div className="flex items-start gap-3">
           <IconoPastilla nombre={activa.icono} tono="primary" />
           <div>
@@ -105,11 +105,8 @@ function MapaTemporadas() {
               {avance.completadas} de {avance.total} misiones
             </span>
           </div>
-          <div className="mt-1.5 h-2 rounded-full bg-muted">
-            <div
-              className="h-2 rounded-full bg-primary transition-all"
-              style={{ width: `${avance.porcentaje}%` }}
-            />
+          <div className="barra-duo mt-1.5">
+            <span className="barra-duo-fill" style={{ width: `${avance.porcentaje}%` }} />
           </div>
         </div>
 
@@ -120,24 +117,24 @@ function MapaTemporadas() {
             const contenido = (
               <>
                 <span
-                  className={`flex h-9 w-9 shrink-0 items-center justify-center rounded-full text-sm font-bold ${
+                  className={`flex h-12 w-12 shrink-0 items-center justify-center rounded-full border-b-4 text-base font-extrabold ${
                     estado === "completada"
-                      ? "bg-primary text-primary-foreground"
+                      ? "border-primary/70 bg-primary text-primary-foreground"
                       : bloqueada
-                        ? "bg-muted text-muted-foreground"
-                        : "bg-accent text-accent-foreground"
+                        ? "border-border bg-muted text-muted-foreground"
+                        : "border-accent/70 bg-accent text-accent-foreground"
                   }`}
                 >
                   {estado === "completada" ? (
-                    <Icono nombre="check" className="h-4.5 w-4.5" />
+                    <Icono nombre="check" className="h-5 w-5" />
                   ) : bloqueada ? (
-                    <Icono nombre="bloqueado" className="h-4 w-4" />
+                    <Icono nombre="bloqueado" className="h-5 w-5" />
                   ) : (
                     mision.orden
                   )}
                 </span>
-                <span className="flex-1">
-                  <span className="block text-sm font-semibold text-foreground">
+                <span className="min-w-0 flex-1">
+                  <span className="block text-base font-extrabold text-foreground">
                     {mision.nombre}
                   </span>
                   <span className="block text-xs text-muted-foreground">
@@ -152,7 +149,7 @@ function MapaTemporadas() {
                 {bloqueada ? (
                   <div
                     aria-disabled="true"
-                    className="flex items-center gap-3 rounded-xl border border-border bg-muted/50 p-3 opacity-70"
+                    className="flex items-center gap-3 rounded-2xl border-2 border-b-4 border-border bg-muted/50 p-3 opacity-70"
                   >
                     {contenido}
                   </div>
@@ -160,7 +157,7 @@ function MapaTemporadas() {
                   <Link
                     to="/mision/$misionId"
                     params={{ misionId: mision.id }}
-                    className="flex items-center gap-3 rounded-xl border border-border bg-background p-3 transition-colors hover:border-primary"
+                    className="flex items-center gap-3 rounded-2xl border-2 border-b-4 border-border bg-card p-3 transition-colors hover:border-primary active:translate-y-[2px]"
                   >
                     {contenido}
                   </Link>
