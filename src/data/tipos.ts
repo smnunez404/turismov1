@@ -27,12 +27,7 @@ export type Mision = {
   puntajeMaximo: number;
 };
 
-export type TipoPregunta =
-  | "multiple"
-  | "verdadero-falso"
-  | "imagen"
-  | "caso"
-  | "reto";
+export type TipoPregunta = "multiple" | "verdadero-falso" | "imagen" | "caso" | "reto";
 
 export type Opcion = {
   id: string;

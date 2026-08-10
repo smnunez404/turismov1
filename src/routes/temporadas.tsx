@@ -69,85 +69,85 @@ function MapaTemporadas() {
           className="h-32 w-full object-cover"
         />
         <div className="p-5">
-        <div className="flex items-start gap-3">
-          <IconoPastilla nombre={activa.icono} tono="primary" />
-          <div>
-            <p className="text-xs font-semibold tracking-widest text-primary uppercase">
-              Temporada 1 · Activa
-            </p>
-            <h2 className="text-xl font-bold text-foreground">{activa.nombre}</h2>
-            <p className="text-sm text-muted-foreground">{activa.descripcion}</p>
+          <div className="flex items-start gap-3">
+            <IconoPastilla nombre={activa.icono} tono="primary" />
+            <div>
+              <p className="text-xs font-semibold tracking-widest text-primary uppercase">
+                Temporada 1 · Activa
+              </p>
+              <h2 className="text-xl font-bold text-foreground">{activa.nombre}</h2>
+              <p className="text-sm text-muted-foreground">{activa.descripcion}</p>
+            </div>
           </div>
-        </div>
 
-        <div className="mt-4">
-          <div className="flex justify-between text-xs text-muted-foreground">
-            <span>Progreso de temporada</span>
-            <span>
-              {avance.completadas} de {avance.total} misiones
-            </span>
+          <div className="mt-4">
+            <div className="flex justify-between text-xs text-muted-foreground">
+              <span>Progreso de temporada</span>
+              <span>
+                {avance.completadas} de {avance.total} misiones
+              </span>
+            </div>
+            <div className="barra-duo mt-1.5">
+              <span className="barra-duo-fill" style={{ width: `${avance.porcentaje}%` }} />
+            </div>
           </div>
-          <div className="barra-duo mt-1.5">
-            <span className="barra-duo-fill" style={{ width: `${avance.porcentaje}%` }} />
-          </div>
-        </div>
 
-        <ul className="mt-5 flex flex-col gap-3">
-          {lista.map((mision) => {
-            const estado = estadoDeMision(mision, usuario);
-            const bloqueada = estado === "bloqueada";
-            const contenido = (
-              <>
-                <span
-                  className={`flex h-12 w-12 shrink-0 items-center justify-center rounded-full border-b-4 text-base font-extrabold ${
-                    estado === "completada"
-                      ? "border-primary/70 bg-primary text-primary-foreground"
-                      : bloqueada
-                        ? "border-border bg-muted text-muted-foreground"
-                        : "border-accent/70 bg-accent text-accent-foreground"
-                  }`}
-                >
-                  {estado === "completada" ? (
-                    <Icono nombre="check" className="h-5 w-5" />
-                  ) : bloqueada ? (
-                    <Icono nombre="bloqueado" className="h-5 w-5" />
+          <ul className="mt-5 flex flex-col gap-3">
+            {lista.map((mision) => {
+              const estado = estadoDeMision(mision, usuario);
+              const bloqueada = estado === "bloqueada";
+              const contenido = (
+                <>
+                  <span
+                    className={`flex h-12 w-12 shrink-0 items-center justify-center rounded-full border-b-4 text-base font-extrabold ${
+                      estado === "completada"
+                        ? "border-primary/70 bg-primary text-primary-foreground"
+                        : bloqueada
+                          ? "border-border bg-muted text-muted-foreground"
+                          : "border-accent/70 bg-accent text-accent-foreground"
+                    }`}
+                  >
+                    {estado === "completada" ? (
+                      <Icono nombre="check" className="h-5 w-5" />
+                    ) : bloqueada ? (
+                      <Icono nombre="bloqueado" className="h-5 w-5" />
+                    ) : (
+                      mision.orden
+                    )}
+                  </span>
+                  <span className="min-w-0 flex-1">
+                    <span className="block text-base font-extrabold text-foreground">
+                      {mision.nombre}
+                    </span>
+                    <span className="block text-xs text-muted-foreground">
+                      {etiquetaEstado[estado]} · {mision.puntajeMaximo} pts
+                    </span>
+                  </span>
+                </>
+              );
+
+              return (
+                <li key={mision.id}>
+                  {bloqueada ? (
+                    <div
+                      aria-disabled="true"
+                      className="flex items-center gap-3 rounded-2xl border-2 border-b-4 border-border bg-muted/50 p-3 opacity-70"
+                    >
+                      {contenido}
+                    </div>
                   ) : (
-                    mision.orden
+                    <Link
+                      to="/mision/$misionId"
+                      params={{ misionId: mision.id }}
+                      className="flex items-center gap-3 rounded-2xl border-2 border-b-4 border-border bg-card p-3 transition-colors hover:border-primary active:translate-y-[2px]"
+                    >
+                      {contenido}
+                    </Link>
                   )}
-                </span>
-                <span className="min-w-0 flex-1">
-                  <span className="block text-base font-extrabold text-foreground">
-                    {mision.nombre}
-                  </span>
-                  <span className="block text-xs text-muted-foreground">
-                    {etiquetaEstado[estado]} · {mision.puntajeMaximo} pts
-                  </span>
-                </span>
-              </>
-            );
-
-            return (
-              <li key={mision.id}>
-                {bloqueada ? (
-                  <div
-                    aria-disabled="true"
-                    className="flex items-center gap-3 rounded-2xl border-2 border-b-4 border-border bg-muted/50 p-3 opacity-70"
-                  >
-                    {contenido}
-                  </div>
-                ) : (
-                  <Link
-                    to="/mision/$misionId"
-                    params={{ misionId: mision.id }}
-                    className="flex items-center gap-3 rounded-2xl border-2 border-b-4 border-border bg-card p-3 transition-colors hover:border-primary active:translate-y-[2px]"
-                  >
-                    {contenido}
-                  </Link>
-                )}
-              </li>
-            );
-          })}
-        </ul>
+                </li>
+              );
+            })}
+          </ul>
         </div>
       </section>
 
@@ -169,12 +169,12 @@ function MapaTemporadas() {
                   className="h-20 w-full object-cover opacity-60 grayscale"
                 />
                 <div className="p-4">
-                <IconoPastilla nombre={t.icono} tono="muted" />
-                <p className="mt-1 text-sm font-bold text-foreground">{t.nombre}</p>
-                <p className="text-xs text-muted-foreground">{t.descripcion}</p>
-                <span className="mt-2 inline-flex items-center gap-1 rounded-full bg-muted px-2 py-0.5 text-[11px] font-semibold text-muted-foreground">
-                  <Icono nombre="bloqueado" className="h-3 w-3" /> Próximamente
-                </span>
+                  <IconoPastilla nombre={t.icono} tono="muted" />
+                  <p className="mt-1 text-sm font-bold text-foreground">{t.nombre}</p>
+                  <p className="text-xs text-muted-foreground">{t.descripcion}</p>
+                  <span className="mt-2 inline-flex items-center gap-1 rounded-full bg-muted px-2 py-0.5 text-[11px] font-semibold text-muted-foreground">
+                    <Icono nombre="bloqueado" className="h-3 w-3" /> Próximamente
+                  </span>
                 </div>
               </li>
             ))}

@@ -382,8 +382,7 @@ export const preguntas: Pregunta[] = [
       { id: "f", texto: "Falso" },
     ],
     respuestaCorrectaId: "v",
-    retroalimentacion:
-      "Con más de 370.000 km², Santa Cruz es el departamento más grande del país.",
+    retroalimentacion: "Con más de 370.000 km², Santa Cruz es el departamento más grande del país.",
     puntaje: 10,
   },
 
@@ -401,8 +400,7 @@ export const preguntas: Pregunta[] = [
       { id: "d", texto: "Decirle que use su celular y seguir de largo" },
     ],
     respuestaCorrectaId: "a",
-    retroalimentacion:
-      "La honestidad amable deja mejor recuerdo que una indicación equivocada.",
+    retroalimentacion: "La honestidad amable deja mejor recuerdo que una indicación equivocada.",
     puntaje: 10,
   },
   {
@@ -417,8 +415,7 @@ export const preguntas: Pregunta[] = [
       { id: "d", texto: "Pique macho de La Paz" },
     ],
     respuestaCorrectaId: "a",
-    retroalimentacion:
-      "Majadito, sonso, cuñapé y masaco: la mesa cruceña se explica sola.",
+    retroalimentacion: "Majadito, sonso, cuñapé y masaco: la mesa cruceña se explica sola.",
     puntaje: 10,
   },
   {
@@ -447,16 +444,14 @@ export const preguntas: Pregunta[] = [
       { id: "d", texto: "Bufanda gruesa", icono: "abrigo" },
     ],
     respuestaCorrectaId: "a",
-    retroalimentacion:
-      "Calor y humedad: hidratarse y cubrirse del sol es el consejo número uno.",
+    retroalimentacion: "Calor y humedad: hidratarse y cubrirse del sol es el consejo número uno.",
     puntaje: 10,
   },
   {
     id: "m4p5",
     misionId: "m4",
     tipo: "caso",
-    enunciado:
-      "Una familia con niños te pide una recomendación de tarde. ¿Qué proponés?",
+    enunciado: "Una familia con niños te pide una recomendación de tarde. ¿Qué proponés?",
     opciones: [
       { id: "a", texto: "El Jardín Botánico o el Güembé" },
       { id: "b", texto: "Una discoteca" },
@@ -464,8 +459,7 @@ export const preguntas: Pregunta[] = [
       { id: "d", texto: "Un recorrido por oficinas públicas" },
     ],
     respuestaCorrectaId: "a",
-    retroalimentacion:
-      "Leer a quién tenés adelante es la mitad del trabajo de un buen anfitrión.",
+    retroalimentacion: "Leer a quién tenés adelante es la mitad del trabajo de un buen anfitrión.",
     puntaje: 10,
   },
   {
@@ -510,8 +504,7 @@ export const preguntas: Pregunta[] = [
       { id: "d", texto: "Trabajar en turismo" },
     ],
     respuestaCorrectaId: "a",
-    retroalimentacion:
-      "No hace falta ser guía: alcanza con conocer, cuidar y contar con orgullo.",
+    retroalimentacion: "No hace falta ser guía: alcanza con conocer, cuidar y contar con orgullo.",
     puntaje: 10,
   },
 
@@ -520,12 +513,10 @@ export const preguntas: Pregunta[] = [
     id: "m5p1",
     misionId: "m5",
     tipo: "reto",
-    enunciado:
-      "Visitá un lugar emblemático de Santa Cruz, tomá una foto y contá tu experiencia.",
+    enunciado: "Visitá un lugar emblemático de Santa Cruz, tomá una foto y contá tu experiencia.",
     opciones: [],
     respuestaCorrectaId: "",
-    retroalimentacion:
-      "El reto se completa en el mundo real: es la misión final de la temporada.",
+    retroalimentacion: "El reto se completa en el mundo real: es la misión final de la temporada.",
     puntaje: 50,
   },
 ];

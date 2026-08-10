@@ -41,10 +41,7 @@ function Splash() {
         aria-hidden="true"
         className="pointer-events-none absolute inset-0 h-full w-full object-cover opacity-35"
       />
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute inset-0 bg-primary/70"
-      />
+      <div aria-hidden="true" className="pointer-events-none absolute inset-0 bg-primary/70" />
       <div className="relative animate-in fade-in zoom-in-95 duration-700">
         <img
           src={marca}

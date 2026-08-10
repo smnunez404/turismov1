@@ -36,7 +36,7 @@ function Perfil() {
   const posicion = participantesRanking.filter((p) => p.puntaje > usuario.puntos).length + 1;
 
   return (
-    <Pantalla className="gap-6 pb-12">
+    <Pantalla conNav className="gap-6">
       <header className="card-duo flex flex-col items-center gap-3 p-6 text-center">
         <AvatarInsignia avatarId={usuario.avatarId} tamano="lg" />
         <div>
