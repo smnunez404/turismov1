@@ -91,3 +91,18 @@ necesita affordances físicas y lecturas rápidas en móvil.
 - **Navegación.** Se agrega barra inferior fija de 4 ítems (Aprender, Ranking, Logros,
   Perfil) en las pantallas de recorrido, y se elimina la grilla de accesos del mapa de
   temporadas por redundante.
+
+## Fase 2 — Modo Preguntados y modelo de negocio
+
+- **Se adopta la mecánica de Preguntados** (ruleta de categorías, medallas y duelo) como
+  capa diaria sobre las misiones narrativas, porque el MVP se agotaba al terminar la temporada.
+- **Liga semanal con reinicio los lunes** en vez de un ranking histórico único: evita que
+  los usuarios nuevos queden descolgados de forma permanente. El ranking general se conserva.
+- **Equipos por zona de Santa Cruz** como motor social, apoyados en la identidad de barrio.
+- **Auspiciadores nunca intrusivos**: entran como categoría presentada, premio de liga,
+  cupón o vida invitada. No hay banners ni interrupciones dentro de una pregunta.
+- **Auspiciadores y premios ficticios** hasta cerrar acuerdos comerciales; la interfaz lo
+  declara de forma explícita.
+- **Notificaciones fuera del prototipo** (SPEC-29): requieren backend y consentimiento.
+- **Menú inferior ampliado a 5 ítems** (Aprender, Jugar, Liga, Premios, Perfil), con
+  etiquetas de 10 px para no colisionar en pantallas de 390 px.

@@ -40,3 +40,12 @@
 | "Agreguemos una misión más" | Cambio de alcance: nueva propuesta y cronograma. |
 | "Cambiemos este color / este texto" | Ajuste menor: se aplica y se registra. |
 | "Subamos la app a la tienda" | Fuera de alcance; corresponde a etapa posterior. |
+
+## Fase 2 (modo Preguntados)
+
+- No hay multijugador real: el rival del duelo es simulado con una probabilidad de acierto.
+- No hay canje real de cupones ni integración con puntos de venta; el código es decorativo.
+- No hay pagos, suscripciones ni facturación a auspiciadores.
+- No hay notificaciones push: el plan de retención (SPEC-29) queda documentado, no construido.
+- Vidas, racha, medallas, liga y cupones viven en memoria; al recargar se reinician.
+- Los auspiciadores, premios y marcadores de equipos son datos sintéticos de demostración.

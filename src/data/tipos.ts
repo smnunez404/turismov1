@@ -68,6 +68,76 @@ export type ProgresoMision = {
   aciertos: number;
 };
 
+// ---------- Fase 2: modo Preguntados, retención y auspicios ----------
+
+export type Categoria = {
+  id: string;
+  nombre: string;
+  descripcion: string;
+  icono: string;
+  tono: "primary" | "accent" | "secondary" | "muted";
+  auspiciadorId?: string;
+};
+
+export type PreguntaRapida = {
+  id: string;
+  categoriaId: string;
+  enunciado: string;
+  opciones: Opcion[];
+  respuestaCorrectaId: string;
+  retroalimentacion: string;
+};
+
+export type Equipo = {
+  id: string;
+  nombre: string;
+  zona: string;
+  icono: string;
+  puntosBase: number;
+  integrantes: number;
+};
+
+export type Auspiciador = {
+  id: string;
+  nombre: string;
+  rubro: string;
+  icono: string;
+  formato: "categoria" | "reto" | "premio-liga" | "vidas";
+  mensaje: string;
+};
+
+export type Premio = {
+  id: string;
+  auspiciadorId: string;
+  titulo: string;
+  detalle: string;
+  costoPuntos: number;
+  vigencia: string;
+  condicion: string;
+};
+
+export type Cupon = {
+  id: string;
+  premioId: string;
+  codigo: string;
+  obtenido: string;
+  usado: boolean;
+};
+
+export type Rival = {
+  id: string;
+  nombre: string;
+  avatarId: string;
+  destreza: number; // 0..1 probabilidad de acertar
+  frase: string;
+};
+
+export type Racha = {
+  dias: number;
+  mejorRacha: number;
+  preguntaDelDiaHecha: boolean;
+};
+
 export type UsuarioSesion = {
   nombre: string;
   correo: string;
@@ -76,4 +146,12 @@ export type UsuarioSesion = {
   insignias: string[];
   progreso: Record<string, ProgresoMision>;
   tutorialVisto: boolean;
+  // Fase 2
+  vidas: number;
+  racha: Racha;
+  puntosLiga: number;
+  medallas: Record<string, number>; // categoriaId -> aciertos acumulados
+  equipoId: string | null;
+  cupones: Cupon[];
+  duelosGanados: number;
 };

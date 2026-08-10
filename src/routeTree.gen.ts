@@ -15,13 +15,20 @@ import { Route as AvatarRouteImport } from './routes/avatar'
 import { Route as BienvenidaRouteImport } from './routes/bienvenida'
 import { Route as CertificadoRouteImport } from './routes/certificado'
 import { Route as CompartirRouteImport } from './routes/compartir'
+import { Route as DueloRouteImport } from './routes/duelo'
+import { Route as EquiposRouteImport } from './routes/equipos'
+import { Route as LigaRouteImport } from './routes/liga'
 import { Route as LoginRouteImport } from './routes/login'
 import { Route as PerfilRouteImport } from './routes/perfil'
 import { Route as PerfilNuevoRouteImport } from './routes/perfil-nuevo'
 import { Route as RankingRouteImport } from './routes/ranking'
+import { Route as RecompensasRouteImport } from './routes/recompensas'
 import { Route as RegistroRouteImport } from './routes/registro'
 import { Route as TemporadasRouteImport } from './routes/temporadas'
 import { Route as TutorialRouteImport } from './routes/tutorial'
+import { Route as JugarIndexRouteImport } from './routes/jugar.index'
+import { Route as JugarDiaRouteImport } from './routes/jugar.dia'
+import { Route as JugarRuletaRouteImport } from './routes/jugar.ruleta'
 import { Route as MisionMisionIdIndexRouteImport } from './routes/mision.$misionId.index'
 import { Route as MisionMisionIdJugarRouteImport } from './routes/mision.$misionId.jugar'
 import { Route as MisionMisionIdResultadosRouteImport } from './routes/mision.$misionId.resultados'
@@ -57,6 +64,21 @@ const CompartirRoute = CompartirRouteImport.update({
   path: '/compartir',
   getParentRoute: () => rootRouteImport,
 } as any)
+const DueloRoute = DueloRouteImport.update({
+  id: '/duelo',
+  path: '/duelo',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EquiposRoute = EquiposRouteImport.update({
+  id: '/equipos',
+  path: '/equipos',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LigaRoute = LigaRouteImport.update({
+  id: '/liga',
+  path: '/liga',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const LoginRoute = LoginRouteImport.update({
   id: '/login',
   path: '/login',
@@ -77,6 +99,11 @@ const RankingRoute = RankingRouteImport.update({
   path: '/ranking',
   getParentRoute: () => rootRouteImport,
 } as any)
+const RecompensasRoute = RecompensasRouteImport.update({
+  id: '/recompensas',
+  path: '/recompensas',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const RegistroRoute = RegistroRouteImport.update({
   id: '/registro',
   path: '/registro',
@@ -90,6 +117,21 @@ const TemporadasRoute = TemporadasRouteImport.update({
 const TutorialRoute = TutorialRouteImport.update({
   id: '/tutorial',
   path: '/tutorial',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const JugarIndexRoute = JugarIndexRouteImport.update({
+  id: '/jugar/',
+  path: '/jugar/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const JugarDiaRoute = JugarDiaRouteImport.update({
+  id: '/jugar/dia',
+  path: '/jugar/dia',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const JugarRuletaRoute = JugarRuletaRouteImport.update({
+  id: '/jugar/ruleta',
+  path: '/jugar/ruleta',
   getParentRoute: () => rootRouteImport,
 } as any)
 const MisionMisionIdIndexRoute = MisionMisionIdIndexRouteImport.update({
@@ -121,13 +163,20 @@ export interface FileRoutesByFullPath {
   '/bienvenida': typeof BienvenidaRoute
   '/certificado': typeof CertificadoRoute
   '/compartir': typeof CompartirRoute
+  '/duelo': typeof DueloRoute
+  '/equipos': typeof EquiposRoute
+  '/liga': typeof LigaRoute
   '/login': typeof LoginRoute
   '/perfil': typeof PerfilRoute
   '/perfil-nuevo': typeof PerfilNuevoRoute
   '/ranking': typeof RankingRoute
+  '/recompensas': typeof RecompensasRoute
   '/registro': typeof RegistroRoute
   '/temporadas': typeof TemporadasRoute
   '/tutorial': typeof TutorialRoute
+  '/jugar/dia': typeof JugarDiaRoute
+  '/jugar/ruleta': typeof JugarRuletaRoute
+  '/jugar/': typeof JugarIndexRoute
   '/mision/$misionId/jugar': typeof MisionMisionIdJugarRoute
   '/mision/$misionId/resultados': typeof MisionMisionIdResultadosRoute
   '/mision/$misionId/reto': typeof MisionMisionIdRetoRoute
@@ -140,13 +189,20 @@ export interface FileRoutesByTo {
   '/bienvenida': typeof BienvenidaRoute
   '/certificado': typeof CertificadoRoute
   '/compartir': typeof CompartirRoute
+  '/duelo': typeof DueloRoute
+  '/equipos': typeof EquiposRoute
+  '/liga': typeof LigaRoute
   '/login': typeof LoginRoute
   '/perfil': typeof PerfilRoute
   '/perfil-nuevo': typeof PerfilNuevoRoute
   '/ranking': typeof RankingRoute
+  '/recompensas': typeof RecompensasRoute
   '/registro': typeof RegistroRoute
   '/temporadas': typeof TemporadasRoute
   '/tutorial': typeof TutorialRoute
+  '/jugar/dia': typeof JugarDiaRoute
+  '/jugar/ruleta': typeof JugarRuletaRoute
+  '/jugar': typeof JugarIndexRoute
   '/mision/$misionId/jugar': typeof MisionMisionIdJugarRoute
   '/mision/$misionId/resultados': typeof MisionMisionIdResultadosRoute
   '/mision/$misionId/reto': typeof MisionMisionIdRetoRoute
@@ -160,13 +216,20 @@ export interface FileRoutesById {
   '/bienvenida': typeof BienvenidaRoute
   '/certificado': typeof CertificadoRoute
   '/compartir': typeof CompartirRoute
+  '/duelo': typeof DueloRoute
+  '/equipos': typeof EquiposRoute
+  '/liga': typeof LigaRoute
   '/login': typeof LoginRoute
   '/perfil': typeof PerfilRoute
   '/perfil-nuevo': typeof PerfilNuevoRoute
   '/ranking': typeof RankingRoute
+  '/recompensas': typeof RecompensasRoute
   '/registro': typeof RegistroRoute
   '/temporadas': typeof TemporadasRoute
   '/tutorial': typeof TutorialRoute
+  '/jugar/dia': typeof JugarDiaRoute
+  '/jugar/ruleta': typeof JugarRuletaRoute
+  '/jugar/': typeof JugarIndexRoute
   '/mision/$misionId/jugar': typeof MisionMisionIdJugarRoute
   '/mision/$misionId/resultados': typeof MisionMisionIdResultadosRoute
   '/mision/$misionId/reto': typeof MisionMisionIdRetoRoute
@@ -181,13 +244,20 @@ export interface FileRouteTypes {
     | '/bienvenida'
     | '/certificado'
     | '/compartir'
+    | '/duelo'
+    | '/equipos'
+    | '/liga'
     | '/login'
     | '/perfil'
     | '/perfil-nuevo'
     | '/ranking'
+    | '/recompensas'
     | '/registro'
     | '/temporadas'
     | '/tutorial'
+    | '/jugar/dia'
+    | '/jugar/ruleta'
+    | '/jugar/'
     | '/mision/$misionId/jugar'
     | '/mision/$misionId/resultados'
     | '/mision/$misionId/reto'
@@ -200,13 +270,20 @@ export interface FileRouteTypes {
     | '/bienvenida'
     | '/certificado'
     | '/compartir'
+    | '/duelo'
+    | '/equipos'
+    | '/liga'
     | '/login'
     | '/perfil'
     | '/perfil-nuevo'
     | '/ranking'
+    | '/recompensas'
     | '/registro'
     | '/temporadas'
     | '/tutorial'
+    | '/jugar/dia'
+    | '/jugar/ruleta'
+    | '/jugar'
     | '/mision/$misionId/jugar'
     | '/mision/$misionId/resultados'
     | '/mision/$misionId/reto'
@@ -219,13 +296,20 @@ export interface FileRouteTypes {
     | '/bienvenida'
     | '/certificado'
     | '/compartir'
+    | '/duelo'
+    | '/equipos'
+    | '/liga'
     | '/login'
     | '/perfil'
     | '/perfil-nuevo'
     | '/ranking'
+    | '/recompensas'
     | '/registro'
     | '/temporadas'
     | '/tutorial'
+    | '/jugar/dia'
+    | '/jugar/ruleta'
+    | '/jugar/'
     | '/mision/$misionId/jugar'
     | '/mision/$misionId/resultados'
     | '/mision/$misionId/reto'
@@ -239,13 +323,20 @@ export interface RootRouteChildren {
   BienvenidaRoute: typeof BienvenidaRoute
   CertificadoRoute: typeof CertificadoRoute
   CompartirRoute: typeof CompartirRoute
+  DueloRoute: typeof DueloRoute
+  EquiposRoute: typeof EquiposRoute
+  LigaRoute: typeof LigaRoute
   LoginRoute: typeof LoginRoute
   PerfilRoute: typeof PerfilRoute
   PerfilNuevoRoute: typeof PerfilNuevoRoute
   RankingRoute: typeof RankingRoute
+  RecompensasRoute: typeof RecompensasRoute
   RegistroRoute: typeof RegistroRoute
   TemporadasRoute: typeof TemporadasRoute
   TutorialRoute: typeof TutorialRoute
+  JugarDiaRoute: typeof JugarDiaRoute
+  JugarRuletaRoute: typeof JugarRuletaRoute
+  JugarIndexRoute: typeof JugarIndexRoute
   MisionMisionIdJugarRoute: typeof MisionMisionIdJugarRoute
   MisionMisionIdResultadosRoute: typeof MisionMisionIdResultadosRoute
   MisionMisionIdRetoRoute: typeof MisionMisionIdRetoRoute
@@ -296,6 +387,27 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof CompartirRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/duelo': {
+      id: '/duelo'
+      path: '/duelo'
+      fullPath: '/duelo'
+      preLoaderRoute: typeof DueloRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/equipos': {
+      id: '/equipos'
+      path: '/equipos'
+      fullPath: '/equipos'
+      preLoaderRoute: typeof EquiposRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/liga': {
+      id: '/liga'
+      path: '/liga'
+      fullPath: '/liga'
+      preLoaderRoute: typeof LigaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/login': {
       id: '/login'
       path: '/login'
@@ -324,6 +436,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof RankingRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/recompensas': {
+      id: '/recompensas'
+      path: '/recompensas'
+      fullPath: '/recompensas'
+      preLoaderRoute: typeof RecompensasRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/registro': {
       id: '/registro'
       path: '/registro'
@@ -343,6 +462,27 @@ declare module '@tanstack/react-router' {
       path: '/tutorial'
       fullPath: '/tutorial'
       preLoaderRoute: typeof TutorialRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/jugar/': {
+      id: '/jugar/'
+      path: '/jugar'
+      fullPath: '/jugar/'
+      preLoaderRoute: typeof JugarIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/jugar/dia': {
+      id: '/jugar/dia'
+      path: '/jugar/dia'
+      fullPath: '/jugar/dia'
+      preLoaderRoute: typeof JugarDiaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/jugar/ruleta': {
+      id: '/jugar/ruleta'
+      path: '/jugar/ruleta'
+      fullPath: '/jugar/ruleta'
+      preLoaderRoute: typeof JugarRuletaRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/mision/$misionId/': {
@@ -383,13 +523,20 @@ const rootRouteChildren: RootRouteChildren = {
   BienvenidaRoute: BienvenidaRoute,
   CertificadoRoute: CertificadoRoute,
   CompartirRoute: CompartirRoute,
+  DueloRoute: DueloRoute,
+  EquiposRoute: EquiposRoute,
+  LigaRoute: LigaRoute,
   LoginRoute: LoginRoute,
   PerfilRoute: PerfilRoute,
   PerfilNuevoRoute: PerfilNuevoRoute,
   RankingRoute: RankingRoute,
+  RecompensasRoute: RecompensasRoute,
   RegistroRoute: RegistroRoute,
   TemporadasRoute: TemporadasRoute,
   TutorialRoute: TutorialRoute,
+  JugarDiaRoute: JugarDiaRoute,
+  JugarRuletaRoute: JugarRuletaRoute,
+  JugarIndexRoute: JugarIndexRoute,
   MisionMisionIdJugarRoute: MisionMisionIdJugarRoute,
   MisionMisionIdResultadosRoute: MisionMisionIdResultadosRoute,
   MisionMisionIdRetoRoute: MisionMisionIdRetoRoute,
@@ -398,13 +545,3 @@ const rootRouteChildren: RootRouteChildren = {
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { startInstance } from './start.ts'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-    config: Awaited<ReturnType<typeof startInstance.getOptions>>
-  }
-}

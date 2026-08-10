@@ -21,4 +21,14 @@
 | P-17 | Compartir logros / Invitar | `/compartir` | Actuar | S-4 | Hecho |
 | P-18 | Panel administrativo conceptual | `/admin-conceptual` | — | S-4 | Hecho |
 
-Las 18 pantallas del MVP están construidas y navegables en el prototipo.
+| P-19 | Hub de modo rápido | `/jugar` | Jugar | S-5 | Hecho |
+| P-20 | Ruleta de categorías | `/jugar/ruleta` | Jugar | S-5 | Hecho |
+| P-21 | Resumen de partida rápida | (dentro de P-20) | Jugar | S-5 | Hecho |
+| P-22 | Pregunta del día | `/jugar/dia` | Jugar | S-5 | Hecho |
+| P-23 | Duelo 1v1 | `/duelo` | Jugar | S-5 | Hecho |
+| P-24 | Liga semanal | `/liga` | Ganar | S-5 | Hecho |
+| P-25 | Equipos por zona | `/equipos` | Ganar | S-5 | Hecho |
+| P-26 | Premios y billetera de cupones | `/recompensas` | Ganar | S-5 | Hecho |
+
+Las 18 pantallas del MVP (Fase 1) y las 8 pantallas de la Fase 2 están construidas y
+navegables en el prototipo.
