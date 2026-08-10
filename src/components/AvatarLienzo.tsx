@@ -46,9 +46,9 @@ function Cuerpo({ id, piel }: { id: string; piel: string }) {
   const ancho = id === "cuerpo-delgado" ? 22 : id === "cuerpo-ancho" ? 34 : 28;
   return (
     <g>
-      <rect x={50 - 7} y="58" width="14" height="12" rx="6" fill={piel} />
+      <rect x={50 - 7} y="54" width="14" height="12" rx="6" fill={piel} />
       <path
-        d={`M${50 - ancho} 100 Q50 ${70 - 2} ${50 + ancho} 100 Z`}
+        d={`M${50 - ancho} 100 Q50 64 ${50 + ancho} 100 Z`}
         fill={piel}
         stroke={TRAZO}
         strokeWidth="2"
@@ -59,7 +59,7 @@ function Cuerpo({ id, piel }: { id: string; piel: string }) {
 
 function Prenda({ id, cuerpo }: { id: string; cuerpo: string }) {
   const ancho = cuerpo === "cuerpo-delgado" ? 22 : cuerpo === "cuerpo-ancho" ? 34 : 28;
-  const base = `M${50 - ancho} 100 Q50 71 ${50 + ancho} 100 Z`;
+  const base = `M${50 - ancho} 100 Q50 66 ${50 + ancho} 100 Z`;
   const colores: Record<string, string> = {
     "prenda-tipoy": "#FFFFFF",
     "prenda-lino": "#EAF2FF",
@@ -75,24 +75,24 @@ function Prenda({ id, cuerpo }: { id: string; cuerpo: string }) {
       <path d={base} fill={color} stroke={TRAZO} strokeWidth="2" />
       {id === "prenda-tipoy" && (
         <g stroke="#E0554E" strokeWidth="2" fill="none">
-          <path d={`M${50 - ancho + 6} 96 Q50 82 ${50 + ancho - 6} 96`} />
-          <path d={`M${50 - ancho + 10} 100 Q50 88 ${50 + ancho - 10} 100`} stroke="#F2A93B" />
+          <path d={`M${50 - ancho + 6} 94 Q50 78 ${50 + ancho - 6} 96`} />
+          <path d={`M${50 - ancho + 10} 98 Q50 84 ${50 + ancho - 10} 100`} stroke="#F2A93B" />
         </g>
       )}
       {id === "prenda-bordada" && (
         <g fill="#E0554E">
-          <circle cx="42" cy="88" r="2" />
-          <circle cx="50" cy="85" r="2" />
-          <circle cx="58" cy="88" r="2" />
+          <circle cx="42" cy="84" r="2" />
+          <circle cx="50" cy="81" r="2" />
+          <circle cx="58" cy="84" r="2" />
         </g>
       )}
       {id === "prenda-lino" && (
-        <path d="M50 72 L50 100" stroke={TRAZO} strokeWidth="1.5" opacity="0.5" />
+        <path d="M50 68 L50 100" stroke={TRAZO} strokeWidth="1.5" opacity="0.5" />
       )}
       {id === "prenda-guayabera" && (
         <g stroke={TRAZO} strokeWidth="1.2" opacity="0.6" fill="none">
-          <path d="M44 76 L44 100" />
-          <path d="M56 76 L56 100" />
+          <path d="M44 72 L44 100" />
+          <path d="M56 72 L56 100" />
         </g>
       )}
     </g>
@@ -102,9 +102,9 @@ function Prenda({ id, cuerpo }: { id: string; cuerpo: string }) {
 function Cabeza({ piel }: { piel: string }) {
   return (
     <g>
-      <ellipse cx="50" cy="42" rx="23" ry="25" fill={piel} stroke={TRAZO} strokeWidth="2" />
-      <ellipse cx="27" cy="44" rx="4" ry="5" fill={piel} stroke={TRAZO} strokeWidth="2" />
-      <ellipse cx="73" cy="44" rx="4" ry="5" fill={piel} stroke={TRAZO} strokeWidth="2" />
+      <ellipse cx="50" cy="38" rx="22" ry="24" fill={piel} stroke={TRAZO} strokeWidth="2" />
+      <ellipse cx="28" cy="40" rx="4" ry="5" fill={piel} stroke={TRAZO} strokeWidth="2" />
+      <ellipse cx="72" cy="40" rx="4" ry="5" fill={piel} stroke={TRAZO} strokeWidth="2" />
     </g>
   );
 }
