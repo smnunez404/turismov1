@@ -6,7 +6,7 @@
 | P-02 | Registro | `/registro` | Despertar | S-1 | Hecho |
 | P-03 | Inicio de sesión | `/login` | Despertar | S-1 | Hecho |
 | P-04 | Creación de perfil | `/perfil-nuevo` | Despertar | S-1 | Hecho |
-| P-05 | Selección de avatar | `/avatar` | Despertar | S-1 | Hecho |
+| P-05 | Constructor de avatar | `/avatar` | Despertar | S-6 | Hecho |
 | P-06 | Bienvenida | `/bienvenida` | Despertar | S-1 | Hecho |
 | P-07 | Tutorial | `/tutorial` | Despertar | S-1 | Hecho |
 | P-08 | Mapa de temporadas | `/temporadas` | Despertar | S-2 | Hecho |
