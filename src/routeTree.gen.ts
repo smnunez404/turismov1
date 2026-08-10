@@ -16,6 +16,7 @@ import { Route as BienvenidaRouteImport } from './routes/bienvenida'
 import { Route as CertificadoRouteImport } from './routes/certificado'
 import { Route as CompartirRouteImport } from './routes/compartir'
 import { Route as DueloRouteImport } from './routes/duelo'
+import { Route as EquiposRouteImport } from './routes/equipos'
 import { Route as LigaRouteImport } from './routes/liga'
 import { Route as LoginRouteImport } from './routes/login'
 import { Route as PerfilRouteImport } from './routes/perfil'
@@ -65,6 +66,11 @@ const CompartirRoute = CompartirRouteImport.update({
 const DueloRoute = DueloRouteImport.update({
   id: '/duelo',
   path: '/duelo',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EquiposRoute = EquiposRouteImport.update({
+  id: '/equipos',
+  path: '/equipos',
   getParentRoute: () => rootRouteImport,
 } as any)
 const LigaRoute = LigaRouteImport.update({
@@ -152,6 +158,7 @@ export interface FileRoutesByFullPath {
   '/certificado': typeof CertificadoRoute
   '/compartir': typeof CompartirRoute
   '/duelo': typeof DueloRoute
+  '/equipos': typeof EquiposRoute
   '/liga': typeof LigaRoute
   '/login': typeof LoginRoute
   '/perfil': typeof PerfilRoute
@@ -176,6 +183,7 @@ export interface FileRoutesByTo {
   '/certificado': typeof CertificadoRoute
   '/compartir': typeof CompartirRoute
   '/duelo': typeof DueloRoute
+  '/equipos': typeof EquiposRoute
   '/liga': typeof LigaRoute
   '/login': typeof LoginRoute
   '/perfil': typeof PerfilRoute
@@ -201,6 +209,7 @@ export interface FileRoutesById {
   '/certificado': typeof CertificadoRoute
   '/compartir': typeof CompartirRoute
   '/duelo': typeof DueloRoute
+  '/equipos': typeof EquiposRoute
   '/liga': typeof LigaRoute
   '/login': typeof LoginRoute
   '/perfil': typeof PerfilRoute
@@ -227,6 +236,7 @@ export interface FileRouteTypes {
     | '/certificado'
     | '/compartir'
     | '/duelo'
+    | '/equipos'
     | '/liga'
     | '/login'
     | '/perfil'
@@ -251,6 +261,7 @@ export interface FileRouteTypes {
     | '/certificado'
     | '/compartir'
     | '/duelo'
+    | '/equipos'
     | '/liga'
     | '/login'
     | '/perfil'
@@ -275,6 +286,7 @@ export interface FileRouteTypes {
     | '/certificado'
     | '/compartir'
     | '/duelo'
+    | '/equipos'
     | '/liga'
     | '/login'
     | '/perfil'
@@ -300,6 +312,7 @@ export interface RootRouteChildren {
   CertificadoRoute: typeof CertificadoRoute
   CompartirRoute: typeof CompartirRoute
   DueloRoute: typeof DueloRoute
+  EquiposRoute: typeof EquiposRoute
   LigaRoute: typeof LigaRoute
   LoginRoute: typeof LoginRoute
   PerfilRoute: typeof PerfilRoute
@@ -366,6 +379,13 @@ declare module '@tanstack/react-router' {
       path: '/duelo'
       fullPath: '/duelo'
       preLoaderRoute: typeof DueloRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/equipos': {
+      id: '/equipos'
+      path: '/equipos'
+      fullPath: '/equipos'
+      preLoaderRoute: typeof EquiposRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/liga': {
@@ -484,6 +504,7 @@ const rootRouteChildren: RootRouteChildren = {
   CertificadoRoute: CertificadoRoute,
   CompartirRoute: CompartirRoute,
   DueloRoute: DueloRoute,
+  EquiposRoute: EquiposRoute,
   LigaRoute: LigaRoute,
   LoginRoute: LoginRoute,
   PerfilRoute: PerfilRoute,
