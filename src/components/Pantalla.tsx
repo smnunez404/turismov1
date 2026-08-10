@@ -1,17 +1,29 @@
 import type { ReactNode } from "react";
+import { BarraInferior } from "@/components/BarraInferior";
 
 // Contenedor móvil compartido del prototipo (docs/06-sistema-visual.md).
 export function Pantalla({
   children,
   className = "",
+  conNav = false,
 }: {
   children: ReactNode;
   className?: string;
+  conNav?: boolean;
 }) {
   return (
-    <main className="flex min-h-dvh justify-center bg-background px-4 pb-[max(2rem,env(safe-area-inset-bottom))] pt-[max(1.5rem,env(safe-area-inset-top))]">
-      <div className={`flex w-full max-w-md flex-col ${className}`}>{children}</div>
-    </main>
+    <>
+      <main
+        className={`flex min-h-dvh justify-center bg-background px-4 pt-[max(1.5rem,env(safe-area-inset-top))] ${
+          conNav
+            ? "pb-[calc(5.5rem+env(safe-area-inset-bottom))]"
+            : "pb-[max(2rem,env(safe-area-inset-bottom))]"
+        }`}
+      >
+        <div className={`flex w-full max-w-md flex-col ${className}`}>{children}</div>
+      </main>
+      {conNav && <BarraInferior />}
+    </>
   );
 }
 

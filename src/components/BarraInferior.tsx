@@ -2,12 +2,12 @@
 import { Link } from "@tanstack/react-router";
 import { Icono, type NombreIcono } from "@/components/Icono";
 
-const items: { to: string; etiqueta: string; icono: NombreIcono }[] = [
+const items = [
   { to: "/temporadas", etiqueta: "Aprender", icono: "mapa" },
   { to: "/ranking", etiqueta: "Ranking", icono: "ranking" },
   { to: "/certificado", etiqueta: "Logros", icono: "medalla" },
   { to: "/perfil", etiqueta: "Perfil", icono: "perfil" },
-];
+] as const satisfies readonly { to: string; etiqueta: string; icono: NombreIcono }[];
 
 export function BarraInferior() {
   return (
