@@ -1,6 +1,7 @@
 // SPEC-01 — Splash (P-01)
 import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
 import { useEffect } from "react";
+import marca from "@/assets/marca-embajador.png";
 
 export const Route = createFileRoute("/")({
   head: () => ({

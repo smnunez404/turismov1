@@ -3,6 +3,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { useState } from "react";
 import { Pantalla, PasoOnboarding } from "@/components/Pantalla";
 import { useSesion } from "@/context/SessionContext";
+import { Icono } from "@/components/Icono";
 
 export const Route = createFileRoute("/tutorial")({
   head: () => ({

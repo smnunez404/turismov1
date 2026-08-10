@@ -5,6 +5,7 @@ import { misiones } from "@/data/misiones";
 import { preguntas } from "@/data/preguntas";
 import { temporadas } from "@/data/temporadas";
 import { insignias } from "@/data/insignias";
+import { IconoPastilla } from "@/components/Icono";
 
 export const Route = createFileRoute("/admin-conceptual")({
   head: () => ({

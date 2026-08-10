@@ -4,6 +4,7 @@ import { Pantalla } from "@/components/Pantalla";
 import { useSesion } from "@/context/SessionContext";
 import { insignias } from "@/data/insignias";
 import { estadoDeMision, insigniaDeMision, obtenerMision } from "@/lib/progreso";
+import { Icono } from "@/components/Icono";
 
 export const Route = createFileRoute("/mision/$misionId/")({
   head: ({ params }) => {

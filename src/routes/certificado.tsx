@@ -6,6 +6,8 @@ import { useSesion } from "@/context/SessionContext";
 import { temporadas } from "@/data/temporadas";
 import { avanceTemporada, nivelDe, temporadaCompletada } from "@/lib/progreso";
 import { codigoCertificado, fechaLarga } from "@/lib/formato";
+import { Icono } from "@/components/Icono";
+import marca from "@/assets/marca-embajador.png";
 
 export const Route = createFileRoute("/certificado")({
   head: () => ({

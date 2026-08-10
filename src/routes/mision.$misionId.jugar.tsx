@@ -6,6 +6,7 @@ import { useSesion } from "@/context/SessionContext";
 import { preguntasDeMision } from "@/data/preguntas";
 import type { TipoPregunta } from "@/data/tipos";
 import { insigniaDeMision, obtenerMision } from "@/lib/progreso";
+import { Icono } from "@/components/Icono";
 
 export const Route = createFileRoute("/mision/$misionId/jugar")({
   head: ({ params }) => {
