@@ -1,13 +1,6 @@
 // Modelo de datos SIMULADO — ver docs/07-modelo-datos-simulado.md
 // No es una base de datos: alimenta el prototipo desde memoria.
 
-export type Avatar = {
-  id: string;
-  nombre: string;
-  imagen: string;
-  descripcion: string;
-};
-
 // ---------- Constructor de avatar (SPEC-32) ----------
 
 export type RegionAvatar =
