@@ -133,11 +133,11 @@ export const avatarPorDefecto: AvatarPersonalizado = {
   sombrero: "sombrero-sao",
   accesorio: "acc-semillas",
   fondo: "fondo-sol",
-  tonoPiel: tonosPiel[2].valor,
-  colorPelo: coloresPelo[0].valor,
+  tonoPiel: tonosPiel[2]!.valor,
+  colorPelo: coloresPelo[0]!.valor,
 };
 
-const alAzar = <T,>(lista: T[]) => lista[Math.floor(Math.random() * lista.length)];
+const alAzar = <T,>(lista: T[]): T => lista[Math.floor(Math.random() * lista.length)] as T;
 
 /** Combinación aleatoria usando solo piezas desbloqueadas. */
 export function avatarAlAzar(): AvatarPersonalizado {
