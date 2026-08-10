@@ -23,6 +23,7 @@ import { Route as RegistroRouteImport } from './routes/registro'
 import { Route as TemporadasRouteImport } from './routes/temporadas'
 import { Route as TutorialRouteImport } from './routes/tutorial'
 import { Route as JugarIndexRouteImport } from './routes/jugar.index'
+import { Route as JugarRuletaRouteImport } from './routes/jugar.ruleta'
 import { Route as MisionMisionIdIndexRouteImport } from './routes/mision.$misionId.index'
 import { Route as MisionMisionIdJugarRouteImport } from './routes/mision.$misionId.jugar'
 import { Route as MisionMisionIdResultadosRouteImport } from './routes/mision.$misionId.resultados'
@@ -98,6 +99,11 @@ const JugarIndexRoute = JugarIndexRouteImport.update({
   path: '/jugar/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const JugarRuletaRoute = JugarRuletaRouteImport.update({
+  id: '/jugar/ruleta',
+  path: '/jugar/ruleta',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const MisionMisionIdIndexRoute = MisionMisionIdIndexRouteImport.update({
   id: '/mision/$misionId/',
   path: '/mision/$misionId/',
@@ -134,6 +140,7 @@ export interface FileRoutesByFullPath {
   '/registro': typeof RegistroRoute
   '/temporadas': typeof TemporadasRoute
   '/tutorial': typeof TutorialRoute
+  '/jugar/ruleta': typeof JugarRuletaRoute
   '/jugar/': typeof JugarIndexRoute
   '/mision/$misionId/jugar': typeof MisionMisionIdJugarRoute
   '/mision/$misionId/resultados': typeof MisionMisionIdResultadosRoute
@@ -154,6 +161,7 @@ export interface FileRoutesByTo {
   '/registro': typeof RegistroRoute
   '/temporadas': typeof TemporadasRoute
   '/tutorial': typeof TutorialRoute
+  '/jugar/ruleta': typeof JugarRuletaRoute
   '/jugar': typeof JugarIndexRoute
   '/mision/$misionId/jugar': typeof MisionMisionIdJugarRoute
   '/mision/$misionId/resultados': typeof MisionMisionIdResultadosRoute
@@ -175,6 +183,7 @@ export interface FileRoutesById {
   '/registro': typeof RegistroRoute
   '/temporadas': typeof TemporadasRoute
   '/tutorial': typeof TutorialRoute
+  '/jugar/ruleta': typeof JugarRuletaRoute
   '/jugar/': typeof JugarIndexRoute
   '/mision/$misionId/jugar': typeof MisionMisionIdJugarRoute
   '/mision/$misionId/resultados': typeof MisionMisionIdResultadosRoute
@@ -197,6 +206,7 @@ export interface FileRouteTypes {
     | '/registro'
     | '/temporadas'
     | '/tutorial'
+    | '/jugar/ruleta'
     | '/jugar/'
     | '/mision/$misionId/jugar'
     | '/mision/$misionId/resultados'
@@ -217,6 +227,7 @@ export interface FileRouteTypes {
     | '/registro'
     | '/temporadas'
     | '/tutorial'
+    | '/jugar/ruleta'
     | '/jugar'
     | '/mision/$misionId/jugar'
     | '/mision/$misionId/resultados'
@@ -237,6 +248,7 @@ export interface FileRouteTypes {
     | '/registro'
     | '/temporadas'
     | '/tutorial'
+    | '/jugar/ruleta'
     | '/jugar/'
     | '/mision/$misionId/jugar'
     | '/mision/$misionId/resultados'
@@ -258,6 +270,7 @@ export interface RootRouteChildren {
   RegistroRoute: typeof RegistroRoute
   TemporadasRoute: typeof TemporadasRoute
   TutorialRoute: typeof TutorialRoute
+  JugarRuletaRoute: typeof JugarRuletaRoute
   JugarIndexRoute: typeof JugarIndexRoute
   MisionMisionIdJugarRoute: typeof MisionMisionIdJugarRoute
   MisionMisionIdResultadosRoute: typeof MisionMisionIdResultadosRoute
@@ -365,6 +378,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof JugarIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/jugar/ruleta': {
+      id: '/jugar/ruleta'
+      path: '/jugar/ruleta'
+      fullPath: '/jugar/ruleta'
+      preLoaderRoute: typeof JugarRuletaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/mision/$misionId/': {
       id: '/mision/$misionId/'
       path: '/mision/$misionId'
@@ -410,6 +430,7 @@ const rootRouteChildren: RootRouteChildren = {
   RegistroRoute: RegistroRoute,
   TemporadasRoute: TemporadasRoute,
   TutorialRoute: TutorialRoute,
+  JugarRuletaRoute: JugarRuletaRoute,
   JugarIndexRoute: JugarIndexRoute,
   MisionMisionIdJugarRoute: MisionMisionIdJugarRoute,
   MisionMisionIdResultadosRoute: MisionMisionIdResultadosRoute,
