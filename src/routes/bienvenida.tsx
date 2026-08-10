@@ -3,6 +3,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { Pantalla, PasoOnboarding } from "@/components/Pantalla";
 import { AvatarInsignia } from "@/components/AvatarInsignia";
 import { useSesion } from "@/context/SessionContext";
+import hero from "@/assets/hero-santacruz.jpg";
 
 export const Route = createFileRoute("/bienvenida")({
   head: () => ({
@@ -29,6 +30,15 @@ function Bienvenida() {
   return (
     <Pantalla className="gap-7 pt-6 text-center">
       <PasoOnboarding actual={4} total={4} />
+
+      <img
+        src={hero}
+        alt="Ilustración de Santa Cruz de la Sierra: palmeras, catedral y un tucán"
+        loading="lazy"
+        width={1024}
+        height={1024}
+        className="h-40 w-full rounded-3xl border-2 border-b-4 border-border object-cover"
+      />
 
       <div className="flex flex-col items-center gap-4">
         <AvatarInsignia avatarId={usuario.avatarId} tamano="lg" />

@@ -2,6 +2,7 @@
 import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
 import { useEffect } from "react";
 import marca from "@/assets/marca-embajador.png";
+import hero from "@/assets/hero-santacruz.jpg";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -31,8 +32,20 @@ function Splash() {
   }, [navigate]);
 
   return (
-    <main className="flex min-h-screen flex-col items-center justify-center bg-primary px-6 text-center">
-      <div className="animate-in fade-in zoom-in-95 duration-700">
+    <main className="relative flex min-h-screen flex-col items-center justify-center overflow-hidden bg-primary px-6 text-center">
+      <img
+        src={hero}
+        alt=""
+        width={1024}
+        height={1024}
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0 h-full w-full object-cover opacity-35"
+      />
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0 bg-primary/70"
+      />
+      <div className="relative animate-in fade-in zoom-in-95 duration-700">
         <img
           src={marca}
           alt="Soy Embajador Bolivia"
@@ -47,7 +60,7 @@ function Splash() {
 
       <Link
         to="/registro"
-        className="mt-14 text-xs text-primary-foreground/60 underline underline-offset-4"
+        className="relative mt-14 text-xs text-primary-foreground/80 underline underline-offset-4"
       >
         Saltar intro
       </Link>
