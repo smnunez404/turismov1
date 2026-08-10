@@ -108,10 +108,6 @@ function PortadaMision() {
         >
           {progreso?.completada ? "Repetir el reto" : "Empezar el reto presencial"}
         </Link>
-      ) : estado === "bloqueada" ? (
-        <div className="rounded-2xl border border-dashed border-border bg-muted p-5 text-sm text-muted-foreground">
-          🔒 Completá la misión anterior para desbloquear esta.
-        </div>
       ) : (
         <Link
           to="/mision/$misionId/jugar"
