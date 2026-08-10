@@ -217,7 +217,7 @@ function Ruleta() {
         {/* Cabecera tipo marcador de partida */}
         <header className="flex items-center justify-between gap-2">
           <div className="flex items-center gap-2">
-            <AvatarInsignia avatarId={usuario.avatarId ?? null} tamano="sm" />
+            <AvatarInsignia avatarId={usuario.avatarId} avatar={usuario.avatar} tamano="sm" />
             <span className="text-lg font-extrabold text-foreground">{aciertos}</span>
           </div>
           <span className="text-xs font-extrabold tracking-widest text-muted-foreground">VS</span>
