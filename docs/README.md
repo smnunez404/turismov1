@@ -7,7 +7,7 @@ independiente enlazada.
 | --- | --- |
 | [00-documento-maestro.md](./00-documento-maestro.md) | Documento maestro v1.0 (fuente única de verdad) |
 | [01-estado-del-proyecto.md](./01-estado-del-proyecto.md) | Tablero de avance por sprint y por spec |
-| [02-specs/](./02-specs/) | SPEC-01 a SPEC-31 con criterios de aceptación y estado |
+| [02-specs/](./02-specs/) | SPEC-01 a SPEC-32 con criterios de aceptación y estado |
 | [03-pantallas.md](./03-pantallas.md) | Inventario P-01 a P-26 con rutas reales |
 | [04-bitacora-decisiones.md](./04-bitacora-decisiones.md) | Registro de decisiones y cambios de alcance |
 | [05-guardarrailes.md](./05-guardarrailes.md) | Qué se rechaza y por qué |
