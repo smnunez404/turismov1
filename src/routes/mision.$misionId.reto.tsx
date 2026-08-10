@@ -159,7 +159,7 @@ function Reto() {
           onChange={(e) => setRelato(e.target.value)}
           rows={4}
           placeholder="¿Qué viste? ¿Qué le contarías a alguien que llega de visita?"
-          className="w-full rounded-xl border border-input bg-card p-3 text-sm text-foreground outline-none focus:border-primary"
+          className="w-full rounded-2xl border-2 border-input bg-card p-3 text-sm text-foreground outline-none focus:border-primary"
         />
       </section>
 

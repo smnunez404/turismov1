@@ -53,7 +53,7 @@ function PerfilNuevo() {
             value={nombre}
             onChange={(e) => setNombre(e.target.value)}
             placeholder="Camila"
-            className="rounded-xl border border-input bg-card px-4 py-3 text-base text-foreground outline-none focus:ring-2 focus:ring-ring"
+            className="rounded-2xl border-2 border-input bg-card px-4 py-3 text-base text-foreground outline-none focus:ring-2 focus:ring-ring"
           />
         </label>
 

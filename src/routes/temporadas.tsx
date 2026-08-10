@@ -62,25 +62,25 @@ function MapaTemporadas() {
       <nav className="grid grid-cols-2 gap-3">
         <Link
           to="/perfil"
-          className="flex items-center gap-2 rounded-xl border border-border bg-card px-3 py-2.5 text-sm font-semibold text-foreground transition-colors hover:border-primary"
+          className="flex items-center gap-2 rounded-2xl border-2 border-b-4 border-border bg-card px-3 py-2.5 text-sm font-semibold text-foreground transition-colors hover:border-primary"
         >
           <Icono nombre="perfil" className="h-4.5 w-4.5 text-primary" /> Mi perfil
         </Link>
         <Link
           to="/ranking"
-          className="flex items-center gap-2 rounded-xl border border-border bg-card px-3 py-2.5 text-sm font-semibold text-foreground transition-colors hover:border-primary"
+          className="flex items-center gap-2 rounded-2xl border-2 border-b-4 border-border bg-card px-3 py-2.5 text-sm font-semibold text-foreground transition-colors hover:border-primary"
         >
           <Icono nombre="ranking" className="h-4.5 w-4.5 text-primary" /> Ranking
         </Link>
         <Link
           to="/certificado"
-          className="flex items-center gap-2 rounded-xl border border-border bg-card px-3 py-2.5 text-sm font-semibold text-foreground transition-colors hover:border-primary"
+          className="flex items-center gap-2 rounded-2xl border-2 border-b-4 border-border bg-card px-3 py-2.5 text-sm font-semibold text-foreground transition-colors hover:border-primary"
         >
           <Icono nombre="certificado" className="h-4.5 w-4.5 text-primary" /> Certificado
         </Link>
         <Link
           to="/compartir"
-          className="flex items-center gap-2 rounded-xl border border-border bg-card px-3 py-2.5 text-sm font-semibold text-foreground transition-colors hover:border-primary"
+          className="flex items-center gap-2 rounded-2xl border-2 border-b-4 border-border bg-card px-3 py-2.5 text-sm font-semibold text-foreground transition-colors hover:border-primary"
         >
           <Icono nombre="compartir" className="h-4.5 w-4.5 text-primary" /> Compartir
         </Link>

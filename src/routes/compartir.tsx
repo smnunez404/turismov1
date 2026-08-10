@@ -190,7 +190,7 @@ function Compartir() {
             value={nuevoInvitado}
             onChange={(e) => setNuevoInvitado(e.target.value)}
             placeholder="Nombre de un amigo"
-            className="flex-1 rounded-xl border border-input bg-background px-3 py-2 text-sm text-foreground outline-none focus:border-primary"
+            className="flex-1 rounded-2xl border-2 border-input bg-background px-3 py-2 text-sm text-foreground outline-none focus:border-primary"
           />
           <button
             type="button"
