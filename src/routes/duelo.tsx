@@ -6,6 +6,7 @@ import { AvatarInsignia } from "@/components/AvatarInsignia";
 import { Icono, IconoPastilla } from "@/components/Icono";
 import { useSesion } from "@/context/SessionContext";
 import { rivales } from "@/data/equipos";
+import { avatarPorDefecto } from "@/data/avatar-piezas";
 import { preguntasRapidas } from "@/data/preguntas-rapidas";
 import type { PreguntaRapida, Rival } from "@/data/tipos";
 import { barajar, respuestaRival } from "@/lib/juego";
