@@ -33,7 +33,13 @@ function Login() {
   };
 
   return (
-    <Pantalla className="justify-center gap-8">
+    <Pantalla className="gap-7 pt-6">
+      <Link
+        to="/"
+        className="self-start text-sm font-medium text-muted-foreground underline underline-offset-4"
+      >
+        ← Volver
+      </Link>
       <header>
         <h1 className="text-3xl font-bold text-foreground">Qué bueno verte de nuevo</h1>
         <p className="mt-2 text-muted-foreground">
@@ -46,7 +52,11 @@ function Login() {
           Correo
           <input
             defaultValue="camila.demo@soyembajador.bo"
-            className="rounded-xl border border-input bg-card px-4 py-3 text-base text-foreground outline-none focus:ring-2 focus:ring-ring"
+            type="email"
+            inputMode="email"
+            autoCapitalize="none"
+            autoComplete="email"
+            className="min-h-12 rounded-xl border border-input bg-card px-4 py-3 text-base text-foreground outline-none focus:ring-2 focus:ring-ring"
           />
         </label>
 
@@ -55,13 +65,15 @@ function Login() {
           <input
             type="password"
             defaultValue="demo1234"
-            className="rounded-xl border border-input bg-card px-4 py-3 text-base text-foreground outline-none focus:ring-2 focus:ring-ring"
+            autoComplete="current-password"
+            enterKeyHint="go"
+            className="min-h-12 rounded-xl border border-input bg-card px-4 py-3 text-base text-foreground outline-none focus:ring-2 focus:ring-ring"
           />
         </label>
 
         <button
           type="submit"
-          className="mt-2 rounded-xl bg-primary px-4 py-3.5 text-base font-semibold text-primary-foreground transition-colors hover:bg-primary/90"
+          className="mt-2 min-h-12 rounded-xl bg-primary px-4 py-3.5 text-base font-semibold text-primary-foreground transition-colors hover:bg-primary/90"
         >
           Entrar
         </button>

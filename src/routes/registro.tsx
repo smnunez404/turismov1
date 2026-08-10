@@ -88,13 +88,6 @@ function Registro() {
           Empezar mi camino
         </button>
       </form>
-      <div hidden>
-        <label>
-          <input
-            className="rounded-xl border border-input bg-card px-4 py-3 text-base text-foreground outline-none focus:ring-2 focus:ring-ring"
-          />
-        </label>
-      </div>
 
       <p className="text-center text-sm text-muted-foreground">
         ¿Ya tenés cuenta?{" "}
