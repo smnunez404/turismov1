@@ -10,6 +10,7 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AdminConceptualRouteImport } from './routes/admin-conceptual'
 import { Route as AvatarRouteImport } from './routes/avatar'
 import { Route as BienvenidaRouteImport } from './routes/bienvenida'
 import { Route as CertificadoRouteImport } from './routes/certificado'
@@ -29,6 +30,11 @@ import { Route as MisionMisionIdRetoRouteImport } from './routes/mision.$misionI
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminConceptualRoute = AdminConceptualRouteImport.update({
+  id: '/admin-conceptual',
+  path: '/admin-conceptual',
   getParentRoute: () => rootRouteImport,
 } as any)
 const AvatarRoute = AvatarRouteImport.update({
@@ -110,6 +116,7 @@ const MisionMisionIdRetoRoute = MisionMisionIdRetoRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/admin-conceptual': typeof AdminConceptualRoute
   '/avatar': typeof AvatarRoute
   '/bienvenida': typeof BienvenidaRoute
   '/certificado': typeof CertificadoRoute
@@ -128,6 +135,7 @@ export interface FileRoutesByFullPath {
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/admin-conceptual': typeof AdminConceptualRoute
   '/avatar': typeof AvatarRoute
   '/bienvenida': typeof BienvenidaRoute
   '/certificado': typeof CertificadoRoute
@@ -147,6 +155,7 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/admin-conceptual': typeof AdminConceptualRoute
   '/avatar': typeof AvatarRoute
   '/bienvenida': typeof BienvenidaRoute
   '/certificado': typeof CertificadoRoute
@@ -167,6 +176,7 @@ export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/admin-conceptual'
     | '/avatar'
     | '/bienvenida'
     | '/certificado'
@@ -185,6 +195,7 @@ export interface FileRouteTypes {
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/admin-conceptual'
     | '/avatar'
     | '/bienvenida'
     | '/certificado'
@@ -203,6 +214,7 @@ export interface FileRouteTypes {
   id:
     | '__root__'
     | '/'
+    | '/admin-conceptual'
     | '/avatar'
     | '/bienvenida'
     | '/certificado'
@@ -222,6 +234,7 @@ export interface FileRouteTypes {
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AdminConceptualRoute: typeof AdminConceptualRoute
   AvatarRoute: typeof AvatarRoute
   BienvenidaRoute: typeof BienvenidaRoute
   CertificadoRoute: typeof CertificadoRoute
@@ -246,6 +259,13 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin-conceptual': {
+      id: '/admin-conceptual'
+      path: '/admin-conceptual'
+      fullPath: '/admin-conceptual'
+      preLoaderRoute: typeof AdminConceptualRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/avatar': {
@@ -358,6 +378,7 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AdminConceptualRoute: AdminConceptualRoute,
   AvatarRoute: AvatarRoute,
   BienvenidaRoute: BienvenidaRoute,
   CertificadoRoute: CertificadoRoute,

@@ -120,9 +120,12 @@ function Resultados() {
 
       <div className="flex flex-col gap-3">
         {finTemporada ? (
-          <p className="rounded-xl bg-primary/10 p-4 text-sm text-foreground">
-            Completaste la Temporada 1. Tu certificado (SPEC-16) se emite en el Sprint 4.
-          </p>
+          <Link
+            to="/certificado"
+            className="rounded-xl bg-primary px-4 py-3.5 text-base font-semibold text-primary-foreground transition-colors hover:bg-primary/90"
+          >
+            🏅 Ver mi certificado de la Temporada 1
+          </Link>
         ) : proxima ? (
           <Link
             to="/mision/$misionId"
@@ -137,6 +140,12 @@ function Resultados() {
           className="rounded-xl border border-border bg-card px-4 py-3 text-sm font-semibold text-foreground"
         >
           Ver ranking
+        </Link>
+        <Link
+          to="/compartir"
+          className="rounded-xl border border-border bg-card px-4 py-3 text-sm font-semibold text-foreground"
+        >
+          Compartir mi logro
         </Link>
         <Link to="/perfil" className="text-sm text-muted-foreground underline underline-offset-4">
           Ir a mi perfil
