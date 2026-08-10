@@ -11,12 +11,27 @@ Implementación: `src/data/tipos.ts` y los archivos de datos sintéticos de `src
 type UsuarioSesion = {
   nombre: string;
   correo: string;            // simulado, sin validación de servidor
-  avatarId: string;
+  avatarId: string | null;    // preset heredado
+  avatar: AvatarPersonalizado | null; // avatar armado por capas (SPEC-32)
   puntos: number;
   insignias: string[];       // ids obtenidos
   progreso: Record<string, ProgresoMision>;
 };
 ```
+
+## Avatar personalizado
+
+```ts
+type AvatarPersonalizado = {
+  cuerpo: string; cara: string; cabello: string; vello: string;
+  prenda: string; sombrero: string; accesorio: string; fondo: string;
+  tonoPiel: string;   // hex
+  colorPelo: string;  // hex
+};
+```
+
+Cada valor es el id de una pieza de `src/data/avatar-piezas.ts`. Las piezas tienen región
+(`santa-cruz` desbloqueada; otras ciudades bloqueadas) y se dibujan en SVG por capas.
 
 ## Temporada
 
