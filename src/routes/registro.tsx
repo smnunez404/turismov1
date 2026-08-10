@@ -10,8 +10,7 @@ export const Route = createFileRoute("/registro")({
       { title: "Creá tu cuenta — Soy Embajador Bolivia" },
       {
         name: "description",
-        content:
-          "Sumate como embajador de Santa Cruz: ingresá tu nombre y empezá la Temporada 1.",
+        content: "Sumate como embajador de Santa Cruz: ingresá tu nombre y empezá la Temporada 1.",
       },
       { property: "og:title", content: "Creá tu cuenta — Soy Embajador Bolivia" },
       {
@@ -81,10 +80,7 @@ function Registro() {
           />
         </label>
 
-        <button
-          type="submit"
-          className="mt-2 min-h-12 btn-duo btn-duo-primary"
-        >
+        <button type="submit" className="mt-2 min-h-12 btn-duo btn-duo-primary">
           Empezar mi camino
         </button>
       </form>

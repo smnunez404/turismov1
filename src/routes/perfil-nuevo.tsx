@@ -57,10 +57,7 @@ function PerfilNuevo() {
           />
         </label>
 
-        <button
-          type="submit"
-          className="mt-2 btn-duo btn-duo-primary"
-        >
+        <button type="submit" className="mt-2 btn-duo btn-duo-primary">
           Continuar
         </button>
       </form>

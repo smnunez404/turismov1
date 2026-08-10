@@ -6,12 +6,7 @@ import { Icono, IconoPastilla } from "@/components/Icono";
 import { useSesion } from "@/context/SessionContext";
 import { insignias } from "@/data/insignias";
 import { participantesRanking } from "@/data/ranking";
-import {
-  avanceTemporada,
-  misionesDeTemporada,
-  nivelDe,
-  temporadaCompletada,
-} from "@/lib/progreso";
+import { avanceTemporada, misionesDeTemporada, nivelDe, temporadaCompletada } from "@/lib/progreso";
 
 export const Route = createFileRoute("/perfil")({
   head: () => ({
@@ -38,17 +33,14 @@ function Perfil() {
   const avance = avanceTemporada("t1", usuario);
   const misiones = misionesDeTemporada("t1");
   const finTemporada = temporadaCompletada("t1", usuario);
-  const posicion =
-    participantesRanking.filter((p) => p.puntaje > usuario.puntos).length + 1;
+  const posicion = participantesRanking.filter((p) => p.puntaje > usuario.puntos).length + 1;
 
   return (
     <Pantalla className="gap-6 pb-12">
       <header className="card-duo flex flex-col items-center gap-3 p-6 text-center">
         <AvatarInsignia avatarId={usuario.avatarId} tamano="lg" />
         <div>
-          <h1 className="text-2xl font-bold text-foreground">
-            {usuario.nombre || "Embajador"}
-          </h1>
+          <h1 className="text-2xl font-bold text-foreground">{usuario.nombre || "Embajador"}</h1>
           <p className="text-sm text-muted-foreground">
             {usuario.correo || "Perfil del prototipo"}
           </p>
@@ -74,10 +66,7 @@ function Perfil() {
             </span>
           </div>
           <div className="barra-duo mt-1.5">
-            <span
-              className="barra-duo-fill bg-accent"
-              style={{ width: `${nivel.porcentaje}%` }}
-            />
+            <span className="barra-duo-fill bg-accent" style={{ width: `${nivel.porcentaje}%` }} />
           </div>
         </div>
       </header>
@@ -90,16 +79,13 @@ function Perfil() {
           </span>
         </div>
         <div className="barra-duo mt-1.5">
-            <span className="barra-duo-fill" style={{ width: `${avance.porcentaje}%` }} />
-          </div>
+          <span className="barra-duo-fill" style={{ width: `${avance.porcentaje}%` }} />
+        </div>
         <ul className="mt-4 flex flex-col gap-2">
           {misiones.map((m) => {
             const p = usuario.progreso[m.id];
             return (
-              <li
-                key={m.id}
-                className="flex items-center justify-between text-sm text-foreground"
-              >
+              <li key={m.id} className="flex items-center justify-between text-sm text-foreground">
                 <span
                   className={`flex items-center gap-2 ${p?.completada ? "" : "text-muted-foreground"}`}
                 >
@@ -154,16 +140,10 @@ function Perfil() {
             <Icono nombre="certificado" /> Ver mi certificado
           </Link>
         )}
-        <Link
-          to="/compartir"
-          className="btn-duo btn-duo-ghost"
-        >
+        <Link to="/compartir" className="btn-duo btn-duo-ghost">
           Compartir e invitar
         </Link>
-        <Link
-          to="/temporadas"
-          className="btn-duo btn-duo-primary"
-        >
+        <Link to="/temporadas" className="btn-duo btn-duo-primary">
           Seguir jugando
         </Link>
         <Link to="/ranking" className="text-sm text-muted-foreground underline underline-offset-4">

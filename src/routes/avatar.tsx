@@ -10,8 +10,7 @@ export const Route = createFileRoute("/avatar")({
       { title: "Elegí tu avatar — Soy Embajador Bolivia" },
       {
         name: "description",
-        content:
-          "Toborochi, tipoy, tucán o jaguar: elegí el símbolo cruceño que te representa.",
+        content: "Toborochi, tipoy, tucán o jaguar: elegí el símbolo cruceño que te representa.",
       },
       { property: "og:title", content: "Elegí tu avatar cruceño" },
       {

@@ -176,10 +176,7 @@ function MapaTemporadas() {
           {temporadas
             .filter((t) => t.estado === "bloqueada")
             .map((t) => (
-              <li
-                key={t.id}
-                className="relative overflow-hidden card-duo p-4"
-              >
+              <li key={t.id} className="relative overflow-hidden card-duo p-4">
                 <IconoPastilla nombre={t.icono} tono="muted" />
                 <p className="mt-1 text-sm font-bold text-foreground">{t.nombre}</p>
                 <p className="text-xs text-muted-foreground">{t.descripcion}</p>

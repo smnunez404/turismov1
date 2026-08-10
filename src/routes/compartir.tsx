@@ -51,10 +51,7 @@ function Compartir() {
         <p className="text-sm text-muted-foreground">
           Completá tu primera misión y volvé para compartir tu primera insignia.
         </p>
-        <Link
-          to="/temporadas"
-          className="mt-2 btn-duo btn-duo-primary"
-        >
+        <Link to="/temporadas" className="mt-2 btn-duo btn-duo-primary">
           Empezar una misión
         </Link>
       </Pantalla>
@@ -148,10 +145,9 @@ function Compartir() {
             role="status"
             className="mt-2 flex items-center justify-center gap-2 rounded-xl bg-primary/10 p-3 text-center text-sm text-foreground"
           >
-            <Icono nombre="check" className="h-4 w-4 text-primary" /> Publicación simulada
-            enviada a{" "}
-            {canalesCompartir.find((c) => c.id === canal)?.nombre}. En el prototipo no se
-            conecta con la red real.
+            <Icono nombre="check" className="h-4 w-4 text-primary" /> Publicación simulada enviada a{" "}
+            {canalesCompartir.find((c) => c.id === canal)?.nombre}. En el prototipo no se conecta
+            con la red real.
           </p>
         )}
       </section>
@@ -212,10 +208,7 @@ function Compartir() {
 
       <div className="flex flex-col gap-2 text-center">
         {finTemporada && (
-          <Link
-            to="/certificado"
-            className="btn-duo btn-duo-ghost"
-          >
+          <Link to="/certificado" className="btn-duo btn-duo-ghost">
             Ver mi certificado
           </Link>
         )}

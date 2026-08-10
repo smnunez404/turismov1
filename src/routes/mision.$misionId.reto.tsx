@@ -35,8 +35,6 @@ const lugares = [
   { id: "manzana", nombre: "Manzana Uno", icono: "arte" },
 ];
 
-
-
 function Reto() {
   const { misionId } = Route.useParams();
   const navigate = useNavigate();
@@ -102,8 +100,8 @@ function Reto() {
           Salí, visitá, fotografiá y contá
         </h1>
         <p className="mt-2 text-sm text-muted-foreground">
-          Este reto se cumple en el mundo real: elegí un lugar de Santa Cruz, andá, sacá una
-          foto y contanos qué te llevás de la visita.
+          Este reto se cumple en el mundo real: elegí un lugar de Santa Cruz, andá, sacá una foto y
+          contanos qué te llevás de la visita.
         </p>
       </header>
 
@@ -164,9 +162,7 @@ function Reto() {
       </section>
 
       <section className="rounded-2xl bg-accent/15 p-4">
-        <h2 className="text-sm font-semibold text-foreground">
-          4. Sumá embajadores (opcional)
-        </h2>
+        <h2 className="text-sm font-semibold text-foreground">4. Sumá embajadores (opcional)</h2>
         <p className="mt-1 text-xs text-muted-foreground">
           Invitá a alguien a hacer el recorrido con vos y ganá la insignia Promotor Cruceño.
         </p>
@@ -178,9 +174,7 @@ function Reto() {
                 <button
                   type="button"
                   onClick={() =>
-                    setInvitados(
-                      activo ? invitados.filter((x) => x !== a) : [...invitados, a],
-                    )
+                    setInvitados(activo ? invitados.filter((x) => x !== a) : [...invitados, a])
                   }
                   className={`inline-flex items-center gap-1 rounded-full border px-3 py-1.5 text-xs font-semibold transition-colors ${
                     activo

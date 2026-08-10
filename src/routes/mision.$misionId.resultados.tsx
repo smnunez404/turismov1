@@ -109,8 +109,8 @@ function Resultados() {
           </span>
         </div>
         <div className="barra-duo mt-1.5">
-            <span className="barra-duo-fill" style={{ width: `${avance.porcentaje}%` }} />
-          </div>
+          <span className="barra-duo-fill" style={{ width: `${avance.porcentaje}%` }} />
+        </div>
         <p className="mt-3 text-sm text-muted-foreground">
           Llevás <strong className="text-foreground">{usuario.puntos} puntos</strong> como
           embajador.
@@ -119,10 +119,7 @@ function Resultados() {
 
       <div className="flex flex-col gap-3">
         {finTemporada ? (
-          <Link
-            to="/certificado"
-            className="btn-duo btn-duo-primary"
-          >
+          <Link to="/certificado" className="btn-duo btn-duo-primary">
             <Icono nombre="certificado" /> Ver mi certificado de la Temporada 1
           </Link>
         ) : proxima ? (
@@ -134,16 +131,10 @@ function Resultados() {
             Siguiente misión: {proxima.nombre}
           </Link>
         ) : null}
-        <Link
-          to="/ranking"
-          className="btn-duo btn-duo-ghost"
-        >
+        <Link to="/ranking" className="btn-duo btn-duo-ghost">
           Ver ranking
         </Link>
-        <Link
-          to="/compartir"
-          className="btn-duo btn-duo-ghost"
-        >
+        <Link to="/compartir" className="btn-duo btn-duo-ghost">
           Compartir mi logro
         </Link>
         <Link to="/perfil" className="text-sm text-muted-foreground underline underline-offset-4">

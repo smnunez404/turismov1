@@ -141,11 +141,7 @@ function Jugar() {
         </h1>
       </div>
 
-      <ul
-        className={
-          pregunta.tipo === "imagen" ? "grid grid-cols-2 gap-3" : "flex flex-col gap-3"
-        }
-      >
+      <ul className={pregunta.tipo === "imagen" ? "grid grid-cols-2 gap-3" : "flex flex-col gap-3"}>
         {pregunta.opciones.map((opcion) => {
           const elegida = seleccion === opcion.id;
           const correcta = opcion.id === pregunta.respuestaCorrectaId;

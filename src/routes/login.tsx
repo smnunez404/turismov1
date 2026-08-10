@@ -42,9 +42,7 @@ function Login() {
       </Link>
       <header>
         <h1 className="text-3xl font-bold text-foreground">Qué bueno verte de nuevo</h1>
-        <p className="mt-2 text-muted-foreground">
-          Tu recorrido de embajador te está esperando.
-        </p>
+        <p className="mt-2 text-muted-foreground">Tu recorrido de embajador te está esperando.</p>
       </header>
 
       <form onSubmit={entrar} className="flex flex-col gap-4">
@@ -71,17 +69,14 @@ function Login() {
           />
         </label>
 
-        <button
-          type="submit"
-          className="mt-2 min-h-12 btn-duo btn-duo-primary"
-        >
+        <button type="submit" className="mt-2 min-h-12 btn-duo btn-duo-primary">
           Entrar
         </button>
       </form>
 
       <div className="rounded-xl bg-muted p-4 text-sm text-muted-foreground">
-        Ingreso simulado: carga un perfil de demostración con 2 misiones completadas y 145
-        puntos, para mostrar el estado de "usuario con progreso".
+        Ingreso simulado: carga un perfil de demostración con 2 misiones completadas y 145 puntos,
+        para mostrar el estado de "usuario con progreso".
       </div>
 
       <p className="text-center text-sm text-muted-foreground">

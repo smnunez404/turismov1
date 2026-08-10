@@ -95,18 +95,13 @@ function PanelConceptual() {
             <p className="text-xs font-semibold tracking-widest text-secondary uppercase">
               Soy Embajador Bolivia · Backoffice (demostración)
             </p>
-            <h1 className="text-3xl font-bold text-foreground">
-              Así se administrará el contenido
-            </h1>
+            <h1 className="text-3xl font-bold text-foreground">Así se administrará el contenido</h1>
             <p className="mt-1 max-w-2xl text-sm text-muted-foreground">
-              Referencia visual para el cliente: muestra qué se podrá gestionar en la
-              versión desarrollada, sin construir el módulo en esta etapa.
+              Referencia visual para el cliente: muestra qué se podrá gestionar en la versión
+              desarrollada, sin construir el módulo en esta etapa.
             </p>
           </div>
-          <Link
-            to="/temporadas"
-            className="btn-duo btn-duo-ghost"
-          >
+          <Link to="/temporadas" className="btn-duo btn-duo-ghost">
             Volver al prototipo
           </Link>
         </header>
@@ -135,9 +130,7 @@ function PanelConceptual() {
 
         <section className="overflow-hidden rounded-2xl bg-card shadow-sm">
           <div className="flex flex-wrap items-center justify-between gap-2 border-b border-border p-4">
-            <h2 className="text-base font-bold text-foreground">
-              Misiones de la Temporada 1
-            </h2>
+            <h2 className="text-base font-bold text-foreground">Misiones de la Temporada 1</h2>
             <span
               aria-disabled="true"
               className="cursor-not-allowed rounded-lg bg-muted px-3 py-1.5 text-xs font-semibold text-muted-foreground"

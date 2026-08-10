@@ -48,10 +48,7 @@ function PortadaMision() {
 
   return (
     <Pantalla className="gap-6 pb-12">
-      <Link
-        to="/temporadas"
-        className="text-sm text-muted-foreground underline underline-offset-4"
-      >
+      <Link to="/temporadas" className="text-sm text-muted-foreground underline underline-offset-4">
         ← Mapa de temporadas
       </Link>
 
