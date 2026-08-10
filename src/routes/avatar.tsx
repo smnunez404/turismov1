@@ -47,10 +47,10 @@ function SeleccionAvatar() {
               type="button"
               onClick={() => actualizar({ avatarId: avatar.id })}
               aria-pressed={seleccionado}
-              className={`flex flex-col items-center gap-1.5 rounded-2xl border-2 bg-card p-3 transition-all ${
+              className={`flex flex-col items-center gap-1.5 rounded-2xl border-2 p-3 transition-all ${
                 seleccionado
-                  ? "border-primary bg-accent/20 shadow-md"
-                  : "border-border hover:border-accent"
+                  ? "scale-[1.04] border-primary bg-accent/40 shadow-md ring-2 ring-primary/40"
+                  : "border-border bg-card hover:border-accent"
               }`}
             >
               <span className="text-3xl" role="img" aria-hidden="true">
