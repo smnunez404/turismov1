@@ -20,6 +20,7 @@ import { Route as TutorialRouteImport } from './routes/tutorial'
 import { Route as MisionMisionIdIndexRouteImport } from './routes/mision.$misionId.index'
 import { Route as MisionMisionIdJugarRouteImport } from './routes/mision.$misionId.jugar'
 import { Route as MisionMisionIdResultadosRouteImport } from './routes/mision.$misionId.resultados'
+import { Route as MisionMisionIdRetoRouteImport } from './routes/mision.$misionId.reto'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -77,6 +78,11 @@ const MisionMisionIdResultadosRoute =
     path: '/mision/$misionId/resultados',
     getParentRoute: () => rootRouteImport,
   } as any)
+const MisionMisionIdRetoRoute = MisionMisionIdRetoRouteImport.update({
+  id: '/mision/$misionId/reto',
+  path: '/mision/$misionId/reto',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -89,6 +95,7 @@ export interface FileRoutesByFullPath {
   '/tutorial': typeof TutorialRoute
   '/mision/$misionId/jugar': typeof MisionMisionIdJugarRoute
   '/mision/$misionId/resultados': typeof MisionMisionIdResultadosRoute
+  '/mision/$misionId/reto': typeof MisionMisionIdRetoRoute
   '/mision/$misionId/': typeof MisionMisionIdIndexRoute
 }
 export interface FileRoutesByTo {
@@ -102,6 +109,7 @@ export interface FileRoutesByTo {
   '/tutorial': typeof TutorialRoute
   '/mision/$misionId/jugar': typeof MisionMisionIdJugarRoute
   '/mision/$misionId/resultados': typeof MisionMisionIdResultadosRoute
+  '/mision/$misionId/reto': typeof MisionMisionIdRetoRoute
   '/mision/$misionId': typeof MisionMisionIdIndexRoute
 }
 export interface FileRoutesById {
@@ -116,6 +124,7 @@ export interface FileRoutesById {
   '/tutorial': typeof TutorialRoute
   '/mision/$misionId/jugar': typeof MisionMisionIdJugarRoute
   '/mision/$misionId/resultados': typeof MisionMisionIdResultadosRoute
+  '/mision/$misionId/reto': typeof MisionMisionIdRetoRoute
   '/mision/$misionId/': typeof MisionMisionIdIndexRoute
 }
 export interface FileRouteTypes {
@@ -131,6 +140,7 @@ export interface FileRouteTypes {
     | '/tutorial'
     | '/mision/$misionId/jugar'
     | '/mision/$misionId/resultados'
+    | '/mision/$misionId/reto'
     | '/mision/$misionId/'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -144,6 +154,7 @@ export interface FileRouteTypes {
     | '/tutorial'
     | '/mision/$misionId/jugar'
     | '/mision/$misionId/resultados'
+    | '/mision/$misionId/reto'
     | '/mision/$misionId'
   id:
     | '__root__'
@@ -157,6 +168,7 @@ export interface FileRouteTypes {
     | '/tutorial'
     | '/mision/$misionId/jugar'
     | '/mision/$misionId/resultados'
+    | '/mision/$misionId/reto'
     | '/mision/$misionId/'
   fileRoutesById: FileRoutesById
 }
@@ -171,6 +183,7 @@ export interface RootRouteChildren {
   TutorialRoute: typeof TutorialRoute
   MisionMisionIdJugarRoute: typeof MisionMisionIdJugarRoute
   MisionMisionIdResultadosRoute: typeof MisionMisionIdResultadosRoute
+  MisionMisionIdRetoRoute: typeof MisionMisionIdRetoRoute
   MisionMisionIdIndexRoute: typeof MisionMisionIdIndexRoute
 }
 
@@ -253,6 +266,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof MisionMisionIdResultadosRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/mision/$misionId/reto': {
+      id: '/mision/$misionId/reto'
+      path: '/mision/$misionId/reto'
+      fullPath: '/mision/$misionId/reto'
+      preLoaderRoute: typeof MisionMisionIdRetoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -267,6 +287,7 @@ const rootRouteChildren: RootRouteChildren = {
   TutorialRoute: TutorialRoute,
   MisionMisionIdJugarRoute: MisionMisionIdJugarRoute,
   MisionMisionIdResultadosRoute: MisionMisionIdResultadosRoute,
+  MisionMisionIdRetoRoute: MisionMisionIdRetoRoute,
   MisionMisionIdIndexRoute: MisionMisionIdIndexRoute,
 }
 export const routeTree = rootRouteImport
