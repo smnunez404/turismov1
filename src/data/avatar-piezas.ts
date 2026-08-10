@@ -139,6 +139,40 @@ export const avatarPorDefecto: AvatarPersonalizado = {
 
 const alAzar = <T,>(lista: T[]): T => lista[Math.floor(Math.random() * lista.length)] as T;
 
+/** Hash estable (no criptográfico) para derivar avatares reproducibles de un texto. */
+function hash(texto: string): number {
+  let h = 2166136261;
+  for (let i = 0; i < texto.length; i++) {
+    h ^= texto.charCodeAt(i);
+    h = Math.imul(h, 16777619);
+  }
+  return Math.abs(h);
+}
+
+/**
+ * Avatar por capas determinista a partir de una semilla (nombre o id).
+ * Se usa para los participantes sintéticos de ranking, liga y duelo,
+ * de modo que nadie vea los PNG antiguos.
+ */
+export function avatarSintetico(semilla: string): AvatarPersonalizado {
+  const base = hash(semilla);
+  const elegir = <T,>(lista: T[], paso: number): T =>
+    lista[hash(`${semilla}-${paso}`) % lista.length] as T;
+  const libres = (c: CategoriaPieza) => piezasDe(c).filter((p) => !p.bloqueada);
+  return {
+    cuerpo: elegir(libres("cuerpo"), 1).id,
+    cara: elegir(libres("cara"), 2).id,
+    cabello: elegir(libres("cabello").filter((p) => p.id !== "pelo-ninguno"), 3).id,
+    vello: base % 3 === 0 ? elegir(libres("vello"), 4).id : "vello-ninguno",
+    prenda: elegir(libres("prenda"), 5).id,
+    sombrero: elegir(libres("sombrero"), 6).id,
+    accesorio: elegir(libres("accesorio"), 7).id,
+    fondo: elegir(libres("fondo"), 8).id,
+    tonoPiel: elegir(tonosPiel, 9).valor,
+    colorPelo: elegir(coloresPelo, 10).valor,
+  };
+}
+
 /** Combinación aleatoria usando solo piezas desbloqueadas. */
 export function avatarAlAzar(): AvatarPersonalizado {
   const libre = (c: CategoriaPieza) => alAzar(piezasDe(c).filter((p) => !p.bloqueada)).id;
