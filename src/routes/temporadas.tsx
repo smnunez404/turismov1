@@ -2,6 +2,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Pantalla } from "@/components/Pantalla";
 import { AvatarInsignia } from "@/components/AvatarInsignia";
+import { Icono, IconoPastilla } from "@/components/Icono";
 import { useSesion } from "@/context/SessionContext";
 import { temporadas } from "@/data/temporadas";
 import { avanceTemporada, estadoDeMision, misionesDeTemporada } from "@/lib/progreso";
@@ -61,35 +62,33 @@ function MapaTemporadas() {
       <nav className="grid grid-cols-2 gap-3">
         <Link
           to="/perfil"
-          className="rounded-xl border border-border bg-card px-3 py-2 text-center text-sm font-semibold text-foreground transition-colors hover:border-primary"
+          className="flex items-center gap-2 rounded-xl border border-border bg-card px-3 py-2.5 text-sm font-semibold text-foreground transition-colors hover:border-primary"
         >
-          👤 Mi perfil
+          <Icono nombre="perfil" className="h-4.5 w-4.5 text-primary" /> Mi perfil
         </Link>
         <Link
           to="/ranking"
-          className="rounded-xl border border-border bg-card px-3 py-2 text-center text-sm font-semibold text-foreground transition-colors hover:border-primary"
+          className="flex items-center gap-2 rounded-xl border border-border bg-card px-3 py-2.5 text-sm font-semibold text-foreground transition-colors hover:border-primary"
         >
-          🏆 Ranking
+          <Icono nombre="ranking" className="h-4.5 w-4.5 text-primary" /> Ranking
         </Link>
         <Link
           to="/certificado"
-          className="rounded-xl border border-border bg-card px-3 py-2 text-center text-sm font-semibold text-foreground transition-colors hover:border-primary"
+          className="flex items-center gap-2 rounded-xl border border-border bg-card px-3 py-2.5 text-sm font-semibold text-foreground transition-colors hover:border-primary"
         >
-          🏅 Certificado
+          <Icono nombre="certificado" className="h-4.5 w-4.5 text-primary" /> Certificado
         </Link>
         <Link
           to="/compartir"
-          className="rounded-xl border border-border bg-card px-3 py-2 text-center text-sm font-semibold text-foreground transition-colors hover:border-primary"
+          className="flex items-center gap-2 rounded-xl border border-border bg-card px-3 py-2.5 text-sm font-semibold text-foreground transition-colors hover:border-primary"
         >
-          📣 Compartir
+          <Icono nombre="compartir" className="h-4.5 w-4.5 text-primary" /> Compartir
         </Link>
       </nav>
 
       <section className="rounded-2xl bg-card p-5 shadow-sm">
         <div className="flex items-start gap-3">
-          <span className="text-3xl" aria-hidden="true">
-            {activa.icono}
-          </span>
+          <IconoPastilla nombre={activa.icono} tono="primary" />
           <div>
             <p className="text-xs font-semibold tracking-widest text-primary uppercase">
               Temporada 1 · Activa
@@ -129,7 +128,13 @@ function MapaTemporadas() {
                         : "bg-accent text-accent-foreground"
                   }`}
                 >
-                  {estado === "completada" ? "✓" : bloqueada ? "🔒" : mision.orden}
+                  {estado === "completada" ? (
+                    <Icono nombre="check" className="h-4.5 w-4.5" />
+                  ) : bloqueada ? (
+                    <Icono nombre="bloqueado" className="h-4 w-4" />
+                  ) : (
+                    mision.orden
+                  )}
                 </span>
                 <span className="flex-1">
                   <span className="block text-sm font-semibold text-foreground">
@@ -178,13 +183,11 @@ function MapaTemporadas() {
                 key={t.id}
                 className="relative overflow-hidden rounded-2xl border border-border bg-card p-4 shadow-sm"
               >
-                <span className="text-2xl" aria-hidden="true">
-                  {t.icono}
-                </span>
+                <IconoPastilla nombre={t.icono} tono="muted" />
                 <p className="mt-1 text-sm font-bold text-foreground">{t.nombre}</p>
                 <p className="text-xs text-muted-foreground">{t.descripcion}</p>
-                <span className="mt-2 inline-block rounded-full bg-muted px-2 py-0.5 text-[11px] font-semibold text-muted-foreground">
-                  🔒 Próximamente
+                <span className="mt-2 inline-flex items-center gap-1 rounded-full bg-muted px-2 py-0.5 text-[11px] font-semibold text-muted-foreground">
+                  <Icono nombre="bloqueado" className="h-3 w-3" /> Próximamente
                 </span>
               </li>
             ))}

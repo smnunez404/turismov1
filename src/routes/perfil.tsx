@@ -2,6 +2,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Pantalla } from "@/components/Pantalla";
 import { AvatarInsignia } from "@/components/AvatarInsignia";
+import { Icono, IconoPastilla } from "@/components/Icono";
 import { useSesion } from "@/context/SessionContext";
 import { insignias } from "@/data/insignias";
 import { participantesRanking } from "@/data/ranking";
@@ -102,8 +103,14 @@ function Perfil() {
                 key={m.id}
                 className="flex items-center justify-between text-sm text-foreground"
               >
-                <span className={p?.completada ? "" : "text-muted-foreground"}>
-                  {p?.completada ? "✓" : "○"} {m.nombre}
+                <span
+                  className={`flex items-center gap-2 ${p?.completada ? "" : "text-muted-foreground"}`}
+                >
+                  <Icono
+                    nombre={p?.completada ? "check" : "bloqueado"}
+                    className={`h-4 w-4 ${p?.completada ? "text-primary" : "text-muted-foreground"}`}
+                  />
+                  {m.nombre}
                 </span>
                 <span className="text-xs text-muted-foreground">
                   {p?.completada ? `${p.puntos} pts` : "—"}
@@ -130,9 +137,7 @@ function Perfil() {
                     : "border-border bg-muted/50 opacity-60 grayscale"
                 }`}
               >
-                <span className="text-2xl" aria-hidden="true">
-                  {i.icono}
-                </span>
+                <IconoPastilla nombre={i.icono} tono={obtenida ? "accent" : "muted"} />
                 <p className="mt-1 text-sm font-bold text-foreground">{i.nombre}</p>
                 <p className="text-xs text-muted-foreground">
                   {obtenida ? i.descripcion : i.criterio}
@@ -147,9 +152,9 @@ function Perfil() {
         {finTemporada && (
           <Link
             to="/certificado"
-            className="rounded-xl bg-accent px-4 py-3.5 text-base font-semibold text-accent-foreground transition-colors hover:bg-accent/90"
+            className="inline-flex items-center justify-center gap-2 rounded-xl bg-accent px-4 py-3.5 text-base font-semibold text-accent-foreground transition-colors hover:bg-accent/90"
           >
-            🏅 Ver mi certificado
+            <Icono nombre="certificado" /> Ver mi certificado
           </Link>
         )}
         <Link

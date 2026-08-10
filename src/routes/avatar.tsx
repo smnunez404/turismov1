@@ -53,9 +53,14 @@ function SeleccionAvatar() {
                   : "border-border bg-card hover:border-accent"
               }`}
             >
-              <span className="text-3xl" role="img" aria-hidden="true">
-                {avatar.simbolo}
-              </span>
+              <img
+                src={avatar.imagen}
+                alt=""
+                loading="lazy"
+                width={512}
+                height={512}
+                className="h-14 w-14 object-contain"
+              />
               <span className="text-center text-xs font-semibold text-foreground">
                 {avatar.nombre}
               </span>
