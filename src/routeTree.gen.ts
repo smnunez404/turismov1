@@ -18,6 +18,7 @@ import { Route as RegistroRouteImport } from './routes/registro'
 import { Route as TemporadasRouteImport } from './routes/temporadas'
 import { Route as TutorialRouteImport } from './routes/tutorial'
 import { Route as MisionRouteImport } from './routes/mision.'
+import { Route as MisionMisionIdJugarRouteImport } from './routes/mision.$misionId.jugar'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -64,6 +65,11 @@ const MisionRoute = MisionRouteImport.update({
   path: '/mision/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const MisionMisionIdJugarRoute = MisionMisionIdJugarRouteImport.update({
+  id: '/mision/$misionId/jugar',
+  path: '/mision/$misionId/jugar',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -75,6 +81,7 @@ export interface FileRoutesByFullPath {
   '/temporadas': typeof TemporadasRoute
   '/tutorial': typeof TutorialRoute
   '/mision/': typeof MisionRoute
+  '/mision/$misionId/jugar': typeof MisionMisionIdJugarRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -86,6 +93,7 @@ export interface FileRoutesByTo {
   '/temporadas': typeof TemporadasRoute
   '/tutorial': typeof TutorialRoute
   '/mision': typeof MisionRoute
+  '/mision/$misionId/jugar': typeof MisionMisionIdJugarRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -98,6 +106,7 @@ export interface FileRoutesById {
   '/temporadas': typeof TemporadasRoute
   '/tutorial': typeof TutorialRoute
   '/mision/': typeof MisionRoute
+  '/mision/$misionId/jugar': typeof MisionMisionIdJugarRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -111,6 +120,7 @@ export interface FileRouteTypes {
     | '/temporadas'
     | '/tutorial'
     | '/mision/'
+    | '/mision/$misionId/jugar'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -122,6 +132,7 @@ export interface FileRouteTypes {
     | '/temporadas'
     | '/tutorial'
     | '/mision'
+    | '/mision/$misionId/jugar'
   id:
     | '__root__'
     | '/'
@@ -133,6 +144,7 @@ export interface FileRouteTypes {
     | '/temporadas'
     | '/tutorial'
     | '/mision/'
+    | '/mision/$misionId/jugar'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -145,6 +157,7 @@ export interface RootRouteChildren {
   TemporadasRoute: typeof TemporadasRoute
   TutorialRoute: typeof TutorialRoute
   MisionRoute: typeof MisionRoute
+  MisionMisionIdJugarRoute: typeof MisionMisionIdJugarRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -212,6 +225,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof MisionRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/mision/$misionId/jugar': {
+      id: '/mision/$misionId/jugar'
+      path: '/mision/$misionId/jugar'
+      fullPath: '/mision/$misionId/jugar'
+      preLoaderRoute: typeof MisionMisionIdJugarRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -225,6 +245,7 @@ const rootRouteChildren: RootRouteChildren = {
   TemporadasRoute: TemporadasRoute,
   TutorialRoute: TutorialRoute,
   MisionRoute: MisionRoute,
+  MisionMisionIdJugarRoute: MisionMisionIdJugarRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
