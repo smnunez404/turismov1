@@ -5,6 +5,7 @@ import { AvatarInsignia } from "@/components/AvatarInsignia";
 import { Icono, IconoPastilla } from "@/components/Icono";
 import { useSesion } from "@/context/SessionContext";
 import { temporadas } from "@/data/temporadas";
+import { ilustracionTemporada } from "@/data/ilustraciones";
 import { avanceTemporada, estadoDeMision, misionesDeTemporada } from "@/lib/progreso";
 
 export const Route = createFileRoute("/temporadas")({
@@ -39,7 +40,7 @@ function MapaTemporadas() {
   const lista = misionesDeTemporada(activa.id);
 
   return (
-    <Pantalla className="gap-6 pb-12">
+    <Pantalla conNav className="gap-6">
       <header className="grid grid-cols-[minmax(0,1fr)_auto] items-center gap-3">
         <div className="min-w-0">
           <p className="text-xs font-semibold tracking-widest text-secondary uppercase">
@@ -59,34 +60,15 @@ function MapaTemporadas() {
         </div>
       </header>
 
-      <nav className="grid grid-cols-2 gap-3">
-        <Link
-          to="/perfil"
-          className="flex items-center gap-2 rounded-2xl border-2 border-b-4 border-border bg-card px-3 py-2.5 text-sm font-semibold text-foreground transition-colors hover:border-primary"
-        >
-          <Icono nombre="perfil" className="h-4.5 w-4.5 text-primary" /> Mi perfil
-        </Link>
-        <Link
-          to="/ranking"
-          className="flex items-center gap-2 rounded-2xl border-2 border-b-4 border-border bg-card px-3 py-2.5 text-sm font-semibold text-foreground transition-colors hover:border-primary"
-        >
-          <Icono nombre="ranking" className="h-4.5 w-4.5 text-primary" /> Ranking
-        </Link>
-        <Link
-          to="/certificado"
-          className="flex items-center gap-2 rounded-2xl border-2 border-b-4 border-border bg-card px-3 py-2.5 text-sm font-semibold text-foreground transition-colors hover:border-primary"
-        >
-          <Icono nombre="certificado" className="h-4.5 w-4.5 text-primary" /> Certificado
-        </Link>
-        <Link
-          to="/compartir"
-          className="flex items-center gap-2 rounded-2xl border-2 border-b-4 border-border bg-card px-3 py-2.5 text-sm font-semibold text-foreground transition-colors hover:border-primary"
-        >
-          <Icono nombre="compartir" className="h-4.5 w-4.5 text-primary" /> Compartir
-        </Link>
-      </nav>
-
-      <section className="card-duo card-duo-activa p-5">
+      <section className="card-duo card-duo-activa overflow-hidden">
+        <img
+          src={ilustracionTemporada[activa.id]}
+          alt={`Ilustración de la temporada ${activa.nombre}`}
+          width={1024}
+          height={576}
+          className="h-32 w-full object-cover"
+        />
+        <div className="p-5">
         <div className="flex items-start gap-3">
           <IconoPastilla nombre={activa.icono} tono="primary" />
           <div>
@@ -166,6 +148,7 @@ function MapaTemporadas() {
             );
           })}
         </ul>
+        </div>
       </section>
 
       <section>
@@ -176,13 +159,23 @@ function MapaTemporadas() {
           {temporadas
             .filter((t) => t.estado === "bloqueada")
             .map((t) => (
-              <li key={t.id} className="relative overflow-hidden card-duo p-4">
+              <li key={t.id} className="relative overflow-hidden card-duo">
+                <img
+                  src={ilustracionTemporada[t.id]}
+                  alt={`Ilustración de la temporada ${t.nombre}`}
+                  loading="lazy"
+                  width={1024}
+                  height={576}
+                  className="h-20 w-full object-cover opacity-60 grayscale"
+                />
+                <div className="p-4">
                 <IconoPastilla nombre={t.icono} tono="muted" />
                 <p className="mt-1 text-sm font-bold text-foreground">{t.nombre}</p>
                 <p className="text-xs text-muted-foreground">{t.descripcion}</p>
                 <span className="mt-2 inline-flex items-center gap-1 rounded-full bg-muted px-2 py-0.5 text-[11px] font-semibold text-muted-foreground">
                   <Icono nombre="bloqueado" className="h-3 w-3" /> Próximamente
                 </span>
+                </div>
               </li>
             ))}
         </ul>
