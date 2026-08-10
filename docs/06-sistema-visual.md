@@ -3,16 +3,21 @@
 Identidad cruceña auténtica: cálida, tropical, con carácter. Nada de plantilla
 internacional ni degradados genéricos.
 
-## Paleta
+## Paleta (actualizada 10 de agosto de 2026 — "Selva vibrante")
+
+Tras la validación de estilo con la cliente se adoptó una paleta más saturada, de energía
+de juego (referencia Duolingo) sobre fondo blanco, conservando el verde y el dorado sol
+cruceños.
 
 | Token | Rol | Referencia |
 | --- | --- | --- |
-| `--primary` | Verde tropical profundo (selva chiquitana) | acciones principales, encabezados |
-| `--accent` | Dorado sol cruceño | insignias, puntos, destaques |
-| `--secondary` | Terracota / teja colonial | acentos cálidos, estados secundarios |
-| `--background` | Crema arena | fondo general |
-| `--foreground` | Marrón tierra oscuro | texto |
-| `--muted` | Arena tenue | superficies suaves, estados bloqueados |
+| `--primary` | Verde selva saturado (#58cc02 aprox.) | botones y acciones principales |
+| `--lima` | Verde lima (#a6e22e aprox.) | brillos, barras de progreso, acentos |
+| `--accent` | Dorado sol (#ffc800 aprox.) | insignias, puntos, destaques |
+| `--secondary` | Naranja cruceño legible | etiquetas y estados secundarios |
+| `--background` | Blanco verdoso casi puro | fondo general |
+| `--foreground` | Verde tierra oscuro | texto |
+| `--muted` | Gris verdoso claro | superficies suaves, estados bloqueados |
 | `--destructive` | Rojo teja intenso | errores (tono cálido, nunca punitivo) |
 
 Todos los valores se definen en `src/styles.css` como variables semánticas en `oklch`.
@@ -70,6 +75,24 @@ cada sistema operativo, rompen la paleta de marca y dan aspecto genérico.
 
 - `src/assets/marca-embajador.png`: toborochi dentro de un pin de mapa. Se usa en el
   splash (P-01), en el certificado (P-16) y como favicon (`public/favicon.png`).
+
+## Ilustraciones (10 de agosto de 2026)
+
+Ilustraciones planas vectoriales generadas para el prototipo, mismo lenguaje que la paleta
+(verde selva, lima, dorado; formas redondeadas, sin texto):
+
+- `src/assets/temporadas/t1..t5.jpg` — portada de cada temporada (mapa P-08).
+- `src/assets/misiones/m1..m5.jpg` — banner de cada misión de la Temporada 1 (P-09).
+- `src/assets/hero-santacruz.jpg` — splash (P-01) y bienvenida (P-06).
+- `src/assets/certificado-fondo.jpg` — marco decorativo del certificado (P-16).
+- El mapeo id → imagen vive en `src/data/ilustraciones.ts`.
+
+## Navegación principal
+
+`src/components/BarraInferior.tsx` es una barra fija inferior de 4 ítems (Aprender,
+Ranking, Logros, Perfil), presente en P-08, P-14, P-15 y P-16 mediante la prop `conNav`
+de `Pantalla`. Reemplaza la antigua grilla de accesos del mapa de temporadas. Las
+pantallas de onboarding y de juego no la muestran para no romper el foco.
 
 ## Actualización de estilo — referencia Duolingo (10 de agosto de 2026)
 

@@ -40,7 +40,7 @@ function Ranking() {
   const posicion = lista.findIndex((p) => p.id === "yo") + 1;
 
   return (
-    <Pantalla className="gap-6 pb-12">
+    <Pantalla conNav className="gap-6">
       <header>
         <p className="text-xs font-semibold tracking-widest text-secondary uppercase">
           Temporada 1

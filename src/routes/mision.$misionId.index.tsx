@@ -5,6 +5,7 @@ import { useSesion } from "@/context/SessionContext";
 import { insignias } from "@/data/insignias";
 import { estadoDeMision, insigniaDeMision, obtenerMision } from "@/lib/progreso";
 import { Icono, IconoPastilla } from "@/components/Icono";
+import { ilustracionMision } from "@/data/ilustraciones";
 
 export const Route = createFileRoute("/mision/$misionId/")({
   head: ({ params }) => {
@@ -52,27 +53,36 @@ function PortadaMision() {
         ← Mapa de temporadas
       </Link>
 
-      <header className="card-duo p-6">
-        <p className="text-xs font-semibold tracking-widest text-secondary uppercase">
-          Misión {mision.orden} · Temporada 1
-        </p>
-        <h1 className="mt-1 text-2xl font-bold text-foreground">{mision.nombre}</h1>
-        <p className="mt-2 text-sm text-muted-foreground">{mision.descripcion}</p>
+      <header className="card-duo overflow-hidden">
+        <img
+          src={ilustracionMision[mision.id]}
+          alt={`Ilustración de la misión ${mision.nombre}`}
+          width={1024}
+          height={512}
+          className="h-36 w-full object-cover"
+        />
+        <div className="p-6">
+          <p className="text-xs font-semibold tracking-widest text-secondary uppercase">
+            Misión {mision.orden} · Temporada 1
+          </p>
+          <h1 className="mt-1 text-2xl font-bold text-foreground">{mision.nombre}</h1>
+          <p className="mt-2 text-sm text-muted-foreground">{mision.descripcion}</p>
 
-        <dl className="mt-5 grid grid-cols-3 gap-2 text-center">
-          <div className="rounded-xl bg-muted p-3">
-            <dt className="text-[11px] text-muted-foreground uppercase">Preguntas</dt>
-            <dd className="text-lg font-bold text-foreground">{mision.cantidadPreguntas}</dd>
-          </div>
-          <div className="rounded-xl bg-muted p-3">
-            <dt className="text-[11px] text-muted-foreground uppercase">Puntaje</dt>
-            <dd className="text-lg font-bold text-foreground">{mision.puntajeMaximo}</dd>
-          </div>
-          <div className="rounded-xl bg-muted p-3">
-            <dt className="text-[11px] text-muted-foreground uppercase">Estado</dt>
-            <dd className="text-sm font-bold text-foreground capitalize">{estado}</dd>
-          </div>
-        </dl>
+          <dl className="mt-5 grid grid-cols-3 gap-2 text-center">
+            <div className="rounded-xl bg-muted p-3">
+              <dt className="text-[11px] text-muted-foreground uppercase">Preguntas</dt>
+              <dd className="text-lg font-bold text-foreground">{mision.cantidadPreguntas}</dd>
+            </div>
+            <div className="rounded-xl bg-muted p-3">
+              <dt className="text-[11px] text-muted-foreground uppercase">Puntaje</dt>
+              <dd className="text-lg font-bold text-foreground">{mision.puntajeMaximo}</dd>
+            </div>
+            <div className="rounded-xl bg-muted p-3">
+              <dt className="text-[11px] text-muted-foreground uppercase">Estado</dt>
+              <dd className="text-sm font-bold text-foreground capitalize">{estado}</dd>
+            </div>
+          </dl>
+        </div>
       </header>
 
       {insignia && (
