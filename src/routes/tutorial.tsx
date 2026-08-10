@@ -1,5 +1,5 @@
 // SPEC-07 — Tutorial (P-07)
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { useState } from "react";
 import { Pantalla, PasoOnboarding } from "@/components/Pantalla";
 import { useSesion } from "@/context/SessionContext";
@@ -63,9 +63,12 @@ function Tutorial() {
         <p className="text-muted-foreground">
           Hay una sola forma de averiguarlo. Empecemos por los orígenes.
         </p>
-        <div className="rounded-2xl border border-dashed border-border bg-muted p-5 text-sm text-muted-foreground">
-          El mapa de temporadas y las misiones llegan en el Sprint 2 (SPEC-08 a SPEC-11).
-        </div>
+        <Link
+          to="/temporadas"
+          className="rounded-xl bg-primary px-4 py-3.5 text-base font-semibold text-primary-foreground transition-colors hover:bg-primary/90"
+        >
+          Empezar la Temporada 1
+        </Link>
       </Pantalla>
     );
   }
