@@ -70,7 +70,7 @@ function Tutorial() {
     );
   }
 
-  const paso = pasos[indice];
+  const paso = pasos[indice] ?? pasos[0]!;
 
   return (
     <Pantalla className="justify-center gap-8">
