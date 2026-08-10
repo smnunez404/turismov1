@@ -110,7 +110,7 @@ function Jugar() {
   };
 
   return (
-    <Pantalla className="gap-6 pb-12">
+    <Pantalla className="gap-6 pb-40">
       <header className="flex flex-col gap-2">
         <div className="flex items-center justify-between text-xs text-muted-foreground">
           <Link
@@ -124,9 +124,9 @@ function Jugar() {
             {indice + 1} de {lista.length}
           </span>
         </div>
-        <div className="h-2 rounded-full bg-muted">
-          <div
-            className="h-2 rounded-full bg-primary transition-all"
+        <div className="barra-duo">
+          <span
+            className="barra-duo-fill"
             style={{ width: `${((indice + (respondida ? 1 : 0)) / lista.length) * 100}%` }}
           />
         </div>
@@ -136,7 +136,9 @@ function Jugar() {
         <span className="inline-block rounded-full bg-secondary/15 px-3 py-1 text-[11px] font-semibold tracking-wide text-secondary uppercase">
           {etiquetaTipo[pregunta.tipo]}
         </span>
-        <h1 className="mt-3 text-xl font-bold text-foreground">{pregunta.enunciado}</h1>
+        <h1 className="mt-3 text-2xl leading-tight font-extrabold text-balance text-foreground">
+          {pregunta.enunciado}
+        </h1>
       </div>
 
       <ul
@@ -148,9 +150,10 @@ function Jugar() {
           const elegida = seleccion === opcion.id;
           const correcta = opcion.id === pregunta.respuestaCorrectaId;
           let estilo = "border-border bg-card hover:border-primary";
-          if (respondida && correcta) estilo = "border-primary bg-primary/10";
-          else if (respondida && elegida) estilo = "border-destructive bg-destructive/10";
-          else if (elegida) estilo = "border-primary bg-primary/5";
+          if (respondida && correcta) estilo = "border-primary bg-primary/10 text-primary";
+          else if (respondida && elegida)
+            estilo = "border-destructive bg-destructive/10 text-destructive";
+          else if (elegida) estilo = "border-primary bg-primary/10 text-primary";
 
           return (
             <li key={opcion.id}>
@@ -158,11 +161,11 @@ function Jugar() {
                 type="button"
                 disabled={respondida}
                 onClick={() => setSeleccion(opcion.id)}
-                className={`w-full rounded-xl border p-4 text-left text-sm font-medium text-foreground transition-colors disabled:cursor-default ${estilo}`}
+                className={`w-full rounded-2xl border-2 border-b-4 p-4 text-left text-base font-bold transition-colors active:translate-y-[2px] disabled:cursor-default ${estilo}`}
               >
                 {opcion.icono ? (
-                  <span className="flex flex-col items-start gap-2">
-                    <Icono nombre={opcion.icono} className="h-7 w-7 text-primary" />
+                  <span className="flex flex-col items-center gap-2 text-center">
+                    <Icono nombre={opcion.icono} className="h-9 w-9" />
                     {opcion.texto}
                   </span>
                 ) : (
@@ -174,34 +177,40 @@ function Jugar() {
         })}
       </ul>
 
-      {respondida && (
-        <div
-          role="status"
-          className={`rounded-2xl p-4 ${esCorrecta ? "bg-primary/10" : "bg-accent/20"}`}
-        >
-          <p className="flex items-center gap-2 text-sm font-bold text-foreground">
-            <Icono
-              nombre={esCorrecta ? "check" : "ojo"}
-              className={`h-4 w-4 ${esCorrecta ? "text-primary" : "text-secondary"}`}
-            />
-            {esCorrecta ? "¡Correcto!" : "Casi. Mirá esto"}
-          </p>
-          <p className="mt-1 text-sm text-muted-foreground">{pregunta.retroalimentacion}</p>
+      {/* Barra de acción fija al pie, estilo lección (mobile first) */}
+      <div className="fixed inset-x-0 bottom-0 z-10 flex justify-center border-t-2 border-border bg-background/95 backdrop-blur">
+        <div className="w-full max-w-md px-4 pt-3 pb-[max(1rem,env(safe-area-inset-bottom))]">
+          {respondida && (
+            <div
+              role="status"
+              className={`mb-3 rounded-2xl p-3 ${esCorrecta ? "bg-primary/10" : "bg-accent/25"}`}
+            >
+              <p className="flex items-center gap-2 text-sm font-extrabold text-foreground">
+                <Icono
+                  nombre={esCorrecta ? "check" : "ojo"}
+                  className={`h-5 w-5 ${esCorrecta ? "text-primary" : "text-secondary"}`}
+                />
+                {esCorrecta ? "¡Correcto!" : "Casi. Mirá esto"}
+              </p>
+              <p className="mt-1 text-sm text-muted-foreground">{pregunta.retroalimentacion}</p>
+            </div>
+          )}
+          <button
+            type="button"
+            onClick={respondida ? continuar : responder}
+            disabled={!seleccion}
+            className={`btn-duo disabled:opacity-50 ${
+              respondida && !esCorrecta ? "btn-duo-secondary" : "btn-duo-primary"
+            }`}
+          >
+            {respondida
+              ? indice === lista.length - 1
+                ? "Ver resultado"
+                : "Continuar"
+              : "Responder"}
+          </button>
         </div>
-      )}
-
-      <button
-        type="button"
-        onClick={respondida ? continuar : responder}
-        disabled={!seleccion}
-        className="btn-duo btn-duo-primary disabled:opacity-50"
-      >
-        {respondida
-          ? indice === lista.length - 1
-            ? "Ver resultado"
-            : "Continuar"
-          : "Responder"}
-      </button>
+      </div>
     </Pantalla>
   );
 }
