@@ -8,6 +8,7 @@ import { avanceTemporada, nivelDe, temporadaCompletada } from "@/lib/progreso";
 import { codigoCertificado, fechaLarga } from "@/lib/formato";
 import { Icono } from "@/components/Icono";
 import marca from "@/assets/marca-embajador.png";
+import fondoCertificado from "@/assets/certificado-fondo.jpg";
 
 export const Route = createFileRoute("/certificado")({
   head: () => ({
@@ -42,7 +43,7 @@ function Certificado() {
 
   if (!habilitado) {
     return (
-      <Pantalla className="justify-center gap-4 text-center">
+      <Pantalla conNav className="justify-center gap-4 text-center">
         <span className="mx-auto inline-flex h-20 w-20 items-center justify-center rounded-2xl bg-muted text-muted-foreground ring-1 ring-border">
           <Icono nombre="bloqueado" className="h-9 w-9" />
         </span>
@@ -64,7 +65,7 @@ function Certificado() {
   }
 
   return (
-    <Pantalla className="gap-6 pb-12">
+    <Pantalla conNav className="gap-6">
       <header className="text-center">
         <p className="text-xs font-semibold tracking-widest text-secondary uppercase">
           Lo lograste
@@ -76,6 +77,15 @@ function Certificado() {
       </header>
 
       <article className="relative overflow-hidden rounded-3xl border-4 border-accent bg-card p-6 text-center shadow-sm">
+        <img
+          src={fondoCertificado}
+          alt=""
+          aria-hidden="true"
+          loading="lazy"
+          width={1024}
+          height={1024}
+          className="pointer-events-none absolute inset-0 h-full w-full object-cover opacity-70"
+        />
         <div
           aria-hidden="true"
           className="pointer-events-none absolute -top-16 -right-16 h-40 w-40 rounded-full bg-accent/20"
