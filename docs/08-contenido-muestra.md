@@ -52,3 +52,16 @@ El ranking y el certificado indican de forma discreta que los datos son de demos
 | M5 Mi Primera Aventura | 1 | reto (se juega en Sprint 3) |
 
 Todas las preguntas valen 10 puntos y llevan retroalimentación obligatoria.
+
+## Contenido sintético de la Fase 2
+
+| Conjunto | Archivo | Cantidad |
+| --- | --- | --- |
+| Categorías cruceñas | `src/data/categorias.ts` | 6 |
+| Preguntas rápidas | `src/data/preguntas-rapidas.ts` | 36 (6 por categoría) |
+| Equipos por zona | `src/data/equipos.ts` | 6 |
+| Rivales de duelo | `src/data/equipos.ts` | 4 |
+| Auspiciadores | `src/data/auspiciadores.ts` | 6 |
+| Premios canjeables | `src/data/auspiciadores.ts` | 6 |
+
+Todos los nombres de marcas son ficticios y deben sustituirse al firmar acuerdos reales.
