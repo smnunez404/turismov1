@@ -40,3 +40,15 @@
 - Completar las 5 misiones otorga la insignia "Embajador de Santa Cruz" y habilita el
   certificado (SPEC-16, Sprint 4).
 - Recordatorio de alcance: al recargar la página el progreso se reinicia (sin persistencia).
+
+## 10 de agosto de 2026 — Sprint 4
+
+- El certificado no se descarga ni se genera como PDF: se diseña para captura de pantalla,
+  coherente con el guardarraíl de "sin backend ni archivos generados".
+- Se agrega un código de certificado simulado con formato `SEB-T1-<iniciales>-<puntaje>`
+  para dar credibilidad visual; no verifica nada.
+- Compartir exige al menos una misión completada; el certificado exige la temporada entera.
+- El panel administrativo se construye como vista de escritorio y estática, con un aviso
+  permanente de que es conceptual, para evitar que el cliente lo interprete como funcional.
+- La lista de amigos sugeridos se centraliza en `src/data/comunidad.ts` porque la usan el
+  reto presencial (P-13) y la pantalla de compartir (P-17).
