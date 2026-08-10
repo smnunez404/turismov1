@@ -9,10 +9,10 @@
 | P-05 | Selección de avatar | `/avatar` | Despertar | S-1 | Hecho |
 | P-06 | Bienvenida | `/bienvenida` | Despertar | S-1 | Hecho |
 | P-07 | Tutorial | `/tutorial` | Despertar | S-1 | Hecho |
-| P-08 | Mapa de temporadas | `/temporadas` | Despertar | S-2 | Pendiente |
-| P-09 | Detalle / portada de misión | `/mision/$misionId` | Descubrir | S-2 | Pendiente |
-| P-10 | Pregunta activa (5 variantes) | `/mision/$misionId/jugar` | Descubrir | S-2 | Pendiente |
-| P-11 | Feedback de respuesta | (dentro de P-10) | Descubrir | S-2 | Pendiente |
+| P-08 | Mapa de temporadas | `/temporadas` | Despertar | S-2 | Hecho |
+| P-09 | Detalle / portada de misión | `/mision/$misionId` (index) | Descubrir | S-2 | Hecho |
+| P-10 | Pregunta activa (5 variantes) | `/mision/$misionId/jugar` | Descubrir | S-2 | Hecho |
+| P-11 | Feedback de respuesta | (dentro de P-10) | Descubrir | S-2 | Hecho |
 | P-12 | Resultados de misión | `/mision/$misionId/resultados` | Descubrir | S-3 | Pendiente |
 | P-13 | Reto presencial (Misión 5) | `/mision/m5/reto` | Actuar | S-3 | Pendiente |
 | P-14 | Perfil del usuario | `/perfil` | Transversal | S-3 | Pendiente |
