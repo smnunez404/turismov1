@@ -80,9 +80,7 @@ function PortadaMision() {
 
       {insignia && (
         <div className="flex items-center gap-3 rounded-2xl border border-dashed border-accent bg-accent/10 p-4">
-          <span className="text-2xl" aria-hidden="true">
-            {insignia.icono}
-          </span>
+          <IconoPastilla nombre={insignia.icono} tono="accent" />
           <div>
             <p className="text-sm font-semibold text-foreground">{insignia.nombre}</p>
             <p className="text-xs text-muted-foreground">{insignia.descripcion}</p>
