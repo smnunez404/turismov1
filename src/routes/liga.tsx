@@ -80,7 +80,11 @@ function Liga() {
               >
                 {i + 1}
               </span>
-              <AvatarInsignia avatarId={p.avatarId} avatar={p.esUsuario ? usuario.avatar : null} tamano="sm" />
+              <AvatarInsignia
+                semilla={p.nombre}
+                avatar={p.esUsuario ? usuario.avatar : null}
+                tamano="sm"
+              />
               <span className="min-w-0 flex-1">
                 <span className="block truncate text-sm font-extrabold text-foreground">
                   {p.nombre}
