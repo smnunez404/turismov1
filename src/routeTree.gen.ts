@@ -15,7 +15,9 @@ import { Route as BienvenidaRouteImport } from './routes/bienvenida'
 import { Route as LoginRouteImport } from './routes/login'
 import { Route as PerfilNuevoRouteImport } from './routes/perfil-nuevo'
 import { Route as RegistroRouteImport } from './routes/registro'
+import { Route as TemporadasRouteImport } from './routes/temporadas'
 import { Route as TutorialRouteImport } from './routes/tutorial'
+import { Route as MisionRouteImport } from './routes/mision.'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -47,9 +49,19 @@ const RegistroRoute = RegistroRouteImport.update({
   path: '/registro',
   getParentRoute: () => rootRouteImport,
 } as any)
+const TemporadasRoute = TemporadasRouteImport.update({
+  id: '/temporadas',
+  path: '/temporadas',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const TutorialRoute = TutorialRouteImport.update({
   id: '/tutorial',
   path: '/tutorial',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MisionRoute = MisionRouteImport.update({
+  id: '/mision/',
+  path: '/mision/',
   getParentRoute: () => rootRouteImport,
 } as any)
 
@@ -60,7 +72,9 @@ export interface FileRoutesByFullPath {
   '/login': typeof LoginRoute
   '/perfil-nuevo': typeof PerfilNuevoRoute
   '/registro': typeof RegistroRoute
+  '/temporadas': typeof TemporadasRoute
   '/tutorial': typeof TutorialRoute
+  '/mision/': typeof MisionRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -69,7 +83,9 @@ export interface FileRoutesByTo {
   '/login': typeof LoginRoute
   '/perfil-nuevo': typeof PerfilNuevoRoute
   '/registro': typeof RegistroRoute
+  '/temporadas': typeof TemporadasRoute
   '/tutorial': typeof TutorialRoute
+  '/mision': typeof MisionRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -79,7 +95,9 @@ export interface FileRoutesById {
   '/login': typeof LoginRoute
   '/perfil-nuevo': typeof PerfilNuevoRoute
   '/registro': typeof RegistroRoute
+  '/temporadas': typeof TemporadasRoute
   '/tutorial': typeof TutorialRoute
+  '/mision/': typeof MisionRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -90,7 +108,9 @@ export interface FileRouteTypes {
     | '/login'
     | '/perfil-nuevo'
     | '/registro'
+    | '/temporadas'
     | '/tutorial'
+    | '/mision/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -99,7 +119,9 @@ export interface FileRouteTypes {
     | '/login'
     | '/perfil-nuevo'
     | '/registro'
+    | '/temporadas'
     | '/tutorial'
+    | '/mision'
   id:
     | '__root__'
     | '/'
@@ -108,7 +130,9 @@ export interface FileRouteTypes {
     | '/login'
     | '/perfil-nuevo'
     | '/registro'
+    | '/temporadas'
     | '/tutorial'
+    | '/mision/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -118,7 +142,9 @@ export interface RootRouteChildren {
   LoginRoute: typeof LoginRoute
   PerfilNuevoRoute: typeof PerfilNuevoRoute
   RegistroRoute: typeof RegistroRoute
+  TemporadasRoute: typeof TemporadasRoute
   TutorialRoute: typeof TutorialRoute
+  MisionRoute: typeof MisionRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -165,11 +191,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof RegistroRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/temporadas': {
+      id: '/temporadas'
+      path: '/temporadas'
+      fullPath: '/temporadas'
+      preLoaderRoute: typeof TemporadasRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/tutorial': {
       id: '/tutorial'
       path: '/tutorial'
       fullPath: '/tutorial'
       preLoaderRoute: typeof TutorialRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/mision/': {
+      id: '/mision/'
+      path: '/mision'
+      fullPath: '/mision/'
+      preLoaderRoute: typeof MisionRouteImport
       parentRoute: typeof rootRouteImport
     }
   }
@@ -182,7 +222,9 @@ const rootRouteChildren: RootRouteChildren = {
   LoginRoute: LoginRoute,
   PerfilNuevoRoute: PerfilNuevoRoute,
   RegistroRoute: RegistroRoute,
+  TemporadasRoute: TemporadasRoute,
   TutorialRoute: TutorialRoute,
+  MisionRoute: MisionRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
