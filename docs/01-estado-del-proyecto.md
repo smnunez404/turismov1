@@ -51,4 +51,5 @@ queda la validación con el cliente y la ronda única de observaciones.
 - [Sistema visual](./06-sistema-visual.md)
 - [Modelo de datos simulado](./07-modelo-datos-simulado.md)
 - [Contenido de muestra](./08-contenido-muestra.md)
+- [Checklist de validación con la cliente](./09-checklist-validacion-cliente.md)
 - [Sprints](./sprints/)
