@@ -23,6 +23,7 @@ import { Route as RegistroRouteImport } from './routes/registro'
 import { Route as TemporadasRouteImport } from './routes/temporadas'
 import { Route as TutorialRouteImport } from './routes/tutorial'
 import { Route as JugarIndexRouteImport } from './routes/jugar.index'
+import { Route as JugarDiaRouteImport } from './routes/jugar.dia'
 import { Route as JugarRuletaRouteImport } from './routes/jugar.ruleta'
 import { Route as MisionMisionIdIndexRouteImport } from './routes/mision.$misionId.index'
 import { Route as MisionMisionIdJugarRouteImport } from './routes/mision.$misionId.jugar'
@@ -99,6 +100,11 @@ const JugarIndexRoute = JugarIndexRouteImport.update({
   path: '/jugar/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const JugarDiaRoute = JugarDiaRouteImport.update({
+  id: '/jugar/dia',
+  path: '/jugar/dia',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const JugarRuletaRoute = JugarRuletaRouteImport.update({
   id: '/jugar/ruleta',
   path: '/jugar/ruleta',
@@ -140,6 +146,7 @@ export interface FileRoutesByFullPath {
   '/registro': typeof RegistroRoute
   '/temporadas': typeof TemporadasRoute
   '/tutorial': typeof TutorialRoute
+  '/jugar/dia': typeof JugarDiaRoute
   '/jugar/ruleta': typeof JugarRuletaRoute
   '/jugar/': typeof JugarIndexRoute
   '/mision/$misionId/jugar': typeof MisionMisionIdJugarRoute
@@ -161,6 +168,7 @@ export interface FileRoutesByTo {
   '/registro': typeof RegistroRoute
   '/temporadas': typeof TemporadasRoute
   '/tutorial': typeof TutorialRoute
+  '/jugar/dia': typeof JugarDiaRoute
   '/jugar/ruleta': typeof JugarRuletaRoute
   '/jugar': typeof JugarIndexRoute
   '/mision/$misionId/jugar': typeof MisionMisionIdJugarRoute
@@ -183,6 +191,7 @@ export interface FileRoutesById {
   '/registro': typeof RegistroRoute
   '/temporadas': typeof TemporadasRoute
   '/tutorial': typeof TutorialRoute
+  '/jugar/dia': typeof JugarDiaRoute
   '/jugar/ruleta': typeof JugarRuletaRoute
   '/jugar/': typeof JugarIndexRoute
   '/mision/$misionId/jugar': typeof MisionMisionIdJugarRoute
@@ -206,6 +215,7 @@ export interface FileRouteTypes {
     | '/registro'
     | '/temporadas'
     | '/tutorial'
+    | '/jugar/dia'
     | '/jugar/ruleta'
     | '/jugar/'
     | '/mision/$misionId/jugar'
@@ -227,6 +237,7 @@ export interface FileRouteTypes {
     | '/registro'
     | '/temporadas'
     | '/tutorial'
+    | '/jugar/dia'
     | '/jugar/ruleta'
     | '/jugar'
     | '/mision/$misionId/jugar'
@@ -248,6 +259,7 @@ export interface FileRouteTypes {
     | '/registro'
     | '/temporadas'
     | '/tutorial'
+    | '/jugar/dia'
     | '/jugar/ruleta'
     | '/jugar/'
     | '/mision/$misionId/jugar'
@@ -270,6 +282,7 @@ export interface RootRouteChildren {
   RegistroRoute: typeof RegistroRoute
   TemporadasRoute: typeof TemporadasRoute
   TutorialRoute: typeof TutorialRoute
+  JugarDiaRoute: typeof JugarDiaRoute
   JugarRuletaRoute: typeof JugarRuletaRoute
   JugarIndexRoute: typeof JugarIndexRoute
   MisionMisionIdJugarRoute: typeof MisionMisionIdJugarRoute
@@ -378,6 +391,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof JugarIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/jugar/dia': {
+      id: '/jugar/dia'
+      path: '/jugar/dia'
+      fullPath: '/jugar/dia'
+      preLoaderRoute: typeof JugarDiaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/jugar/ruleta': {
       id: '/jugar/ruleta'
       path: '/jugar/ruleta'
@@ -430,6 +450,7 @@ const rootRouteChildren: RootRouteChildren = {
   RegistroRoute: RegistroRoute,
   TemporadasRoute: TemporadasRoute,
   TutorialRoute: TutorialRoute,
+  JugarDiaRoute: JugarDiaRoute,
   JugarRuletaRoute: JugarRuletaRoute,
   JugarIndexRoute: JugarIndexRoute,
   MisionMisionIdJugarRoute: MisionMisionIdJugarRoute,
