@@ -5,6 +5,7 @@ import { AvatarInsignia } from "@/components/AvatarInsignia";
 import { Icono, IconoPastilla } from "@/components/Icono";
 import { useSesion } from "@/context/SessionContext";
 import { obtenerAuspiciador, premios } from "@/data/auspiciadores";
+import { avatarPorDefecto } from "@/data/avatar-piezas";
 import { divisionDe, tablaLiga } from "@/lib/juego";
 
 export const Route = createFileRoute("/liga")({
@@ -82,7 +83,7 @@ function Liga() {
               </span>
               <AvatarInsignia
                 semilla={p.nombre}
-                avatar={p.esUsuario ? usuario.avatar : null}
+                avatar={p.esUsuario ? (usuario.avatar ?? avatarPorDefecto) : null}
                 tamano="sm"
               />
               <span className="min-w-0 flex-1">

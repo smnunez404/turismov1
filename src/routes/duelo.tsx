@@ -6,6 +6,7 @@ import { AvatarInsignia } from "@/components/AvatarInsignia";
 import { Icono, IconoPastilla } from "@/components/Icono";
 import { useSesion } from "@/context/SessionContext";
 import { rivales } from "@/data/equipos";
+import { avatarPorDefecto } from "@/data/avatar-piezas";
 import { preguntasRapidas } from "@/data/preguntas-rapidas";
 import type { PreguntaRapida, Rival } from "@/data/tipos";
 import { barajar, respuestaRival } from "@/lib/juego";
@@ -155,7 +156,7 @@ function Duelo() {
     <Pantalla className="gap-4">
       <header className="flex items-center justify-between gap-2">
         <span className="flex items-center gap-2">
-          <AvatarInsignia avatarId={usuario.avatarId} avatar={usuario.avatar} tamano="sm" />
+          <AvatarInsignia avatar={usuario.avatar ?? avatarPorDefecto} tamano="sm" />
           <span className="text-lg font-extrabold text-foreground">{mios}</span>
         </span>
         <span className="text-xs font-bold tracking-widest text-muted-foreground uppercase">

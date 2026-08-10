@@ -4,6 +4,7 @@ import { Pantalla } from "@/components/Pantalla";
 import { AvatarInsignia } from "@/components/AvatarInsignia";
 import { useSesion } from "@/context/SessionContext";
 import { participantesRanking } from "@/data/ranking";
+import { avatarPorDefecto } from "@/data/avatar-piezas";
 
 export const Route = createFileRoute("/ranking")({
   head: () => ({
@@ -74,7 +75,7 @@ function Ranking() {
               </span>
               <AvatarInsignia
                 semilla={p.nombre}
-                avatar={yo ? usuario.avatar : null}
+                avatar={yo ? (usuario.avatar ?? avatarPorDefecto) : null}
                 tamano="sm"
               />
               <span className="flex-1 text-sm font-semibold text-foreground">
