@@ -104,7 +104,7 @@ function PortadaMision() {
         <Link
           to="/mision/$misionId/reto"
           params={{ misionId: mision.id }}
-          className="rounded-xl bg-primary px-4 py-3.5 text-center text-base font-semibold text-primary-foreground transition-colors hover:bg-primary/90"
+          className="btn-duo btn-duo-primary"
         >
           {progreso?.completada ? "Repetir el reto" : "Empezar el reto presencial"}
         </Link>
@@ -112,7 +112,7 @@ function PortadaMision() {
         <Link
           to="/mision/$misionId/jugar"
           params={{ misionId: mision.id }}
-          className="rounded-xl bg-primary px-4 py-3.5 text-center text-base font-semibold text-primary-foreground transition-colors hover:bg-primary/90"
+          className="btn-duo btn-duo-primary"
         >
           {progreso?.completada ? "Repetir misión" : "Comenzar misión"}
         </Link>
