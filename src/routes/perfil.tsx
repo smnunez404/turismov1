@@ -43,7 +43,7 @@ function Perfil() {
 
   return (
     <Pantalla className="gap-6 pb-12">
-      <header className="flex flex-col items-center gap-3 rounded-2xl bg-card p-6 text-center shadow-sm">
+      <header className="card-duo flex flex-col items-center gap-3 p-6 text-center">
         <AvatarInsignia avatarId={usuario.avatarId} tamano="lg" />
         <div>
           <h1 className="text-2xl font-bold text-foreground">
@@ -53,14 +53,14 @@ function Perfil() {
             {usuario.correo || "Perfil del prototipo"}
           </p>
         </div>
-        <div className="flex w-full justify-center gap-2">
-          <span className="rounded-full bg-accent/25 px-3 py-1 text-sm font-semibold text-accent-foreground">
+        <div className="flex w-full flex-wrap items-center justify-center gap-2">
+          <span className="rounded-full bg-accent/25 px-3 py-1 text-sm font-extrabold whitespace-nowrap text-accent-foreground">
             {usuario.puntos} pts
           </span>
-          <span className="rounded-full bg-primary/10 px-3 py-1 text-sm font-semibold text-primary">
+          <span className="rounded-full bg-primary/10 px-3 py-1 text-sm font-extrabold whitespace-nowrap text-primary">
             Nivel {nivel.indice} · {nivel.nombre}
           </span>
-          <span className="rounded-full bg-secondary/15 px-3 py-1 text-sm font-semibold text-secondary">
+          <span className="rounded-full bg-secondary/15 px-3 py-1 text-sm font-extrabold whitespace-nowrap text-secondary">
             #{posicion} del ranking
           </span>
         </div>
