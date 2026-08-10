@@ -38,6 +38,7 @@ export type Opcion = {
   id: string;
   texto: string;
   imagen?: string;
+  icono?: string;
 };
 
 export type Pregunta = {

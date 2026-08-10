@@ -56,10 +56,10 @@ export const preguntas: Pregunta[] = [
     tipo: "imagen",
     enunciado: "¿Cuál de estos símbolos representa al árbol emblema de Santa Cruz?",
     opciones: [
-      { id: "a", texto: "🌵 Cactus" },
-      { id: "b", texto: "🌳 Toborochi" },
-      { id: "c", texto: "🌴 Palmera datilera" },
-      { id: "d", texto: "🍁 Arce" },
+      { id: "a", texto: "Cactus", icono: "cactus" },
+      { id: "b", texto: "Toborochi", icono: "arbol" },
+      { id: "c", texto: "Palmera datilera", icono: "palmera" },
+      { id: "d", texto: "Arce", icono: "hoja" },
     ],
     respuestaCorrectaId: "b",
     retroalimentacion:
@@ -153,10 +153,10 @@ export const preguntas: Pregunta[] = [
     tipo: "imagen",
     enunciado: "¿Qué animalito es famoso por vivir en los árboles de la plaza principal?",
     opciones: [
-      { id: "a", texto: "🦥 Perezoso" },
-      { id: "b", texto: "🐒 Mono araña" },
-      { id: "c", texto: "🦩 Flamenco" },
-      { id: "d", texto: "🐢 Tortuga" },
+      { id: "a", texto: "Perezoso", icono: "huella" },
+      { id: "b", texto: "Mono araña", icono: "banana" },
+      { id: "c", texto: "Flamenco", icono: "ave" },
+      { id: "d", texto: "Tortuga", icono: "tortuga" },
     ],
     respuestaCorrectaId: "a",
     retroalimentacion:
@@ -283,10 +283,10 @@ export const preguntas: Pregunta[] = [
     tipo: "imagen",
     enunciado: "¿Qué paisaje corresponde a las Lomas de Arena?",
     opciones: [
-      { id: "a", texto: "🏜️ Dunas de arena con lagunas" },
-      { id: "b", texto: "🏔️ Nevados de alta montaña" },
-      { id: "c", texto: "🧊 Salar blanco infinito" },
-      { id: "d", texto: "🌊 Playa de mar" },
+      { id: "a", texto: "Dunas de arena con lagunas", icono: "desierto" },
+      { id: "b", texto: "Nevados de alta montaña", icono: "montana" },
+      { id: "c", texto: "Salar blanco infinito", icono: "nieve" },
+      { id: "d", texto: "Playa de mar", icono: "ola" },
     ],
     respuestaCorrectaId: "a",
     retroalimentacion:
@@ -441,10 +441,10 @@ export const preguntas: Pregunta[] = [
     tipo: "imagen",
     enunciado: "¿Qué llevarías siempre a un paseo con visitantes en Santa Cruz?",
     opciones: [
-      { id: "a", texto: "💧 Agua y protector solar" },
-      { id: "b", texto: "🧤 Guantes de nieve" },
-      { id: "c", texto: "⛷️ Esquís" },
-      { id: "d", texto: "🧣 Bufanda gruesa" },
+      { id: "a", texto: "Agua y protector solar", icono: "agua" },
+      { id: "b", texto: "Guantes de nieve", icono: "mano" },
+      { id: "c", texto: "Esquís", icono: "nieve" },
+      { id: "d", texto: "Bufanda gruesa", icono: "abrigo" },
     ],
     respuestaCorrectaId: "a",
     retroalimentacion:
