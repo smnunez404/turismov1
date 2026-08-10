@@ -59,7 +59,7 @@ function PerfilNuevo() {
 
         <button
           type="submit"
-          className="mt-2 rounded-xl bg-primary px-4 py-3.5 text-base font-semibold text-primary-foreground transition-colors hover:bg-primary/90"
+          className="mt-2 btn-duo btn-duo-primary"
         >
           Continuar
         </button>

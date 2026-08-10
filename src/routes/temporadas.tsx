@@ -86,7 +86,7 @@ function MapaTemporadas() {
         </Link>
       </nav>
 
-      <section className="rounded-2xl bg-card p-5 shadow-sm">
+      <section className="card-duo p-5">
         <div className="flex items-start gap-3">
           <IconoPastilla nombre={activa.icono} tono="primary" />
           <div>
@@ -181,7 +181,7 @@ function MapaTemporadas() {
             .map((t) => (
               <li
                 key={t.id}
-                className="relative overflow-hidden rounded-2xl border border-border bg-card p-4 shadow-sm"
+                className="relative overflow-hidden card-duo p-4"
               >
                 <IconoPastilla nombre={t.icono} tono="muted" />
                 <p className="mt-1 text-sm font-bold text-foreground">{t.nombre}</p>

@@ -66,7 +66,7 @@ function Tutorial() {
         </p>
         <Link
           to="/temporadas"
-          className="rounded-xl bg-primary px-4 py-3.5 text-base font-semibold text-primary-foreground transition-colors hover:bg-primary/90"
+          className="btn-duo btn-duo-primary"
         >
           Empezar la Temporada 1
         </Link>
@@ -94,7 +94,7 @@ function Tutorial() {
           onClick={() =>
             indice === pasos.length - 1 ? finalizar() : setIndice(indice + 1)
           }
-          className="rounded-xl bg-primary px-4 py-3.5 text-base font-semibold text-primary-foreground transition-colors hover:bg-primary/90"
+          className="btn-duo btn-duo-primary"
         >
           {indice === pasos.length - 1 ? "¡Estoy listo!" : "Siguiente"}
         </button>

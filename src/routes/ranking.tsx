@@ -92,7 +92,7 @@ function Ranking() {
       <div className="flex flex-col gap-2 text-center">
         <Link
           to="/temporadas"
-          className="rounded-xl bg-primary px-4 py-3.5 text-base font-semibold text-primary-foreground transition-colors hover:bg-primary/90"
+          className="btn-duo btn-duo-primary"
         >
           Sumar más puntos
         </Link>

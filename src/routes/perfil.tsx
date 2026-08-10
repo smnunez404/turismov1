@@ -82,7 +82,7 @@ function Perfil() {
         </div>
       </header>
 
-      <section className="rounded-2xl bg-card p-5 shadow-sm">
+      <section className="card-duo p-5">
         <div className="flex justify-between text-xs text-muted-foreground">
           <span>Temporada 1 · Descubre Santa Cruz</span>
           <span>
@@ -159,13 +159,13 @@ function Perfil() {
         )}
         <Link
           to="/compartir"
-          className="rounded-xl border border-border bg-card px-4 py-3 text-sm font-semibold text-foreground"
+          className="btn-duo btn-duo-ghost"
         >
           Compartir e invitar
         </Link>
         <Link
           to="/temporadas"
-          className="rounded-xl bg-primary px-4 py-3.5 text-base font-semibold text-primary-foreground transition-colors hover:bg-primary/90"
+          className="btn-duo btn-duo-primary"
         >
           Seguir jugando
         </Link>

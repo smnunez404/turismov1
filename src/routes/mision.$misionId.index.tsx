@@ -55,7 +55,7 @@ function PortadaMision() {
         ← Mapa de temporadas
       </Link>
 
-      <header className="rounded-2xl bg-card p-6 shadow-sm">
+      <header className="card-duo p-6">
         <p className="text-xs font-semibold tracking-widest text-secondary uppercase">
           Misión {mision.orden} · Temporada 1
         </p>

@@ -194,7 +194,7 @@ function Jugar() {
         type="button"
         onClick={respondida ? continuar : responder}
         disabled={!seleccion}
-        className="rounded-xl bg-primary px-4 py-3.5 text-base font-semibold text-primary-foreground transition-colors hover:bg-primary/90 disabled:opacity-50"
+        className="btn-duo btn-duo-primary disabled:opacity-50"
       >
         {respondida
           ? indice === lista.length - 1

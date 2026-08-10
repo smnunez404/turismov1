@@ -113,7 +113,7 @@ function PanelConceptual() {
 
         <section className="grid grid-cols-2 gap-3 md:grid-cols-4">
           {metricas.map((m) => (
-            <div key={m.etiqueta} className="rounded-2xl bg-card p-4 shadow-sm">
+            <div key={m.etiqueta} className="card-duo p-4">
               <p className="text-[11px] tracking-widest text-muted-foreground uppercase">
                 {m.etiqueta}
               </p>
@@ -125,7 +125,7 @@ function PanelConceptual() {
 
         <section className="grid gap-3 md:grid-cols-3">
           {secciones.map((s) => (
-            <article key={s.titulo} className="rounded-2xl bg-card p-5 shadow-sm">
+            <article key={s.titulo} className="card-duo p-5">
               <IconoPastilla nombre={s.icono} tono="primary" />
               <h2 className="mt-1 text-base font-bold text-foreground">{s.titulo}</h2>
               <p className="mt-1 text-sm text-muted-foreground">{s.detalle}</p>

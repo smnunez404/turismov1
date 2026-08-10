@@ -139,7 +139,7 @@ function Compartir() {
           type="button"
           disabled={!canal}
           onClick={() => setCompartido(true)}
-          className="mt-3 w-full rounded-xl bg-primary px-4 py-3.5 text-base font-semibold text-primary-foreground transition-colors hover:bg-primary/90 disabled:bg-muted disabled:text-muted-foreground"
+          className="mt-3 w-full btn-duo btn-duo-primary disabled:bg-muted disabled:text-muted-foreground"
         >
           {canal ? "Compartir (simulado)" : "Elegí un canal para continuar"}
         </button>
@@ -156,7 +156,7 @@ function Compartir() {
         )}
       </section>
 
-      <section className="rounded-2xl bg-card p-5 shadow-sm">
+      <section className="card-duo p-5">
         <h2 className="text-sm font-semibold text-foreground">Invitá nuevos embajadores</h2>
         <p className="mt-1 inline-flex items-center gap-1.5 text-xs text-muted-foreground">
           Al invitar a alguien ganás la insignia
@@ -214,7 +214,7 @@ function Compartir() {
         {finTemporada && (
           <Link
             to="/certificado"
-            className="rounded-xl border border-border bg-card px-4 py-3 text-sm font-semibold text-foreground"
+            className="btn-duo btn-duo-ghost"
           >
             Ver mi certificado
           </Link>

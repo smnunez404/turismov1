@@ -145,13 +145,13 @@ function Certificado() {
       <div className="flex flex-col gap-2 text-center">
         <Link
           to="/compartir"
-          className="rounded-xl bg-primary px-4 py-3.5 text-base font-semibold text-primary-foreground transition-colors hover:bg-primary/90"
+          className="btn-duo btn-duo-primary"
         >
           Compartir mi logro
         </Link>
         <Link
           to="/perfil"
-          className="rounded-xl border border-border bg-card px-4 py-3 text-sm font-semibold text-foreground"
+          className="btn-duo btn-duo-ghost"
         >
           Ver mi perfil
         </Link>

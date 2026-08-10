@@ -54,7 +54,7 @@ function Bienvenida() {
 
       <Link
         to="/tutorial"
-        className="rounded-xl bg-primary px-4 py-3.5 text-base font-semibold text-primary-foreground transition-colors hover:bg-primary/90"
+        className="btn-duo btn-duo-primary"
       >
         Ver cómo funciona
       </Link>
