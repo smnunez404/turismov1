@@ -1,12 +1,14 @@
 // Estado de sesión SOLO en memoria (SPEC-02..SPEC-07, guardarraíl §5).
 // No usa localStorage ni backend: al recargar, el prototipo se reinicia.
 import { createContext, useContext, useMemo, useState, type ReactNode } from "react";
-import type { Cupon, UsuarioSesion } from "@/data/tipos";
+import type { AvatarPersonalizado, Cupon, UsuarioSesion } from "@/data/tipos";
+import { avatarPorDefecto } from "@/data/avatar-piezas";
 
 const sesionInicial: UsuarioSesion = {
   nombre: "",
   correo: "",
   avatarId: null,
+  avatar: null,
   puntos: 0,
   insignias: [],
   progreso: {},
@@ -25,6 +27,12 @@ const sesionDemo: UsuarioSesion = {
   nombre: "Camila",
   correo: "camila.demo@soyembajador.bo",
   avatarId: "tipoy",
+  avatar: {
+    ...avatarPorDefecto,
+    cabello: "pelo-largo",
+    prenda: "prenda-tipoy",
+    accesorio: "acc-aretes",
+  },
   puntos: 145,
   insignias: ["i-origenes", "i-corazon"],
   progreso: {
@@ -44,6 +52,7 @@ const sesionDemo: UsuarioSesion = {
 type SessionContextValue = {
   usuario: UsuarioSesion;
   actualizar: (cambios: Partial<UsuarioSesion>) => void;
+  actualizarAvatar: (cambios: Partial<AvatarPersonalizado>) => void;
   sumarPartida: (datos: {
     categoriaId: string;
     aciertos: number;
@@ -66,6 +75,11 @@ export function SessionProvider({ children }: { children: ReactNode }) {
     () => ({
       usuario,
       actualizar: (cambios) => setUsuario((prev) => ({ ...prev, ...cambios })),
+      actualizarAvatar: (cambios) =>
+        setUsuario((prev) => ({
+          ...prev,
+          avatar: { ...(prev.avatar ?? avatarPorDefecto), ...cambios },
+        })),
       sumarPartida: ({ categoriaId, aciertos, puntos }) =>
         setUsuario((prev) => ({
           ...prev,
