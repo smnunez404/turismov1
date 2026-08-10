@@ -52,3 +52,17 @@
   permanente de que es conceptual, para evitar que el cliente lo interprete como funcional.
 - La lista de amigos sugeridos se centraliza en `src/data/comunidad.ts` porque la usan el
   reto presencial (P-13) y la pantalla de compartir (P-17).
+
+## 10 de agosto de 2026 — Profesionalización visual (post Sprint 4)
+
+- Se retiran todos los emojis de la interfaz y de los datos sintéticos. Quedan reemplazados
+  por el sistema de íconos `Icono`/`IconoPastilla` basado en `lucide-react`.
+- Los datos (`temporadas`, `insignias`, `comunidad`, `preguntas`, secciones de admin y pasos
+  del tutorial) guardan claves de ícono en español, no glifos, para que un cambio de set
+  gráfico no obligue a tocar las pantallas.
+- Las preguntas tipo "imagen" separan `texto` e `icono`; se agregó `icono?: string` a la
+  opción en `src/data/tipos.ts`.
+- Los avatares pasan de emoji a ilustración propia (PNG transparente). El tipo `Avatar`
+  cambia `simbolo` por `imagen`.
+- Se crea una marca gráfica (toborochi + pin) usada en splash, certificado y favicon; se
+  elimina `public/favicon.ico` por defecto.

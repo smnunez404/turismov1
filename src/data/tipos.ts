@@ -4,7 +4,7 @@
 export type Avatar = {
   id: string;
   nombre: string;
-  simbolo: string;
+  imagen: string;
   descripcion: string;
 };
 
@@ -38,6 +38,7 @@ export type Opcion = {
   id: string;
   texto: string;
   imagen?: string;
+  icono?: string;
 };
 
 export type Pregunta = {

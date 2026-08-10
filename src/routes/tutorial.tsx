@@ -3,6 +3,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { useState } from "react";
 import { Pantalla, PasoOnboarding } from "@/components/Pantalla";
 import { useSesion } from "@/context/SessionContext";
+import { Icono } from "@/components/Icono";
 
 export const Route = createFileRoute("/tutorial")({
   head: () => ({
@@ -25,19 +26,19 @@ export const Route = createFileRoute("/tutorial")({
 
 const pasos = [
   {
-    icono: "🗺️",
+    icono: "mapa",
     titulo: "Cinco misiones, un recorrido",
     texto:
       "Cada misión te lleva por una parte de Santa Cruz. Se desbloquean de a una: terminás la primera y se abre la siguiente.",
   },
   {
-    icono: "⭐",
+    icono: "objetivo",
     titulo: "Puntos por descubrir, no por acertar",
     texto:
       "Cada respuesta suma puntos y siempre te explicamos el porqué. Equivocarse acá es parte de aprender.",
   },
   {
-    icono: "🏅",
+    icono: "certificado",
     titulo: "Insignias y certificado",
     texto:
       "Vas ganando insignias en el camino. Al completar la temporada recibís tu certificado de Embajador.",
@@ -80,8 +81,8 @@ function Tutorial() {
       <PasoOnboarding actual={indice + 1} total={pasos.length} />
 
       <div className="flex flex-col items-center gap-4 text-center">
-        <span className="text-6xl" role="img" aria-hidden="true">
-          {paso.icono}
+        <span className="inline-flex h-20 w-20 items-center justify-center rounded-2xl bg-primary/10 text-primary ring-1 ring-primary/20">
+          <Icono nombre={paso.icono} className="h-9 w-9" />
         </span>
         <h1 className="text-2xl font-bold text-foreground">{paso.titulo}</h1>
         <p className="text-muted-foreground">{paso.texto}</p>

@@ -2,6 +2,7 @@
 import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
 import { useState } from "react";
 import { Pantalla } from "@/components/Pantalla";
+import { Icono } from "@/components/Icono";
 import { useSesion } from "@/context/SessionContext";
 import { insignias } from "@/data/insignias";
 import { amigosSugeridos } from "@/data/comunidad";
@@ -27,11 +28,11 @@ export const Route = createFileRoute("/mision/$misionId/reto")({
 });
 
 const lugares = [
-  { id: "plaza", nombre: "Plaza 24 de Septiembre", icono: "🕰️" },
-  { id: "catedral", nombre: "Catedral Basílica de San Lorenzo", icono: "⛪" },
-  { id: "lomas", nombre: "Lomas de Arena", icono: "🏜️" },
-  { id: "botanico", nombre: "Jardín Botánico", icono: "🌿" },
-  { id: "manzana", nombre: "Manzana Uno", icono: "🎨" },
+  { id: "plaza", nombre: "Plaza 24 de Septiembre", icono: "reloj" },
+  { id: "catedral", nombre: "Catedral Basílica de San Lorenzo", icono: "iglesia" },
+  { id: "lomas", nombre: "Lomas de Arena", icono: "desierto" },
+  { id: "botanico", nombre: "Jardín Botánico", icono: "naturaleza" },
+  { id: "manzana", nombre: "Manzana Uno", icono: "arte" },
 ];
 
 
@@ -118,9 +119,10 @@ function Reto() {
                   lugar === l.id ? "border-primary bg-primary/10" : "border-border bg-card"
                 }`}
               >
-                <span className="text-xl" aria-hidden="true">
-                  {l.icono}
-                </span>
+                <Icono
+                  nombre={l.icono}
+                  className={`h-5 w-5 ${lugar === l.id ? "text-primary" : "text-muted-foreground"}`}
+                />
                 {l.nombre}
               </button>
             </li>
@@ -139,9 +141,10 @@ function Reto() {
               : "border-border bg-muted text-muted-foreground"
           }`}
         >
-          <span className="text-4xl" aria-hidden="true">
-            {foto ? "🖼️" : "📸"}
-          </span>
+          <Icono
+            nombre={foto ? "imagen" : "camara"}
+            className={`h-9 w-9 ${foto ? "text-primary" : "text-muted-foreground"}`}
+          />
           {foto ? "Foto cargada (simulada) · tocá para quitar" : "Tocá para simular la carga"}
         </button>
         <p className="mt-1 text-xs text-muted-foreground">
@@ -179,13 +182,13 @@ function Reto() {
                       activo ? invitados.filter((x) => x !== a) : [...invitados, a],
                     )
                   }
-                  className={`rounded-full border px-3 py-1.5 text-xs font-semibold transition-colors ${
+                  className={`inline-flex items-center gap-1 rounded-full border px-3 py-1.5 text-xs font-semibold transition-colors ${
                     activo
                       ? "border-primary bg-primary text-primary-foreground"
                       : "border-border bg-card text-foreground"
                   }`}
                 >
-                  {activo ? "✓ " : "+ "}
+                  {activo ? <Icono nombre="check" className="h-3.5 w-3.5" /> : "+"}
                   {a}
                 </button>
               </li>
@@ -195,8 +198,10 @@ function Reto() {
       </section>
 
       {insignia && (
-        <p className="text-center text-xs text-muted-foreground">
-          Al completar el reto ganás {insignia.icono} <strong>{insignia.nombre}</strong>.
+        <p className="flex items-center justify-center gap-1.5 text-center text-xs text-muted-foreground">
+          Al completar el reto ganás
+          <Icono nombre={insignia.icono} className="h-4 w-4 text-secondary" />
+          <strong className="text-foreground">{insignia.nombre}</strong>.
         </p>
       )}
 

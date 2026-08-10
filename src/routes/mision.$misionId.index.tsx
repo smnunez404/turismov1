@@ -4,6 +4,7 @@ import { Pantalla } from "@/components/Pantalla";
 import { useSesion } from "@/context/SessionContext";
 import { insignias } from "@/data/insignias";
 import { estadoDeMision, insigniaDeMision, obtenerMision } from "@/lib/progreso";
+import { Icono } from "@/components/Icono";
 
 export const Route = createFileRoute("/mision/$misionId/")({
   head: ({ params }) => {
@@ -97,8 +98,9 @@ function PortadaMision() {
       )}
 
       {estado === "bloqueada" ? (
-        <div className="rounded-2xl border border-dashed border-border bg-muted p-5 text-sm text-muted-foreground">
-          🔒 Completá la misión anterior para desbloquear esta.
+        <div className="flex items-center gap-2 rounded-2xl border border-dashed border-border bg-muted p-5 text-sm text-muted-foreground">
+          <Icono nombre="bloqueado" className="h-4 w-4" /> Completá la misión anterior para
+          desbloquear esta.
         </div>
       ) : esReto ? (
         <Link

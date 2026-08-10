@@ -10,8 +10,8 @@ export type CanalCompartir = {
 };
 
 export const canalesCompartir: CanalCompartir[] = [
-  { id: "whatsapp", nombre: "WhatsApp", icono: "💬", detalle: "Enviar a un chat o estado" },
-  { id: "instagram", nombre: "Instagram", icono: "📸", detalle: "Publicar en historias" },
-  { id: "facebook", nombre: "Facebook", icono: "👍", detalle: "Compartir en tu muro" },
-  { id: "enlace", nombre: "Copiar enlace", icono: "🔗", detalle: "Enlace simulado del logro" },
+  { id: "whatsapp", nombre: "WhatsApp", icono: "whatsapp", detalle: "Enviar a un chat o estado" },
+  { id: "instagram", nombre: "Instagram", icono: "instagram", detalle: "Publicar en historias" },
+  { id: "facebook", nombre: "Facebook", icono: "facebook", detalle: "Compartir en tu muro" },
+  { id: "enlace", nombre: "Copiar enlace", icono: "enlace", detalle: "Enlace simulado del logro" },
 ];

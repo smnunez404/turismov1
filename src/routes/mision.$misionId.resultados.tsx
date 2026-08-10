@@ -1,6 +1,7 @@
 // SPEC-12 — Resultados de misión (P-12)
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Pantalla } from "@/components/Pantalla";
+import { Icono } from "@/components/Icono";
 import { useSesion } from "@/context/SessionContext";
 import { insignias } from "@/data/insignias";
 import {
@@ -58,8 +59,8 @@ function Resultados() {
   return (
     <Pantalla className="gap-6 pb-12 text-center">
       <header className="flex flex-col items-center gap-2 pt-4">
-        <span className="text-6xl" aria-hidden="true">
-          {perfecta ? "🏆" : "🎉"}
+        <span className="inline-flex h-20 w-20 items-center justify-center rounded-2xl bg-primary/10 text-primary ring-1 ring-primary/20">
+          <Icono nombre={perfecta ? "ranking" : "celebrar"} className="h-9 w-9" />
         </span>
         <p className="text-xs font-semibold tracking-widest text-secondary uppercase">
           Misión {mision.orden} completada
@@ -85,8 +86,8 @@ function Resultados() {
           <p className="text-xs font-semibold tracking-widest text-accent-foreground uppercase">
             Insignia desbloqueada
           </p>
-          <span className="mt-2 block text-5xl" aria-hidden="true">
-            {insignia.icono}
+          <span className="mx-auto mt-2 inline-flex h-16 w-16 items-center justify-center rounded-2xl bg-card text-secondary shadow-sm ring-1 ring-accent/40">
+            <Icono nombre={insignia.icono} className="h-8 w-8" />
           </span>
           <p className="mt-2 text-lg font-bold text-foreground">{insignia.nombre}</p>
           <p className="text-sm text-muted-foreground">{insignia.descripcion}</p>
@@ -94,8 +95,9 @@ function Resultados() {
       )}
 
       {perfecta && (
-        <p className="rounded-xl bg-primary/10 p-3 text-sm text-foreground">
-          🎯 Sin un solo error: también ganaste <strong>Memoria de Elefante</strong>.
+        <p className="flex items-center justify-center gap-2 rounded-xl bg-primary/10 p-3 text-sm text-foreground">
+          <Icono nombre="objetivo" className="h-4 w-4 text-primary" />
+          Sin un solo error: también ganaste <strong>Memoria de Elefante</strong>.
         </p>
       )}
 
@@ -122,9 +124,9 @@ function Resultados() {
         {finTemporada ? (
           <Link
             to="/certificado"
-            className="rounded-xl bg-primary px-4 py-3.5 text-base font-semibold text-primary-foreground transition-colors hover:bg-primary/90"
+            className="inline-flex items-center justify-center gap-2 rounded-xl bg-primary px-4 py-3.5 text-base font-semibold text-primary-foreground transition-colors hover:bg-primary/90"
           >
-            🏅 Ver mi certificado de la Temporada 1
+            <Icono nombre="certificado" /> Ver mi certificado de la Temporada 1
           </Link>
         ) : proxima ? (
           <Link

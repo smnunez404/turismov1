@@ -6,6 +6,7 @@ import { useSesion } from "@/context/SessionContext";
 import { preguntasDeMision } from "@/data/preguntas";
 import type { TipoPregunta } from "@/data/tipos";
 import { insigniaDeMision, obtenerMision } from "@/lib/progreso";
+import { Icono } from "@/components/Icono";
 
 export const Route = createFileRoute("/mision/$misionId/jugar")({
   head: ({ params }) => {
@@ -159,7 +160,14 @@ function Jugar() {
                 onClick={() => setSeleccion(opcion.id)}
                 className={`w-full rounded-xl border p-4 text-left text-sm font-medium text-foreground transition-colors disabled:cursor-default ${estilo}`}
               >
-                {opcion.texto}
+                {opcion.icono ? (
+                  <span className="flex flex-col items-start gap-2">
+                    <Icono nombre={opcion.icono} className="h-7 w-7 text-primary" />
+                    {opcion.texto}
+                  </span>
+                ) : (
+                  opcion.texto
+                )}
               </button>
             </li>
           );
@@ -171,8 +179,12 @@ function Jugar() {
           role="status"
           className={`rounded-2xl p-4 ${esCorrecta ? "bg-primary/10" : "bg-accent/20"}`}
         >
-          <p className="text-sm font-bold text-foreground">
-            {esCorrecta ? "¡Correcto! 🎯" : "Casi. Mirá esto 👀"}
+          <p className="flex items-center gap-2 text-sm font-bold text-foreground">
+            <Icono
+              nombre={esCorrecta ? "check" : "ojo"}
+              className={`h-4 w-4 ${esCorrecta ? "text-primary" : "text-secondary"}`}
+            />
+            {esCorrecta ? "¡Correcto!" : "Casi. Mirá esto"}
           </p>
           <p className="mt-1 text-sm text-muted-foreground">{pregunta.retroalimentacion}</p>
         </div>
