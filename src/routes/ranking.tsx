@@ -72,7 +72,11 @@ function Ranking() {
               >
                 {i + 1}
               </span>
-              <AvatarInsignia avatarId={p.avatarId} avatar={yo ? usuario.avatar : null} tamano="sm" />
+              <AvatarInsignia
+                semilla={p.nombre}
+                avatar={yo ? usuario.avatar : null}
+                tamano="sm"
+              />
               <span className="flex-1 text-sm font-semibold text-foreground">
                 {p.nombre}
                 {yo && (
