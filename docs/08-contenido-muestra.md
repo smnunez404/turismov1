@@ -41,3 +41,14 @@ errores (SPEC-11).
 ## Advertencia visible en el prototipo
 
 El ranking y el certificado indican de forma discreta que los datos son de demostración.
+## Banco de preguntas (Sprint 2) — `src/data/preguntas.ts`
+
+| Misión | Preguntas | Variantes cubiertas |
+| --- | --- | --- |
+| M1 Los Orígenes | 8 | múltiple, verdadero/falso, imagen, caso |
+| M2 El Corazón de Santa Cruz | 8 | múltiple, verdadero/falso, imagen, caso |
+| M3 Explorador del Destino | 8 | múltiple, verdadero/falso, imagen, caso |
+| M4 Soy un Buen Anfitrión | 8 | múltiple, verdadero/falso, imagen, caso |
+| M5 Mi Primera Aventura | 1 | reto (se juega en Sprint 3) |
+
+Todas las preguntas valen 10 puntos y llevan retroalimentación obligatoria.
