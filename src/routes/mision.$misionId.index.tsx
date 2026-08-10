@@ -96,11 +96,18 @@ function PortadaMision() {
         </p>
       )}
 
-      {esReto ? (
+      {estado === "bloqueada" ? (
         <div className="rounded-2xl border border-dashed border-border bg-muted p-5 text-sm text-muted-foreground">
-          El reto presencial (SPEC-13) se construye en el Sprint 3: vas a salir, visitar,
-          fotografiar y contar tu experiencia.
+          🔒 Completá la misión anterior para desbloquear esta.
         </div>
+      ) : esReto ? (
+        <Link
+          to="/mision/$misionId/reto"
+          params={{ misionId: mision.id }}
+          className="rounded-xl bg-primary px-4 py-3.5 text-center text-base font-semibold text-primary-foreground transition-colors hover:bg-primary/90"
+        >
+          {progreso?.completada ? "Repetir el reto" : "Empezar el reto presencial"}
+        </Link>
       ) : estado === "bloqueada" ? (
         <div className="rounded-2xl border border-dashed border-border bg-muted p-5 text-sm text-muted-foreground">
           🔒 Completá la misión anterior para desbloquear esta.

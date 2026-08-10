@@ -13,7 +13,9 @@ import { Route as IndexRouteImport } from './routes/index'
 import { Route as AvatarRouteImport } from './routes/avatar'
 import { Route as BienvenidaRouteImport } from './routes/bienvenida'
 import { Route as LoginRouteImport } from './routes/login'
+import { Route as PerfilRouteImport } from './routes/perfil'
 import { Route as PerfilNuevoRouteImport } from './routes/perfil-nuevo'
+import { Route as RankingRouteImport } from './routes/ranking'
 import { Route as RegistroRouteImport } from './routes/registro'
 import { Route as TemporadasRouteImport } from './routes/temporadas'
 import { Route as TutorialRouteImport } from './routes/tutorial'
@@ -42,9 +44,19 @@ const LoginRoute = LoginRouteImport.update({
   path: '/login',
   getParentRoute: () => rootRouteImport,
 } as any)
+const PerfilRoute = PerfilRouteImport.update({
+  id: '/perfil',
+  path: '/perfil',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const PerfilNuevoRoute = PerfilNuevoRouteImport.update({
   id: '/perfil-nuevo',
   path: '/perfil-nuevo',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const RankingRoute = RankingRouteImport.update({
+  id: '/ranking',
+  path: '/ranking',
   getParentRoute: () => rootRouteImport,
 } as any)
 const RegistroRoute = RegistroRouteImport.update({
@@ -89,7 +101,9 @@ export interface FileRoutesByFullPath {
   '/avatar': typeof AvatarRoute
   '/bienvenida': typeof BienvenidaRoute
   '/login': typeof LoginRoute
+  '/perfil': typeof PerfilRoute
   '/perfil-nuevo': typeof PerfilNuevoRoute
+  '/ranking': typeof RankingRoute
   '/registro': typeof RegistroRoute
   '/temporadas': typeof TemporadasRoute
   '/tutorial': typeof TutorialRoute
@@ -103,7 +117,9 @@ export interface FileRoutesByTo {
   '/avatar': typeof AvatarRoute
   '/bienvenida': typeof BienvenidaRoute
   '/login': typeof LoginRoute
+  '/perfil': typeof PerfilRoute
   '/perfil-nuevo': typeof PerfilNuevoRoute
+  '/ranking': typeof RankingRoute
   '/registro': typeof RegistroRoute
   '/temporadas': typeof TemporadasRoute
   '/tutorial': typeof TutorialRoute
@@ -118,7 +134,9 @@ export interface FileRoutesById {
   '/avatar': typeof AvatarRoute
   '/bienvenida': typeof BienvenidaRoute
   '/login': typeof LoginRoute
+  '/perfil': typeof PerfilRoute
   '/perfil-nuevo': typeof PerfilNuevoRoute
+  '/ranking': typeof RankingRoute
   '/registro': typeof RegistroRoute
   '/temporadas': typeof TemporadasRoute
   '/tutorial': typeof TutorialRoute
@@ -134,7 +152,9 @@ export interface FileRouteTypes {
     | '/avatar'
     | '/bienvenida'
     | '/login'
+    | '/perfil'
     | '/perfil-nuevo'
+    | '/ranking'
     | '/registro'
     | '/temporadas'
     | '/tutorial'
@@ -148,7 +168,9 @@ export interface FileRouteTypes {
     | '/avatar'
     | '/bienvenida'
     | '/login'
+    | '/perfil'
     | '/perfil-nuevo'
+    | '/ranking'
     | '/registro'
     | '/temporadas'
     | '/tutorial'
@@ -162,7 +184,9 @@ export interface FileRouteTypes {
     | '/avatar'
     | '/bienvenida'
     | '/login'
+    | '/perfil'
     | '/perfil-nuevo'
+    | '/ranking'
     | '/registro'
     | '/temporadas'
     | '/tutorial'
@@ -177,7 +201,9 @@ export interface RootRouteChildren {
   AvatarRoute: typeof AvatarRoute
   BienvenidaRoute: typeof BienvenidaRoute
   LoginRoute: typeof LoginRoute
+  PerfilRoute: typeof PerfilRoute
   PerfilNuevoRoute: typeof PerfilNuevoRoute
+  RankingRoute: typeof RankingRoute
   RegistroRoute: typeof RegistroRoute
   TemporadasRoute: typeof TemporadasRoute
   TutorialRoute: typeof TutorialRoute
@@ -217,11 +243,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof LoginRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/perfil': {
+      id: '/perfil'
+      path: '/perfil'
+      fullPath: '/perfil'
+      preLoaderRoute: typeof PerfilRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/perfil-nuevo': {
       id: '/perfil-nuevo'
       path: '/perfil-nuevo'
       fullPath: '/perfil-nuevo'
       preLoaderRoute: typeof PerfilNuevoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/ranking': {
+      id: '/ranking'
+      path: '/ranking'
+      fullPath: '/ranking'
+      preLoaderRoute: typeof RankingRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/registro': {
@@ -281,7 +321,9 @@ const rootRouteChildren: RootRouteChildren = {
   AvatarRoute: AvatarRoute,
   BienvenidaRoute: BienvenidaRoute,
   LoginRoute: LoginRoute,
+  PerfilRoute: PerfilRoute,
   PerfilNuevoRoute: PerfilNuevoRoute,
+  RankingRoute: RankingRoute,
   RegistroRoute: RegistroRoute,
   TemporadasRoute: TemporadasRoute,
   TutorialRoute: TutorialRoute,
