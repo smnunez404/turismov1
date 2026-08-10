@@ -37,6 +37,20 @@ import {
   HelpCircle,
   LayoutGrid,
   Eye,
+  Sprout,
+  TreeDeciduous,
+  TreePalm,
+  Bird,
+  Turtle,
+  Banana,
+  PawPrint,
+  MountainSnow,
+  Snowflake,
+  Waves,
+  Droplets,
+  Hand,
+  Shirt,
+  Sun,
 } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 
@@ -85,6 +99,22 @@ export const iconos = {
   preguntas: HelpCircle,
   metricas: BarChart3,
   guia: BookOpenText,
+  // pictogramas de preguntas
+  cactus: Sprout,
+  arbol: TreeDeciduous,
+  palmera: TreePalm,
+  hoja: Leaf,
+  huella: PawPrint,
+  banana: Banana,
+  ave: Bird,
+  tortuga: Turtle,
+  montana: MountainSnow,
+  nieve: Snowflake,
+  ola: Waves,
+  agua: Droplets,
+  mano: Hand,
+  abrigo: Shirt,
+  sol: Sun,
 } satisfies Record<string, LucideIcon>;
 
 export type NombreIcono = keyof typeof iconos;

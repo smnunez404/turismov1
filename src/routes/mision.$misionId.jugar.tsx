@@ -160,7 +160,14 @@ function Jugar() {
                 onClick={() => setSeleccion(opcion.id)}
                 className={`w-full rounded-xl border p-4 text-left text-sm font-medium text-foreground transition-colors disabled:cursor-default ${estilo}`}
               >
-                {opcion.texto}
+                {opcion.icono ? (
+                  <span className="flex flex-col items-start gap-2">
+                    <Icono nombre={opcion.icono} className="h-7 w-7 text-primary" />
+                    {opcion.texto}
+                  </span>
+                ) : (
+                  opcion.texto
+                )}
               </button>
             </li>
           );
