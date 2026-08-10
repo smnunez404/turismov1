@@ -354,25 +354,30 @@ function Ruleta() {
             transition: "transform 2.5s cubic-bezier(0.17, 0.85, 0.25, 1)",
           }}
         >
-          {categorias.map((c, i) => (
-            <span
-              key={c.id}
-              className="absolute top-1/2 left-1/2 flex h-[44%] w-14 items-start justify-center"
-              style={{
-                transform: `translate(-50%, -100%) rotate(${i * GAJO + GAJO / 2}deg)`,
-                transformOrigin: "50% 100%",
-              }}
-            >
-              <img
-                src={personajeDe(c.id).imagen}
-                alt=""
-                loading="lazy"
-                width={640}
-                height={640}
-                className="mt-3 h-12 w-12 object-contain drop-shadow"
-              />
-            </span>
-          ))}
+          {categorias.map((c, i) => {
+            const ang = ((i * GAJO + GAJO / 2) * Math.PI) / 180;
+            const r = 33;
+            return (
+              <span
+                key={c.id}
+                className="absolute flex h-14 w-14 items-center justify-center"
+                style={{
+                  left: `${50 + r * Math.sin(ang)}%`,
+                  top: `${50 - r * Math.cos(ang)}%`,
+                  transform: `translate(-50%, -50%) rotate(${i * GAJO + GAJO / 2}deg)`,
+                }}
+              >
+                <img
+                  src={personajeDe(c.id).imagen}
+                  alt=""
+                  loading="lazy"
+                  width={640}
+                  height={640}
+                  className="h-12 w-12 object-contain drop-shadow"
+                />
+              </span>
+            );
+          })}
         </div>
         {/* Botón central GIRAR */}
         <button
