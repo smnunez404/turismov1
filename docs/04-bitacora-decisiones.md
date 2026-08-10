@@ -66,3 +66,16 @@
   cambia `simbolo` por `imagen`.
 - Se crea una marca gráfica (toborochi + pin) usada en splash, certificado y favicon; se
   elimina `public/favicon.ico` por defecto.
+
+## 10 de agosto de 2026 — Lenguaje visual tipo Duolingo
+
+**Decisión.** Adoptar el sistema de interacción de Duolingo (botones con volumen,
+tarjetas gruesas, tipografía redondeada, barra de acción fija en la lección) sobre la
+paleta cruceña ya definida.
+
+**Motivo.** La UI se veía correcta pero plana y genérica; el producto es gamificado y
+necesita affordances físicas y lecturas rápidas en móvil.
+
+**Implicancias.** Fuentes cambian a Baloo 2 + Nunito; se crean utilidades `btn-duo`,
+`card-duo` y `barra-duo` en `src/styles.css` y se aplican en todas las pantallas
+(P-01 a P-18). No cambia ninguna regla de negocio ni el modelo de datos.
