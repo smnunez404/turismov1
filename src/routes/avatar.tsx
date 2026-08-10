@@ -115,7 +115,13 @@ function ConstructorAvatar() {
               } ${pieza.bloqueada ? "opacity-50" : ""}`}
             >
               <AvatarLienzo
-                avatar={{ ...avatar, [pieza.categoria]: pieza.bloqueada ? avatar[pieza.categoria] : pieza.id }}
+                avatar={{
+                  ...avatar,
+                  ...(categoria === "cabello" || categoria === "cara"
+                    ? { sombrero: "sombrero-ninguno" }
+                    : {}),
+                  [pieza.categoria]: pieza.bloqueada ? avatar[pieza.categoria] : pieza.id,
+                }}
                 tamano="md"
               />
               <span className="text-[11px] leading-tight font-semibold text-foreground">
