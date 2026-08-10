@@ -80,8 +80,8 @@ function Tutorial() {
       <PasoOnboarding actual={indice + 1} total={pasos.length} />
 
       <div className="flex flex-col items-center gap-4 text-center">
-        <span className="text-6xl" role="img" aria-hidden="true">
-          {paso.icono}
+        <span className="inline-flex h-20 w-20 items-center justify-center rounded-2xl bg-primary/10 text-primary ring-1 ring-primary/20">
+          <Icono nombre={paso.icono} className="h-9 w-9" />
         </span>
         <h1 className="text-2xl font-bold text-foreground">{paso.titulo}</h1>
         <p className="text-muted-foreground">{paso.texto}</p>

@@ -33,9 +33,13 @@ function Splash() {
   return (
     <main className="flex min-h-screen flex-col items-center justify-center bg-primary px-6 text-center">
       <div className="animate-in fade-in zoom-in-95 duration-700">
-        <span className="text-7xl" role="img" aria-label="Toborochi">
-          🌳
-        </span>
+        <img
+          src={marca}
+          alt="Soy Embajador Bolivia"
+          width={512}
+          height={512}
+          className="mx-auto h-24 w-24 rounded-2xl bg-primary-foreground/95 p-2 object-contain shadow-lg"
+        />
         <h1 className="mt-6 text-4xl font-bold text-primary-foreground">
           Soy Embajador
         </h1>

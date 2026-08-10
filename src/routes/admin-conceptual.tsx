@@ -36,37 +36,37 @@ const metricas = [
 
 const secciones = [
   {
-    icono: "🗂️",
+    icono: "contenido",
     titulo: "Temporadas y misiones",
     detalle:
       "Crear temporadas, ordenar misiones, definir cuántas preguntas trae cada una y cuándo se publica.",
   },
   {
-    icono: "❓",
+    icono: "preguntas",
     titulo: "Banco de preguntas",
     detalle:
       "Alta y edición por tipo (múltiple, verdadero/falso, imagen, caso práctico y reto presencial), con su retroalimentación.",
   },
   {
-    icono: "🖼️",
+    icono: "imagen",
     titulo: "Imágenes y contenido",
     detalle:
       "Carga de fotografías de lugares, pictogramas y textos culturales revisados por el equipo de turismo.",
   },
   {
-    icono: "🎯",
+    icono: "objetivo",
     titulo: "Puntajes y niveles",
     detalle:
       "Ajuste del puntaje por respuesta, del máximo por misión y de los umbrales de cada nivel.",
   },
   {
-    icono: "🏅",
+    icono: "medalla",
     titulo: "Insignias y reglas",
     detalle:
       "Definición de criterios de desbloqueo: completar misión, misión perfecta, invitar o cerrar temporada.",
   },
   {
-    icono: "📊",
+    icono: "metricas",
     titulo: "Reportes de participación",
     detalle:
       "Vista futura de usuarios activos, misiones completadas y retos presenciales validados.",
@@ -125,9 +125,7 @@ function PanelConceptual() {
         <section className="grid gap-3 md:grid-cols-3">
           {secciones.map((s) => (
             <article key={s.titulo} className="rounded-2xl bg-card p-5 shadow-sm">
-              <span className="text-2xl" aria-hidden="true">
-                {s.icono}
-              </span>
+              <IconoPastilla nombre={s.icono} tono="primary" />
               <h2 className="mt-1 text-base font-bold text-foreground">{s.titulo}</h2>
               <p className="mt-1 text-sm text-muted-foreground">{s.detalle}</p>
             </article>

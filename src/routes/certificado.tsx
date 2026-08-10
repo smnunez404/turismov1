@@ -41,8 +41,8 @@ function Certificado() {
   if (!habilitado) {
     return (
       <Pantalla className="justify-center gap-4 text-center">
-        <span className="text-6xl" aria-hidden="true">
-          🔒
+        <span className="mx-auto inline-flex h-20 w-20 items-center justify-center rounded-2xl bg-muted text-muted-foreground ring-1 ring-border">
+          <Icono nombre="bloqueado" className="h-9 w-9" />
         </span>
         <h1 className="text-2xl font-bold text-foreground">
           Tu certificado todavía está en preparación
@@ -89,9 +89,14 @@ function Certificado() {
           className="pointer-events-none absolute -bottom-20 -left-16 h-44 w-44 rounded-full bg-primary/10"
         />
         <div className="relative flex flex-col items-center gap-1">
-          <span className="text-5xl" aria-hidden="true">
-            🏅
-          </span>
+          <img
+            src={marca}
+            alt=""
+            loading="lazy"
+            width={512}
+            height={512}
+            className="h-16 w-16 object-contain"
+          />
           <p className="text-[11px] font-semibold tracking-[0.2em] text-muted-foreground uppercase">
             Soy Embajador Bolivia
           </p>
