@@ -28,7 +28,7 @@ function Bienvenida() {
   const nombre = usuario.nombre || "Embajador";
 
   return (
-    <Pantalla className="justify-center gap-8 text-center">
+    <Pantalla className="gap-7 pt-6 text-center">
       <PasoOnboarding actual={4} total={4} />
 
       <div className="flex flex-col items-center gap-4">

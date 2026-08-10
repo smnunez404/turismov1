@@ -28,7 +28,7 @@ function SeleccionAvatar() {
   const navigate = useNavigate();
 
   return (
-    <Pantalla className="justify-center gap-8">
+    <Pantalla className="gap-7 pt-4">
       <PasoOnboarding actual={3} total={4} />
 
       <header>
