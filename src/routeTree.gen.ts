@@ -13,6 +13,7 @@ import { Route as IndexRouteImport } from './routes/index'
 import { Route as AvatarRouteImport } from './routes/avatar'
 import { Route as BienvenidaRouteImport } from './routes/bienvenida'
 import { Route as CertificadoRouteImport } from './routes/certificado'
+import { Route as CompartirRouteImport } from './routes/compartir'
 import { Route as LoginRouteImport } from './routes/login'
 import { Route as PerfilRouteImport } from './routes/perfil'
 import { Route as PerfilNuevoRouteImport } from './routes/perfil-nuevo'
@@ -43,6 +44,11 @@ const BienvenidaRoute = BienvenidaRouteImport.update({
 const CertificadoRoute = CertificadoRouteImport.update({
   id: '/certificado',
   path: '/certificado',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CompartirRoute = CompartirRouteImport.update({
+  id: '/compartir',
+  path: '/compartir',
   getParentRoute: () => rootRouteImport,
 } as any)
 const LoginRoute = LoginRouteImport.update({
@@ -107,6 +113,7 @@ export interface FileRoutesByFullPath {
   '/avatar': typeof AvatarRoute
   '/bienvenida': typeof BienvenidaRoute
   '/certificado': typeof CertificadoRoute
+  '/compartir': typeof CompartirRoute
   '/login': typeof LoginRoute
   '/perfil': typeof PerfilRoute
   '/perfil-nuevo': typeof PerfilNuevoRoute
@@ -124,6 +131,7 @@ export interface FileRoutesByTo {
   '/avatar': typeof AvatarRoute
   '/bienvenida': typeof BienvenidaRoute
   '/certificado': typeof CertificadoRoute
+  '/compartir': typeof CompartirRoute
   '/login': typeof LoginRoute
   '/perfil': typeof PerfilRoute
   '/perfil-nuevo': typeof PerfilNuevoRoute
@@ -142,6 +150,7 @@ export interface FileRoutesById {
   '/avatar': typeof AvatarRoute
   '/bienvenida': typeof BienvenidaRoute
   '/certificado': typeof CertificadoRoute
+  '/compartir': typeof CompartirRoute
   '/login': typeof LoginRoute
   '/perfil': typeof PerfilRoute
   '/perfil-nuevo': typeof PerfilNuevoRoute
@@ -161,6 +170,7 @@ export interface FileRouteTypes {
     | '/avatar'
     | '/bienvenida'
     | '/certificado'
+    | '/compartir'
     | '/login'
     | '/perfil'
     | '/perfil-nuevo'
@@ -178,6 +188,7 @@ export interface FileRouteTypes {
     | '/avatar'
     | '/bienvenida'
     | '/certificado'
+    | '/compartir'
     | '/login'
     | '/perfil'
     | '/perfil-nuevo'
@@ -195,6 +206,7 @@ export interface FileRouteTypes {
     | '/avatar'
     | '/bienvenida'
     | '/certificado'
+    | '/compartir'
     | '/login'
     | '/perfil'
     | '/perfil-nuevo'
@@ -213,6 +225,7 @@ export interface RootRouteChildren {
   AvatarRoute: typeof AvatarRoute
   BienvenidaRoute: typeof BienvenidaRoute
   CertificadoRoute: typeof CertificadoRoute
+  CompartirRoute: typeof CompartirRoute
   LoginRoute: typeof LoginRoute
   PerfilRoute: typeof PerfilRoute
   PerfilNuevoRoute: typeof PerfilNuevoRoute
@@ -254,6 +267,13 @@ declare module '@tanstack/react-router' {
       path: '/certificado'
       fullPath: '/certificado'
       preLoaderRoute: typeof CertificadoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/compartir': {
+      id: '/compartir'
+      path: '/compartir'
+      fullPath: '/compartir'
+      preLoaderRoute: typeof CompartirRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/login': {
@@ -341,6 +361,7 @@ const rootRouteChildren: RootRouteChildren = {
   AvatarRoute: AvatarRoute,
   BienvenidaRoute: BienvenidaRoute,
   CertificadoRoute: CertificadoRoute,
+  CompartirRoute: CompartirRoute,
   LoginRoute: LoginRoute,
   PerfilRoute: PerfilRoute,
   PerfilNuevoRoute: PerfilNuevoRoute,
