@@ -5,7 +5,7 @@ import { useSesion } from "@/context/SessionContext";
 import { insignias } from "@/data/insignias";
 import { estadoDeMision, insigniaDeMision, obtenerMision } from "@/lib/progreso";
 
-export const Route = createFileRoute("/mision/")({
+export const Route = createFileRoute("/mision/$misionId/")({
   head: ({ params }) => {
     const mision = obtenerMision(params.misionId);
     const titulo = mision
