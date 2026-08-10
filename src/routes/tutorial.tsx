@@ -25,19 +25,19 @@ export const Route = createFileRoute("/tutorial")({
 
 const pasos = [
   {
-    icono: "🗺️",
+    icono: "mapa",
     titulo: "Cinco misiones, un recorrido",
     texto:
       "Cada misión te lleva por una parte de Santa Cruz. Se desbloquean de a una: terminás la primera y se abre la siguiente.",
   },
   {
-    icono: "⭐",
+    icono: "objetivo",
     titulo: "Puntos por descubrir, no por acertar",
     texto:
       "Cada respuesta suma puntos y siempre te explicamos el porqué. Equivocarse acá es parte de aprender.",
   },
   {
-    icono: "🏅",
+    icono: "certificado",
     titulo: "Insignias y certificado",
     texto:
       "Vas ganando insignias en el camino. Al completar la temporada recibís tu certificado de Embajador.",
