@@ -22,6 +22,7 @@ import { Route as LoginRouteImport } from './routes/login'
 import { Route as PerfilRouteImport } from './routes/perfil'
 import { Route as PerfilNuevoRouteImport } from './routes/perfil-nuevo'
 import { Route as RankingRouteImport } from './routes/ranking'
+import { Route as RecompensasRouteImport } from './routes/recompensas'
 import { Route as RegistroRouteImport } from './routes/registro'
 import { Route as TemporadasRouteImport } from './routes/temporadas'
 import { Route as TutorialRouteImport } from './routes/tutorial'
@@ -98,6 +99,11 @@ const RankingRoute = RankingRouteImport.update({
   path: '/ranking',
   getParentRoute: () => rootRouteImport,
 } as any)
+const RecompensasRoute = RecompensasRouteImport.update({
+  id: '/recompensas',
+  path: '/recompensas',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const RegistroRoute = RegistroRouteImport.update({
   id: '/registro',
   path: '/registro',
@@ -164,6 +170,7 @@ export interface FileRoutesByFullPath {
   '/perfil': typeof PerfilRoute
   '/perfil-nuevo': typeof PerfilNuevoRoute
   '/ranking': typeof RankingRoute
+  '/recompensas': typeof RecompensasRoute
   '/registro': typeof RegistroRoute
   '/temporadas': typeof TemporadasRoute
   '/tutorial': typeof TutorialRoute
@@ -189,6 +196,7 @@ export interface FileRoutesByTo {
   '/perfil': typeof PerfilRoute
   '/perfil-nuevo': typeof PerfilNuevoRoute
   '/ranking': typeof RankingRoute
+  '/recompensas': typeof RecompensasRoute
   '/registro': typeof RegistroRoute
   '/temporadas': typeof TemporadasRoute
   '/tutorial': typeof TutorialRoute
@@ -215,6 +223,7 @@ export interface FileRoutesById {
   '/perfil': typeof PerfilRoute
   '/perfil-nuevo': typeof PerfilNuevoRoute
   '/ranking': typeof RankingRoute
+  '/recompensas': typeof RecompensasRoute
   '/registro': typeof RegistroRoute
   '/temporadas': typeof TemporadasRoute
   '/tutorial': typeof TutorialRoute
@@ -242,6 +251,7 @@ export interface FileRouteTypes {
     | '/perfil'
     | '/perfil-nuevo'
     | '/ranking'
+    | '/recompensas'
     | '/registro'
     | '/temporadas'
     | '/tutorial'
@@ -267,6 +277,7 @@ export interface FileRouteTypes {
     | '/perfil'
     | '/perfil-nuevo'
     | '/ranking'
+    | '/recompensas'
     | '/registro'
     | '/temporadas'
     | '/tutorial'
@@ -292,6 +303,7 @@ export interface FileRouteTypes {
     | '/perfil'
     | '/perfil-nuevo'
     | '/ranking'
+    | '/recompensas'
     | '/registro'
     | '/temporadas'
     | '/tutorial'
@@ -318,6 +330,7 @@ export interface RootRouteChildren {
   PerfilRoute: typeof PerfilRoute
   PerfilNuevoRoute: typeof PerfilNuevoRoute
   RankingRoute: typeof RankingRoute
+  RecompensasRoute: typeof RecompensasRoute
   RegistroRoute: typeof RegistroRoute
   TemporadasRoute: typeof TemporadasRoute
   TutorialRoute: typeof TutorialRoute
@@ -423,6 +436,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof RankingRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/recompensas': {
+      id: '/recompensas'
+      path: '/recompensas'
+      fullPath: '/recompensas'
+      preLoaderRoute: typeof RecompensasRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/registro': {
       id: '/registro'
       path: '/registro'
@@ -510,6 +530,7 @@ const rootRouteChildren: RootRouteChildren = {
   PerfilRoute: PerfilRoute,
   PerfilNuevoRoute: PerfilNuevoRoute,
   RankingRoute: RankingRoute,
+  RecompensasRoute: RecompensasRoute,
   RegistroRoute: RegistroRoute,
   TemporadasRoute: TemporadasRoute,
   TutorialRoute: TutorialRoute,
