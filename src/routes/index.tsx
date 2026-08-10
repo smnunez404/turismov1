@@ -1,24 +1,58 @@
-import { createFileRoute } from "@tanstack/react-router";
+// SPEC-01 — Splash (P-01)
+import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
+import { useEffect } from "react";
 
-// No head() here: the home route inherits title/description/og/twitter from
-// __root.tsx, and ships no og:image so serve-time hosting can inject the
-// project's social preview (explicit og:image or latest screenshot).
 export const Route = createFileRoute("/")({
-  component: Index,
+  head: () => ({
+    meta: [
+      { title: "Soy Embajador Bolivia — Descubre Santa Cruz jugando" },
+      {
+        name: "description",
+        content:
+          "Aprendé la historia, el patrimonio y los secretos de Santa Cruz de la Sierra a través de misiones, puntos e insignias.",
+      },
+      { property: "og:title", content: "Soy Embajador Bolivia" },
+      {
+        property: "og:description",
+        content:
+          "Misiones, puntos e insignias para convertirte en embajador de tu ciudad.",
+      },
+    ],
+  }),
+  component: Splash,
 });
 
-// IMPORTANT: Replace this placeholder. See ./README.md for routing conventions.
-function Index() {
+function Splash() {
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const t = setTimeout(() => navigate({ to: "/registro" }), 2600);
+    return () => clearTimeout(t);
+  }, [navigate]);
+
   return (
-    <div
-      className="flex min-h-screen items-center justify-center"
-      style={{ backgroundColor: "#fcfbf8" }}
-    >
-      <img
-        data-lovable-blank-page-placeholder="REMOVE_THIS"
-        src="https://cdn.gpteng.co/blank-app-v1.svg"
-        alt="Your app will live here!"
-      />
-    </div>
+    <main className="flex min-h-screen flex-col items-center justify-center bg-primary px-6 text-center">
+      <div className="animate-in fade-in zoom-in-95 duration-700">
+        <span className="text-7xl" role="img" aria-label="Toborochi">
+          🌳
+        </span>
+        <h1 className="mt-6 text-4xl font-bold text-primary-foreground">
+          Soy Embajador
+        </h1>
+        <p className="mt-1 text-lg font-medium tracking-[0.3em] text-accent uppercase">
+          Bolivia
+        </p>
+        <p className="mt-6 text-sm text-primary-foreground/80">
+          Temporada 1 · Descubre Santa Cruz
+        </p>
+      </div>
+
+      <Link
+        to="/registro"
+        className="mt-14 text-xs text-primary-foreground/60 underline underline-offset-4"
+      >
+        Saltar intro
+      </Link>
+    </main>
   );
 }
