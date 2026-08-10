@@ -75,8 +75,8 @@ function Prenda({ id, cuerpo }: { id: string; cuerpo: string }) {
       <path d={base} fill={color} stroke={TRAZO} strokeWidth="2" />
       {id === "prenda-tipoy" && (
         <g stroke="#E0554E" strokeWidth="2" fill="none">
-          <path d={`M${50 - ancho + 6} 94 Q50 78 ${50 + ancho - 6} 96`} />
-          <path d={`M${50 - ancho + 10} 98 Q50 84 ${50 + ancho - 10} 100`} stroke="#F2A93B" />
+          <path d={`M${50 - ancho + 6} 96 Q50 78 ${50 + ancho - 6} 96`} />
+          <path d={`M${50 - ancho + 10} 100 Q50 85 ${50 + ancho - 10} 100`} stroke="#F2A93B" />
         </g>
       )}
       {id === "prenda-bordada" && (
@@ -324,8 +324,12 @@ export function AvatarLienzo({
       <g transform="translate(0,-3)">
         <Cabello id={avatar.cabello} color={avatar.colorPelo} />
       </g>
-      <Rostro id={avatar.cara} />
-      <Vello id={avatar.vello} color={avatar.colorPelo} />
+      <g transform="translate(0,-4)">
+        <Rostro id={avatar.cara} />
+      </g>
+      <g transform="translate(0,-4)">
+        <Vello id={avatar.vello} color={avatar.colorPelo} />
+      </g>
       {avatar.accesorio !== "acc-semillas" && <Accesorio id={avatar.accesorio} />}
       <Sombrero id={avatar.sombrero} />
     </svg>
