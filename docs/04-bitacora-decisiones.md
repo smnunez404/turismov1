@@ -106,3 +106,8 @@ necesita affordances físicas y lecturas rápidas en móvil.
 - **Notificaciones fuera del prototipo** (SPEC-29): requieren backend y consentimiento.
 - **Menú inferior ampliado a 5 ítems** (Aprender, Jugar, Liga, Premios, Perfil), con
   etiquetas de 10 px para no colisionar en pantallas de 390 px.
+
+## Ruleta estilo Preguntados (personajes y color por categoría)
+- Se adopta la referencia visual de Preguntados para P-20: rueda de gajos de color, botón central, personajes por categoría, temporizador y comodines.
+- Los personajes son ilustraciones propias sintéticas (`src/assets/personajes/*.png`), no marcas de terceros.
+- El color de cada categoría vive en `src/data/personajes.ts` (capa de presentación) y no reemplaza los tokens semánticos del sistema visual.
