@@ -19,3 +19,12 @@
 2. Si el impacto es "cambio de alcance", no construir: generar nueva propuesta económica
    y actualización del cronograma (§5.3 del documento maestro).
 3. Recién después, actualizar la spec afectada y construir.
+## 10 de agosto de 2026 — Sprint 2
+
+- Las opciones de tipo *imagen* se representan con pictogramas y texto, no con fotografías:
+  el prototipo no incorpora archivos de imagen reales (guardarraíl §5).
+- La misión 5 aparece en el mapa pero su reto presencial se juega en el Sprint 3.
+- El cierre de misión muestra un resumen inline; la pantalla completa de resultados
+  (SPEC-12) corresponde al Sprint 3.
+- Repetir una misión no descuenta puntos: se conserva el mejor puntaje obtenido.
+- Insignia "Memoria de Elefante" se otorga al completar una misión sin errores.

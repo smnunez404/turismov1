@@ -1,6 +1,6 @@
 # SPEC-08 — Mapa de temporadas
 
-- **Pantalla:** P-08 (`/temporadas`) · **Sprint:** S-2 · **Estado:** Pendiente
+- **Pantalla:** P-08 (`/temporadas`) · **Sprint:** S-2 · **Estado:** Hecho (10 de agosto de 2026)
 
 **Propósito.** Mostrar el universo del producto y anclar la progresión.
 
@@ -9,5 +9,5 @@ Naturaleza visibles pero bloqueadas, con indicador de "próximamente".
 
 **Criterios de aceptación**
 
-- [ ] Las temporadas bloqueadas no son accesibles pero sí visibles y atractivas.
-- [ ] Se comunica que el producto tiene recorrido futuro (valor percibido).
+- [x] Las temporadas bloqueadas no son accesibles pero sí visibles y atractivas.
+- [x] Se comunica que el producto tiene recorrido futuro (valor percibido).

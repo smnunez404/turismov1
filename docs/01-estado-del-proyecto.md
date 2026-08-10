@@ -5,8 +5,8 @@
 
 ## Sprint actual
 
-**Sprint 1 — Identidad y onboarding** (en curso → cerrado en esta entrega).
-Sprint 0 documentado y cerrado.
+**Sprint 2 — Núcleo de misiones** (cerrado en esta entrega).
+Sprints 0 y 1 cerrados.
 
 ## Avance por sprint
 
@@ -14,7 +14,7 @@ Sprint 0 documentado y cerrado.
 | --- | --- | --- | --- |
 | S-0 | Alineación y fundaciones | — | Hecho |
 | S-1 | Identidad y onboarding | SPEC-01 … SPEC-07 | Hecho |
-| S-2 | Núcleo de misiones | SPEC-08 … SPEC-11 | Pendiente |
+| S-2 | Núcleo de misiones | SPEC-08 … SPEC-11 | Hecho |
 | S-3 | Gamificación, reto y progreso | SPEC-12 … SPEC-15 | Pendiente |
 | S-4 | Cierre, certificado y consolidación | SPEC-16 … SPEC-18 | Pendiente |
 
@@ -29,10 +29,10 @@ Sprint 0 documentado y cerrado.
 | [SPEC-05 Selección de avatar](./02-specs/SPEC-05-avatar.md) | P-05 | S-1 | Hecho |
 | [SPEC-06 Bienvenida](./02-specs/SPEC-06-bienvenida.md) | P-06 | S-1 | Hecho |
 | [SPEC-07 Tutorial](./02-specs/SPEC-07-tutorial.md) | P-07 | S-1 | Hecho |
-| [SPEC-08 Mapa de temporadas](./02-specs/SPEC-08-mapa-temporadas.md) | P-08 | S-2 | Pendiente |
-| [SPEC-09 Portada de misión](./02-specs/SPEC-09-portada-mision.md) | P-09 | S-2 | Pendiente |
-| [SPEC-10 Motor de preguntas](./02-specs/SPEC-10-motor-preguntas.md) | P-10 | S-2 | Pendiente |
-| [SPEC-11 Feedback de respuesta](./02-specs/SPEC-11-feedback.md) | P-11 | S-2 | Pendiente |
+| [SPEC-08 Mapa de temporadas](./02-specs/SPEC-08-mapa-temporadas.md) | P-08 | S-2 | Hecho |
+| [SPEC-09 Portada de misión](./02-specs/SPEC-09-portada-mision.md) | P-09 | S-2 | Hecho |
+| [SPEC-10 Motor de preguntas](./02-specs/SPEC-10-motor-preguntas.md) | P-10 | S-2 | Hecho |
+| [SPEC-11 Feedback de respuesta](./02-specs/SPEC-11-feedback.md) | P-11 | S-2 | Hecho |
 | [SPEC-12 Resultados de misión](./02-specs/SPEC-12-resultados.md) | P-12 | S-3 | Pendiente |
 | [SPEC-13 Reto presencial](./02-specs/SPEC-13-reto-presencial.md) | P-13 | S-3 | Pendiente |
 | [SPEC-14 Perfil del usuario](./02-specs/SPEC-14-perfil.md) | P-14 | S-3 | Pendiente |
