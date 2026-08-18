@@ -17,6 +17,7 @@ independiente enlazada.
 | [09-checklist-validacion-cliente.md](./09-checklist-validacion-cliente.md) | Checklist de validación con la cliente y registro de hallazgos |
 | [10-auditoria-ux-visual.md](./10-auditoria-ux-visual.md) | Auditoría UX y QA visual mobile-first por SPEC |
 | [11-fase2-preguntados-negocio.md](./11-fase2-preguntados-negocio.md) | Fase 2: modo Preguntados, retención y modelo de negocio |
+| [12-preguntas-stakeholder-demo.md](./12-preguntas-stakeholder-demo.md) | Guía de preguntas para meet con stakeholder y demo |
 | [sprints/](./sprints/) | Sprint 0 a Sprint 6 |
 
 ## Regla de oro
