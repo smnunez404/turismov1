@@ -55,6 +55,7 @@ con la cliente sobre el modelo comercial.
 - [Modelo de datos simulado](./07-modelo-datos-simulado.md)
 - [Contenido de muestra](./08-contenido-muestra.md)
 - [Checklist de validación con la cliente](./09-checklist-validacion-cliente.md)
+- [Guía de preguntas para meet con stakeholder](./12-preguntas-stakeholder-demo.md)
 - [Sprints](./sprints/)
 
 ## Fase 2 — Avance por especificación
