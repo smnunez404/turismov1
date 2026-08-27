@@ -18,6 +18,7 @@ independiente enlazada.
 | [10-auditoria-ux-visual.md](./10-auditoria-ux-visual.md) | Auditoría UX y QA visual mobile-first por SPEC |
 | [11-fase2-preguntados-negocio.md](./11-fase2-preguntados-negocio.md) | Fase 2: modo Preguntados, retención y modelo de negocio |
 | [12-preguntas-stakeholder-demo.md](./12-preguntas-stakeholder-demo.md) | Guía de preguntas para meet con stakeholder y demo |
+| [13-plan-rediseno-game-first.md](./13-plan-rediseno-game-first.md) | Fase 3: plan de rediseño game-first según retroalimentación de la cliente |
 | [sprints/](./sprints/) | Sprint 0 a Sprint 6 |
 
 ## Regla de oro
