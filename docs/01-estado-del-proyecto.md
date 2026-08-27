@@ -56,6 +56,7 @@ con la cliente sobre el modelo comercial.
 - [Contenido de muestra](./08-contenido-muestra.md)
 - [Checklist de validación con la cliente](./09-checklist-validacion-cliente.md)
 - [Guía de preguntas para meet con stakeholder](./12-preguntas-stakeholder-demo.md)
+- [Plan de rediseño game-first (Fase 3)](./13-plan-rediseno-game-first.md)
 - [Sprints](./sprints/)
 
 ## Fase 2 — Avance por especificación
