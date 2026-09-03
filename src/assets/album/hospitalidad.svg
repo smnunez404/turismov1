@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="120 0 400 400" role="img" aria-labelledby="title desc">
+  <title id="title">Calidez camba</title>
+  <desc id="desc">Ilustración plana de dos manos sosteniendo un corazón como símbolo de hospitalidad</desc>
+  <rect x="120" width="400" height="400" rx="28" fill="#A5588D"/>
+  <circle cx="320" cy="205" r="130" fill="#FFFFFF" opacity=".14"/>
+  <path d="M320 250c-18-18-98-70-98-126 0-36 27-61 62-61 22 0 39 12 52 31 13-19 30-31 52-31 35 0 62 25 62 61 0 56-80 108-130 126z" fill="#F5C850"/>
+  <path d="M120 270c52-24 83-29 108-8l67 39-22 48-70-24c-34-11-55-8-83 3z" fill="#F2B58F"/>
+  <path d="M520 270c-52-24-83-29-108-8l-67 39 22 48 70-24c34-11 55-8 83 3z" fill="#D99169"/>
+  <path d="M247 300c47 13 99 13 146 0" fill="none" stroke="#FFFFFF" stroke-opacity=".58" stroke-width="12" stroke-linecap="round"/>
+</svg>

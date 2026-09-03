@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="120 0 400 400" role="img" aria-labelledby="title desc">
+  <title id="title">Toborochi</title>
+  <desc id="desc">Ilustración plana de un toborochi florecido en el oriente boliviano</desc>
+  <rect x="120" width="400" height="400" rx="28" fill="#B8DFD2"/>
+  <circle cx="470" cy="76" r="38" fill="#FFD35C"/>
+  <path d="M120 330Q210 275 290 322T520 304V400H120z" fill="#2C8A61"/>
+  <path d="M285 340c-18-54-5-104 13-139 16-31 8-75 22-119 17 46 8 88 25 121 19 38 34 86 16 137z" fill="#8B6042"/>
+  <path d="M303 224c-48-16-87-56-80-92 43 4 81 23 105 57-4-55 18-99 54-119 21 39 18 86-9 126 37-29 81-31 116-11-20 42-65 66-116 62z" fill="#287952"/>
+  <g fill="#F69AC2"><circle cx="246" cy="128" r="18"/><circle cx="325" cy="101" r="19"/><circle cx="392" cy="137" r="18"/><circle cx="433" cy="190" r="16"/><circle cx="284" cy="175" r="16"/></g>
+</svg>

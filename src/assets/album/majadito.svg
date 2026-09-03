@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="120 0 400 400" role="img" aria-labelledby="title desc">
+  <title id="title">Majadito</title>
+  <desc id="desc">Ilustración plana de un plato de majadito con huevo y plátano</desc>
+  <rect x="120" width="400" height="400" rx="28" fill="#F4B84C"/>
+  <ellipse cx="320" cy="225" rx="190" ry="125" fill="#F7F0DF"/>
+  <ellipse cx="320" cy="220" rx="160" ry="92" fill="#C66A34"/>
+  <g fill="#F2C35A"><ellipse cx="220" cy="250" rx="65" ry="18" transform="rotate(-20 220 250)"/><ellipse cx="420" cy="258" rx="65" ry="18" transform="rotate(18 420 258)"/></g>
+  <ellipse cx="320" cy="189" rx="72" ry="52" fill="#FFFFFF"/><circle cx="320" cy="189" r="28" fill="#F5B82E"/>
+  <g fill="#9B4D2B" opacity=".75"><circle cx="260" cy="210" r="8"/><circle cx="390" cy="220" r="9"/><circle cx="344" cy="258" r="7"/><circle cx="286" cy="267" r="8"/></g>
+</svg>

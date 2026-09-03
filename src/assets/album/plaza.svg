@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="120 0 400 400" role="img" aria-labelledby="title desc">
+  <title id="title">Plaza 24 de Septiembre</title>
+  <desc id="desc">Ilustración plana de la catedral y palmeras del centro histórico de Santa Cruz</desc>
+  <rect x="120" width="400" height="400" rx="28" fill="#7FA6CC"/>
+  <circle cx="450" cy="72" r="38" fill="#FFD35C"/>
+  <path d="M120 334h400v66H120z" fill="#236E55"/>
+  <g fill="#F5E3C2"><rect x="215" y="168" width="210" height="166"/><rect x="170" y="128" width="64" height="206"/><rect x="406" y="128" width="64" height="206"/><path d="M160 128l42-70 42 70zM396 128l42-70 42 70zM215 168l105-82 105 82z"/></g>
+  <g fill="#9D543C"><rect x="187" y="166" width="30" height="50" rx="15"/><rect x="423" y="166" width="30" height="50" rx="15"/><rect x="289" y="245" width="62" height="89" rx="30"/></g>
+  <g stroke="#214F42" stroke-width="10"><path d="M150 335c3-75 10-123 23-176M490 335c-3-75-10-123-23-176"/></g>
+  <g fill="#2A755C"><path d="M173 162c-54-8-74-33-80-60 47-2 76 14 89 45-4-42 16-71 49-87 13 39 3 75-35 105zM467 162c54-8 74-33 80-60-47-2-76 14-89 45 4-42-16-71-49-87-13 39-3 75 35 105z"/></g>
+</svg>
