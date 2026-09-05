@@ -65,9 +65,10 @@ function Compartir() {
           <button
             type="button"
             onClick={() => setModoDemo(true)}
-            className="text-xs font-bold text-muted-foreground hover:text-foreground underline underline-offset-4 pt-1 cursor-pointer"
+            className="inline-flex items-center justify-center gap-1.5 text-xs font-bold text-muted-foreground hover:text-foreground underline underline-offset-4 pt-1 cursor-pointer"
           >
-            👁️ Ver demostración de tarjeta (Modo Evaluación)
+            <Icono nombre="explorar" className="h-3.5 w-3.5 text-primary" />
+            <span>Ver demostración de tarjeta (Modo Evaluación)</span>
           </button>
         </div>
       </Pantalla>
