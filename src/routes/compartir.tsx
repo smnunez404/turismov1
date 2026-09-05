@@ -3,6 +3,8 @@ import { useState } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Pantalla } from "@/components/Pantalla";
 import { BotonVolver } from "@/components/BotonVolver";
+import { AvatarLienzo } from "@/components/AvatarLienzo";
+import { normalizarAvatar } from "@/data/avatar-piezas";
 import { Icono, IconoPastilla } from "@/components/Icono";
 import { useSesion } from "@/context/SessionContext";
 import { insignias } from "@/data/insignias";
@@ -42,7 +44,10 @@ function Compartir() {
   const [nuevoInvitado, setNuevoInvitado] = useState("");
   const [invitacionesPreparadas, setInvitacionesPreparadas] = useState(false);
 
-  if (avance.completadas === 0 && usuario.progresoJuego.partidas === 0) {
+  const [modoDemo, setModoDemo] = useState(false);
+  const tieneLogros = avance.completadas > 0 || usuario.progresoJuego.partidas > 0 || modoDemo;
+
+  if (!tieneLogros) {
     return (
       <Pantalla className="justify-center gap-4 text-center">
         <BotonVolver fallback="/perfil" preferirHistorial={false} className="self-start" />
@@ -53,9 +58,18 @@ function Compartir() {
         <p className="text-sm text-muted-foreground">
           Completá una partida o una misión y volvé para preparar tu primera tarjeta.
         </p>
-        <Link to="/partida" className="mt-2 btn-duo btn-duo-primary">
-          Jugar una partida
-        </Link>
+        <div className="mt-2 flex flex-col gap-2 max-w-xs mx-auto w-full">
+          <Link to="/partida" className="btn-duo btn-duo-primary">
+            Jugar una partida
+          </Link>
+          <button
+            type="button"
+            onClick={() => setModoDemo(true)}
+            className="text-xs font-bold text-muted-foreground hover:text-foreground underline underline-offset-4 pt-1 cursor-pointer"
+          >
+            👁️ Ver demostración de tarjeta (Modo Evaluación)
+          </button>
+        </div>
       </Pantalla>
     );
   }
@@ -94,39 +108,60 @@ function Compartir() {
         </p>
       </header>
 
-      <section className="card-duo relative overflow-hidden p-4 sm:p-5">
+      <section className="card-duo relative overflow-hidden p-4 sm:p-5 border-2 border-primary/40 bg-gradient-to-br from-card via-card to-primary/5 shadow-md">
+        {/* Cabecera de la tarjeta */}
         <div className="flex items-center justify-between gap-2">
-          <span className="text-[11px] font-extrabold tracking-widest text-primary uppercase">
-            Tarjeta de logro
+          <span className="text-[10px] font-black tracking-widest text-primary uppercase flex items-center gap-1">
+            <Icono nombre="destello" className="h-3.5 w-3.5 text-primary" />
+            Tarjeta Oficial de Embajador
           </span>
-          <span className="inline-flex items-center gap-1 rounded-full bg-accent/20 px-2 py-0.5 text-[10px] font-bold text-accent-foreground">
-            <Icono nombre="destello" className="h-3 w-3" /> Nivel {nivel.nombre}
+          <span className="inline-flex items-center gap-1 rounded-full bg-accent/20 px-2.5 py-0.5 text-[10px] font-black text-accent-foreground">
+            Rango {nivel.nombre}
           </span>
         </div>
 
-        <p className="mt-2 text-base font-bold leading-snug text-foreground">{mensaje}</p>
+        {/* Contenido con Avatar real */}
+        <div className="mt-3.5 flex items-start gap-3.5">
+          <div className="shrink-0 rounded-2xl bg-card p-1 shadow-sm ring-2 ring-primary/30">
+            <AvatarLienzo
+              avatar={normalizarAvatar(usuario.avatar)}
+              tamano="sm"
+              encuadre="cuerpo"
+              className="h-16 w-16"
+            />
+          </div>
+          <div className="min-w-0 flex-1">
+            <h3 className="text-sm font-extrabold text-foreground truncate">
+              {usuario.nombre || "Curioso Cruceño"}
+            </h3>
+            <p className="mt-1 text-xs font-semibold leading-relaxed text-foreground/90">
+              {mensaje}
+            </p>
+          </div>
+        </div>
 
         {obtenidas.length > 0 && (
-          <div className="mt-3 flex flex-wrap gap-1.5">
+          <div className="mt-3 flex flex-wrap gap-1.5 pt-2 border-t border-border/60">
             {obtenidas.slice(0, 3).map((i) => (
               <span
                 key={i.id}
-                className="inline-flex items-center gap-1 rounded-full bg-muted/80 px-2.5 py-1 text-xs font-semibold text-foreground"
+                className="inline-flex items-center gap-1 rounded-full bg-muted/90 px-2.5 py-1 text-[11px] font-bold text-foreground"
               >
-                <Icono nombre={i.icono} className="h-3.5 w-3.5 text-primary" /> {i.nombre}
+                <Icono nombre={i.icono} className="h-3 w-3 text-primary" /> {i.nombre}
               </span>
             ))}
             {obtenidas.length > 3 && (
-              <span className="inline-flex items-center rounded-full bg-muted/60 px-2 py-1 text-xs font-bold text-muted-foreground">
+              <span className="inline-flex items-center rounded-full bg-muted/60 px-2 py-0.5 text-[10px] font-black text-muted-foreground">
                 +{obtenidas.length - 3} más
               </span>
             )}
           </div>
         )}
 
-        <p className="mt-3 text-[11px] font-medium text-muted-foreground">
-          #SoyEmbajadorBolivia · #SantaCruz
-        </p>
+        <div className="mt-3 flex items-center justify-between text-[10px] font-extrabold text-muted-foreground pt-2 border-t border-dashed border-border/70">
+          <span>#SoyEmbajadorBolivia · #SantaCruz</span>
+          <span className="text-primary font-black">bolivia.embajador.app</span>
+        </div>
       </section>
 
       {/* ── Canales rápidos de difusión ── */}

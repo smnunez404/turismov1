@@ -33,7 +33,8 @@ export const Route = createFileRoute("/certificado")({
 function Certificado() {
   const { usuario } = useSesion();
   const temporada = temporadas.find((t) => t.id === "t1")!;
-  const habilitado = temporadaCompletada("t1", usuario);
+  const [modoDemo, setModoDemo] = useState(false);
+  const habilitado = temporadaCompletada("t1", usuario) || modoDemo;
   const avance = avanceTemporada("t1", usuario);
   const nivel = nivelDe(usuario.xp);
   // La fecha se calcula tras hidratar para no desincronizar el render del servidor.
@@ -56,9 +57,18 @@ function Certificado() {
         <div className="barra-duo mx-auto w-full max-w-xs">
           <span className="barra-duo-fill" style={{ width: `${avance.porcentaje}%` }} />
         </div>
-        <Link to="/temporadas" className="mt-2 btn-duo btn-duo-primary">
-          Seguir con mis misiones
-        </Link>
+        <div className="mt-2 flex flex-col gap-2 max-w-xs mx-auto w-full">
+          <Link to="/temporadas" className="btn-duo btn-duo-primary">
+            Seguir con mis misiones
+          </Link>
+          <button
+            type="button"
+            onClick={() => setModoDemo(true)}
+            className="text-xs font-bold text-muted-foreground hover:text-foreground underline underline-offset-4 pt-1 cursor-pointer"
+          >
+            👁️ Ver demostración del certificado (Modo Evaluación)
+          </button>
+        </div>
       </Pantalla>
     );
   }
