@@ -20,6 +20,10 @@ type PestanaPerfil = "coleccion" | "insignias" | "tienda";
 function Perfil() {
   const { usuario } = useSesion();
   const [pestana, setPestana] = useState<PestanaPerfil>("coleccion");
+  const [modalAdminAbierto, setModalAdminAbierto] = useState(false);
+  const [usuarioAdmin, setUsuarioAdmin] = useState("");
+  const [claveAdmin, setClaveAdmin] = useState("");
+  const [errorAdmin, setErrorAdmin] = useState("");
 
   const nivel = nivelDe(usuario.xp);
   const avance = avanceTemporada("t1", usuario);
@@ -308,7 +312,103 @@ function Perfil() {
             Equipo y liga
           </Link>
         </div>
+
+        {/* Acceso discreto para Administrador */}
+        <div className="pt-2 text-center">
+          <button
+            type="button"
+            onClick={() => setModalAdminAbierto(true)}
+            className="text-[11px] font-medium text-muted-foreground/60 hover:text-muted-foreground underline underline-offset-2 transition-colors cursor-pointer"
+          >
+            Gestión administrativa
+          </button>
+        </div>
       </footer>
+
+      {/* ── Modal de Inicio de Sesión Admin (Usuario: admin, Contraseña: admin) ── */}
+      {modalAdminAbierto && (
+        <div
+          role="dialog"
+          aria-modal="true"
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 p-4 backdrop-blur-xs animate-in fade-in"
+        >
+          <div className="relative w-full max-w-xs rounded-3xl border-2 border-border bg-card p-5 text-foreground shadow-2xl">
+            <div className="text-center">
+              <div className="mx-auto mb-2 flex h-10 w-10 items-center justify-center rounded-2xl bg-primary/10 text-primary">
+                <Icono nombre="bloqueado" className="h-5 w-5" />
+              </div>
+              <h3 className="text-base font-extrabold text-foreground">Acceso de Gestión</h3>
+              <p className="text-xs text-muted-foreground mt-0.5">
+                Ingresá tus credenciales de administrador.
+              </p>
+            </div>
+
+            <form
+              onSubmit={(e) => {
+                e.preventDefault();
+                if (usuarioAdmin.trim() === "admin" && claveAdmin === "admin") {
+                  setErrorAdmin("");
+                  setModalAdminAbierto(false);
+                  window.location.href = "/admin-conceptual";
+                } else {
+                  setErrorAdmin("Usuario o contraseña incorrectos");
+                }
+              }}
+              className="mt-4 flex flex-col gap-3"
+            >
+              <div>
+                <label className="text-[11px] font-bold text-muted-foreground uppercase">Usuario</label>
+                <input
+                  type="text"
+                  value={usuarioAdmin}
+                  onChange={(e) => setUsuarioAdmin(e.target.value)}
+                  placeholder="admin"
+                  required
+                  autoFocus
+                  className="mt-1 w-full rounded-xl border border-input bg-muted/40 px-3 py-2 text-xs font-semibold outline-none focus:border-primary"
+                />
+              </div>
+
+              <div>
+                <label className="text-[11px] font-bold text-muted-foreground uppercase">Contraseña</label>
+                <input
+                  type="password"
+                  value={claveAdmin}
+                  onChange={(e) => setClaveAdmin(e.target.value)}
+                  placeholder="•••••"
+                  required
+                  className="mt-1 w-full rounded-xl border border-input bg-muted/40 px-3 py-2 text-xs font-semibold outline-none focus:border-primary"
+                />
+              </div>
+
+              {errorAdmin && (
+                <p className="text-center text-[11px] font-bold text-destructive animate-in fade-in">
+                  {errorAdmin}
+                </p>
+              )}
+
+              <div className="mt-1 flex gap-2">
+                <button
+                  type="button"
+                  onClick={() => {
+                    setModalAdminAbierto(false);
+                    setErrorAdmin("");
+                  }}
+                  className="btn-duo btn-duo-ghost !py-2 !text-xs flex-1"
+                >
+                  Cancelar
+                </button>
+                <button
+                  type="submit"
+                  className="btn-duo btn-duo-primary !py-2 !text-xs flex-1"
+                >
+                  Ingresar
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      )}
     </Pantalla>
   );
 }

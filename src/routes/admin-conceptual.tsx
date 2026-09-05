@@ -30,47 +30,47 @@ export const Route = createFileRoute("/admin-conceptual")({
 
 const metricas = [
   { etiqueta: "Temporadas", valor: temporadas.length, nota: "1 activa · 4 planificadas" },
-  { etiqueta: "Misiones", valor: misiones.length, nota: "Temporada 1" },
-  { etiqueta: "Preguntas", valor: preguntas.length, nota: "Banco de muestra" },
-  { etiqueta: "Insignias", valor: insignias.length, nota: "Reglas configurables" },
+  { etiqueta: "Misiones e Historia", valor: misiones.length, nota: "Con paso a paso" },
+  { etiqueta: "Banco de Preguntas", valor: preguntas.length, nota: "6 categorías activas" },
+  { etiqueta: "Liguillas Privadas", valor: "PIN 6d", nota: "Modo torneos escolares" },
 ];
 
 const secciones = [
   {
     icono: "contenido",
-    titulo: "Temporadas y misiones",
+    titulo: "Temporadas y Camino",
     detalle:
-      "Crear temporadas, ordenar misiones, definir cuántas preguntas trae cada una y cuándo se publica.",
+      "Gestión de hitos de 10 a 100 puntos, premios de cofres chiquitanos y activación de tareas de temporada.",
   },
   {
     icono: "preguntas",
-    titulo: "Banco de preguntas",
+    titulo: "Banco de preguntas y Ruleta",
     detalle:
-      "Alta y edición por tipo (múltiple, verdadero/falso, imagen, caso práctico y reto presencial), con su retroalimentación.",
+      "Edición de preguntas por categoría (historia, geografía, flora, fauna, modismos cruceños y tradiciones).",
+  },
+  {
+    icono: "ranking",
+    titulo: "Liguillas Privadas (Kahoot)",
+    detalle:
+      "Creación de torneos cerrados por PIN para colegios, grupos de amigos y eventos culturales sin alterar el ranking global.",
   },
   {
     icono: "imagen",
-    titulo: "Imágenes y contenido",
+    titulo: "Modo Historia y Diapositivas",
     detalle:
-      "Carga de fotografías de lugares, pictogramas y textos culturales revisados por el equipo de turismo.",
+      "Secuencias narrativas ilustradas de la expedición de Ñuflo de Chaves y la fundación de Santa Cruz de la Sierra.",
   },
   {
-    icono: "objetivo",
-    titulo: "Puntajes y niveles",
+    icono: "regalo",
+    titulo: "Premios y Cupones Reales",
     detalle:
-      "Ajuste del puntaje por respuesta, del máximo por misión y de los umbrales de cada nivel.",
-  },
-  {
-    icono: "medalla",
-    titulo: "Insignias y reglas",
-    detalle:
-      "Definición de criterios de desbloqueo: completar misión, misión perfecta, invitar o cerrar temporada.",
+      "Administración de convenios: cine 2x1, combos gastronómicos tradicionales, tours chiquitanos y becas.",
   },
   {
     icono: "metricas",
     titulo: "Reportes de participación",
     detalle:
-      "Vista futura de usuarios activos, misiones completadas y retos presenciales validados.",
+      "Analítica de jugadores activos, retención diaria, apertura de cofres y respuestas acertadas en tiempo real.",
   },
 ];
 
