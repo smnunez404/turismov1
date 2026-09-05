@@ -3,6 +3,7 @@ import { useState } from "react";
 import { PartidaCinco } from "@/components/PartidaCinco";
 import { ResultadoPartida } from "@/components/ResultadoPartida";
 import { Pantalla } from "@/components/Pantalla";
+import { Icono } from "@/components/Icono";
 import { useSesion } from "@/context/SessionContext";
 import type { ResumenPartida } from "@/data/tipos";
 import { useSalidaProtegida } from "@/hooks/useSalidaProtegida";
@@ -50,33 +51,42 @@ function PartidaLibre() {
           detalle={invitacion}
           acciones={
             <>
-              <button
-                type="button"
-                className="btn-duo btn-duo-primary"
-                onClick={() => {
-                  setResultado(null);
-                  setPrevio(null);
-                  setRonda((x) => x + 1);
-                }}
-              >
-                JUGAR OTRA
-              </button>
-              <Link to="/duelo" className="btn-duo btn-duo-secondary">
-                DESAFIAR A CAMBITA CURIOSO
-              </Link>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                <button
+                  type="button"
+                  className="btn-duo btn-duo-primary flex items-center justify-center gap-2"
+                  onClick={() => {
+                    setResultado(null);
+                    setPrevio(null);
+                    setRonda((x) => x + 1);
+                  }}
+                >
+                  <Icono nombre="jugar" className="h-5 w-5 shrink-0" />
+                  <span>JUGAR OTRA</span>
+                </button>
+                <Link
+                  to="/duelo"
+                  className="btn-duo btn-duo-secondary flex items-center justify-center gap-2"
+                >
+                  <Icono nombre="duelo" className="h-5 w-5 shrink-0" />
+                  <span>DESAFIAR A CAMBITA</span>
+                </Link>
+              </div>
               <div className="flex items-center justify-center gap-4 pt-1">
                 <Link
                   to="/jugar"
-                  className="text-xs font-bold text-muted-foreground hover:text-foreground underline underline-offset-4 transition-colors"
+                  className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-bold text-muted-foreground hover:text-foreground underline underline-offset-4 transition-colors"
                 >
-                  Volver al inicio
+                  <Icono nombre="volver" className="h-3.5 w-3.5" />
+                  <span>Volver al inicio</span>
                 </Link>
                 <span className="text-muted-foreground/40">·</span>
                 <Link
                   to="/ranking"
-                  className="text-xs font-bold text-muted-foreground hover:text-foreground underline underline-offset-4 transition-colors"
+                  className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-bold text-muted-foreground hover:text-foreground underline underline-offset-4 transition-colors"
                 >
-                  Ver ranking
+                  <Icono nombre="ranking" className="h-3.5 w-3.5" />
+                  <span>Ver ranking</span>
                 </Link>
               </div>
             </>

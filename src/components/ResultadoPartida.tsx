@@ -48,95 +48,139 @@ export function ResultadoPartida({
 
   return (
     <div className="flex flex-col gap-3">
-      {/* ── Header hero ── */}
-      <header className="reward-panel reward-enter relative overflow-hidden p-4 text-center">
+      {/* ── Header hero con ambientación festiva y temática cruceña ── */}
+      <header className="reward-panel reward-enter relative overflow-hidden p-5 text-center border-2 border-primary/25 bg-gradient-to-b from-card via-card to-primary/5 shadow-md">
+        {/* Adorno visual festivo de fondo */}
+        <div className="pointer-events-none absolute -left-6 -top-6 h-28 w-28 rounded-full bg-accent/20 blur-2xl" />
+        <div className="pointer-events-none absolute -right-6 -bottom-6 h-28 w-28 rounded-full bg-primary/20 blur-2xl" />
+        
         <TucanGuia
           tamano="sm"
-          className="pointer-events-none absolute -right-3 -bottom-2 opacity-80"
+          className="pointer-events-none absolute right-1 -top-1 opacity-90 drop-shadow-sm"
         />
-        <div className="relative mx-auto flex w-fit items-end">
-          <AvatarInsignia avatarId={usuario.avatarId} avatar={usuario.avatar} tamano="lg" />
-          <IconoPastilla nombre={icono} tono={tono} className="-ml-3 -mb-1 shadow-sm" />
+
+        <div className="relative mx-auto flex w-fit items-center justify-center">
+          <div className="relative rounded-full ring-4 ring-primary/20 ring-offset-2 ring-offset-background p-1 bg-card">
+            <AvatarInsignia avatarId={usuario.avatarId} avatar={usuario.avatar} tamano="lg" />
+          </div>
+          <span className="absolute -top-1 -right-2 z-10 filter drop-shadow-md animate-bounce">
+            <IconoPastilla nombre={icono} tono={tono} className="h-8 w-8 !rounded-full shadow-sm" />
+          </span>
         </div>
-        <p className="mt-2 text-xs font-extrabold tracking-widest text-primary uppercase">{ceja}</p>
-        <h1 tabIndex={-1} autoFocus className="mt-1 text-2xl font-extrabold focus:outline-none">
+
+        <p className="mt-3 text-xs font-black tracking-widest text-primary uppercase flex items-center justify-center gap-1.5">
+          <Icono nombre="destello" className="h-3.5 w-3.5 text-primary" />
+          <span>{ceja}</span>
+          <Icono nombre="destello" className="h-3.5 w-3.5 text-primary" />
+        </p>
+        <h1 tabIndex={-1} autoFocus className="mt-1 text-2xl sm:text-3xl font-black text-foreground tracking-tight focus:outline-none">
           {titulo}
         </h1>
-        <p className="mt-0.5 text-xs text-muted-foreground">{descripcion}</p>
+        <p className="mt-1 text-xs sm:text-sm text-muted-foreground max-w-sm mx-auto leading-relaxed">
+          {descripcion}
+        </p>
       </header>
 
-      {/* ── Indicadores compactos ── */}
-      <section aria-label="Resultado de los cinco desafíos">
-        <div className="flex justify-center gap-2">
+      {/* ── Indicadores compactos y visuales ── */}
+      <section aria-label="Resultado de los cinco desafíos" className="py-0.5">
+        <div className="flex justify-center gap-2 sm:gap-3">
           {resumen.desafioIds.map((id, indice) => {
             const correcto = resumen.resultados[id]?.correcto ?? false;
             return (
               <span
                 key={id}
                 aria-label={`Desafío ${indice + 1}: ${correcto ? "correcto" : "incorrecto"}`}
-                className={`grid h-10 w-10 place-items-center rounded-full border-2 ${
+                className={`grid h-10 w-10 sm:h-11 sm:w-11 place-items-center rounded-2xl border-2 transition-transform shadow-xs ${
                   correcto
-                    ? "border-primary/45 bg-primary/12 text-primary"
-                    : "border-destructive/35 bg-destructive/8 text-destructive"
+                    ? "border-primary bg-primary/15 text-primary scale-105"
+                    : "border-destructive/40 bg-destructive/10 text-destructive opacity-80"
                 }`}
               >
-                <Icono nombre={correcto ? "acierto" : "error"} className="h-4 w-4" />
+                <Icono nombre={correcto ? "acierto" : "error"} className="h-4 w-4 sm:h-5 sm:w-5" />
               </span>
             );
           })}
         </div>
-        <p className="mt-1.5 text-center text-xs font-bold text-muted-foreground">
-          {resumen.aciertos} de {resumen.desafioIds.length} desafíos resueltos
+        <p className="mt-2 text-center text-xs font-extrabold text-foreground flex items-center justify-center gap-1.5">
+          {resumen.aciertos === 5 ? (
+            <span className="text-primary flex items-center gap-1">
+              <Icono nombre="corona" className="h-4 w-4 text-primary" />
+              ¡Puntaje perfecto! 5 de 5 resueltos
+            </span>
+          ) : (
+            <span className="text-muted-foreground">
+              {resumen.aciertos} de {resumen.desafioIds.length} desafíos resueltos
+            </span>
+          )}
         </p>
       </section>
 
       {/* ── Bloque unificado: recompensas + nivel + desbloqueos ── */}
-      <section aria-label="Progreso y recompensas" className="card-duo p-4">
-        {/* Datos de recompensa inline */}
-        <div className={`grid gap-2 ${ligaGanada > 0 ? "grid-cols-3" : "grid-cols-2"}`}>
-          <Dato icono="xp" valor={`+${xpGanado}`} etiqueta="XP reales" tono="accent" />
-          <Dato icono="moneda" valor={`+${monedasGanadas}`} etiqueta="monedas" tono="accent" />
+      <section aria-label="Progreso y recompensas" className="card-duo border-2 border-border/80 bg-card p-4 shadow-xs">
+        {/* Recompensas destacadas estilo gaming con SVG icons */}
+        <div className={`grid gap-2.5 ${ligaGanada > 0 ? "grid-cols-3" : "grid-cols-2"}`}>
+          <div className="rounded-2xl border-2 border-accent/40 bg-accent/10 p-3 text-center transition-all flex flex-col items-center">
+            <Icono nombre="rayo" className="h-5 w-5 text-accent-foreground" />
+            <p className="mt-1 text-xl font-black text-foreground">+{xpGanado}</p>
+            <p className="text-[10px] font-bold uppercase tracking-wider text-accent-foreground">XP reales</p>
+          </div>
+          <div className="rounded-2xl border-2 border-secondary/40 bg-secondary/10 p-3 text-center transition-all flex flex-col items-center">
+            <Icono nombre="cupon" className="h-5 w-5 text-secondary" />
+            <p className="mt-1 text-xl font-black text-foreground">+{monedasGanadas}</p>
+            <p className="text-[10px] font-bold uppercase tracking-wider text-secondary">monedas</p>
+          </div>
           {ligaGanada > 0 && (
-            <Dato icono="liga" valor={`+${ligaGanada}`} etiqueta="liga" tono="secondary" />
+            <div className="rounded-2xl border-2 border-primary/40 bg-primary/10 p-3 text-center transition-all flex flex-col items-center">
+              <Icono nombre="ranking" className="h-5 w-5 text-primary" />
+              <p className="mt-1 text-xl font-black text-foreground">+{ligaGanada}</p>
+              <p className="text-[10px] font-bold uppercase tracking-wider text-primary">liga</p>
+            </div>
           )}
         </div>
 
-        {/* Separador sutil */}
-        <hr className="my-3 border-border" />
+        {/* Separador */}
+        <hr className="my-3.5 border-border" />
 
         {/* Nivel y barra */}
-        <div className="flex items-start justify-between gap-3 text-xs">
-          <span>
-            <strong className="block text-sm text-foreground">Nivel {nivel.nombre}</strong>
-            <span className="text-muted-foreground">{usuario.xp} XP acumulados</span>
-          </span>
-          <span className="max-w-32 text-right font-bold text-muted-foreground">
-            {nivel.siguiente ? `${nivel.faltan} XP para ${nivel.siguiente.nombre}` : "Nivel máximo"}
-          </span>
+        <div className="flex items-center justify-between text-xs">
+          <div>
+            <span className="text-[10px] font-extrabold uppercase text-muted-foreground">Tu Rango</span>
+            <p className="text-sm font-extrabold text-foreground">Nivel {nivel.nombre}</p>
+          </div>
+          <div className="text-right">
+            <span className="text-[10px] font-semibold text-muted-foreground">
+              {nivel.siguiente ? `${nivel.faltan} XP restantes` : "Rango Máximo"}
+            </span>
+            <p className="text-xs font-bold text-primary">
+              {nivel.siguiente ? `para ${nivel.siguiente.nombre}` : "¡Embajador Maestro!"}
+            </p>
+          </div>
         </div>
-        <div className="barra-duo mt-2" aria-label={`${nivel.porcentaje}% del nivel completado`}>
+        <div className="barra-duo mt-2 h-3" aria-label={`${nivel.porcentaje}% del nivel completado`}>
           <span className="barra-duo-fill" style={{ width: `${nivel.porcentaje}%` }} />
         </div>
 
         {/* Racha (condicional) */}
         {mostrarRacha && (
-          <div className="mt-3 flex items-center gap-2 rounded-xl bg-secondary/10 p-2.5 text-sm">
-            <Icono nombre="racha" className="h-5 w-5 text-secondary" />
-            <span>
-              <strong>{usuario.racha.dias} días de racha</strong>
-              {usuario.racha.dias > previo.rachaDias && " · sumaste el día de hoy"}
-            </span>
+          <div className="mt-3.5 flex items-center gap-2.5 rounded-xl border border-secondary/30 bg-secondary/10 p-2.5 text-xs sm:text-sm">
+            <Icono nombre="racha" className="h-5 w-5 text-secondary shrink-0" />
+            <div>
+              <strong className="text-foreground">{usuario.racha.dias} días seguidos de racha</strong>
+              <p className="text-[11px] text-muted-foreground">¡Mantené tu constancia jugando cada día!</p>
+            </div>
           </div>
         )}
 
-        {/* Desbloqueos como línea inline */}
+        {/* Desbloqueos como línea destacada */}
         {hayDesbloqueos && (
-          <div className="mt-3 flex items-center gap-2 rounded-xl bg-accent/12 p-2.5 text-sm">
-            <Icono nombre="desbloqueo" className="h-4 w-4 shrink-0 text-accent-foreground" />
-            <span className="text-muted-foreground">
-              <strong className="text-foreground">Desbloqueaste</strong>{" "}
-              {partesDesbloqueo.join(" · ")}
-            </span>
+          <div className="mt-3 flex items-center gap-2.5 rounded-xl border-2 border-accent/40 bg-accent/15 p-2.5 text-xs sm:text-sm">
+            <Icono nombre="regalo" className="h-5 w-5 text-accent-foreground shrink-0" />
+            <div className="min-w-0 flex-1">
+              <p className="text-[10px] font-black uppercase text-accent-foreground">¡Nuevo Botín Obtenido!</p>
+              <p className="text-xs font-bold text-foreground truncate">
+                {partesDesbloqueo.join(" · ")}
+              </p>
+            </div>
           </div>
         )}
       </section>

@@ -18,6 +18,7 @@ import { Route as CompartirRouteImport } from './routes/compartir'
 import { Route as DueloRouteImport } from './routes/duelo'
 import { Route as EquiposRouteImport } from './routes/equipos'
 import { Route as LigaRouteImport } from './routes/liga'
+import { Route as LiguillasRouteImport } from './routes/liguillas'
 import { Route as LoginRouteImport } from './routes/login'
 import { Route as PartidaRouteImport } from './routes/partida'
 import { Route as PerfilRouteImport } from './routes/perfil'
@@ -30,7 +31,9 @@ import { Route as TemporadasRouteImport } from './routes/temporadas'
 import { Route as TutorialRouteImport } from './routes/tutorial'
 import { Route as JugarIndexRouteImport } from './routes/jugar.index'
 import { Route as JugarDiaRouteImport } from './routes/jugar.dia'
+import { Route as JugarRetosRouteImport } from './routes/jugar.retos'
 import { Route as JugarRuletaRouteImport } from './routes/jugar.ruleta'
+import { Route as JugarSopaRouteImport } from './routes/jugar.sopa'
 import { Route as MisionMisionIdIndexRouteImport } from './routes/mision.$misionId.index'
 import { Route as MisionMisionIdJugarRouteImport } from './routes/mision.$misionId.jugar'
 import { Route as MisionMisionIdResultadosRouteImport } from './routes/mision.$misionId.resultados'
@@ -79,6 +82,11 @@ const EquiposRoute = EquiposRouteImport.update({
 const LigaRoute = LigaRouteImport.update({
   id: '/liga',
   path: '/liga',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LiguillasRoute = LiguillasRouteImport.update({
+  id: '/liguillas',
+  path: '/liguillas',
   getParentRoute: () => rootRouteImport,
 } as any)
 const LoginRoute = LoginRouteImport.update({
@@ -141,9 +149,19 @@ const JugarDiaRoute = JugarDiaRouteImport.update({
   path: '/jugar/dia',
   getParentRoute: () => rootRouteImport,
 } as any)
+const JugarRetosRoute = JugarRetosRouteImport.update({
+  id: '/jugar/retos',
+  path: '/jugar/retos',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const JugarRuletaRoute = JugarRuletaRouteImport.update({
   id: '/jugar/ruleta',
   path: '/jugar/ruleta',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const JugarSopaRoute = JugarSopaRouteImport.update({
+  id: '/jugar/sopa',
+  path: '/jugar/sopa',
   getParentRoute: () => rootRouteImport,
 } as any)
 const MisionMisionIdIndexRoute = MisionMisionIdIndexRouteImport.update({
@@ -178,6 +196,7 @@ export interface FileRoutesByFullPath {
   '/duelo': typeof DueloRoute
   '/equipos': typeof EquiposRoute
   '/liga': typeof LigaRoute
+  '/liguillas': typeof LiguillasRoute
   '/login': typeof LoginRoute
   '/partida': typeof PartidaRoute
   '/perfil': typeof PerfilRoute
@@ -189,7 +208,9 @@ export interface FileRoutesByFullPath {
   '/temporadas': typeof TemporadasRoute
   '/tutorial': typeof TutorialRoute
   '/jugar/dia': typeof JugarDiaRoute
+  '/jugar/retos': typeof JugarRetosRoute
   '/jugar/ruleta': typeof JugarRuletaRoute
+  '/jugar/sopa': typeof JugarSopaRoute
   '/jugar/': typeof JugarIndexRoute
   '/mision/$misionId/jugar': typeof MisionMisionIdJugarRoute
   '/mision/$misionId/resultados': typeof MisionMisionIdResultadosRoute
@@ -206,6 +227,7 @@ export interface FileRoutesByTo {
   '/duelo': typeof DueloRoute
   '/equipos': typeof EquiposRoute
   '/liga': typeof LigaRoute
+  '/liguillas': typeof LiguillasRoute
   '/login': typeof LoginRoute
   '/partida': typeof PartidaRoute
   '/perfil': typeof PerfilRoute
@@ -217,7 +239,9 @@ export interface FileRoutesByTo {
   '/temporadas': typeof TemporadasRoute
   '/tutorial': typeof TutorialRoute
   '/jugar/dia': typeof JugarDiaRoute
+  '/jugar/retos': typeof JugarRetosRoute
   '/jugar/ruleta': typeof JugarRuletaRoute
+  '/jugar/sopa': typeof JugarSopaRoute
   '/jugar': typeof JugarIndexRoute
   '/mision/$misionId/jugar': typeof MisionMisionIdJugarRoute
   '/mision/$misionId/resultados': typeof MisionMisionIdResultadosRoute
@@ -235,6 +259,7 @@ export interface FileRoutesById {
   '/duelo': typeof DueloRoute
   '/equipos': typeof EquiposRoute
   '/liga': typeof LigaRoute
+  '/liguillas': typeof LiguillasRoute
   '/login': typeof LoginRoute
   '/partida': typeof PartidaRoute
   '/perfil': typeof PerfilRoute
@@ -246,7 +271,9 @@ export interface FileRoutesById {
   '/temporadas': typeof TemporadasRoute
   '/tutorial': typeof TutorialRoute
   '/jugar/dia': typeof JugarDiaRoute
+  '/jugar/retos': typeof JugarRetosRoute
   '/jugar/ruleta': typeof JugarRuletaRoute
+  '/jugar/sopa': typeof JugarSopaRoute
   '/jugar/': typeof JugarIndexRoute
   '/mision/$misionId/jugar': typeof MisionMisionIdJugarRoute
   '/mision/$misionId/resultados': typeof MisionMisionIdResultadosRoute
@@ -265,6 +292,7 @@ export interface FileRouteTypes {
     | '/duelo'
     | '/equipos'
     | '/liga'
+    | '/liguillas'
     | '/login'
     | '/partida'
     | '/perfil'
@@ -276,7 +304,9 @@ export interface FileRouteTypes {
     | '/temporadas'
     | '/tutorial'
     | '/jugar/dia'
+    | '/jugar/retos'
     | '/jugar/ruleta'
+    | '/jugar/sopa'
     | '/jugar/'
     | '/mision/$misionId/jugar'
     | '/mision/$misionId/resultados'
@@ -293,6 +323,7 @@ export interface FileRouteTypes {
     | '/duelo'
     | '/equipos'
     | '/liga'
+    | '/liguillas'
     | '/login'
     | '/partida'
     | '/perfil'
@@ -304,7 +335,9 @@ export interface FileRouteTypes {
     | '/temporadas'
     | '/tutorial'
     | '/jugar/dia'
+    | '/jugar/retos'
     | '/jugar/ruleta'
+    | '/jugar/sopa'
     | '/jugar'
     | '/mision/$misionId/jugar'
     | '/mision/$misionId/resultados'
@@ -321,6 +354,7 @@ export interface FileRouteTypes {
     | '/duelo'
     | '/equipos'
     | '/liga'
+    | '/liguillas'
     | '/login'
     | '/partida'
     | '/perfil'
@@ -332,7 +366,9 @@ export interface FileRouteTypes {
     | '/temporadas'
     | '/tutorial'
     | '/jugar/dia'
+    | '/jugar/retos'
     | '/jugar/ruleta'
+    | '/jugar/sopa'
     | '/jugar/'
     | '/mision/$misionId/jugar'
     | '/mision/$misionId/resultados'
@@ -350,6 +386,7 @@ export interface RootRouteChildren {
   DueloRoute: typeof DueloRoute
   EquiposRoute: typeof EquiposRoute
   LigaRoute: typeof LigaRoute
+  LiguillasRoute: typeof LiguillasRoute
   LoginRoute: typeof LoginRoute
   PartidaRoute: typeof PartidaRoute
   PerfilRoute: typeof PerfilRoute
@@ -361,7 +398,9 @@ export interface RootRouteChildren {
   TemporadasRoute: typeof TemporadasRoute
   TutorialRoute: typeof TutorialRoute
   JugarDiaRoute: typeof JugarDiaRoute
+  JugarRetosRoute: typeof JugarRetosRoute
   JugarRuletaRoute: typeof JugarRuletaRoute
+  JugarSopaRoute: typeof JugarSopaRoute
   JugarIndexRoute: typeof JugarIndexRoute
   MisionMisionIdJugarRoute: typeof MisionMisionIdJugarRoute
   MisionMisionIdResultadosRoute: typeof MisionMisionIdResultadosRoute
@@ -432,6 +471,13 @@ declare module '@tanstack/react-router' {
       path: '/liga'
       fullPath: '/liga'
       preLoaderRoute: typeof LigaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/liguillas': {
+      id: '/liguillas'
+      path: '/liguillas'
+      fullPath: '/liguillas'
+      preLoaderRoute: typeof LiguillasRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/login': {
@@ -518,11 +564,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof JugarDiaRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/jugar/retos': {
+      id: '/jugar/retos'
+      path: '/jugar/retos'
+      fullPath: '/jugar/retos'
+      preLoaderRoute: typeof JugarRetosRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/jugar/ruleta': {
       id: '/jugar/ruleta'
       path: '/jugar/ruleta'
       fullPath: '/jugar/ruleta'
       preLoaderRoute: typeof JugarRuletaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/jugar/sopa': {
+      id: '/jugar/sopa'
+      path: '/jugar/sopa'
+      fullPath: '/jugar/sopa'
+      preLoaderRoute: typeof JugarSopaRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/mision/$misionId/': {
@@ -566,6 +626,7 @@ const rootRouteChildren: RootRouteChildren = {
   DueloRoute: DueloRoute,
   EquiposRoute: EquiposRoute,
   LigaRoute: LigaRoute,
+  LiguillasRoute: LiguillasRoute,
   LoginRoute: LoginRoute,
   PartidaRoute: PartidaRoute,
   PerfilRoute: PerfilRoute,
@@ -577,7 +638,9 @@ const rootRouteChildren: RootRouteChildren = {
   TemporadasRoute: TemporadasRoute,
   TutorialRoute: TutorialRoute,
   JugarDiaRoute: JugarDiaRoute,
+  JugarRetosRoute: JugarRetosRoute,
   JugarRuletaRoute: JugarRuletaRoute,
+  JugarSopaRoute: JugarSopaRoute,
   JugarIndexRoute: JugarIndexRoute,
   MisionMisionIdJugarRoute: MisionMisionIdJugarRoute,
   MisionMisionIdResultadosRoute: MisionMisionIdResultadosRoute,

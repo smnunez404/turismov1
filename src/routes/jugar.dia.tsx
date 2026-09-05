@@ -3,6 +3,7 @@ import { useState } from "react";
 import { PartidaCinco } from "@/components/PartidaCinco";
 import { ResultadoPartida } from "@/components/ResultadoPartida";
 import { Pantalla } from "@/components/Pantalla";
+import { Icono } from "@/components/Icono";
 import { useSesion } from "@/context/SessionContext";
 import type { ResumenPartida } from "@/data/tipos";
 import { fechaBolivia, semillaTexto } from "@/features/game/engine";
@@ -50,22 +51,27 @@ function RetoDiario() {
             </section>
           }
           acciones={
-            <>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
               <button
                 type="button"
-                className="btn-duo btn-duo-primary"
+                className="btn-duo btn-duo-primary flex items-center justify-center gap-2"
                 onClick={() => {
                   setResultado(null);
                   setPrevio(null);
                   setIntento((x) => x + 1);
                 }}
               >
-                Practicar otra vez
+                <Icono nombre="jugar" className="h-5 w-5 shrink-0" />
+                <span>Practicar otra vez</span>
               </button>
-              <Link to="/jugar" className="btn-duo btn-duo-ghost">
-                Elegir otro modo
+              <Link
+                to="/jugar"
+                className="btn-duo btn-duo-ghost flex items-center justify-center gap-2"
+              >
+                <Icono nombre="rayo" className="h-5 w-5 shrink-0 text-primary" />
+                <span>Elegir otro modo</span>
               </Link>
-            </>
+            </div>
           }
         />
       </Pantalla>

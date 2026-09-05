@@ -255,19 +255,21 @@ function Ruleta() {
 
         <AvisoAuspiciador />
 
-        <div className="grid gap-3">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
           <button
             type="button"
-            className="btn-duo btn-duo-primary"
+            className="btn-duo btn-duo-primary flex items-center justify-center gap-2"
             onClick={() => {
               setFase("ruleta");
               setAnuncioRuleta("Ruleta lista para girar.");
             }}
           >
-            Volver a jugar
+            <Icono nombre="ruleta" className="h-5 w-5 shrink-0" />
+            <span>Volver a jugar</span>
           </button>
-          <Link to="/liga" className="btn-duo btn-duo-ghost">
-            Ver mi liga
+          <Link to="/liga" className="btn-duo btn-duo-ghost flex items-center justify-center gap-2">
+            <Icono nombre="liga" className="h-5 w-5 shrink-0 text-secondary" />
+            <span>Ver mi liga</span>
           </Link>
         </div>
       </Pantalla>
@@ -366,11 +368,12 @@ function Ruleta() {
 
         <h1 className="text-xl font-extrabold text-foreground">{pregunta.enunciado}</h1>
 
-        <ul className="grid gap-3">
-          {pregunta.opciones.map((op) => {
+        <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          {pregunta.opciones.map((op, opIdx) => {
             const elegida = seleccion === op.id;
             const esCorrecta = op.id === pregunta.respuestaCorrectaId;
             const fuera = descartadas.includes(op.id);
+            const letra = ["A", "B", "C", "D"][opIdx] ?? `${opIdx + 1}`;
             const estado = !respondida
               ? elegida
                 ? "is-selected"
@@ -391,7 +394,20 @@ function Ruleta() {
                     fuera ? "opacity-30 line-through pointer-events-none" : ""
                   }`}
                 >
-                  <span className="flex-1">{op.texto}</span>
+                  <span
+                    className={`flex h-7 w-7 shrink-0 items-center justify-center rounded-lg text-xs font-black transition-colors ${
+                      esCorrecta && respondida
+                        ? "bg-white/30 text-white"
+                        : elegida && respondida && !esCorrecta
+                          ? "bg-white/30 text-white"
+                          : elegida
+                            ? "bg-primary text-primary-foreground"
+                            : "bg-muted text-muted-foreground"
+                    }`}
+                  >
+                    {letra}
+                  </span>
+                  <span className="flex-1 text-sm sm:text-base">{op.texto}</span>
                   {respondida && esCorrecta && (
                     <Icono nombre="acierto" className="h-5 w-5 shrink-0" />
                   )}
@@ -411,14 +427,14 @@ function Ruleta() {
               type="button"
               onClick={usarBomba}
               disabled={bombas <= 0}
-              className="inline-flex min-h-11 items-center gap-2 rounded-full border-2 border-b-4 border-border bg-card px-4 py-2 text-xs font-extrabold text-foreground disabled:opacity-40"
+              className="inline-flex min-h-11 items-center gap-2 rounded-2xl border-2 border-b-4 border-border bg-card px-4 py-2 text-xs sm:text-sm font-extrabold text-foreground hover:bg-muted/50 disabled:opacity-40 transition-colors shadow-xs cursor-pointer"
             >
-              <Icono nombre="destello" className="h-4 w-4 text-accent" />
-              Bomba ({bombas})
+              <Icono nombre="destello" className="h-4 w-4 text-accent shrink-0" />
+              <span>Bomba ({bombas})</span>
             </button>
-            <span className="inline-flex items-center gap-2 rounded-full border-2 border-b-4 border-border bg-card px-4 py-2 text-xs font-extrabold text-foreground">
-              <Icono nombre="vida" className="h-4 w-4 text-destructive" />
-              {usuario.vidas}
+            <span className="inline-flex min-h-11 items-center gap-2 rounded-2xl border-2 border-b-4 border-border bg-card px-4 py-2 text-xs sm:text-sm font-extrabold text-foreground shadow-xs">
+              <Icono nombre="vida" className="h-4 w-4 text-destructive shrink-0" />
+              <span>{usuario.vidas} vidas</span>
             </span>
           </div>
         )}
@@ -434,11 +450,11 @@ function Ruleta() {
                 : "border-destructive/40 bg-destructive/10 text-foreground"
             }`}
           >
-            <div className="mx-auto max-w-md">
+            <div className="mx-auto max-w-md md:max-w-xl">
               <p className="flex items-center gap-2 text-sm font-extrabold">
                 <Icono
                   nombre={correcta ? "acierto" : "error"}
-                  className={`h-5 w-5 ${correcta ? "text-primary" : "text-destructive"}`}
+                  className={`h-5 w-5 shrink-0 ${correcta ? "text-primary" : "text-destructive"}`}
                 />
                 {correcta
                   ? "¡Correcto!"
@@ -449,10 +465,11 @@ function Ruleta() {
               <p className="mt-1 text-sm text-muted-foreground">{pregunta.retroalimentacion}</p>
               <button
                 type="button"
-                className={`btn-duo mt-3 ${correcta ? "btn-duo-primary" : "btn-duo-destructive"}`}
+                className={`btn-duo mt-3 flex items-center justify-center gap-2 ${correcta ? "btn-duo-primary" : "btn-duo-destructive"}`}
                 onClick={continuar}
               >
-                Continuar
+                <span>Continuar</span>
+                <Icono nombre="siguiente" className="h-5 w-5 shrink-0" />
               </button>
             </div>
           </div>
@@ -529,16 +546,22 @@ function Ruleta() {
           onClick={girar}
           disabled={fase === "girando" || sinVidas}
           aria-label={fase === "girando" ? "Girando la ruleta" : "Girar la ruleta"}
-          className="absolute top-1/2 left-1/2 z-20 flex h-24 w-24 -translate-x-1/2 -translate-y-1/2 flex-col items-center justify-center rounded-full border-4 border-white bg-card text-foreground shadow-[0_8px_20px_rgba(0,0,0,0.25)] ring-4 ring-primary/40 transition-transform hover:scale-105 active:scale-95 disabled:opacity-60"
+          className="absolute top-1/2 left-1/2 z-20 flex h-24 w-24 sm:h-28 sm:w-28 -translate-x-1/2 -translate-y-1/2 flex-col items-center justify-center rounded-full border-4 border-white bg-card text-foreground shadow-[0_8px_24px_rgba(0,0,0,0.25)] ring-4 ring-primary/40 transition-transform hover:scale-105 active:scale-95 disabled:opacity-60 cursor-pointer select-none"
         >
-          <span className="text-sm font-black tracking-wider text-primary uppercase">
+          <Icono
+            nombre="ruleta"
+            className={`h-5 w-5 sm:h-6 sm:w-6 text-primary transition-transform duration-700 ${
+              fase === "girando" ? "animate-spin" : ""
+            }`}
+          />
+          <span className="text-xs sm:text-sm font-black tracking-wider text-primary uppercase mt-0.5">
             {fase === "girando" ? "Girando…" : "GIRAR"}
           </span>
-          <span className="text-[9px] font-bold text-muted-foreground">1 vida</span>
+          <span className="text-[9px] sm:text-[10px] font-bold text-muted-foreground">1 vida</span>
         </button>
       </div>
 
-      <div className="flex items-center justify-center gap-2 text-xs font-extrabold text-muted-foreground">
+      <div className="flex items-center justify-center gap-2 text-xs sm:text-sm font-extrabold text-muted-foreground">
         <Icono nombre="vida" className="h-4 w-4 text-destructive" />
         {usuario.vidas} {usuario.vidas === 1 ? "vida disponible" : "vidas disponibles"}
       </div>
@@ -552,10 +575,11 @@ function Ruleta() {
           </p>
           <button
             type="button"
-            className="btn-duo btn-duo-accent mt-4"
+            className="btn-duo btn-duo-accent mt-4 flex items-center justify-center gap-2"
             onClick={() => recargarVidas(3)}
           >
-            Recargar 3 vidas · Cortesía de Bar Piraí
+            <Icono nombre="vida" className="h-5 w-5 shrink-0 text-destructive" />
+            <span>Recargar 3 vidas · Cortesía de Bar Piraí</span>
           </button>
         </section>
       ) : null}
@@ -610,9 +634,10 @@ function Ruleta() {
 
       <Link
         to="/jugar"
-        className="inline-flex min-h-10 items-center justify-center text-center text-xs font-bold text-muted-foreground hover:text-foreground underline underline-offset-4"
+        className="inline-flex min-h-11 items-center justify-center gap-2 rounded-xl border border-border/80 bg-card px-5 py-2.5 text-center text-xs sm:text-sm font-extrabold text-muted-foreground hover:bg-muted hover:text-foreground transition-all mx-auto w-full sm:w-auto shadow-xs"
       >
-        Volver al modo rápido
+        <Icono nombre="rayo" className="h-4 w-4 shrink-0 text-primary" />
+        <span>Volver al modo rápido</span>
       </Link>
     </Pantalla>
   );

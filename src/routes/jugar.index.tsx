@@ -74,111 +74,195 @@ function HubJugar() {
           </div>
         </div>
 
-        <Link to="/partida" className="btn-duo btn-duo-primary mt-3 text-sm py-2.5">
-          JUGAR AHORA
+        <Link to="/partida" className="btn-duo btn-duo-primary mt-3 text-sm py-2.5 flex items-center justify-center gap-2">
+          <Icono nombre="rayo" className="h-5 w-5 shrink-0" />
+          <span>JUGAR AHORA</span>
         </Link>
       </section>
 
-      {/* ── Otros Modos de Juego (Grilla interactiva 2x2 compacta) ── */}
+      {/* ── Modos de Juego Especiales (Tarjetas visuales con imágenes 3D de alta calidad) ── */}
       <section>
-        <h3 className="mb-2 text-xs font-semibold tracking-widest text-muted-foreground uppercase">
-          Otros modos de juego
-        </h3>
-        <div className="grid grid-cols-2 gap-2.5">
-          {/* Ruleta */}
+        <div className="flex items-center justify-between mb-2">
+          <h3 className="text-xs font-bold tracking-wider text-muted-foreground uppercase">
+            Modalidades y Desafíos
+          </h3>
+          <span className="text-[11px] font-semibold text-primary">
+            Nuevos modos interactivos
+          </span>
+        </div>
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          {/* Ruleta Cruceña */}
           <Link
             to="/jugar/ruleta"
-            className="card-duo card-duo-activa border-accent flex flex-col justify-between p-3 transition-colors hover:border-primary active:scale-[0.98]"
+            className="card-duo group relative overflow-hidden p-0 border-2 border-accent/40 bg-card hover:border-accent transition-all active:scale-[0.99] flex flex-row items-center h-24"
           >
-            <div>
-              <div className="flex items-center justify-between">
-                <IconoPastilla nombre="ruleta" tono="accent" className="h-7 w-7" />
-                <span className="rounded-full bg-secondary/15 px-1.5 py-0.5 text-[10px] font-extrabold text-secondary uppercase">
-                  Clásico
+            <div className="w-24 h-full shrink-0 relative overflow-hidden bg-accent/10">
+              <img
+                src="/camino/ruleta_crucena.jpg"
+                alt="Ruleta Cruceña"
+                className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+              />
+              <div className="absolute inset-0 bg-gradient-to-r from-transparent to-card/60" />
+            </div>
+            <div className="p-2.5 flex-1 min-w-0 flex flex-col justify-center">
+              <div className="flex items-center justify-between gap-1">
+                <span className="text-[10px] font-black uppercase text-secondary tracking-wide">
+                  Clásico Cruceño
+                </span>
+                <span className="rounded-full bg-accent/20 px-1.5 py-0.2 text-[9px] font-extrabold text-accent-foreground">
+                  6 Categorías
                 </span>
               </div>
-              <p className="mt-2 text-xs font-extrabold text-foreground leading-snug">
-                Ruleta cruceña
+              <h4 className="text-sm font-extrabold text-foreground truncate mt-0.5">
+                Ruleta de la Suerte
+              </h4>
+              <p className="text-[11px] text-muted-foreground line-clamp-1">
+                Girá, respondé por medallas y coleccioná sellos.
               </p>
-              <p className="mt-0.5 text-[11px] text-muted-foreground line-clamp-2 leading-tight">
-                6 categorías y medallas
-              </p>
+              <span className="text-[10px] font-bold text-secondary mt-1 flex items-center gap-1">
+                {usuario.vidas ? "Girar ruleta (1 vida) →" : "Recuperar vidas →"}
+              </span>
             </div>
-            <span className="mt-2 text-[10px] font-bold text-secondary">
-              {usuario.vidas ? "Usa 1 vida →" : "Recuperar vidas →"}
-            </span>
           </Link>
 
           {/* Reto Diario */}
           <Link
             to="/jugar/dia"
-            className="card-duo flex flex-col justify-between p-3 transition-colors hover:border-primary active:scale-[0.98]"
+            className="card-duo group relative overflow-hidden p-0 border-2 border-primary/30 bg-card hover:border-primary transition-all active:scale-[0.99] flex flex-row items-center h-24"
           >
-            <div>
-              <div className="flex items-center justify-between">
-                <IconoPastilla nombre="calendario" tono="muted" className="h-7 w-7" />
-                {usuario.progresoJuego.retoDiarioFecha && (
-                  <span className="rounded-full bg-primary/15 px-1.5 py-0.5 text-[10px] font-extrabold text-primary">
-                    Listo
+            <div className="w-24 h-full shrink-0 relative overflow-hidden bg-primary/10">
+              <img
+                src="/camino/reto_diario.jpg"
+                alt="Reto Diario"
+                className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+              />
+              <div className="absolute inset-0 bg-gradient-to-r from-transparent to-card/60" />
+            </div>
+            <div className="p-2.5 flex-1 min-w-0 flex flex-col justify-center">
+              <div className="flex items-center justify-between gap-1">
+                <span className="text-[10px] font-black uppercase text-primary tracking-wide">
+                  Reto de Hoy
+                </span>
+                {usuario.progresoJuego.retoDiarioFecha ? (
+                  <span className="rounded-full bg-primary/15 px-1.5 py-0.2 text-[9px] font-extrabold text-primary">
+                    Completado
+                  </span>
+                ) : (
+                  <span className="rounded-full bg-amber-500/20 px-1.5 py-0.2 text-[9px] font-black text-amber-700 animate-pulse">
+                    Disponible
                   </span>
                 )}
               </div>
-              <p className="mt-2 text-xs font-extrabold text-foreground leading-snug">
-                Reto diario
+              <h4 className="text-sm font-extrabold text-foreground truncate mt-0.5">
+                Desafío del Día
+              </h4>
+              <p className="text-[11px] text-muted-foreground line-clamp-1">
+                5 preguntas exclusivas para mantener tu racha.
               </p>
-              <p className="mt-0.5 text-[11px] text-muted-foreground line-clamp-2 leading-tight">
-                5 preguntas por fecha
-              </p>
+              <span className="text-[10px] font-bold text-primary mt-1">
+                {usuario.progresoJuego.retoDiarioFecha ? "Volver a practicar →" : "Jugar reto del día →"}
+              </span>
             </div>
-            <span className="mt-2 text-[10px] font-bold text-primary">
-              {usuario.progresoJuego.retoDiarioFecha ? "Practicar gratis →" : "Jugar hoy →"}
-            </span>
           </Link>
 
-          {/* Versus */}
+          {/* Sopa de Letras */}
           <Link
-            to="/duelo"
-            className="card-duo flex flex-col justify-between p-3 transition-colors hover:border-primary active:scale-[0.98]"
+            to={"/jugar/sopa" as any}
+            className="card-duo group relative overflow-hidden p-0 border-2 border-emerald-500/35 bg-card hover:border-emerald-500 transition-all active:scale-[0.99] flex flex-row items-center h-24"
           >
-            <div>
-              <div className="flex items-center justify-between">
-                <IconoPastilla nombre="duelo" tono="muted" className="h-7 w-7" />
-                <span className="text-[10px] font-bold text-muted-foreground">1v1</span>
-              </div>
-              <p className="mt-2 text-xs font-extrabold text-foreground leading-snug">
-                Duelo Versus
-              </p>
-              <p className="mt-0.5 text-[11px] text-muted-foreground line-clamp-2 leading-tight">
-                Rival de práctica
-              </p>
+            <div className="w-24 h-full shrink-0 relative overflow-hidden bg-emerald-500/10">
+              <img
+                src="/camino/sopa_letras.jpg"
+                alt="Sopa de Letras"
+                className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+              />
+              <div className="absolute inset-0 bg-gradient-to-r from-transparent to-card/60" />
             </div>
-            <span className="mt-2 text-[10px] font-bold text-muted-foreground">
-              {usuario.vidas ? "Desafiar rival →" : "Sin vidas →"}
-            </span>
-          </Link>
-
-          {/* Descubrir / Álbum */}
-          <Link
-            to="/temporadas"
-            className="card-duo flex flex-col justify-between p-3 transition-colors hover:border-primary active:scale-[0.98]"
-          >
-            <div>
-              <div className="flex items-center justify-between">
-                <IconoPastilla nombre="mapa" tono="muted" className="h-7 w-7" />
-                <span className="rounded-full bg-muted px-1.5 py-0.5 text-[10px] font-extrabold text-muted-foreground">
-                  {usuario.album.length}/5
+            <div className="p-2.5 flex-1 min-w-0 flex flex-col justify-center">
+              <div className="flex items-center justify-between gap-1">
+                <span className="text-[10px] font-black uppercase text-emerald-600 tracking-wide">
+                  Mente Ágil
+                </span>
+                <span className="rounded-full bg-emerald-500/15 px-1.5 py-0.2 text-[9px] font-extrabold text-emerald-600">
+                  Nuevo
                 </span>
               </div>
-              <p className="mt-2 text-xs font-extrabold text-foreground leading-snug">
-                Capítulos y álbum
+              <h4 className="text-sm font-extrabold text-foreground truncate mt-0.5">
+                Sopa de Letras
+              </h4>
+              <p className="text-[11px] text-muted-foreground line-clamp-1">
+                Encontrá modismos, fauna y flora cruceña.
               </p>
-              <p className="mt-0.5 text-[11px] text-muted-foreground line-clamp-2 leading-tight">
-                Misiones de Santa Cruz
-              </p>
+              <span className="text-[10px] font-bold text-emerald-600 mt-1">
+                Buscar palabras →
+              </span>
             </div>
-            <span className="mt-2 text-[10px] font-bold text-muted-foreground">Ver mapa →</span>
+          </Link>
+
+          {/* Verdad o Reto */}
+          <Link
+            to={"/jugar/retos" as any}
+            className="card-duo group relative overflow-hidden p-0 border-2 border-amber-500/35 bg-card hover:border-amber-500 transition-all active:scale-[0.99] flex flex-row items-center h-24"
+          >
+            <div className="w-24 h-full shrink-0 relative overflow-hidden bg-amber-500/10">
+              <img
+                src="/camino/verdad_reto.jpg"
+                alt="Verdad o Reto"
+                className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+              />
+              <div className="absolute inset-0 bg-gradient-to-r from-transparent to-card/60" />
+            </div>
+            <div className="p-2.5 flex-1 min-w-0 flex flex-col justify-center">
+              <div className="flex items-center justify-between gap-1">
+                <span className="text-[10px] font-black uppercase text-amber-600 tracking-wide">
+                  En Grupo
+                </span>
+                <span className="rounded-full bg-amber-500/15 px-1.5 py-0.2 text-[9px] font-extrabold text-amber-600">
+                  Amigos
+                </span>
+              </div>
+              <h4 className="text-sm font-extrabold text-foreground truncate mt-0.5">
+                Verdad o Reto Cruceño
+              </h4>
+              <p className="text-[11px] text-muted-foreground line-clamp-1">
+                Preguntas picantes y penitencias cambas.
+              </p>
+              <span className="text-[10px] font-bold text-amber-600 mt-1">
+                Jugar en grupo →
+              </span>
+            </div>
           </Link>
         </div>
+      </section>
+
+      {/* ── Banner Especial: Liguillas Privadas (Kahoot escolar y amigos) ── */}
+      <section className="card-duo border-2 border-primary/40 bg-gradient-to-r from-primary/10 via-card to-accent/10 p-3.5 flex items-center justify-between gap-3 shadow-xs">
+        <div className="flex items-center gap-3">
+          <img
+            src="/camino/trofeo_liguillas.jpg"
+            alt="Trofeo"
+            width={48}
+            height={48}
+            className="h-11 w-11 object-contain drop-shadow-xs shrink-0"
+          />
+          <div>
+            <span className="rounded-full bg-primary/20 px-2 py-0.5 text-[9px] font-black text-primary uppercase">
+              Nuevo modo torneo
+            </span>
+            <h3 className="text-sm font-extrabold text-foreground leading-tight mt-0.5">
+              Liguillas Privadas con PIN
+            </h3>
+            <p className="text-[11px] text-muted-foreground">
+              Jugá con tu colegio o amigos estilo Kahoot sin alterar la liga global.
+            </p>
+          </div>
+        </div>
+        <Link
+          to={"/liguillas" as any}
+          className="btn-duo btn-duo-primary !py-1.5 !px-3.5 !text-xs !w-auto shrink-0"
+        >
+          Entrar
+        </Link>
       </section>
     </Pantalla>
   );

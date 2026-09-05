@@ -232,8 +232,16 @@ export function PartidaCinco({
             </p>
           )}
           <p className="mt-2 text-sm text-muted-foreground">{desafio.explicacion}</p>
-          <button type="button" className={feedback.boton} onClick={continuar}>
-            {indice === desafios.length - 1 ? "Ver resultado" : "Siguiente desafío"}
+          <button
+            type="button"
+            className={`${feedback.boton} flex items-center justify-center gap-2`}
+            onClick={continuar}
+          >
+            <span>{indice === desafios.length - 1 ? "Ver resultado" : "Siguiente desafío"}</span>
+            <Icono
+              nombre={indice === desafios.length - 1 ? "celebrar" : "siguiente"}
+              className="h-5 w-5 shrink-0"
+            />
           </button>
         </section>
       )}
@@ -315,8 +323,12 @@ function Opciones({
     setTemporal((actual) =>
       actual.includes(id) ? actual.filter((x) => x !== id) : [...actual, id],
     );
-  const agregarOrden = (id: string) =>
-    setTemporal((actual) => (actual.includes(id) ? actual : [...actual, id]));
+  const alternarOrden = (id: string) => {
+    if (bloqueada) return;
+    setTemporal((actual) =>
+      actual.includes(id) ? actual.filter((x) => x !== id) : [...actual, id],
+    );
+  };
 
   if (orden) {
     const secuenciaCorrecta = desafio.solucion.opcionIds
@@ -325,12 +337,24 @@ function Opciones({
 
     return (
       <div className="mt-3 grid gap-3">
-        <p className="text-xs text-muted-foreground">Tocá cada opción en el orden correcto.</p>
+        <div className="flex items-center justify-between">
+          <p className="text-xs text-muted-foreground">Tocá las opciones para ordenar o desmarcar.</p>
+          {temporal.length > 0 && !bloqueada && (
+            <button
+              type="button"
+              onClick={() => setTemporal([])}
+              className="text-[11px] font-bold text-muted-foreground hover:text-foreground underline underline-offset-2"
+            >
+              Limpiar
+            </button>
+          )}
+        </div>
+
         <div
-          className={`min-h-10 rounded-xl p-2 text-sm font-bold ${
+          className={`min-h-12 rounded-2xl p-3 text-sm font-bold transition-colors ${
             bloqueada && !resultado?.correcto
               ? "border border-destructive/35 bg-destructive/8 text-foreground"
-              : "bg-muted text-foreground"
+              : "border border-border/80 bg-muted/60 text-foreground"
           }`}
         >
           {bloqueada && !resultado?.correcto ? (
@@ -338,18 +362,40 @@ function Opciones({
               <p className="text-xs font-extrabold tracking-wide text-destructive uppercase">
                 Orden correcto
               </p>
-              <p className="mt-1">{secuenciaCorrecta}</p>
+              <p className="mt-1 leading-snug">{secuenciaCorrecta}</p>
             </>
           ) : temporal.length ? (
-            temporal
-              .map((id, i) => `${i + 1}. ${desafio.opciones.find((o) => o.id === id)?.texto}`)
-              .join("  →  ")
+            <div className="flex flex-wrap items-center gap-1.5">
+              {temporal.map((id, i) => {
+                const opt = desafio.opciones.find((o) => o.id === id);
+                return (
+                  <button
+                    key={id}
+                    type="button"
+                    disabled={bloqueada}
+                    onClick={() => alternarOrden(id)}
+                    title="Toca para quitar"
+                    className="inline-flex items-center gap-1 rounded-lg bg-card px-2.5 py-1 text-xs font-bold text-foreground shadow-2xs ring-1 ring-border hover:ring-primary/50 transition-all cursor-pointer"
+                  >
+                    <span className="flex h-4 w-4 items-center justify-center rounded-full bg-primary/15 text-[10px] text-primary">
+                      {i + 1}
+                    </span>
+                    <span>{opt?.texto}</span>
+                    {!bloqueada && <span className="ml-0.5 text-muted-foreground hover:text-destructive">×</span>}
+                  </button>
+                );
+              })}
+            </div>
           ) : (
-            "Tu secuencia aparecerá aquí"
+            <span className="text-xs text-muted-foreground font-medium">
+              Tocá los elementos en orden (1, 2, 3...)
+            </span>
           )}
         </div>
+
         {desafio.opciones.map((opcion) => {
-          const seleccionada = temporal.includes(opcion.id);
+          const indiceSeleccion = temporal.indexOf(opcion.id);
+          const seleccionada = indiceSeleccion !== -1;
           const enSolucion = desafio.solucion.opcionIds.includes(opcion.id);
           const estado =
             bloqueada && enSolucion
@@ -357,17 +403,22 @@ function Opciones({
               : bloqueada && seleccionada && !enSolucion
                 ? "is-incorrect"
                 : seleccionada
-                  ? "is-selected"
+                  ? "is-selected ring-2 ring-primary/40"
                   : "";
           return (
             <button
               key={opcion.id}
               type="button"
-              disabled={bloqueada || seleccionada}
-              onClick={() => agregarOrden(opcion.id)}
-              className={`opcion-juego ${estado}`}
+              disabled={bloqueada}
+              onClick={() => alternarOrden(opcion.id)}
+              className={`opcion-juego ${estado} cursor-pointer transition-all`}
             >
-              <span className="flex-1">{opcion.texto}</span>
+              {seleccionada && !bloqueada && (
+                <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-primary text-xs font-black text-primary-foreground shadow-xs">
+                  {indiceSeleccion + 1}
+                </span>
+              )}
+              <span className="flex-1 text-left">{opcion.texto}</span>
               {bloqueada && enSolucion && <Icono nombre="acierto" className="h-5 w-5" />}
               {bloqueada && seleccionada && !enSolucion && (
                 <Icono nombre="error" className="h-5 w-5" />
@@ -375,22 +426,24 @@ function Opciones({
             </button>
           );
         })}
-        <div className="grid grid-cols-2 gap-2">
+        <div className="grid grid-cols-2 gap-2.5">
           <button
             type="button"
             disabled={bloqueada}
             onClick={() => setTemporal([])}
-            className="btn-duo btn-duo-ghost"
+            className="btn-duo btn-duo-ghost flex items-center justify-center gap-1.5"
           >
-            Reiniciar
+            <Icono nombre="volver" className="h-4 w-4 shrink-0" />
+            <span>Reiniciar</span>
           </button>
           <button
             type="button"
             disabled={bloqueada || temporal.length !== desafio.opciones.length}
             onClick={() => onResponder(temporal)}
-            className="btn-duo btn-duo-primary"
+            className="btn-duo btn-duo-primary flex items-center justify-center gap-1.5"
           >
-            Confirmar
+            <Icono nombre="check" className="h-4 w-4 shrink-0" />
+            <span>Confirmar</span>
           </button>
         </div>
       </div>
@@ -398,13 +451,14 @@ function Opciones({
   }
 
   return (
-    <div className="mt-4 grid gap-3">
-      {desafio.opciones.map((opcion) => {
+    <div className="mt-4 grid grid-cols-1 sm:grid-cols-2 gap-3">
+      {desafio.opciones.map((opcion, opIdx) => {
         const activa = multiple
           ? (bloqueada ? elegidas : temporal).includes(opcion.id)
           : seleccion === opcion.id;
         const correcta = bloqueada && esOpcionCorrecta(desafio, opcion.id);
         const incorrecta = bloqueada && activa && !correcta;
+        const letra = ["A", "B", "C", "D", "E", "F"][opIdx] ?? `${opIdx + 1}`;
         const estado = correcta
           ? "is-correct"
           : incorrecta
@@ -421,10 +475,26 @@ function Opciones({
             onClick={() => (multiple ? alternar(opcion.id) : onResponder(opcion.id))}
             className={`opcion-juego ${estado}`}
           >
-            {opcion.icono && <Icono nombre={opcion.icono} className="h-5 w-5" />}
-            <span className="flex-1">{opcion.texto}</span>
-            {correcta && <Icono nombre="acierto" className="h-5 w-5" />}
-            {incorrecta && <Icono nombre="error" className="h-5 w-5" />}
+            {opcion.icono ? (
+              <Icono nombre={opcion.icono} className="h-5 w-5 shrink-0" />
+            ) : (
+              <span
+                className={`flex h-7 w-7 shrink-0 items-center justify-center rounded-lg text-xs font-black transition-colors ${
+                  correcta
+                    ? "bg-white/30 text-white"
+                    : incorrecta
+                      ? "bg-white/30 text-white"
+                      : activa
+                        ? "bg-primary text-primary-foreground"
+                        : "bg-muted text-muted-foreground"
+                }`}
+              >
+                {letra}
+              </span>
+            )}
+            <span className="flex-1 text-sm sm:text-base">{opcion.texto}</span>
+            {correcta && <Icono nombre="acierto" className="h-5 w-5 shrink-0" />}
+            {incorrecta && <Icono nombre="error" className="h-5 w-5 shrink-0" />}
           </button>
         );
       })}
@@ -433,9 +503,10 @@ function Opciones({
           type="button"
           disabled={bloqueada || temporal.length === 0}
           onClick={() => onResponder(temporal)}
-          className="btn-duo btn-duo-primary"
+          className="btn-duo btn-duo-primary sm:col-span-2 flex items-center justify-center gap-2"
         >
-          Confirmar asociaciones
+          <Icono nombre="check" className="h-5 w-5 shrink-0" />
+          <span>Confirmar asociaciones</span>
         </button>
       )}
     </div>

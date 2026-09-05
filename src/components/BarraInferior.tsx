@@ -41,7 +41,7 @@ export function BarraInferior() {
       aria-label="Navegación principal"
       className="fixed inset-x-0 bottom-0 z-40 border-t-2 border-border bg-card pb-[env(safe-area-inset-bottom)]"
     >
-      <ul className="mx-auto grid max-w-md grid-cols-5">
+      <ul className="mx-auto grid max-w-md sm:max-w-xl md:max-w-2xl lg:max-w-3xl grid-cols-5 px-2">
         {items.map((item) => {
           const activa = item.rutas.some(
             (ruta) => pathname === ruta || pathname.startsWith(`${ruta}/`),
@@ -51,12 +51,14 @@ export function BarraInferior() {
               <Link
                 to={item.to}
                 aria-current={activa ? "page" : undefined}
-                className={`flex min-h-14 flex-col items-center justify-center gap-0.5 px-1 text-[11px] font-bold transition-colors ${activa ? "text-primary" : "text-muted-foreground"}`}
+                className={`flex min-h-14 flex-col sm:flex-row items-center justify-center gap-0.5 sm:gap-2 px-1 sm:px-3 text-[11px] sm:text-xs font-extrabold rounded-xl hover:bg-muted/60 transition-all ${
+                  activa ? "text-primary font-black" : "text-muted-foreground hover:text-foreground"
+                }`}
               >
-                <span className={`rounded-xl px-3 py-0.5 ${activa ? "bg-primary/12" : ""}`}>
-                  <Icono nombre={item.icono} className="h-5 w-5" />
+                <span className={`rounded-xl p-1 sm:px-2 sm:py-1 transition-colors ${activa ? "bg-primary/15 text-primary" : ""}`}>
+                  <Icono nombre={item.icono} className="h-5 w-5 shrink-0" />
                 </span>
-                {item.etiqueta}
+                <span className="truncate">{item.etiqueta}</span>
               </Link>
             </li>
           );

@@ -94,112 +94,139 @@ function Compartir() {
         </p>
       </header>
 
-      <section className="rounded-2xl border border-accent bg-accent/15 p-5">
-        <p className="text-[11px] font-semibold tracking-widest text-muted-foreground uppercase">
-          Vista previa de demostración
+      <section className="card-duo relative overflow-hidden p-4 sm:p-5">
+        <div className="flex items-center justify-between gap-2">
+          <span className="text-[11px] font-extrabold tracking-widest text-primary uppercase">
+            Tarjeta de logro
+          </span>
+          <span className="inline-flex items-center gap-1 rounded-full bg-accent/20 px-2 py-0.5 text-[10px] font-bold text-accent-foreground">
+            <Icono nombre="destello" className="h-3 w-3" /> Nivel {nivel.nombre}
+          </span>
+        </div>
+
+        <p className="mt-2 text-base font-bold leading-snug text-foreground">{mensaje}</p>
+
+        {obtenidas.length > 0 && (
+          <div className="mt-3 flex flex-wrap gap-1.5">
+            {obtenidas.slice(0, 3).map((i) => (
+              <span
+                key={i.id}
+                className="inline-flex items-center gap-1 rounded-full bg-muted/80 px-2.5 py-1 text-xs font-semibold text-foreground"
+              >
+                <Icono nombre={i.icono} className="h-3.5 w-3.5 text-primary" /> {i.nombre}
+              </span>
+            ))}
+            {obtenidas.length > 3 && (
+              <span className="inline-flex items-center rounded-full bg-muted/60 px-2 py-1 text-xs font-bold text-muted-foreground">
+                +{obtenidas.length - 3} más
+              </span>
+            )}
+          </div>
+        )}
+
+        <p className="mt-3 text-[11px] font-medium text-muted-foreground">
+          #SoyEmbajadorBolivia · #SantaCruz
         </p>
-        <p className="mt-2 text-base leading-snug font-semibold text-foreground">{mensaje}</p>
-        <ul className="mt-3 flex flex-wrap gap-1.5">
-          {obtenidas.map((i) => (
-            <li
-              key={i.id}
-              className="inline-flex items-center gap-1.5 rounded-full bg-card px-2.5 py-1 text-xs font-semibold text-foreground"
-            >
-              <Icono nombre={i.icono} className="h-3.5 w-3.5 text-primary" /> {i.nombre}
-            </li>
-          ))}
-        </ul>
-        <p className="mt-3 text-xs text-muted-foreground">#SoyEmbajadorBolivia #SantaCruz</p>
       </section>
 
-      <section>
-        <h2 className="mb-3 text-sm font-semibold tracking-widest text-muted-foreground uppercase">
-          Simulá un canal
+      {/* ── Canales rápidos de difusión ── */}
+      <section className="flex flex-col gap-2.5">
+        <h2 className="text-xs font-bold tracking-wider text-muted-foreground uppercase">
+          Elegí un canal para compartir
         </h2>
-        <ul className="grid grid-cols-2 gap-3">
+        <div className="grid grid-cols-2 gap-2.5">
           {canalesCompartir.map((c) => {
             const activo = canal === c.id;
             return (
-              <li key={c.id}>
-                <button
-                  type="button"
-                  onClick={() => {
-                    setCanal(c.id);
-                    setTarjetaPreparada(false);
-                  }}
-                  aria-pressed={activo}
-                  className={`w-full rounded-2xl border p-4 text-left transition-colors ${
-                    activo
-                      ? "border-primary bg-primary/10"
-                      : "border-border bg-card hover:border-primary"
-                  }`}
-                >
-                  <IconoPastilla nombre={c.icono} tono={activo ? "primary" : "muted"} />
-                  <p className="mt-1 text-sm font-bold text-foreground">{c.nombre}</p>
-                  <p className="text-xs text-muted-foreground">{c.detalle}</p>
-                </button>
-              </li>
+              <button
+                key={c.id}
+                type="button"
+                onClick={() => {
+                  setCanal(c.id);
+                  setTarjetaPreparada(true);
+                }}
+                aria-pressed={activo}
+                className={`flex items-center gap-3 rounded-2xl border-2 p-3 text-left transition-all ${
+                  activo
+                    ? "border-primary bg-primary/10 shadow-xs"
+                    : "border-border bg-card hover:border-primary/50"
+                }`}
+              >
+                <IconoPastilla nombre={c.icono} tono={activo ? "primary" : "muted"} className="h-10 w-10" />
+                <div className="min-w-0 flex-1">
+                  <p className="text-sm font-bold text-foreground leading-tight">{c.nombre}</p>
+                  <p className="text-[11px] text-muted-foreground line-clamp-1">{c.detalle}</p>
+                </div>
+              </button>
             );
           })}
-        </ul>
-        <button
-          type="button"
-          disabled={!canal}
-          onClick={() => setTarjetaPreparada(true)}
-          className="mt-3 w-full btn-duo btn-duo-primary disabled:bg-muted disabled:text-muted-foreground"
-        >
-          {canal ? "Preparar tarjeta demo" : "Elegí un canal para continuar"}
-        </button>
+        </div>
+
         {tarjetaPreparada && (
-          <p
+          <div
             role="status"
-            className="mt-2 flex items-center justify-center gap-2 rounded-xl bg-primary/10 p-3 text-center text-sm text-foreground"
+            className="flex items-center gap-2 rounded-xl border border-primary/30 bg-primary/10 p-3 text-xs font-medium text-foreground transition-all"
           >
-            <Icono nombre="check" className="h-4 w-4 text-primary" /> Simulación lista para{" "}
-            {canalesCompartir.find((c) => c.id === canal)?.nombre}. No se realizó una publicación.
-          </p>
+            <Icono nombre="check" className="h-4 w-4 shrink-0 text-primary" />
+            <span>
+              Tarjeta lista para <strong>{canalesCompartir.find((c) => c.id === canal)?.nombre}</strong>.
+            </span>
+          </div>
         )}
       </section>
 
-      <section className="card-duo p-5">
-        <h2 className="text-sm font-semibold text-foreground">Prepará invitaciones demo</h2>
-        <p className="mt-1 inline-flex flex-wrap items-center gap-1.5 text-xs text-muted-foreground">
-          Al confirmar esta simulación desbloqueás
-          <Icono nombre="compartir" className="h-3.5 w-3.5 text-secondary" />
-          <strong className="font-semibold text-foreground">Promotor Cruceño</strong>.
+      {/* ── Invitaciones a amigos ── */}
+      <section className="card-duo p-4">
+        <div className="flex items-center justify-between">
+          <h2 className="text-sm font-bold text-foreground">Invitar amigos</h2>
+          <span className="inline-flex items-center gap-1 text-[11px] font-semibold text-secondary">
+            <Icono nombre="compartir" className="h-3.5 w-3.5" /> +Insignia Promotor
+          </span>
+        </div>
+
+        <p className="mt-1 text-xs text-muted-foreground">
+          Seleccioná contactos para enviarles una invitación a jugar:
         </p>
-        <ul className="mt-3 flex flex-wrap gap-2">
+
+        <div className="mt-3 flex flex-wrap gap-1.5">
           {amigosSugeridos.map((a) => {
             const activo = invitados.includes(a);
             return (
-              <li key={a}>
-                <button
-                  type="button"
-                  onClick={() => {
-                    setInvitados((actuales) =>
-                      activo ? actuales.filter((nombre) => nombre !== a) : [...actuales, a],
-                    );
-                    setInvitacionesPreparadas(false);
-                  }}
-                  className={`inline-flex min-h-11 items-center gap-1 rounded-full border px-3 py-1.5 text-xs font-semibold transition-colors ${
-                    activo
-                      ? "border-primary bg-primary text-primary-foreground"
-                      : "border-border bg-background text-foreground hover:border-primary"
-                  }`}
-                >
-                  {activo ? <Icono nombre="check" className="h-3.5 w-3.5" /> : "+"}
-                  {a}
-                </button>
-              </li>
+              <button
+                key={a}
+                type="button"
+                onClick={() => {
+                  setInvitados((actuales) =>
+                    activo ? actuales.filter((nombre) => nombre !== a) : [...actuales, a],
+                  );
+                  setInvitacionesPreparadas(false);
+                }}
+                className={`inline-flex items-center gap-1 rounded-full border px-3 py-1 text-xs font-bold transition-colors ${
+                  activo
+                    ? "border-primary bg-primary text-primary-foreground"
+                    : "border-border bg-background text-foreground hover:border-primary"
+                }`}
+              >
+                {activo ? <Icono nombre="check" className="h-3 w-3" /> : "+"}
+                {a}
+              </button>
             );
           })}
-        </ul>
-        <div className="mt-3 flex flex-col gap-2 min-[360px]:flex-row">
+        </div>
+
+        <div className="mt-3 flex gap-2">
           <input
             value={nuevoInvitado}
             onChange={(e) => setNuevoInvitado(e.target.value)}
-            placeholder="Nombre de un amigo"
-            className="min-w-0 flex-1 rounded-2xl border-2 border-input bg-background px-3 py-2 text-sm text-foreground outline-none focus:border-primary"
+            onKeyDown={(e) => {
+              if (e.key === "Enter") {
+                e.preventDefault();
+                sumarInvitado(nuevoInvitado);
+                setNuevoInvitado("");
+              }
+            }}
+            placeholder="Otro amigo..."
+            className="min-w-0 flex-1 rounded-xl border border-input bg-background px-3 py-2 text-xs text-foreground outline-none focus:border-primary"
           />
           <button
             type="button"
@@ -207,35 +234,32 @@ function Compartir() {
               sumarInvitado(nuevoInvitado);
               setNuevoInvitado("");
             }}
-            className="min-h-11 rounded-xl bg-secondary px-4 py-2 text-sm font-semibold text-secondary-foreground"
+            className="rounded-xl bg-secondary px-3 py-2 text-xs font-bold text-secondary-foreground hover:opacity-90"
           >
             Agregar
           </button>
         </div>
+
         {invitados.length > 0 && (
           <button
             type="button"
             onClick={prepararInvitaciones}
-            className="btn-duo btn-duo-secondary mt-3"
+            className="btn-duo btn-duo-secondary mt-3 w-full py-2.5 text-xs"
           >
-            Confirmar invitaciones demo
+            {invitacionesPreparadas
+              ? `✓ Invitaciones enviadas a (${invitados.length})`
+              : `Enviar invitaciones (${invitados.length})`}
           </button>
-        )}
-        {invitacionesPreparadas && (
-          <p role="status" className="mt-3 text-sm text-foreground">
-            Simulación preparada para <strong>{invitados.join(", ")}</strong>. No se enviaron
-            mensajes reales.
-          </p>
         )}
       </section>
 
-      <div className="flex flex-col gap-2 text-center">
+      <div className="flex flex-col gap-2 text-center pt-1">
         {finTemporada && (
           <Link to="/certificado" className="btn-duo btn-duo-ghost">
             Ver mi certificado
           </Link>
         )}
-        <Link to="/perfil" className="text-sm text-muted-foreground underline underline-offset-4">
+        <Link to="/perfil" className="text-xs font-bold text-muted-foreground hover:text-foreground underline underline-offset-4 transition-colors">
           Volver a mi perfil
         </Link>
       </div>

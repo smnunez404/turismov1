@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Icono } from "@/components/Icono";
 import hero from "@/assets/hero-santacruz.jpg";
@@ -17,6 +18,8 @@ export const Route = createFileRoute("/")({
 });
 
 function Landing() {
+  const [modalPremiosAbierto, setModalPremiosAbierto] = useState(false);
+
   return (
     <main className="relative min-h-dvh overflow-hidden bg-foreground text-primary-foreground">
       <img
@@ -54,27 +57,36 @@ function Landing() {
         </header>
 
         <section className="mt-auto" aria-labelledby="reto-principal">
-          <p className="mb-2 text-xs font-extrabold tracking-[0.2em] text-accent uppercase drop-shadow-sm">
-            Aventura de conocimiento
-          </p>
+          {/* Botón interactivo para ver premios */}
+          <button
+            type="button"
+            onClick={() => setModalPremiosAbierto(true)}
+            className="mb-2.5 inline-flex items-center gap-2 rounded-full bg-accent/95 px-3 py-1 text-[11px] font-black text-foreground uppercase tracking-wider shadow-lg hover:bg-accent transition-all cursor-pointer animate-pulse active:scale-95"
+          >
+            <span>🎁 ¡Jugá por premios reales!</span>
+            <span className="rounded-full bg-black/15 px-1.5 py-0.2 text-[9px]">Ver premios →</span>
+          </button>
+
           <h1
             id="reto-principal"
             className="max-w-[10ch] text-balance text-[2.75rem] leading-[0.95] font-extrabold tracking-[-0.03em] text-white drop-shadow-lg sm:text-[3.5rem]"
           >
             Santa Cruz te espera.
           </h1>
-          <p className="mt-3 max-w-[28ch] text-pretty text-sm leading-relaxed font-semibold text-white/90 drop-shadow-sm sm:text-base">
-            Descubrí cuánto sabés de sus lugares, sabores e historias.
+          <p className="mt-3 max-w-[32ch] text-pretty text-sm leading-relaxed font-semibold text-white/90 drop-shadow-sm sm:text-base">
+            Demostrá cuánto conocés su cultura, sumá puntos en cada nivel y canjeá premios exclusivos.
           </p>
 
           <div className="mt-6 flex flex-col gap-3">
-            <Link
-              to="/setup"
-              className="btn-duo btn-duo-primary flex min-h-14 w-full items-center justify-center gap-3 text-base font-extrabold tracking-wide uppercase shadow-xl transition-transform active:scale-[0.98]"
+            {/* El botón principal abre el gancho de premios y de ahí ingresa directamente a las preguntas */}
+            <button
+              type="button"
+              onClick={() => setModalPremiosAbierto(true)}
+              className="btn-duo btn-duo-primary flex min-h-14 w-full items-center justify-center gap-3 text-base font-extrabold tracking-wide uppercase shadow-xl transition-transform active:scale-[0.98] cursor-pointer"
             >
               <span>Jugar ahora</span>
               <Icono nombre="siguiente" className="size-5" />
-            </Link>
+            </button>
 
             <Link
               to="/login"
@@ -89,6 +101,88 @@ function Landing() {
           </div>
         </section>
       </div>
+
+      {/* ── Modal Promocional de Premios Reales (Splash Ganador sin barra de celular) ── */}
+      {modalPremiosAbierto && (
+        <div
+          role="dialog"
+          aria-modal="true"
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/85 p-3 sm:p-4 backdrop-blur-xs animate-in fade-in"
+        >
+          <div className="relative flex max-h-[92vh] w-full max-w-sm flex-col overflow-hidden rounded-3xl border-2 border-accent bg-card text-foreground shadow-2xl">
+            {/* Imagen limpia de la promoción (sin barra de wifi/batería/reloj) */}
+            <div className="relative aspect-[4/3] w-full overflow-hidden bg-muted">
+              <img
+                src="/camino/premios_splash_clean.jpg"
+                alt="Recompensas Reales Santa Cruz"
+                width={768}
+                height={576}
+                className="h-full w-full object-cover object-top"
+              />
+              <button
+                type="button"
+                onClick={() => setModalPremiosAbierto(false)}
+                className="absolute top-3 right-3 flex h-8 w-8 items-center justify-center rounded-full bg-black/70 text-white font-extrabold hover:bg-black/90 transition-colors cursor-pointer text-xs"
+                aria-label="Cerrar ventana"
+              >
+                Cerrar
+              </button>
+            </div>
+
+            {/* Contenido ampliado de premios sin límites */}
+            <div className="p-4 text-center flex flex-col gap-2">
+              <span className="mx-auto w-fit rounded-full bg-primary/15 px-2.5 py-0.5 text-[10px] font-black uppercase tracking-wider text-primary">
+                Premios y Beneficios Exclusivos
+              </span>
+
+              <h2 className="text-lg sm:text-xl font-black text-foreground tracking-tight leading-tight">
+                ¡Tu Conocimiento Vale Premios Reales!
+              </h2>
+
+              <p className="text-xs text-muted-foreground leading-relaxed">
+                Respondé bien los desafíos de Santa Cruz para sumar monedas y canjear:
+              </p>
+
+              {/* Categorías de premios ampliadas */}
+              <div className="grid grid-cols-2 gap-2 text-left my-1">
+                <div className="rounded-xl border border-border bg-muted/40 p-2 flex items-center gap-2">
+                  <Icono nombre="cine" className="h-4 w-4 text-accent-foreground shrink-0" />
+                  <span className="text-[11px] font-bold text-foreground leading-tight">
+                    Cine 2x1 y entretenimiento
+                  </span>
+                </div>
+                <div className="rounded-xl border border-border bg-muted/40 p-2 flex items-center gap-2">
+                  <Icono nombre="gastronomia" className="h-4 w-4 text-secondary shrink-0" />
+                  <span className="text-[11px] font-bold text-foreground leading-tight">
+                    Combos típicos y gastronomía
+                  </span>
+                </div>
+                <div className="rounded-xl border border-border bg-muted/40 p-2 flex items-center gap-2">
+                  <Icono nombre="tour" className="h-4 w-4 text-primary shrink-0" />
+                  <span className="text-[11px] font-bold text-foreground leading-tight">
+                    Tours y viajes chiquitanos
+                  </span>
+                </div>
+                <div className="rounded-xl border border-border bg-muted/40 p-2 flex items-center gap-2">
+                  <Icono nombre="certificado" className="h-4 w-4 text-accent-foreground shrink-0" />
+                  <span className="text-[11px] font-bold text-foreground leading-tight">
+                    Becas y talleres culturales
+                  </span>
+                </div>
+              </div>
+
+              {/* Botón que manda directo a las preguntas */}
+              <Link
+                to="/partida"
+                className="btn-duo btn-duo-primary mt-2 w-full py-3.5 text-sm font-black uppercase tracking-wider flex items-center justify-center gap-2 shadow-md"
+              >
+                <span>¡Comenzar Desafío Ahora!</span>
+                <Icono nombre="siguiente" className="size-4" />
+              </Link>
+            </div>
+          </div>
+        </div>
+      )}
     </main>
   );
 }

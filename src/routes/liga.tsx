@@ -52,21 +52,24 @@ function Liga() {
   return (
     <Pantalla conNav className="gap-4">
       {/* ── Tabs Superiores ── */}
-      <nav aria-label="Vistas de competición" className="grid grid-cols-3 rounded-2xl bg-muted p-1 text-xs">
+      <nav aria-label="Vistas de competición" className="grid grid-cols-3 rounded-2xl bg-muted p-1 text-xs sm:text-sm">
         <Link
           to="/ranking"
-          className="rounded-xl px-2 py-2 text-center font-bold text-muted-foreground hover:text-foreground transition-colors"
+          className="flex items-center justify-center gap-1.5 rounded-xl px-2 py-2.5 text-center font-bold text-muted-foreground hover:bg-card/50 hover:text-foreground transition-all"
         >
-          Progreso XP
+          <Icono nombre="ranking" className="h-4 w-4 shrink-0 text-muted-foreground" />
+          <span className="truncate">Progreso XP</span>
         </Link>
-        <span className="rounded-xl bg-card px-2 py-2 text-center font-extrabold text-primary shadow-sm">
-          Liga semanal
+        <span className="flex items-center justify-center gap-1.5 rounded-xl bg-card px-2 py-2.5 text-center font-extrabold text-primary shadow-xs">
+          <Icono nombre="liga" className="h-4 w-4 shrink-0 text-primary" />
+          <span className="truncate">Liga semanal</span>
         </span>
         <Link
           to="/equipos"
-          className="rounded-xl px-2 py-2 text-center font-bold text-muted-foreground hover:text-foreground transition-colors"
+          className="flex items-center justify-center gap-1.5 rounded-xl px-2 py-2.5 text-center font-bold text-muted-foreground hover:bg-card/50 hover:text-foreground transition-all"
         >
-          Barrios
+          <Icono nombre="ciudad" className="h-4 w-4 shrink-0 text-muted-foreground" />
+          <span className="truncate">Barrios</span>
         </Link>
       </nav>
 
@@ -268,8 +271,12 @@ function Liga() {
 
       {/* ── Accesos inferiores ── */}
       <div className="grid gap-2 pt-1">
-        <Link to="/equipos" className="btn-duo btn-duo-ghost text-xs">
-          Ver la liga de equipos por barrio
+        <Link
+          to="/equipos"
+          className="btn-duo btn-duo-ghost text-xs sm:text-sm flex items-center justify-center gap-2"
+        >
+          <Icono nombre="ciudad" className="h-4 w-4 shrink-0 text-secondary" />
+          <span>Ver la liga de equipos por barrio</span>
         </Link>
       </div>
     </Pantalla>

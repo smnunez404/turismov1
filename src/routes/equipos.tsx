@@ -35,21 +35,24 @@ function Equipos() {
   return (
     <Pantalla conNav className="gap-4">
       {/* ── Tabs Superiores ── */}
-      <nav aria-label="Vistas de competición" className="grid grid-cols-3 rounded-2xl bg-muted p-1 text-xs">
+      <nav aria-label="Vistas de competición" className="grid grid-cols-3 rounded-2xl bg-muted p-1 text-xs sm:text-sm">
         <Link
           to="/ranking"
-          className="rounded-xl px-2 py-2 text-center font-bold text-muted-foreground hover:text-foreground transition-colors"
+          className="flex items-center justify-center gap-1.5 rounded-xl px-2 py-2.5 text-center font-bold text-muted-foreground hover:bg-card/50 hover:text-foreground transition-all"
         >
-          Progreso XP
+          <Icono nombre="ranking" className="h-4 w-4 shrink-0 text-muted-foreground" />
+          <span className="truncate">Progreso XP</span>
         </Link>
         <Link
           to="/liga"
-          className="rounded-xl px-2 py-2 text-center font-bold text-muted-foreground hover:text-foreground transition-colors"
+          className="flex items-center justify-center gap-1.5 rounded-xl px-2 py-2.5 text-center font-bold text-muted-foreground hover:bg-card/50 hover:text-foreground transition-all"
         >
-          Liga semanal
+          <Icono nombre="liga" className="h-4 w-4 shrink-0 text-muted-foreground" />
+          <span className="truncate">Liga semanal</span>
         </Link>
-        <span className="rounded-xl bg-card px-2 py-2 text-center font-extrabold text-primary shadow-sm">
-          Barrios
+        <span className="flex items-center justify-center gap-1.5 rounded-xl bg-card px-2 py-2.5 text-center font-extrabold text-primary shadow-xs">
+          <Icono nombre="ciudad" className="h-4 w-4 shrink-0 text-primary" />
+          <span className="truncate">Barrios</span>
         </span>
       </nav>
 
@@ -75,9 +78,10 @@ function Equipos() {
           <button
             type="button"
             onClick={() => actualizar({ equipoId: null })}
-            className="inline-flex min-h-11 items-center rounded-xl px-3 text-xs font-bold text-muted-foreground underline underline-offset-4"
+            className="inline-flex min-h-11 items-center gap-1.5 rounded-xl border border-border bg-card px-3 text-xs sm:text-sm font-extrabold text-muted-foreground hover:bg-muted hover:text-foreground transition-all shadow-2xs cursor-pointer"
           >
-            Cambiar
+            <Icono nombre="amigos" className="h-3.5 w-3.5" />
+            <span>Cambiar</span>
           </button>
         </section>
       )}

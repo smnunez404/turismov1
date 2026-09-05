@@ -44,21 +44,24 @@ function Ranking() {
   return (
     <Pantalla conNav className="gap-4">
       {/* ── Tabs Superiores ── */}
-      <nav aria-label="Vistas de competición" className="grid grid-cols-3 rounded-2xl bg-muted p-1 text-xs">
-        <span className="rounded-xl bg-card px-2 py-2 text-center font-extrabold text-primary shadow-sm">
-          Progreso XP
+      <nav aria-label="Vistas de competición" className="grid grid-cols-3 rounded-2xl bg-muted p-1 text-xs sm:text-sm">
+        <span className="flex items-center justify-center gap-1.5 rounded-xl bg-card px-2 py-2.5 text-center font-extrabold text-primary shadow-xs">
+          <Icono nombre="ranking" className="h-4 w-4 shrink-0 text-primary" />
+          <span className="truncate">Progreso XP</span>
         </span>
         <Link
           to="/liga"
-          className="rounded-xl px-2 py-2 text-center font-bold text-muted-foreground hover:text-foreground transition-colors"
+          className="flex items-center justify-center gap-1.5 rounded-xl px-2 py-2.5 text-center font-bold text-muted-foreground hover:bg-card/50 hover:text-foreground transition-all"
         >
-          Liga semanal
+          <Icono nombre="liga" className="h-4 w-4 shrink-0 text-muted-foreground" />
+          <span className="truncate">Liga semanal</span>
         </Link>
         <Link
           to="/equipos"
-          className="rounded-xl px-2 py-2 text-center font-bold text-muted-foreground hover:text-foreground transition-colors"
+          className="flex items-center justify-center gap-1.5 rounded-xl px-2 py-2.5 text-center font-bold text-muted-foreground hover:bg-card/50 hover:text-foreground transition-all"
         >
-          Barrios
+          <Icono nombre="ciudad" className="h-4 w-4 shrink-0 text-muted-foreground" />
+          <span className="truncate">Barrios</span>
         </Link>
       </nav>
 
@@ -76,9 +79,10 @@ function Ranking() {
           </div>
           <Link
             to="/partida"
-            className="shrink-0 rounded-xl bg-primary px-4 py-2.5 text-xs font-extrabold text-primary-foreground uppercase shadow-sm transition-transform active:scale-95"
+            className="inline-flex items-center gap-1.5 shrink-0 rounded-xl bg-primary px-4 py-2.5 text-xs sm:text-sm font-extrabold text-primary-foreground uppercase shadow-sm transition-all hover:brightness-105 active:scale-95"
           >
-            {faltan ? `+${faltan} XP` : "Jugar"}
+            <Icono nombre="rayo" className="h-4 w-4 shrink-0" />
+            <span>{faltan ? `+${faltan} XP` : "Jugar"}</span>
           </Link>
         </div>
 
@@ -257,8 +261,12 @@ function Ranking() {
 
       {/* ── Accesos inferiores ── */}
       <div className="pt-1">
-        <Link to="/liga" className="btn-duo btn-duo-ghost text-xs">
-          Ver liga semanal por divisiones
+        <Link
+          to="/liga"
+          className="btn-duo btn-duo-ghost text-xs sm:text-sm flex items-center justify-center gap-2"
+        >
+          <Icono nombre="liga" className="h-4 w-4 shrink-0 text-secondary" />
+          <span>Ver liga semanal por divisiones</span>
         </Link>
       </div>
     </Pantalla>

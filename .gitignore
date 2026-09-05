@@ -30,3 +30,7 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Private documentation and internal scripts (preserved in local Obsidian vault)
+docs/
+scripts/

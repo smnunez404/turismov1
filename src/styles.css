@@ -202,18 +202,21 @@
   text-align: center;
   border-bottom-width: 4px;
   border-bottom-style: solid;
+  cursor: pointer;
+  user-select: none;
   transition:
     transform 80ms ease,
-    filter 120ms ease;
+    filter 120ms ease,
+    box-shadow 120ms ease;
 
-  &:active {
+  &:active:not(:disabled) {
     transform: translateY(3px);
     border-bottom-width: 1px;
     margin-bottom: 3px;
   }
 
-  &:hover {
-    filter: brightness(1.04);
+  &:hover:not(:disabled) {
+    filter: brightness(1.05);
   }
 
   &:focus-visible {
@@ -411,10 +414,18 @@
   color: var(--foreground);
   font-weight: 800;
   text-align: left;
+  cursor: pointer;
+  user-select: none;
   transition:
     border-color 120ms ease,
     background-color 120ms ease,
-    transform 80ms ease;
+    transform 80ms ease,
+    box-shadow 120ms ease;
+
+  &:hover:not(:disabled):not(.is-correct):not(.is-incorrect) {
+    border-color: color-mix(in oklab, var(--primary) 50%, var(--border));
+    background-color: color-mix(in oklab, var(--primary) 4%, var(--card));
+  }
 
   &:focus-visible {
     outline: 3px solid var(--ring);

@@ -20,7 +20,7 @@ export function Pantalla({
             : "pb-[max(2rem,env(safe-area-inset-bottom))]"
         }`}
       >
-        <div className={`flex w-full max-w-md flex-col ${className}`}>{children}</div>
+        <div className={`flex w-full max-w-md sm:max-w-xl md:max-w-2xl lg:max-w-3xl flex-col transition-all duration-150 ${className}`}>{children}</div>
       </main>
       {conNav && <BarraInferior />}
     </>
