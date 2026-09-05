@@ -368,6 +368,36 @@ function MapaTemporadas() {
           Completar la colección otorga 40 XP, 25 monedas y la Guitarra coleccionista.
         </p>
       </section>
+
+      {/* ── Banner de Certificación y Reconocimiento ── */}
+      <section className="card-duo flex flex-col gap-3 border-accent/40 bg-accent/5 p-4 text-center">
+        <div className="flex flex-col items-center gap-1.5">
+          <div className="flex h-10 w-10 items-center justify-center rounded-2xl bg-accent/20 text-accent">
+            <Icono nombre="certificado" className="h-5 w-5" />
+          </div>
+          <h4 className="text-sm font-extrabold text-foreground">
+            Título Oficial: Embajador de Santa Cruz
+          </h4>
+          <p className="text-xs text-muted-foreground max-w-xs">
+            Completá las misiones o ingresá a la vista para emitir tu certificado digital o compartir tu progreso con tus amigos.
+          </p>
+        </div>
+
+        <div className="flex gap-2">
+          <Link
+            to="/certificado"
+            className="btn-duo btn-duo-accent flex-1 text-xs py-2.5"
+          >
+            Ver certificado
+          </Link>
+          <Link
+            to="/compartir"
+            className="flex-1 rounded-xl border border-primary/40 bg-primary/10 py-2.5 text-center text-xs font-bold text-primary hover:bg-primary/20 transition-colors"
+          >
+            Compartir logros
+          </Link>
+        </div>
+      </section>
     </Pantalla>
   );
 }

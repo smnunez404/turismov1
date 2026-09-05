@@ -293,11 +293,23 @@ function Perfil() {
 
       {/* ── Enlaces secundarios compactos ── */}
       <footer className="mt-1 flex flex-col gap-2">
-        {certificado && (
-          <Link to="/certificado" className="btn-duo btn-duo-accent text-xs py-2.5">
-            Mi certificado oficial
+        {/* Accesos a Certificado Oficial y Compartir Tarjeta */}
+        <div className="flex flex-col gap-2">
+          <Link
+            to="/certificado"
+            className="btn-duo btn-duo-accent flex items-center justify-center gap-2 text-xs py-2.5 shadow-sm"
+          >
+            <Icono nombre="certificado" className="h-4 w-4" />
+            <span>Mi certificado oficial de Embajador</span>
           </Link>
-        )}
+          <Link
+            to="/compartir"
+            className="flex items-center justify-center gap-2 rounded-xl border border-primary/30 bg-primary/10 py-2 text-center text-xs font-bold text-primary hover:bg-primary/20 transition-colors"
+          >
+            <Icono nombre="compartir" className="h-4 w-4" />
+            <span>Compartir tarjeta de explorador</span>
+          </Link>
+        </div>
         <div className="flex gap-2">
           <Link
             to="/recompensas"
