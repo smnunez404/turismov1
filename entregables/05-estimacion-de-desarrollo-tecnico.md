@@ -1,93 +1,109 @@
-# ENTREGABLE 5: ESTIMACIÓN DE DESARROLLO TÉCNICO, ARQUITECTURA Y PRESUPUESTO
+# ENTREGABLE 5: ESTIMACIÓN DE DESARROLLO TÉCNICO, ARQUITECTURA MÓVIL Y PRESUPUESTO INTEGRAL
 ## Proyecto: Soy Embajador Bolivia (Fase 1: Descubre Santa Cruz)
 **Cliente:** Alejandra Caballero (C.I. 3866326)  
 **Prestador:** Adaptive Labs  
-**Versión:** Análisis Técnico y Financiero v1.0  
+**Versión:** Análisis Técnico, Arquitectura Móvil y Honorarios v2.0  
 **Fecha:** Septiembre de 2026  
 
 ---
 
-## 1. INTRODUCCIÓN Y METODOLOGÍA
-Para dar estricto cumplimiento a la **Cláusula Quinta (Punto 5)** del contrato, se presenta la estimación detallada de tiempo, recursos humanos e inversión financiera para la construcción del **MVP Funcional en Producción**.
+## 1. NATURALEZA DEL PRODUCTO: ENFOQUE MOBILE-FIRST
+El prototipo interactivo desarrollado en la fase actual fue construido en tecnología web para facilitar su inspección ágil en cualquier navegador. Sin embargo, el producto final contratado para producción es una **Aplicación Móvil para Celulares (iOS y Android)**.
 
-A solicitud explícita de la dirección técnica, se evalúan **dos enfoques de arquitectura tecnológica**:
-1. **Opción A (Stack Híbrido / Managed Services con Herramientas de Pago):** Máxima velocidad de salida al mercado (Time-to-Market), infraestructura como servicio (BaaS) y menor carga de mantenimiento de servidores.
-2. **Opción B (Stack 100% Open Source / Self-Hosted):** Independencia absoluta de proveedores cloud, cero costos de licencias propietarias recurrentes y control total del código fuente e infraestructura.
+La transición de una maqueta interactiva web a una aplicación móvil conectada a backend requiere:
+1. Empaquetado móvil nativo/híbrido optimizado para pantallas táctiles y consumo eficiente de batería.
+2. Gestión de estado offline (para que el turista pueda jugar sin conexión en zonas remotas de Santa Cruz o la Chiquitania).
+3. Uso de APIs nativas del dispositivo: GPS de alta precisión (para el Reto Presencial), Cámara nativa (para capturar evidencias en monumentos) y Notificaciones Push (para recordar el Reto Diario y mantener la racha).
+4. Proceso de homologación y publicación formal en las tiendas **Google Play Store** y **Apple App Store**.
 
 ---
 
-## 2. COMPARATIVA DE STACKS TECNOLÓGICOS
+## 2. COMPARATIVA DE STACKS TECNOLÓGICOS PARA APP MÓVIL
 
-| Componente | Opción A: Stack Híbrido (Managed Services) | Opción B: Stack 100% Open Source (Self-Hosted) |
+A continuación se analizan los dos enfoques arquitectónicos solicitados:
+
+| Componente | Opción A: Stack Móvil Híbrido Managed (Herramientas de Pago BaaS) | Opción B: Stack Móvil 100% Open Source (Infraestructura Self-Hosted) |
 |---|---|---|
-| **Frontend Móvil & Web** | React 19 + TanStack Router (Base actual) + Tailwind CSS | React 19 + TanStack Router (Base actual) + Tailwind CSS |
-| **Empaquetado Mobile** | Capacitor / Expo EAS (Builds automáticos en la nube) | Capacitor + Builds locales en Android Studio / Xcode |
-| **Backend & APIs** | Supabase (PostgreSQL serverless, Auth, Edge Functions) | Node.js (NestJS / Fastify) o Python (FastAPI) + Docker |
-| **Base de Datos** | Supabase Managed PostgreSQL | PostgreSQL 16 desplegado en VPS Linux propio (Debian) |
-| **Autenticación** | Supabase Auth (Google, Apple, SMS/WhatsApp Twilio) | Lucia Auth / Supabase Self-Hosted / Keycloak |
-| **Almacenamiento (Fotos Reto)** | Supabase Storage (S3-compatible managed) | MinIO (Servidor S3 Open Source autoalojado) |
-| **Hosting & CDN** | Vercel Pro / Cloudflare Pages + Workers | VPS dedicado en Hetzner / DigitalOcean + Nginx reverse proxy |
-| **Base de Datos Realtime (Liguillas)** | Supabase Realtime (WebSockets administrados) | Redis + Socket.io Server autogestionado |
-| **Costo Fijo Mensual Infraestructura** | **$25 - $45 USD / mes** (Planes Pro) | **$12 - $20 USD / mes** (Solo costo de servidor VPS) |
+| **Tecnología Móvil** | **React Native (Expo) o Capacitor + React 19** | **React Native CLI o Flutter** |
+| **Backend & Base de Datos** | **Supabase Managed** (PostgreSQL cloud, Auth, Realtime, Storage S3) | **Node.js (NestJS) + PostgreSQL 16 + Docker** en servidor propio |
+| **Autenticación** | Supabase Auth (Google, Apple Sign-in y WhatsApp OTP) | Lucia Auth / Keycloak autoalojado + Pasarela SMS |
+| **Almacenamiento Fotos** | Supabase Storage (CDN global integrado) | MinIO (Servidor S3 Open Source en VPS) |
+| **Tiempo Real (Liguillas)** | Supabase Realtime (WebSockets gestionados) | Redis + Socket.io Server dedicado |
+| **Notificaciones Push** | OneSignal / Expo Push Service | Firebase Cloud Messaging (FCM) + APNs configurado manual |
+| **Costo Fijo Mensual Servidores** | **$25 - $40 USD / mes** (Planes Pro gestionados) | **$15 - $25 USD / mes** (Costo básico de VPS Linux) |
+| **Mantenimiento DevOps Requerido** | Mínimo (Backups automáticos y escalabilidad cloud) | Alto (Configuración manual de SSL, parches y balanceo) |
 
 ---
 
-## 3. ESTIMACIÓN DE TIEMPOS Y FASES DE DESARROLLO (SPRINTS)
+## 3. PLAN DE TRABAJO: FASES Y CRONOGRAMA DE INGENIERÍA (8 A 10 SEMANAS)
 
-El desarrollo del MVP funcional se estructura en **4 Sprints de 2 semanas cada uno (8 a 10 semanas de trabajo efectivo)**:
+El desarrollo del MVP móvil funcional se divide en **4 Sprints de 2 semanas de trabajo efectivo**:
 
 ```
-Sprint 1: Cimientos, Base de Datos y Autenticación (Semanas 1 - 2)
-  ├── Diseño del esquema de datos relacional (Usuarios, Misiones, Respuestas, Inventario).
-  ├── Configuración del entorno de backend y endpoints de autenticación (OAuth y WhatsApp).
-  └── Migración del estado de sesión en memoria (`useSesion`) al cliente API persistente.
+Sprint 1: Arquitectura Móvil, Base de Datos y Auth (Semanas 1 - 2)
+  ├── Configuración del proyecto móvil (Capacitor/React Native).
+  ├── Modelado del esquema relacional en PostgreSQL (Usuarios, Misiones, Respuestas, Inventario).
+  └── Implementación del inicio de sesión con Google, Apple y acceso como invitado con sincronización posterior.
 
-Sprint 2: Motor de Juego, Temporadas y Pase del Embajador (Semanas 3 - 4)
-  ├── Persistencia del avance en las 5 misiones cruceñas y cálculo seguro de XP en servidor.
-  ├── Desbloqueo progresivo del Pase del Embajador y apertura de cofres con recompensas guardadas.
-  └── Motor antifraude para evitar duplicación de puntos o respuestas automáticas.
+Sprint 2: Motor de Misiones, Pase del Embajador y Backend de XP (Semanas 3 - 4)
+  ├── Lógica de juego segura en servidor (cálculo inviolable de XP, monedas y niveles).
+  ├── Persistencia del Pase del Embajador y apertura de cofres con recompensas reales guardadas.
+  └── Carga del banco de preguntas validado (20 a 50 desafíos iniciales) con explicaciones culturales.
 
-Sprint 3: Reto Presencial, Minijuegos y Liguillas (Semanas 5 - 6)
-  ├── API de geolocalización para validar coordenadas GPS del usuario en el Casco Viejo.
-  ├── Subida y compresión optimizada de fotos del reto presencial en el bucket de almacenamiento.
-  ├── Sincronización en tiempo real de salas de liguillas privadas con código PIN.
-  └── Panel administrativo para revisión de fotos, moderación y edición de preguntas.
+Sprint 3: Reto Presencial (GPS/Cámara), Minijuegos y Liguillas (Semanas 5 - 6)
+  ├── Integración de GPS nativo y cámara del celular para el Reto Presencial en el Casco Viejo.
+  ├── Almacenamiento y compresión automática de fotografías en el bucket cloud.
+  ├── Sincronización en tiempo real de salas de Liguillas Privadas con código PIN para colegios.
+  └── Backoffice web administrativo para que el cliente gestione preguntas y apruebe fotos del reto.
 
-Sprint 4: Certificación, Empaquetado Mobile y Lanzamiento (Semanas 7 - 8)
-  ├── Servicio generador de diplomas oficiales en PDF vectorial y PNG descargable de alta resolución.
-  ├── Empaquetado nativo para Android e iOS mediante Capacitor.
-  ├── Pruebas de estrés, auditoría de seguridad y optimización de rendimiento (Lighthouse > 90).
-  └── Despliegue en servidores de producción y entrega de accesos.
+Sprint 4: Certificación, Optimización y Publicación en Tiendas (Semanas 7 - 8)
+  ├── Generación de diplomas descargables en PDF/PNG de alta definición con hash criptográfico verificable.
+  ├── Generación de tarjetas sociales con avatar 3D para compartir en Instagram Stories y WhatsApp.
+  ├── Pruebas de rendimiento, optimización offline y preparación de bundles (.aab para Android y .ipa para iOS).
+  └── Envío a revisión en Google Play Console y Apple Developer.
 ```
 
 ---
 
-## 4. ANÁLISIS ECONÓMICO Y RANGOS DE INVERSIÓN (PRESUPUESTO)
+## 4. PRESUPUESTO INTEGRAL: HONORARIOS PROFESIONALES Y COSTOS DE SERVICIOS
 
-Los costos se presentan según la modalidad de contratación y el stack seleccionado:
+A diferencia de estimaciones genéricas que omiten el costo de mano de obra, a continuación se desglosa el **presupuesto total y transparente**, distinguiendo los honorarios profesionales de desarrollo de los costos de plataformas:
 
-### Escenario 1: Implementación con Stack Híbrido Managed (Opción A - Recomendada)
-* *Ventajas:* Se aprovecha el 100% del código ya construido en el prototipo; desarrollo más ágil y menor riesgo de fallos en producción.
-* *Equipo requerido:* 1 Líder Técnico Fullstack + 1 Desarrollador Frontend/Mobile.
-* **Tiempo estimado:** 8 semanas (2 meses).
-* **Rango de Inversión en Desarrollo:** **$3,800 – $4,600 USD**
-* **Costo Operativo de Servicios Cloud (Mensual):** ~$25 a $35 USD/mes.
+### A. Escenario 1: Stack Móvil Híbrido Managed (Opción A - Recomendada)
+*Aprovecha el prototipo actual mediante Capacitor/React Native, reduciendo semanas de trabajo y eliminando costos de mantenimiento de servidores complejos.*
 
-### Escenario 2: Implementación con Stack 100% Open Source (Opción B - Self-Hosted)
-* *Ventajas:* No hay dependencia de plataformas de terceros; costo de infraestructura mensual mínimo.
-* *Desventaja:* Requiere configurar y mantener manualmente servidores, certificados SSL, copias de seguridad de base de datos y balanceadores de carga.
-* *Equipo requerido:* 1 Desarrollador Backend/DevOps + 1 Desarrollador Frontend.
-* **Tiempo estimado:** 9 a 10 semanas.
-* **Rango de Inversión en Desarrollo:** **$4,500 – $5,400 USD**
-* **Costo Operativo de Servidores VPS (Mensual):** ~$15 a $20 USD/mes.
+| Rubro | Descripción | Monto Estimado (USD) |
+|---|---|:---:|
+| **Honorarios Profesionales de Desarrollo:** | Arquitectura móvil, frontend app, integración de backend cloud, lógica de gamificación, panel administrativo y homologación en tiendas (8 semanas de dedicación). | **$3,600 – $4,400 USD** |
+| **Cuentas de Desarrollador en Tiendas (Pago único):** | Google Play Developer ($25) + Apple Developer Program ($99/año). | **$124 USD** |
+| **Infraestructura Cloud Inicial (Mensual):** | Supabase Pro + CDN Cloudflare (~$25 - $35/mes durante operación). | Incluido primeros meses |
+| **INVERSIÓN TOTAL ESTIMADA (OPCIÓN A)** | **Servicio Llave en Mano para Lanzamiento en Tiendas** | **$3,724 – $4,524 USD** |
 
 ---
 
-## 5. RECOMENDACIÓN TÉCNICA DEL PRESTADOR (ADAPTIVE LABS)
-Recomendamos a **Alejandra Caballero** optar por la **Opción A (Stack Híbrido con Supabase y Cloudflare)** para la etapa de lanzamiento del MVP.
+### B. Escenario 2: Stack Móvil 100% Open Source Self-Hosted (Opción B)
+*Desarrollo de backend a medida desde cero en Node.js, configuración de servidor VPS propio, base de datos local y almacenamiento MinIO.*
 
-Esta alternativa permite:
-1. Reducir el tiempo de desarrollo en al menos 2 a 3 semanas.
-2. Contar con un panel de control intuitivo que el equipo no técnico del cliente puede usar de inmediato para ver usuarios y datos.
-3. Escalar de 10 a 50,000 usuarios sin tener que rediseñar la infraestructura.
-4. Mantener los costos fijos dentro de un rango sumamente accesible (menos de $30 USD mensuales durante la etapa de tracción).
+| Rubro | Descripción | Monto Estimado (USD) |
+|---|---|:---:|
+| **Honorarios Profesionales de Desarrollo:** | Programación de backend a medida, APIs REST, websockets para liguillas, infraestructura Linux Docker, frontend móvil y panel admin (10 semanas). | **$4,400 – $5,200 USD** |
+| **Cuentas de Desarrollador en Tiendas (Pago único):** | Google Play Developer ($25) + Apple Developer ($99). | **$124 USD** |
+| **Servidor VPS Linux y Dominio:** | VPS dedicado en Hetzner / DigitalOcean (~$15 - $20/mes). | ~$50 USD trimestral |
+| **INVERSIÓN TOTAL ESTIMADA (OPCIÓN B)** | **Servicio Completo con Infraestructura Propia** | **$4,574 – $5,374 USD** |
+
+---
+
+## 5. FORMA DE PAGO Y CONDICIONES RECOMENDADAS PARA LA FASE 2
+Para brindar total seguridad financiera a la cliente y asegurar el avance continuo:
+* **30% al inicio:** Para configuración de arquitectura móvil y base de datos.
+* **30% a la entrega del Sprint 2:** Con el motor de juego móvil y las misiones funcionando con datos reales.
+* **20% a la entrega del Sprint 3:** Con el reto presencial GPS, liguillas y panel administrativo listos.
+* **20% contra publicación final:** Una vez aprobada la app en las tiendas móviles (Google Play / App Store).
+
+---
+
+## 6. RECOMENDACIÓN FINAL DE ADAPTIVE LABS
+Recomendamos formalmente a **Alejandra Caballero** la **Opción A (Stack Móvil Híbrido con Supabase y Capacitor)**:
+1. **Velocidad:** Permite tener la app lista para pruebas de campo en **8 semanas**.
+2. **Eficiencia Financiera:** Ahorra aproximadamente $800 a $1,000 USD en honorarios de ingeniería al evitar programar desde cero componentes que ya están resueltos y probados en la nube.
+3. **Control Total:** La cliente es dueña del 100% de su código y base de datos, con la tranquilidad de contar con servidores de nivel bancario respaldados automáticamente.

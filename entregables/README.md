@@ -22,8 +22,11 @@ Este directorio reúne los **documentos oficiales en formato Markdown (.md)** qu
 4. **[Entregable 4: Roadmap Inicial del Proyecto](./04-roadmap-inicial-del-proyecto.md)**  
    * Cronograma evolutivo estructurado en 4 fases estratégicas (desde el prototipo actual hasta la expansión nacional por departamentos).
 
-5. **[Entregable 5: Estimación de Desarrollo Técnico y Presupuesto](./05-estimacion-de-desarrollo-tecnico.md)**  
-   * Comparativa profunda entre **Stack Híbrido Managed (de pago/servicios gestionados)** vs. **Stack 100% Open Source (Self-Hosted)**, con desglose de sprints, semanas de trabajo y rangos de inversión en USD.
+5. **[Entregable 5: Estimación de Desarrollo Técnico, Arquitectura Móvil y Presupuesto](./05-estimacion-de-desarrollo-tecnico.md)**  
+   * Análisis enfocado en la **aplicación móvil real (iOS/Android)**, comparativa entre **Stack Móvil Híbrido Managed (de pago/BaaS)** vs. **Stack 100% Open Source**, cronograma de 8 a 10 semanas y presupuesto integral desglosando honorarios profesionales de desarrollo.
 
 6. **[Documento Complementario: Guía de Validación con Usuarios e Investigación UX](./06-guia-validacion-usuarios-investigacion-ux.md)**  
    * Metodología de campo recomendada para la semana previa al desarrollo: perfiles de usuarios a entrevistar, protocolo de pruebas guiadas, banco de preguntas cualitativas/cuantitativas y métricas de NPS.
+
+7. **[Entregable 7: Respuesta Técnica a la Revisión del Cliente y Especificación del Juego](./07-respuesta-tecnica-y-especificacion-juego.md)**  
+   * Descargo técnico y blindaje contractual frente al informe de revisión del cliente: aclaratoria de guardarraíles (Cláusula Tercera y Sexta), fórmulas matemáticas de XP/niveles, duración de partidas, mecánicas implementadas (engine.ts), reto diario, modo versus con revancha y adopción del Tucán como mascota oficial.
